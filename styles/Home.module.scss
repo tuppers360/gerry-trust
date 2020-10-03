@@ -1,3 +1,5 @@
+$color-primary: blueviolet;
+
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -23,33 +25,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.footer img {
-  margin-left: 0.5rem;
-}
+  img {
+    margin-left: 0.5rem;
+  }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .title {
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
 }
 
 .title,
@@ -96,8 +98,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: $color-primary;
+  border-color: $color-primary;
 }
 
 .card h3 {

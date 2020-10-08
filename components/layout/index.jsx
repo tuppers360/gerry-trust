@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Nav from "../nav";
 
 const Layout = ({ children, title = "Gerry Richardson Trust" }) => (
   <div>
@@ -9,6 +10,7 @@ const Layout = ({ children, title = "Gerry Richardson Trust" }) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
+    <Nav />
     {children}
     <footer>
       <hr />

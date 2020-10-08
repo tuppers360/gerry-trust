@@ -1,0 +1,180 @@
+.nav {
+  position: relative;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  z-index: 1;
+
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+
+.navblack {
+  background-color: #111;
+}
+
+.navlogo {
+  position: fixed;
+  left: 20px;
+  width: 80px;
+  object-fit: contain;
+}
+
+.navavatar {
+  position: fixed;
+  right: 20px;
+  width: 30px;
+  object-fit: contain;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #071e3d;
+  padding: 5px 20px;
+
+  ul {
+    list-style-type: none;
+    margin-bottom: 0;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      color: #21e6c1;
+      text-decoration: none;
+    }
+  }
+}
+
+.logo a {
+  font-size: 20px;
+}
+
+.logo a:hover {
+  text-decoration: none;
+}
+
+.menu li {
+  font-size: 16px;
+  padding: 10px 5px;
+  white-space: nowrap;
+
+  span {
+    color: #fff;
+    font-size: 1.4rem;
+  }
+}
+
+/* Mobile menu */
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle {
+  order: 1;
+}
+
+.navitem {
+  width: 100%;
+  text-align: center;
+  order: 3;
+  display: none;
+
+  &.button {
+    order: 2;
+  }
+
+  &.active {
+    display: block;
+  }
+}
+
+.toggle {
+  cursor: pointer;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+
+  a {
+    padding: 7.5px 30px;
+    background: #278ea5;
+    border: 1px #278ea5 solid;
+    border-radius: 5px;
+    flex-grow: 1;
+
+    &:hover {
+      text-decoration: none;
+      transition: all 0.25s;
+      color: #fff;
+      background: #1f4287;
+      border: 1px #1f4287 solid;
+    }
+  }
+}
+
+/* Tablet menu */
+@media all and (min-width: 468px) {
+  .menu {
+    justify-content: center;
+  }
+
+  .logo {
+    flex: 1;
+  }
+
+  .navitem.button {
+    width: auto;
+    order: 1;
+    display: block;
+    padding-right: 15px;
+  }
+
+  .toggle {
+    order: 2;
+  }
+}
+
+/* Desktop menu */
+@media all and (min-width: 768px) {
+  .navitem {
+    display: block;
+    width: auto;
+  }
+
+  .toggle {
+    display: none;
+  }
+
+  .logo {
+    order: 0;
+  }
+
+  .navitem {
+    order: 1;
+  }
+
+  .button {
+    order: 2;
+  }
+
+  .menu {
+    flex-wrap: nowrap;
+
+    li {
+      padding: 15px 10px;
+
+      &.button {
+        padding-right: 0;
+      }
+    }
+  }
+}

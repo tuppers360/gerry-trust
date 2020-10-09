@@ -110,7 +110,7 @@
 
 /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
 @media screen and (min-width: 768px) {
-  footer {
+  .footer {
     .content {
       display: flex;
       flex-direction: row;

@@ -7,6 +7,16 @@ function Footer() {
     <div className={styles.footer}>
       <div className={styles.content}>
         <div className={styles.item}>
+          <address>
+            <h5>Gerry Richardson Trust</h5>
+            Northdene,
+            <br /> Stoney Lane,
+            <br /> Hambleton,
+            <br /> Poulton-Le-Fylde,
+            <br /> FY6 9AF
+          </address>
+        </div>
+        <div className={styles.item}>
           <h5>Connect with Us</h5>
           <div className={styles.social_icons}>
             <ul>

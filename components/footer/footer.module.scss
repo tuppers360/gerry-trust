@@ -16,11 +16,11 @@
     padding: 30px;
     padding-bottom: 2rem;
 
-    .card-apply-online {
+    .card_apply_online {
       border-radius: 5px;
     }
 
-    .social-icons {
+    .social_icons {
       margin: 0;
       padding: 0;
 
@@ -35,13 +35,14 @@
         }
       }
 
-      i {
+      svg {
         width: 40px;
         height: 40px;
         background-color: #fff;
         font-size: 22px;
         text-align: center;
-        padding-top: 12px;
+        padding-top: 8px;
+        padding-bottom: 8px;
         border-radius: 50%;
         -moz-border-radius: 50%;
         -webkit-border-radius: 50%;
@@ -52,7 +53,7 @@
         -o-transition: all ease 0.3s;
         -ms-transition: all ease 0.3s;
       }
-      i:hover {
+      svg:hover {
         text-decoration: none;
         transition: all ease 0.3s;
         -moz-transition: all ease 0.3s;
@@ -61,37 +62,41 @@
         -ms-transition: all ease 0.3s;
       }
 
-      .fa-facebook-f {
+      .fa_facebook_f {
         color: #fff;
         background: #4060a5;
+
+        &:hover {
+          color: #4060a5;
+          background: #fff;
+        }
       }
-      .fa-twitter {
+      .fa_twitter {
         color: #fff;
         background: #00abe3;
+
+        &:hover {
+          color: #00abe3;
+          background: #fff;
+        }
       }
-      .fa-linkedin-in {
+      .fa_linkedin_in {
         color: #fff;
         background: #0094bc;
+
+        &:hover {
+          color: #0094bc;
+          background: #fff;
+        }
       }
-      .fa-instagram {
+      .fa_instagram {
         color: #fff;
         background: #bc2a8d;
-      }
-      .fa-facebook-f:hover {
-        color: #4060a5;
-        background: #fff;
-      }
-      .fa-twitter:hover {
-        color: #00abe3;
-        background: #fff;
-      }
-      .fa-linkedin-in:hover {
-        color: #0094bc;
-        background: #fff;
-      }
-      .fa-instagram:hover {
-        color: #bc2a8d;
-        background: #fff;
+
+        &:hover {
+          color: #bc2a8d;
+          background: #fff;
+        }
       }
     }
     p {

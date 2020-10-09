@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import styles from "./nav.module.scss";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { FaBars, FaFingerprint } from 'react-icons/fa';
+import styles from './nav.module.scss';
 
 function Nav() {
   const [isActive, setIsActive] = useState(false);
@@ -10,14 +11,19 @@ function Nav() {
       <ul className={styles.menu}>
         <li className={styles.logo}>
           <Link href="/">
-            <a>Gerry Richardson</a>
+            <a>
+              <span>
+                <FaFingerprint className={styles.react_icons} />
+              </span>
+              Gerry Richardson
+            </a>
           </Link>
         </li>
         <li
           className={
             isActive
-              ? `${styles.navitem} ${styles.active}`
-              : `${styles.navitem}`
+              ? `${styles.nav_item} ${styles.active}`
+              : `${styles.nav_item}`
           }
           onClick={() => setIsActive(!isActive)}
         >
@@ -26,8 +32,8 @@ function Nav() {
         <li
           className={
             isActive
-              ? `${styles.navitem} ${styles.active}`
-              : `${styles.navitem}`
+              ? `${styles.nav_item} ${styles.active}`
+              : `${styles.nav_item}`
           }
           onClick={() => setIsActive(!isActive)}
         >
@@ -36,8 +42,8 @@ function Nav() {
         <li
           className={
             isActive
-              ? `${styles.navitem} ${styles.active}`
-              : `${styles.navitem}`
+              ? `${styles.nav_item} ${styles.active}`
+              : `${styles.nav_item}`
           }
           onClick={() => setIsActive(!isActive)}
         >
@@ -46,21 +52,21 @@ function Nav() {
         <li
           className={
             isActive
-              ? `${styles.navitem} ${styles.active}`
-              : `${styles.navitem}`
+              ? `${styles.nav_item} ${styles.active}`
+              : `${styles.nav_item}`
           }
           onClick={() => setIsActive(!isActive)}
         >
           <Link href="/contact">Contact Us</Link>
         </li>
-        <li className={`${styles.navitem} ${styles.button} ${styles.donate}`}>
+        <li className={`${styles.nav_item} ${styles.button} ${styles.donate}`}>
           <Link href="/donate">
             <a>Donate</a>
           </Link>
         </li>
-        <li className="toggle" onClick={() => setIsActive(!isActive)}>
+        <li className={styles.toggle} onClick={() => setIsActive(!isActive)}>
           <span>
-            <i className="fas fa-bars"></i>
+            <FaBars className={styles.react_icons} />
           </span>
         </li>
       </ul>

@@ -1,14 +1,15 @@
-import React from 'react';
-import Link from 'next/link';
-import styles from './footer.module.scss';
+import React from "react";
+import Link from "next/link";
+import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
+import styles from "./footer.module.scss";
 
 function Footer() {
   return (
     <div className={styles.footer}>
       <div className={styles.content}>
         <div className={styles.item}>
+          <h5>Gerry Richardson Trust</h5>
           <address>
-            <h5>Gerry Richardson Trust</h5>
             Northdene,
             <br /> Stoney Lane,
             <br /> Hambleton,
@@ -22,12 +23,12 @@ function Footer() {
             <ul>
               <li>
                 <a href="https://www.facebook.com/groups/649311542556032/">
-                  <i className="fab fa-lg fa-facebook-f"></i>
+                  <FaFacebook className={styles.fa_facebook_f} />
                 </a>
               </li>
               <li>
                 <a href="https://twitter.com/gerrytrust">
-                  <i className="fab fa-lg fa-twitter"></i>
+                  <FaTwitter className={styles.fa_twitter} />
                 </a>
               </li>
               {/*<li>
@@ -37,7 +38,7 @@ function Footer() {
       </li>*/}
               <li>
                 <a href="https://www.instagram.com/gerryrichardsontrust/">
-                  <i className="fab fa-lg fa-instagram"></i>
+                  <FaInstagram className={styles.fa_instagram} />
                 </a>
               </li>
             </ul>

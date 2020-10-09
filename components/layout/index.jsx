@@ -1,8 +1,8 @@
-import React from "react";
-import Head from "next/head";
-import Nav from "../nav";
+import React from 'react';
+import Head from 'next/head';
+import Nav from '../nav';
 
-const Layout = ({ children, title = "Gerry Richardson Trust" }) => (
+const Layout = ({ children, title = 'Gerry Richardson Trust' }) => (
   <div>
     <Head>
       <title>{title}</title>

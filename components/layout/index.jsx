@@ -1,8 +1,9 @@
-import React from "react";
-import Head from "next/head";
-import Nav from "../nav";
+import React from 'react';
+import Head from 'next/head';
+import Nav from '../nav';
+import Footer from '../footer';
 
-const Layout = ({ children, title = "Gerry Richardson Trust" }) => (
+const Layout = ({ children, title = 'Gerry Richardson Trust' }) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -12,10 +13,7 @@ const Layout = ({ children, title = "Gerry Richardson Trust" }) => (
     </Head>
     <Nav />
     {children}
-    <footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
-    </footer>
+    <Footer />
   </div>
 );
 

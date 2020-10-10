@@ -1,0 +1,71 @@
+/* banner area */
+
+.banner_area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  justify-content: center;
+  min-height: 600px;
+  color: #fff;
+  text-align: center;
+
+  .banner_img {
+    background-image: url(/images/blackpool_tower_darker_resize.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0.3;
+    }
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .banner_button {
+    background: crimson;
+    border-radius: 50px;
+    font-weight: 700;
+    padding: 15px 40px;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 48em) {
+  .banner_area {
+    min-height: 100vh;
+
+    h1 {
+      font-size: 4rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+
+    .banner_button {
+      padding: 15px 35px;
+    }
+  }
+}

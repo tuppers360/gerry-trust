@@ -6,8 +6,8 @@ function HomePageHeader() {
     <section className={styles.banner_area}>
       <div className={styles.banner_img}></div>
       <div className="inner">
-        <h1>Flexbox Website</h1>
-        <h3>Responsive Web Design</h3>
+        <h1>Gerry Richardson</h1>
+        <h3>Trust</h3>
         <a href="#" className={styles.banner_button}>
           Contact Us
         </a>

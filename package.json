@@ -8,9 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.2.6",
     "next": "9.5.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-hook-form": "^6.9.2",
     "react-icons": "^3.11.0",
     "sass": "^1.26.11"
   }

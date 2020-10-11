@@ -162,11 +162,17 @@ const ContactForm = () => {
             className="form__btn"
             disabled={status.submitting}
           >
-            {!status.submitting
-              ? !status.submitted
-                ? 'Submit'
-                : 'Submitted'
-              : '<i className="fas fa-sync fa-spin"></i> Submitting...'}
+            {!status.submitting ? (
+              !status.submitted ? (
+                'Submit'
+              ) : (
+                'Submitted'
+              )
+            ) : (
+              <span>
+                <i className="fas fa-sync fa-spin"></i> Submitting...
+              </span>
+            )}
           </button>
         </div>
       </form>

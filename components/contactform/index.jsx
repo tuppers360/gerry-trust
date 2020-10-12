@@ -10,6 +10,7 @@ const ContactForm = () => {
   });
 
   const [inputs, setInputs] = useState({
+    name: '',
     email: '',
     message: '',
   });

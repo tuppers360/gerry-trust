@@ -1,0 +1,20 @@
+.btn-contact {
+  margin-top: 20px;
+  padding: 0.5rem 2rem;
+  font-size: 1.1rem;
+  background-color: #093145;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #3c6478;
+  }
+}
+
+.btn-contact {
+  display: block;
+  width: 100%;
+}

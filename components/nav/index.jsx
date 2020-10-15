@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { FaBars, FaFingerprint } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import styles from './nav.module.scss';
 
 function Nav() {
@@ -13,7 +14,7 @@ function Nav() {
           <Link href="/">
             <a>
               <span>
-                <FaFingerprint className={styles.react_icons} />
+                <FontAwesomeIcon icon="fingerprint" fixedWidth />
               </span>
               Gerry Richardson
             </a>
@@ -66,7 +67,7 @@ function Nav() {
         </li>
         <li className={styles.toggle} onClick={() => setIsActive(!isActive)}>
           <span>
-            <FaBars className={styles.react_icons} />
+            <FontAwesomeIcon icon="bars" />
           </span>
         </li>
       </ul>

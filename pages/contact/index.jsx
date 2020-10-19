@@ -1,18 +1,22 @@
 import React from 'react';
 import ContactForm from '../../components/contactform';
 import Layout from './../../components/layout/index';
+import styles from './contact.module.scss';
 
 function Contact() {
   return (
     <Layout>
       <main>
-        <div className="contact-header">
-          <h2 className="contact-header-text">Contact Us</h2>
-          <h1>Get in contact and discover how we can help you</h1>
-          <h2 className="subtitle">
-            Below you will find a few ways to contact us
-          </h2>
+        <div className={styles.header}>
+          <div className={styles.container}>
+            <div className={styles.wrap_left}>
+              <div className={styles.title}>Contact Us</div>
+              <h1>Get in contact and discover how we can help you</h1>
+              <p>Below you will find a few ways to contact us</p>
+            </div>
+          </div>
         </div>
+
         <div className="contact-container-grid">
           <div className="contact-item contact-box">
             <h2 className="heading">

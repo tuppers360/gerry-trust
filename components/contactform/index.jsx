@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './contactform.module.scss';
+import styles from './contactform.module.scss';
 
 const ContactForm = () => {
   const [status, setStatus] = useState({
@@ -90,7 +91,7 @@ const ContactForm = () => {
           </label>
           <input
             aria-describedby="Name Help"
-            className={`form__input ${
+            className={`${styles.form__input} ${styles.text__input} ${
               errors.email ? 'form__input__error' : ''
             }`}
             id="name"
@@ -111,7 +112,7 @@ const ContactForm = () => {
           </label>
           <input
             aria-describedby="Email Help"
-            className={`form__input ${
+            className={`${styles.form__input} ${styles.text__input} ${
               errors.email ? 'form__input__error' : ''
             }`}
             id="email"
@@ -141,9 +142,9 @@ const ContactForm = () => {
           </label>
           <textarea
             aria-describedby="Message Help text"
-            className={`form__input form__area ${
-              errors.message ? 'form__input__error' : ''
-            }`}
+            className={`${styles.form__input} ${
+              styles.text__input
+            } form__area ${errors.message ? 'form__input__error' : ''}`}
             id="message"
             name="message"
             onChange={handleOnChange}

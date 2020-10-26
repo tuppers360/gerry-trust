@@ -1,7 +1,7 @@
 .header {
   position: relative;
   overflow: hidden;
-  padding: 100px 5% 100px;
+  padding: 50px 5% 50px;
 }
 
 .container {
@@ -13,31 +13,33 @@
   margin-left: auto;
 
   h1 {
-    margin-top: 0px;
-    margin-bottom: 16px;
-    font-family: Poppins, sans-serif;
     color: #111;
-    font-size: 56px;
-    line-height: 1.15;
-    font-weight: 700;
-    letter-spacing: -0.04em;
   }
 
   p {
     margin-bottom: 10px;
     color: #555;
-    font-size: 18px;
+    font-size: 1.25rem;
     line-height: 1.6;
     letter-spacing: -0.02em;
   }
 }
 
 .title {
-  margin-bottom: 22px;
+  margin-bottom: 14px;
   color: rgba(17, 17, 17, 0.57);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.title_content {
+  color: rgba(17, 17, 17, 0.57);
+  letter-spacing: 2px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
   text-transform: uppercase;
 }
 
@@ -48,4 +50,40 @@
   max-width: 720px;
   margin-bottom: 60px;
   text-align: left;
+}
+
+.content_section {
+  position: relative;
+  overflow: hidden;
+  padding: 0 5% 100px;
+  background-color: #fff;
+
+  h3 {
+    color: #111;
+  }
+}
+
+.contact_grid {
+  grid-column-gap: 92px;
+  grid-template-rows: auto;
+}
+
+.layout_grid {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+}
+
+@media all and (min-width: 767px) {
+  .header {
+    padding: 100px 5% 50px;
+  }
+
+  .layout_grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }

@@ -64,7 +64,7 @@
 }
 
 .contact_grid {
-  grid-column-gap: 92px;
+  column-gap: 70px;
   grid-template-rows: auto;
 }
 
@@ -74,8 +74,6 @@
   grid-auto-columns: 1fr;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  grid-row-gap: 16px;
-  grid-column-gap: 16px;
 }
 
 @media all and (min-width: 767px) {

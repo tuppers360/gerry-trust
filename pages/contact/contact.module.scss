@@ -1,7 +1,10 @@
+@import '../../styles/_variables.scss';
+
 .header {
-  position: relative;
+  background-color: $lightgrey;
   overflow: hidden;
-  padding: 50px 5% 50px;
+  padding: 50px 5% 0px;
+  position: relative;
 }
 
 .container {
@@ -55,7 +58,7 @@
 .content_section {
   position: relative;
   overflow: hidden;
-  padding: 0 5% 100px;
+  padding: 50px 5% 100px;
   background-color: #fff;
 
   h3 {
@@ -77,10 +80,6 @@
 }
 
 @media all and (min-width: 767px) {
-  .header {
-    padding: 100px 5% 50px;
-  }
-
   .layout_grid {
     grid-template-columns: 1fr 1fr;
   }

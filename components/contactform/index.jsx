@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import './contactform.module.scss';
 import styles from './contactform.module.scss';
 
 const ContactForm = () => {

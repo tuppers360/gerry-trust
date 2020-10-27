@@ -8,9 +8,10 @@ import {
   faPhone,
   faFingerprint,
   faHome,
+  faSync,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fab, faCoffee, faBars, faPhone, faFingerprint, faHome);
+library.add(fab, faCoffee, faBars, faPhone, faFingerprint, faHome, faSync);
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

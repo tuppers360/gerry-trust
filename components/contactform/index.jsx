@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import './contactform.module.scss';
+import styles from './contactform.module.scss';
 
 const ContactForm = () => {
   const [status, setStatus] = useState({
@@ -84,14 +84,14 @@ const ContactForm = () => {
       )}
 
       <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
-        <div className="form__item">
-          <label htmlFor="name" className="form__label">
+        <div className={styles.form_item}>
+          <label htmlFor="name" className={styles.form_label}>
             Name
           </label>
           <input
             aria-describedby="Name Help"
-            className={`form__input ${
-              errors.email ? 'form__input__error' : ''
+            className={`${styles.form_input} ${styles.text_input} ${
+              errors.email ? `${styles.form_input_error}` : ''
             }`}
             id="name"
             name="name"
@@ -102,17 +102,17 @@ const ContactForm = () => {
             value={inputs.name}
           />
           {errors.name && (
-            <span className="form__error">{errors.name.message}</span>
+            <span className={styles.form_error}>{errors.name.message}</span>
           )}
         </div>
-        <div className="form__item">
-          <label htmlFor="email" className="form__label">
+        <div className={styles.form_item}>
+          <label htmlFor="email" className={styles.form_label}>
             Email address
           </label>
           <input
             aria-describedby="Email Help"
-            className={`form__input ${
-              errors.email ? 'form__input__error' : ''
+            className={`${styles.form_input} ${styles.text_input} ${
+              errors.email ? `${styles.form_input_error}` : ''
             }`}
             id="email"
             name="email"
@@ -129,21 +129,21 @@ const ContactForm = () => {
             value={inputs.email}
           />
           {errors.email && (
-            <span className="form__error">{errors.email.message}</span>
+            <span className={styles.form_error}>{errors.email.message}</span>
           )}
           <small id="emailHelp">
             We'll never share your email with anyone else.
           </small>
         </div>
-        <div className="form__item">
-          <label htmlFor="message" className="form__label">
+        <div className={styles.form_item}>
+          <label htmlFor="message" className={styles.form_label}>
             Message
           </label>
           <textarea
             aria-describedby="Message Help text"
-            className={`form__input form__area ${
-              errors.message ? 'form__input__error' : ''
-            }`}
+            className={`${styles.form_input} ${styles.text_input} ${
+              styles.form_area
+            } ${errors.message ? `${styles.form_input_error}` : ''}`}
             id="message"
             name="message"
             onChange={handleOnChange}
@@ -154,13 +154,13 @@ const ContactForm = () => {
             value={inputs.message}
           ></textarea>
           {errors.message && (
-            <span className="form__error">{errors.message.message}</span>
+            <span className={styles.form_error}>{errors.message.message}</span>
           )}
         </div>
-        <div className="form__item">
+        <div className={styles.form_item}>
           <button
             type="submit"
-            className="form__btn"
+            className={styles.form_btn}
             disabled={status.submitting}
           >
             {!status.submitting ? (

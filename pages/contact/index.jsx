@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import ContactForm from '../../components/contactform';
 import Layout from './../../components/layout/index';
@@ -29,7 +30,10 @@ function Contact() {
               </div>
               <div className={styles.column}>
                 <h3>
-                  <i className="fa fa-home"></i> Get in touch
+                  <span className={styles.margin}>
+                    <FontAwesomeIcon icon="home" fixedWidth />
+                  </span>
+                  Get in touch
                 </h3>
                 <p>
                   We’re very approachable and would love to speak to you. Feel

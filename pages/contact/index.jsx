@@ -1,5 +1,6 @@
 import React from 'react';
 import ContactForm from '../../components/contactform';
+import Header from '../../components/header';
 import Layout from './../../components/layout/index';
 import styles from './contact.module.scss';
 
@@ -7,16 +8,12 @@ function Contact() {
   return (
     <Layout>
       <main>
-        <div className={styles.header}>
-          <div className={styles.container}>
-            <div className={styles.wrap_left}>
-              <div className={styles.title}>Contact Us</div>
-              <h1>Get in contact and discover how we can help you</h1>
-              <p>Below you will find a few ways to contact us</p>
-            </div>
-          </div>
-        </div>
-
+        <Header
+          title="Contact Us"
+          heading="Get in contact and discover how we can help you"
+        >
+          <p>Below you will find a few ways to contact us</p>
+        </Header>
         <div className={styles.content_section}>
           <div className={styles.container}>
             <div className={styles.title_content}>Contact Us</div>

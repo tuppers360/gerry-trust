@@ -1,21 +1,13 @@
 import Layout from '../../components/layout';
 import styles from './about.module.scss';
-import { Trustee } from '../../components/trustee';
 import { SocialIcon } from './../../components/socialicon/socialIcon';
+import Header from './../../components/header/index';
 
 export default function About() {
   return (
     <Layout title="About | Gerry Richardson Trust">
       <main>
-        <div className={styles.header}>
-          <div className={styles.container}>
-            <div className={styles.wrap_left}>
-              <div className={styles.title}>About Us</div>
-              <h1>Learn about why we do this</h1>
-            </div>
-          </div>
-        </div>
-
+        <Header title="About Us" heading="Learn about why we do this" />
         <div className={styles.content_section}>
           <div className={styles.container}>
             <p>

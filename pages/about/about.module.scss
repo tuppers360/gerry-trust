@@ -32,7 +32,7 @@
   }
 }
 
-.trustee-container {
+.trustee_container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 10px;
@@ -73,25 +73,25 @@
       opacity: 0.5;
     }
 
-    .social-icon li a {
+    .social_icon li a {
       transform: translateY(0px);
       opacity: 1;
     }
 
-    .social-icon li:nth-child(1) a {
+    .social_icon li:nth-child(1) a {
       transition-delay: 0s;
     }
 
-    .social-icon li:nth-child(2) a {
+    .social_icon li:nth-child(2) a {
       transition-delay: 0.2s;
     }
 
-    .social-icon li:nth-child(3) a {
+    .social_icon li:nth-child(3) a {
       transition-delay: 0.4s;
     }
   }
 
-  .social-icon {
+  .social_icon {
     position: absolute;
     top: 50%;
     left: 50%;

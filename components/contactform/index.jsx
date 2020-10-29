@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './contactform.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ContactForm = () => {
   const [status, setStatus] = useState({
@@ -167,12 +168,15 @@ const ContactForm = () => {
               !status.submitted ? (
                 'Submit'
               ) : (
-                'Submitted'
+                'Sent'
               )
             ) : (
-              <span>
-                <i className="fas fa-sync fa-spin"></i> Submitting...
-              </span>
+              <div>
+                <span className={styles.icon_margin}>
+                  <FontAwesomeIcon icon="sync" spin />
+                </span>
+                Submitting...
+              </div>
             )}
           </button>
         </div>

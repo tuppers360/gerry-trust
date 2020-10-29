@@ -3,6 +3,7 @@ import ContactForm from '../../components/contactform';
 import Header from '../../components/header';
 import Layout from './../../components/layout/index';
 import styles from './contact.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Contact() {
   return (
@@ -26,7 +27,10 @@ function Contact() {
               </div>
               <div className={styles.column}>
                 <h3>
-                  <i className="fa fa-home"></i> Get in touch
+                  <span className={styles.margin}>
+                    <FontAwesomeIcon icon="home" fixedWidth />
+                  </span>
+                  Get in touch
                 </h3>
                 <p>
                   We’re very approachable and would love to speak to you. Feel

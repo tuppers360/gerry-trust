@@ -1,12 +1,5 @@
 @import '../../styles/_variables.scss';
 
-.header {
-  background-color: $lightgrey;
-  overflow: hidden;
-  padding: 50px 5% 0px;
-  position: relative;
-}
-
 .container {
   position: relative;
   z-index: 5;
@@ -28,31 +21,15 @@
   }
 }
 
-.title {
-  margin-bottom: 14px;
-  color: rgba(17, 17, 17, 0.57);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
+.content_section {
+  position: relative;
+  overflow: hidden;
+  padding: 50px 5% 100px;
+  background-color: #fff;
 
-.title_content {
-  color: rgba(17, 17, 17, 0.57);
-  letter-spacing: 2px;
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 14px;
-  text-transform: uppercase;
-}
-
-.wrap_left {
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 720px;
-  margin-bottom: 60px;
-  text-align: left;
+  h3 {
+    color: #111;
+  }
 }
 
 .trustee-container {

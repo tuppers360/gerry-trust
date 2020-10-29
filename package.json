@@ -13,9 +13,9 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@sendgrid/mail": "^7.2.6",
-    "next": "9.5.3",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "next": "^10.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-hook-form": "^6.9.2",
     "sass": "^1.26.11"
   }

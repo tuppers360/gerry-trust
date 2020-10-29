@@ -56,19 +56,19 @@ export default function About() {
               would like to thank the Harrison Family of Ribby Hall Village,
               Wrea Green for the splendid facilities provided.
             </p>
-            <div className="trustee-container">
+            <div className={styles.trustee_container}>
               <h2>Meet the Trustees</h2>
-              <div className="box">
-                <div className="imgBx">
+              <div className={styles.box}>
+                <div className={styles.imgBx}>
                   <img src="/images/lee_wilson.jpg" alt="Chris Hardy" />
                 </div>
-                <ul className="social-icon">
+                <ul className={styles.social_icon}>
                   <SocialIcon
                     url="https://twitter.com/Leew1341S"
                     brand="twitter"
                   />
                 </ul>
-                <div className="details">
+                <div className={styles.details}>
                   <h2>
                     Lee Wilson
                     <br />
@@ -76,17 +76,17 @@ export default function About() {
                   </h2>
                 </div>
               </div>
-              <div className="box">
-                <div className="imgBx">
+              <div className={styles.box}>
+                <div className={styles.imgBx}>
                   <img src="/images/chris_hardy.jpg" alt="Chris Hardy" />
                 </div>
-                <ul className="social-icon">
+                <ul className={styles.social_icon}>
                   <SocialIcon
                     url="https://twitter.com/CI3951Hardy"
                     brand="twitter"
                   />
                 </ul>
-                <div className="details">
+                <div className={styles.details}>
                   <h2>
                     Chris Hardy
                     <br />
@@ -94,21 +94,21 @@ export default function About() {
                   </h2>
                 </div>
               </div>
-              <div className="box">
-                <div className="imgBx">
+              <div className={styles.box}>
+                <div className={styles.imgBx}>
                   <img
                     src="/images/claire_goss.jpg"
                     alt="Claire van Deurs Goss"
                   />
                 </div>
-                <ul className="social-icon">
+                <ul className={styles.social_icon}>
                   <li>
                     <a href="https://twitter.com/claralou3819">
                       <i className="fab fa-twitter"></i>
                     </a>
                   </li>
                 </ul>
-                <div className="details">
+                <div className={styles.details}>
                   <h2>
                     Claire van Deurs Goss
                     <br />
@@ -116,14 +116,14 @@ export default function About() {
                   </h2>
                 </div>
               </div>
-              <div className="box">
-                <div className="imgBx">
+              <div className={styles.box}>
+                <div className={styles.imgBx}>
                   <img
                     src="/images/david_williamson.jpg"
                     alt="David Williamson"
                   />
                 </div>
-                <div className="details">
+                <div className={styles.details}>
                   <h2>
                     David Williamson
                     <br />
@@ -131,11 +131,11 @@ export default function About() {
                   </h2>
                 </div>
               </div>
-              <div className="box">
-                <div className="imgBx">
+              <div className={styles.box}>
+                <div className={styles.imgBx}>
                   <img src="/images/sample4.jpg" alt="Gareth Tupman" />
                 </div>
-                <ul className="social-icon">
+                <ul className={styles.social_icon}>
                   <li>
                     <a href="www.teitter.com/tuppers360">
                       <i className="fab fa-twitter"></i>
@@ -147,7 +147,7 @@ export default function About() {
                     </a>
                   </li>
                 </ul>
-                <div className="details">
+                <div className={styles.details}>
                   <h2>
                     Gareth Tupman
                     <br />
@@ -155,18 +155,18 @@ export default function About() {
                   </h2>
                 </div>
               </div>
-              <div className="box">
-                <div className="imgBx">
+              <div className={styles.box}>
+                <div className={styles.imgBx}>
                   <img src="/images/sample2.jpg" alt="Susannah Clarke" />
                 </div>
-                <ul className="social-icon">
+                <ul className={styles.social_icon}>
                   <li>
                     <a href="www.twitter.com">
                       <i className="fab fa-twitter"></i>
                     </a>
                   </li>
                 </ul>
-                <div className="details">
+                <div className={styles.details}>
                   <h2>
                     Susannah Clarke
                     <br />
@@ -174,18 +174,18 @@ export default function About() {
                   </h2>
                 </div>
               </div>
-              <div className="box">
-                <div className="imgBx">
+              <div className={styles.box}>
+                <div className={styles.imgBx}>
                   <img src="/images/sample6.jpg" alt="Jacqueline Longdon" />
                 </div>
-                <ul className="social-icon">
+                <ul className={styles.social_icon}>
                   <li>
                     <a href="www.twitter.com">
                       <i className="fab fa-twitter"></i>
                     </a>
                   </li>
                 </ul>
-                <div className="details">
+                <div className={styles.details}>
                   <h2>
                     Jacqueline Longdon Bem
                     <br />
@@ -193,18 +193,18 @@ export default function About() {
                   </h2>
                 </div>
               </div>
-              <div className="box">
-                <div className="imgBx">
+              <div className={styles.box}>
+                <div className={styles.imgBx}>
                   <img src="/images/sample7.jpg" alt="Sarah Longden" />
                 </div>
-                <ul className="social-icon">
+                <ul className={styles.social_icon}>
                   <li>
                     <a href="www.twitter.com">
                       <i className="fab fa-twitter"></i>
                     </a>
                   </li>
                 </ul>
-                <div className="details">
+                <div className={styles.details}>
                   <h2>
                     Sarah Longden
                     <br />
@@ -212,14 +212,14 @@ export default function About() {
                   </h2>
                 </div>
               </div>
-              <div className="box">
-                <div className="imgBx">
+              <div className={styles.box}>
+                <div className={styles.imgBx}>
                   <img
                     src="/images/chris_pickard.jpg"
                     alt="Christine Pickard"
                   />
                 </div>
-                <ul className="social-icon">
+                <ul className={styles.social_icon}>
                   <li>
                     <a href="www.facebook.com">
                       <i className="fab fa-facebook-f"></i>
@@ -236,7 +236,7 @@ export default function About() {
                     </a>
                   </li>
                 </ul>
-                <div className="details">
+                <div className={styles.details}>
                   <h2>
                     Christine Pickard
                     <br />
@@ -244,11 +244,11 @@ export default function About() {
                   </h2>
                 </div>
               </div>
-              <div className="box">
-                <div className="imgBx">
+              <div className={styles.box}>
+                <div className={styles.imgBx}>
                   <img src="/images/john_pickard.jpg" alt="John Pickard" />
                 </div>
-                <ul className="social-icon">
+                <ul className={styles.social_icon}>
                   <li>
                     <a href="www.facebook.com">
                       <i className="fab fa-facebook-f"></i>
@@ -265,7 +265,7 @@ export default function About() {
                     </a>
                   </li>
                 </ul>
-                <div className="details">
+                <div className={styles.details}>
                   <h2>
                     John Pickard
                     <br />

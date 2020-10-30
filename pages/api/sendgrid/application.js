@@ -16,12 +16,16 @@ export default async function (req, res) {
   const content = {
     to: process.env.SENDGRID_APPLICATION_EMAIL,
     from: email,
-    subject: `New Application From - ${firstName} ${lastName}: ${email}`,
-    text: dateOfBirth,
+    subject: `New Application From - : ${firstName} ${lastName}: ${email}`,
+    text: firstName,
+    lastName,
+    dateOfBirth,
     address,
     postCode,
     application,
-    html: `<p>${firstName}</p><p>${lastName}</p><p>${dateOfBirth}</p><p>${address}</p><p>${postCode}</p><p>${application}</p>`,
+    html: `
+    <p>${firstName}</p><p>${lastName}</p><p>${dateOfBirth}</p>
+    <p>${address}</p><p>${postCode}</p><p>${application}</p>`,
   };
 
   try {

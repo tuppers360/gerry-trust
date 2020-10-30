@@ -30,9 +30,13 @@ function ApplicationForm() {
         info: { error: false, msg: msg },
       });
       setInputs({
-        name: '',
+        firstName: '',
+        lastName: '',
+        dateOfBirth: '',
         email: '',
-        message: '',
+        address: '',
+        postCode: '',
+        application: '',
       });
     } else {
       setStatus({
@@ -119,7 +123,7 @@ function ApplicationForm() {
           <input
             aria-describedby="Name Help"
             className={`${styles.form_input} ${styles.text_input} ${
-              errors.name ? `${styles.form_input_error}` : ''
+              errors.lastName ? `${styles.form_input_error}` : ''
             }`}
             id="lastName"
             name="lastName"
@@ -135,7 +139,7 @@ function ApplicationForm() {
         </div>
         <div className={styles.form_item}>
           <label htmlFor="dateOfBirth" className={styles.form_label}>
-            Name
+            Date of Birth
           </label>
           <input
             aria-describedby="Date Of Birth"
@@ -211,27 +215,6 @@ function ApplicationForm() {
           />
           {errors.address && (
             <span className={styles.form_error}>{errors.address.message}</span>
-          )}
-        </div>
-        <div className={styles.form_item}>
-          <label htmlFor="postCode" className={styles.form_label}>
-            Post Code
-          </label>
-          <input
-            aria-describedby="Post Code Help"
-            className={`${styles.form_input} ${styles.text_input} ${
-              errors.postCode ? `${styles.form_input_error}` : ''
-            }`}
-            id="postCode"
-            name="postCode"
-            onChange={handleOnChange}
-            placeholder="Post Code"
-            ref={register({ required: 'Please enter your Post Code' })}
-            type="text"
-            value={inputs.postCode}
-          />
-          {errors.postCode && (
-            <span className={styles.form_error}>{errors.postCode.message}</span>
           )}
         </div>
         <div className={styles.form_item}>

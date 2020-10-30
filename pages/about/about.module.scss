@@ -109,7 +109,7 @@
         display: block;
         width: 50px;
         height: 50px;
-        line-height: 50px;
+        line-height: 55px;
         text-align: center;
         background: #fff;
         color: #262626;
@@ -118,16 +118,6 @@
         transition: 0.5s;
         transform: translateY(200px);
         opacity: 0;
-
-        .fab {
-          transition: 0.5s;
-          font-size: 1.5rem;
-          line-height: 50px;
-        }
-
-        &:hover .fab {
-          transform: rotateY(360deg);
-        }
       }
     }
   }

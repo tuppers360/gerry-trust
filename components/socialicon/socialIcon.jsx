@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from './socialIcon.module.scss';
 
 export function SocialIcon({ url, brand }) {
   return (
@@ -13,11 +14,17 @@ export function SocialIcon({ url, brand }) {
 function Icon({ brand }) {
   switch (brand) {
     case 'twitter':
-      return <FontAwesomeIcon icon={['fab', 'twitter']} />;
+      return (
+        <FontAwesomeIcon icon={['fab', 'twitter']} className={styles.fab} />
+      );
     case 'facebook':
-      return <FontAwesomeIcon icon={['fab', 'facebook-f']} />;
+      return (
+        <FontAwesomeIcon icon={['fab', 'facebook-f']} className={styles.fab} />
+      );
     case 'instagram':
-      return <FontAwesomeIcon icon={['fab', 'instagram']} />;
+      return (
+        <FontAwesomeIcon icon={['fab', 'instagram']} className={styles.fab} />
+      );
     default:
       return null;
   }

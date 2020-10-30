@@ -1,0 +1,8 @@
+.fab {
+  transition: 0.5s;
+  font-size: 1.5rem;
+
+  &:hover {
+    transform: rotateY(360deg);
+  }
+}

@@ -57,10 +57,10 @@ export default function About() {
               Wrea Green for the splendid facilities provided.
             </p>
             <div className={styles.trustee_container}>
-              <h2>Meet the Trustees</h2>
+              <h1>Meet the Trustees</h1>
               <div className={styles.box}>
                 <div className={styles.imgBx}>
-                  <img src="/images/lee_wilson.jpg" alt="Chris Hardy" />
+                  <img src="/images/lee_wilson.jpg" alt="Lee Wilson" />
                 </div>
                 <ul className={styles.social_icon}>
                   <SocialIcon
@@ -102,11 +102,10 @@ export default function About() {
                   />
                 </div>
                 <ul className={styles.social_icon}>
-                  <li>
-                    <a href="https://twitter.com/claralou3819">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </li>
+                  <SocialIcon
+                    url="https://twitter.com/claralou3819"
+                    brand="twitter"
+                  />
                 </ul>
                 <div className={styles.details}>
                   <h2>
@@ -136,16 +135,11 @@ export default function About() {
                   <img src="/images/sample4.jpg" alt="Gareth Tupman" />
                 </div>
                 <ul className={styles.social_icon}>
-                  <li>
-                    <a href="www.teitter.com/tuppers360">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="www.instagram.com/">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </li>
+                  <SocialIcon
+                    url="www.twitter.com/tuppers360"
+                    brand="twitter"
+                  />
+                  <SocialIcon url="www.instagram.com/" brand="instagram" />
                 </ul>
                 <div className={styles.details}>
                   <h2>
@@ -160,11 +154,7 @@ export default function About() {
                   <img src="/images/sample2.jpg" alt="Susannah Clarke" />
                 </div>
                 <ul className={styles.social_icon}>
-                  <li>
-                    <a href="www.twitter.com">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </li>
+                  <SocialIcon url="www.twitter.com/" brand="twitter" />
                 </ul>
                 <div className={styles.details}>
                   <h2>
@@ -179,11 +169,10 @@ export default function About() {
                   <img src="/images/sample6.jpg" alt="Jacqueline Longdon" />
                 </div>
                 <ul className={styles.social_icon}>
-                  <li>
-                    <a href="www.twitter.com">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </li>
+                  <SocialIcon
+                    url="www.teitter.com/tuppers360"
+                    brand="twitter"
+                  />
                 </ul>
                 <div className={styles.details}>
                   <h2>
@@ -198,11 +187,10 @@ export default function About() {
                   <img src="/images/sample7.jpg" alt="Sarah Longden" />
                 </div>
                 <ul className={styles.social_icon}>
-                  <li>
-                    <a href="www.twitter.com">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </li>
+                  <SocialIcon
+                    url="www.teitter.com/tuppers360"
+                    brand="twitter"
+                  />
                 </ul>
                 <div className={styles.details}>
                   <h2>
@@ -220,21 +208,9 @@ export default function About() {
                   />
                 </div>
                 <ul className={styles.social_icon}>
-                  <li>
-                    <a href="www.facebook.com">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="www.twitter.com">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="www.instagram.com">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </li>
+                  <SocialIcon url="www.facebook.com" brand="facebook" />
+                  <SocialIcon url="www.twitter.com/" brand="twitter" />
+                  <SocialIcon url="www.instagram.com" brand="instagram" />
                 </ul>
                 <div className={styles.details}>
                   <h2>
@@ -249,21 +225,9 @@ export default function About() {
                   <img src="/images/john_pickard.jpg" alt="John Pickard" />
                 </div>
                 <ul className={styles.social_icon}>
-                  <li>
-                    <a href="www.facebook.com">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="www.twitter.com">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="www.instagram.com">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </li>
+                  <SocialIcon url="www.facebook.com" brand="facebook" />
+                  <SocialIcon url="www.twitter.com/" brand="twitter" />
+                  <SocialIcon url="www.instagram.com" brand="instagram" />
                 </ul>
                 <div className={styles.details}>
                   <h2>

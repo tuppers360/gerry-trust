@@ -94,16 +94,16 @@ function ApplicationForm() {
             First Name
           </label>
           <input
+            aria-describedby="Name Help"
             className={`${styles.form_input} ${styles.text_input} ${
               errors.firstName ? `${styles.form_input_error}` : ''
             }`}
             id="firstName"
             name="firstName"
             onChange={handleOnChange}
-            type="text"
-            aria-describedby="First Name"
             placeholder="Enter name"
             ref={register({ required: 'Please enter your first name' })}
+            type="text"
             value={inputs.firstName}
           />
           {errors.firstName && (
@@ -117,16 +117,16 @@ function ApplicationForm() {
             Last Name
           </label>
           <input
+            aria-describedby="Name Help"
             className={`${styles.form_input} ${styles.text_input} ${
-              errors.lastName ? `${styles.form_input_error}` : ''
+              errors.name ? `${styles.form_input_error}` : ''
             }`}
             id="lastName"
             name="lastName"
             onChange={handleOnChange}
-            type="text"
-            aria-describedby="Name Help"
             placeholder="Enter name"
             ref={register({ required: 'Please enter your last name' })}
+            type="text"
             value={inputs.lastName}
           />
           {errors.lastName && (
@@ -135,18 +135,17 @@ function ApplicationForm() {
         </div>
         <div className={styles.form_item}>
           <label htmlFor="dateOfBirth" className={styles.form_label}>
-            Date Of Birth
+            Name
           </label>
           <input
+            aria-describedby="Date Of Birth"
             className={`${styles.form_input} ${styles.text_input} ${
               errors.dateOfBirth ? `${styles.form_input_error}` : ''
             }`}
             id="dateOfBirth"
             name="dateOfBirth"
             onChange={handleOnChange}
-            type="text"
-            aria-describedby="Date Of Birth"
-            placeholder="Enter date of birth"
+            placeholder="Enter name"
             ref={register({
               required: 'Please enter date of birth',
               pattern: {
@@ -154,6 +153,7 @@ function ApplicationForm() {
                 message: 'Please enter your date of birth format dd/mm/yyyy',
               },
             })}
+            type="text"
             value={inputs.dateOfBirth}
           />
           {errors.dateOfBirth && (
@@ -218,6 +218,27 @@ function ApplicationForm() {
             Post Code
           </label>
           <input
+            aria-describedby="Post Code Help"
+            className={`${styles.form_input} ${styles.text_input} ${
+              errors.postCode ? `${styles.form_input_error}` : ''
+            }`}
+            id="postCode"
+            name="postCode"
+            onChange={handleOnChange}
+            placeholder="Post Code"
+            ref={register({ required: 'Please enter your Post Code' })}
+            type="text"
+            value={inputs.postCode}
+          />
+          {errors.postCode && (
+            <span className={styles.form_error}>{errors.postCode.message}</span>
+          )}
+        </div>
+        <div className={styles.form_item}>
+          <label htmlFor="postCode" className={styles.form_label}>
+            Post Code
+          </label>
+          <input
             aria-describedby="Post Code"
             className={`${styles.form_input} ${styles.text_input} ${
               errors.postCode ? `${styles.form_input_error}` : ''
@@ -240,14 +261,14 @@ function ApplicationForm() {
             possible.How will this funding make a difference?Who will benefit?
           </label>
           <textarea
-            aria-describedby="Application text"
+            aria-describedby="Application Help text"
             className={`${styles.form_input} ${styles.text_input} ${
-              errors.application ? `${styles.form_input_error}` : ''
-            }`}
+              styles.form_area
+            } ${errors.application ? `${styles.form_input_error}` : ''}`}
             id="application"
             name="application"
             onChange={handleOnChange}
-            placeholder="Enter your application details"
+            placeholder="Enter your message"
             ref={register({ required: 'Please enter your application' })}
             rows="6"
             type="text"
@@ -255,7 +276,7 @@ function ApplicationForm() {
           ></textarea>
           {errors.application && (
             <span className={styles.form_error}>
-              {errors.application.message}
+              {errors.application.application}
             </span>
           )}
         </div>

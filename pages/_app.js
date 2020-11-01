@@ -6,17 +6,22 @@ import {
   faBars,
   faCoffee,
   faEdit,
+  faEnvelope,
   faFingerprint,
   faHome,
   faPhone,
   faSync,
 } from '@fortawesome/free-solid-svg-icons';
 
+import { far } from '@fortawesome/free-regular-svg-icons';
+
 library.add(
   fab,
+  far,
   faBars,
   faCoffee,
   faEdit,
+  faEnvelope,
   faFingerprint,
   faHome,
   faPhone,

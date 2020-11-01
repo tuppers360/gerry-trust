@@ -92,7 +92,7 @@ const ContactForm = () => {
           <input
             aria-describedby="Name Help"
             className={`${styles.form_input} ${styles.text_input} ${
-              errors.email ? `${styles.form_input_error}` : ''
+              errors.name ? `${styles.form_input_error}` : ''
             }`}
             id="name"
             name="name"

@@ -8,7 +8,9 @@ import {
   faEdit,
   faEnvelope,
   faFingerprint,
+  faGift,
   faHome,
+  faPaperPlane,
   faPhone,
   faSync,
 } from '@fortawesome/free-solid-svg-icons';
@@ -23,7 +25,9 @@ library.add(
   faEdit,
   faEnvelope,
   faFingerprint,
+  faGift,
   faHome,
+  faPaperPlane,
   faPhone,
   faSync
 );

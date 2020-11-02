@@ -34,25 +34,26 @@ export default function Application() {
                     miles of Blackpool Tower and be under the age of 25
                   </li>
                   <li>
-                    If your application is successful, you will be s letter by
-                    email as soon as possible after the meeting which will
-                    include terms and conditions for your acceptance.
+                    If your application is successful, you will be sent an email
+                    as soon as possible after the meeting which will include
+                    terms and conditions for your acceptance.
                   </li>
                   <li>
-                    If further information becomes available after submis
-                    application but prior to the Trust meeting, eg receiving the
-                    result ing funding application or needing to change details
-                    on this application, you will need to contact us to let us
-                    know about this change.
+                    If further information becomes available after you have
+                    submitted your application but prior to the Trust meeting,
+                    eg receiving the result of your funding application or
+                    needing to change details on this application, you will need
+                    to contact us to let us know about this change.
                   </li>
                   <li>
                     Trustees do not enter into any communication about rejected
                     applications nor is there an appeals process.
                   </li>
                   <li>
-                    Once you submit your application, you wil acknowledgement
-                    email within a few min g receipt of your application.Should
-                    we require further information we will contact you by email.
+                    Once you submit your application, you will recieve
+                    acknowledgement via email within a few min confirming
+                    receipt of your application. Should we require further
+                    information we will contact you by email.
                   </li>
                 </ul>
                 <ApplicationForm />

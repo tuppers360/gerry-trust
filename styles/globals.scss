@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Poppins:wght@400;500;700&display=swap');
+@import './variables';
+@import './buttons';
+@import './forms';
 
 *,
 html,
@@ -60,6 +63,10 @@ p {
   margin-inline-end: 0px;
 }
 
-.btn {
-  color: #198754;
+.icon_margin_right {
+  margin-right: 5px;
+}
+
+.icon_margin_left {
+  margin-right: 8px;
 }

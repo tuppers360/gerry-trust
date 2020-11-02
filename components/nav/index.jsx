@@ -62,7 +62,9 @@ function Nav() {
         </li>
         <li className={`${styles.nav_item} ${styles.button} ${styles.donate}`}>
           <Link href="/donate">
-            <a>Donate</a>
+            <a className="btn btn_depth btn_primary">
+              <FontAwesomeIcon icon="gift" fixedWidth /> Donate
+            </a>
           </Link>
         </li>
         <li className={styles.toggle} onClick={() => setIsActive(!isActive)}>

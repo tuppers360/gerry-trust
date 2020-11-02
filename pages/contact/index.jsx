@@ -17,7 +17,6 @@ function Contact() {
         </Header>
         <div className={styles.content_section}>
           <div className={styles.container}>
-            <div className={styles.title_content}>Contact Us</div>
             <div className={`${styles.contact_grid} ${styles.layout_grid}`}>
               <div className={styles.column}>
                 <h3>Send us a message</h3>

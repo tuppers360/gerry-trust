@@ -56,28 +56,29 @@ function Footer() {
           </p>
           <p>
             <Link href="/contact">
-              <a className={`${styles.btn} ${styles.btn_depth} `}>
+              <a className="btn btn_depth btn_success">
                 <FontAwesomeIcon icon="envelope" fixedWidth /> Contact Us by
                 Email
               </a>
             </Link>
           </p>
         </div>
-        <div className={`${styles.item} ${styles.card_apply_online}`}>
+        <div className={`${styles.item}`}>
           <h4>Would you like to apply?</h4>
           <p>
             Do you live with 15 miles of Blackpool Tower? Are you under 25 years
             of age?
           </p>
           <Link href="/application">
-            <a className={`${styles.btn} ${styles.btn_danger}`}>
+            <a className="btn btn_depth btn_danger">
               <FontAwesomeIcon icon="edit" fixedWidth /> Apply Here
             </a>
           </Link>
         </div>
       </div>
       <div className={styles.copyright}>
-        &copy; GRT 2020 - All rights reserved. Registered Charity No. 504413
+        <FontAwesomeIcon icon={['far', 'copyright']} fixedWidth /> GRT 2020 -
+        All rights reserved. Registered Charity No. 504413
       </div>
     </div>
   );

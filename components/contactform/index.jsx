@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import styles from './contactform.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ContactForm = () => {
@@ -85,14 +84,14 @@ const ContactForm = () => {
       )}
 
       <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
-        <div className={styles.form_item}>
-          <label htmlFor="name" className={styles.form_label}>
+        <div className="form_item">
+          <label htmlFor="name" className="form_label">
             Name
           </label>
           <input
             aria-describedby="Name Help"
-            className={`${styles.form_input} ${styles.text_input} ${
-              errors.name ? `${styles.form_input_error}` : ''
+            className={`form_input text_input ${
+              errors.email ? `form_input_error` : ''
             }`}
             id="name"
             name="name"
@@ -103,17 +102,17 @@ const ContactForm = () => {
             value={inputs.name}
           />
           {errors.name && (
-            <span className={styles.form_error}>{errors.name.message}</span>
+            <span className="form_error">{errors.name.message}</span>
           )}
         </div>
-        <div className={styles.form_item}>
-          <label htmlFor="email" className={styles.form_label}>
+        <div className="form_item">
+          <label htmlFor="email" className="form_label">
             Email address
           </label>
           <input
             aria-describedby="Email Help"
-            className={`${styles.form_input} ${styles.text_input} ${
-              errors.email ? `${styles.form_input_error}` : ''
+            className={`form_input text_input ${
+              errors.email ? `form_input_error` : ''
             }`}
             id="email"
             name="email"
@@ -130,21 +129,20 @@ const ContactForm = () => {
             value={inputs.email}
           />
           {errors.email && (
-            <span className={styles.form_error}>{errors.email.message}</span>
+            <span className="form_error">{errors.email.message}</span>
           )}
           <small id="emailHelp">
             We'll never share your email with anyone else.
           </small>
         </div>
-        <div className={styles.form_item}>
-          <label htmlFor="message" className={styles.form_label}>
+        <div className="form_item">
+          <label htmlFor="message" className="form_label">
             Message
           </label>
           <textarea
             aria-describedby="Message Help text"
-            className={`${styles.form_input} ${styles.text_input} ${
-              styles.form_area
-            } ${errors.message ? `${styles.form_input_error}` : ''}`}
+            className={`form_input text_input form_area
+            } ${errors.message ? `form_input_error` : ''}`}
             id="message"
             name="message"
             onChange={handleOnChange}
@@ -155,24 +153,27 @@ const ContactForm = () => {
             value={inputs.message}
           ></textarea>
           {errors.message && (
-            <span className={styles.form_error}>{errors.message.message}</span>
+            <span className="form_error">{errors.message.message}</span>
           )}
         </div>
-        <div className={styles.form_item}>
+        <div className="form_item">
           <button
             type="submit"
-            className={styles.form_btn}
+            className="form_btn btn btn_depth btn_success"
             disabled={status.submitting}
           >
             {!status.submitting ? (
               !status.submitted ? (
-                'Submit'
+                <div>
+                  <span className="icon_margin_left">Submit</span>
+                  <FontAwesomeIcon icon="paper-plane" />
+                </div>
               ) : (
                 'Sent'
               )
             ) : (
               <div>
-                <span className={styles.icon_margin}>
+                <span className="icon_margin_right">
                   <FontAwesomeIcon icon="sync" spin />
                 </span>
                 Submitting...

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import styles from './application-form.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function ApplicationForm() {
@@ -93,14 +92,14 @@ function ApplicationForm() {
       )}
 
       <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
-        <div className={styles.form_item}>
-          <label htmlFor="firstName" className={styles.form_label}>
+        <div className="form_item">
+          <label htmlFor="firstName" className="form_label">
             First Name
           </label>
           <input
             aria-describedby="Name Help"
-            className={`${styles.form_input} ${styles.text_input} ${
-              errors.firstName ? `${styles.form_input_error}` : ''
+            className={`form_input text_input ${
+              errors.firstName ? `form_input_error` : ''
             }`}
             id="firstName"
             name="firstName"
@@ -111,19 +110,17 @@ function ApplicationForm() {
             value={inputs.firstName}
           />
           {errors.firstName && (
-            <span className={styles.form_error}>
-              {errors.firstName.message}
-            </span>
+            <span className="form_error">{errors.firstName.message}</span>
           )}
         </div>
-        <div className={styles.form_item}>
-          <label htmlFor="lastName" className={styles.form_label}>
+        <div className="form_item">
+          <label htmlFor="lastName" className="form_label">
             Last Name
           </label>
           <input
             aria-describedby="Name Help"
-            className={`${styles.form_input} ${styles.text_input} ${
-              errors.lastName ? `${styles.form_input_error}` : ''
+            className={`form_input text_input ${
+              errors.lastName ? `form_input_error` : ''
             }`}
             id="lastName"
             name="lastName"
@@ -134,17 +131,17 @@ function ApplicationForm() {
             value={inputs.lastName}
           />
           {errors.lastName && (
-            <span className={styles.form_error}>{errors.lastName.message}</span>
+            <span className="form_error">{errors.lastName.message}</span>
           )}
         </div>
-        <div className={styles.form_item}>
-          <label htmlFor="dateOfBirth" className={styles.form_label}>
+        <div className="form_item">
+          <label htmlFor="dateOfBirth" className="form_label">
             Date of Birth
           </label>
           <input
             aria-describedby="Date Of Birth"
-            className={`${styles.form_input} ${styles.text_input} ${
-              errors.dateOfBirth ? `${styles.form_input_error}` : ''
+            className={`form_input text_input ${
+              errors.dateOfBirth ? `form_input_error` : ''
             }`}
             id="dateOfBirth"
             name="dateOfBirth"
@@ -161,19 +158,17 @@ function ApplicationForm() {
             value={inputs.dateOfBirth}
           />
           {errors.dateOfBirth && (
-            <span className={styles.form_error}>
-              {errors.dateOfBirth.message}
-            </span>
+            <span className="form_error">{errors.dateOfBirth.message}</span>
           )}
         </div>
-        <div className={styles.form_item}>
-          <label htmlFor="email" className={styles.form_label}>
+        <div className="form_item">
+          <label htmlFor="email" className="form_label">
             Email address
           </label>
           <input
             aria-describedby="Email Help"
-            className={`${styles.form_input} ${styles.text_input} ${
-              errors.email ? `${styles.form_input_error}` : ''
+            className={`form_input text_input ${
+              errors.email ? `form_input_error` : ''
             }`}
             id="email"
             name="email"
@@ -190,20 +185,20 @@ function ApplicationForm() {
             value={inputs.email}
           />
           {errors.email && (
-            <span className={styles.form_error}>{errors.email.message}</span>
+            <span className="form_error">{errors.email.message}</span>
           )}
           <small id="emailHelp">
             We'll never share your email with anyone else.
           </small>
         </div>
-        <div className={styles.form_item}>
-          <label htmlFor="address" className={styles.form_label}>
+        <div className="form_item">
+          <label htmlFor="address" className="form_label">
             Address
           </label>
           <input
             aria-describedby="Address"
-            className={`${styles.form_input} ${styles.text_input} ${
-              errors.address ? `${styles.form_input_error}` : ''
+            className={`form_input text_input ${
+              errors.address ? `form_input_error` : ''
             }`}
             id="address"
             name="address"
@@ -214,17 +209,17 @@ function ApplicationForm() {
             value={inputs.address}
           />
           {errors.address && (
-            <span className={styles.form_error}>{errors.address.message}</span>
+            <span className="form_error">{errors.address.message}</span>
           )}
         </div>
-        <div className={styles.form_item}>
-          <label htmlFor="postCode" className={styles.form_label}>
+        <div className="form_item">
+          <label htmlFor="postCode" className="form_label">
             Post Code
           </label>
           <input
             aria-describedby="Post Code"
-            className={`${styles.form_input} ${styles.text_input} ${
-              errors.postCode ? `${styles.form_input_error}` : ''
+            className={`form_input text_input ${
+              errors.postCode ? `form_input_error` : ''
             }`}
             id="postCode"
             name="postCode"
@@ -235,19 +230,19 @@ function ApplicationForm() {
             value={inputs.postCode}
           />
           {errors.postCode && (
-            <span className={styles.form_error}>{errors.postCode.message}</span>
+            <span className="form_error">{errors.postCode.message}</span>
           )}
         </div>
-        <div className={styles.form_item}>
-          <label htmlFor="application" className={styles.form_label}>
-            Please provide us with as much information about your as
-            possible.How will this funding make a difference?Who will benefit?
+        <div className="form_item">
+          <label htmlFor="application" className="form_label">
+            Please provide us with as much information about your as possible
+            such as how will this funding make a difference? Who will benefit?
           </label>
           <textarea
             aria-describedby="Application Help text"
-            className={`${styles.form_input} ${styles.text_input} ${
-              styles.form_area
-            } ${errors.application ? `${styles.form_input_error}` : ''}`}
+            className={`form_input text_input form_area ${
+              errors.application ? `form_input_error` : ''
+            }`}
             id="application"
             name="application"
             onChange={handleOnChange}
@@ -258,26 +253,27 @@ function ApplicationForm() {
             value={inputs.application}
           ></textarea>
           {errors.application && (
-            <span className={styles.form_error}>
-              {errors.application.application}
-            </span>
+            <span className="form_error">{errors.application.application}</span>
           )}
         </div>
-        <div className={styles.form_item}>
+        <div className="form_item">
           <button
             type="submit"
-            className={styles.form_btn}
+            className="form_btn btn btn_depth btn_success"
             disabled={status.submitting}
           >
             {!status.submitting ? (
               !status.submitted ? (
-                'Submit Application'
+                <div>
+                  <span className="icon_margin_right">Submit Application</span>
+                  <FontAwesomeIcon icon="paper-plane" />
+                </div>
               ) : (
                 'Application Sent'
               )
             ) : (
               <div>
-                <span className={styles.icon_margin}>
+                <span className="icon_margin_left">
                   <FontAwesomeIcon icon="sync" spin />
                 </span>
                 Submitting...

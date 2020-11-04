@@ -2,8 +2,17 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+export interface IStatus {
+  submitted?: boolean;
+  submitting?: boolean;
+  info: {
+    error: boolean;
+    msg: string;
+  };
+}
+
 function ApplicationForm() {
-  const [status, setStatus] = useState({
+  const [status, setStatus] = useState<IStatus>({
     submitted: false,
     submitting: false,
     info: { error: false, msg: null },
@@ -248,8 +257,7 @@ function ApplicationForm() {
             onChange={handleOnChange}
             placeholder="Enter your message"
             ref={register({ required: 'Please enter your application' })}
-            rows="6"
-            type="text"
+            rows={6}
             value={inputs.application}
           ></textarea>
           {errors.application && (

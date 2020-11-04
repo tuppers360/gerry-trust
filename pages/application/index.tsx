@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './application.module.scss';
-import Layout from './../../components/layout/index';
-import Header from './../../components/header/index';
+import Layout from '../../components/layout/index';
+import Header from '../../components/header/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ApplicationForm from './../../components/applicationform/index';
+import ApplicationForm from '../../components/applicationform/index';
 
 export default function Application() {
   return (

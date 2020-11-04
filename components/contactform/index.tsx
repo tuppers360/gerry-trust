@@ -2,14 +2,29 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+export interface IStatus {
+  submitted?: boolean;
+  submitting?: boolean;
+  info: {
+    error: boolean;
+    msg: string;
+  };
+}
+
+export interface IInputs {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const ContactForm = () => {
-  const [status, setStatus] = useState({
+  const [status, setStatus] = useState<IStatus>({
     submitted: false,
     submitting: false,
     info: { error: false, msg: null },
   });
 
-  const [inputs, setInputs] = useState({
+  const [inputs, setInputs] = useState<IInputs>({
     name: '',
     email: '',
     message: '',
@@ -148,8 +163,7 @@ const ContactForm = () => {
             onChange={handleOnChange}
             placeholder="Enter your message"
             ref={register({ required: 'Please enter your message' })}
-            rows="6"
-            type="text"
+            rows={6}
             value={inputs.message}
           ></textarea>
           {errors.message && (

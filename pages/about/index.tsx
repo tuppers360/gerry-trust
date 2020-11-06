@@ -1,7 +1,7 @@
 import Layout from '../../components/layout';
 import styles from './about.module.scss';
-import { SocialIcon } from './../../components/socialicon/socialIcon';
-import Header from './../../components/header/index';
+import { SocialIcon } from '../../components/socialicon/socialIcon';
+import Header from '../../components/header/index';
 
 export default function About() {
   return (

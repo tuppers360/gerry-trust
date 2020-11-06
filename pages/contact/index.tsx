@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactForm from '../../components/contactform';
 import Header from '../../components/header';
-import Layout from './../../components/layout/index';
+import Layout from '../../components/layout/index';
 import styles from './contact.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

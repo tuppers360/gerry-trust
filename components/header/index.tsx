@@ -2,11 +2,15 @@ import React, { FunctionComponent } from 'react';
 import styles from './header.module.scss';
 
 type HeaderProps = {
-  title: string,
-  heading: string
-}
+  title?: string;
+  heading: string;
+};
 
-const Header: FunctionComponent<HeaderProps>=({ title, heading, children }) => {
+const Header: FunctionComponent<HeaderProps> = ({
+  title,
+  heading,
+  children,
+}) => {
   return (
     <div className={styles.header}>
       <div className={styles.container}>
@@ -18,6 +22,6 @@ const Header: FunctionComponent<HeaderProps>=({ title, heading, children }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Header;

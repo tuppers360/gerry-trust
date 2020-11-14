@@ -15,6 +15,10 @@ export default async function handler(
 ) {
   if (req.method === 'POST') {
     const amount: number = req.body.amount;
+    const giftAid: string = req.body.giftAid;
+
+    console.log('GiftAid', giftAid);
+    
     try {
       // Validate the amount that was passed from the client.
       if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) {
@@ -33,9 +37,9 @@ export default async function handler(
             quantity: 1,
           },
         ],
-        payment_intent_data: {metadata: {'order_id': '6735'}},
+        payment_intent_data: {metadata: {'gift_aid': giftAid}},
         success_url: `${req.headers.origin}/result?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${req.headers.origin}/donate-with-checkout`,
+        cancel_url: `${req.headers.origin}/donate`,
       };
       const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create(
         params

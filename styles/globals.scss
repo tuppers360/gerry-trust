@@ -2,6 +2,7 @@
 @import './variables';
 @import './buttons';
 @import './forms';
+@import './donation-form';
 
 *,
 html,
@@ -100,5 +101,29 @@ p {
 
   h3 {
     color: #111;
+  }
+}
+
+.btn-container {
+  background: pink;
+
+  padding: 0.25em;
+  margin: auto;
+  max-width: 50%;
+  display: flex;
+  flex-direction: row;
+
+  .item {
+    background-color: lightblue;
+    margin: 0.1em;
+    flex-basis: 25%;
+    flex-shrink: 1;
+    flex-grow: 0;
+  }
+}
+
+@media (min-width: 30em) {
+  .container {
+    width: 50vw;
   }
 }

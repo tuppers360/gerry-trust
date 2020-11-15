@@ -12,6 +12,7 @@ import {
   faGift,
   faHome,
   faPaperPlane,
+  faPoundSign,
   faPhone,
   faSync,
 } from '@fortawesome/free-solid-svg-icons';
@@ -29,6 +30,7 @@ library.add(
   faGift,
   faHome,
   faPaperPlane,
+  faPoundSign,
   faPhone,
   faSync
 );

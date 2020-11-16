@@ -7,15 +7,18 @@ import Layout from '../../components/layout';
 
 const DonatePage: NextPage = () => {
   return (
-    <Layout title="Donate with Checkout | Next.js + TypeScript Example">
+    <Layout title="Gerry Richardson Trust | Make a Donation">
       <main>
-        <Header heading="Donate with Checkout">
-          <p>Donate to our project 💖</p>
+        <Header heading="Make a Donation" center>
+          <p>
+            Donate to help us to help the local youths of Blackpool, Fylde and
+            Wyre 💖
+          </p>
         </Header>
       </main>
       <div className="content_section">
         <div className="container">
-          Testing 1 2 3<DonationForm />
+          <DonationForm />
         </div>
       </div>
     </Layout>

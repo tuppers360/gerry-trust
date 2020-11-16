@@ -6,6 +6,7 @@ import PrintObject from '../../components/printobject';
 
 import { fetchGetJSON } from '../../utils/api-helpers';
 import useSWR from 'swr';
+import Header from '../../components/header';
 
 const ResultPage: NextPage = () => {
   const router = useRouter();
@@ -20,13 +21,32 @@ const ResultPage: NextPage = () => {
   if (error) return <div>failed to load</div>;
 
   return (
-    <Layout title="Checkout Payment Result | Next.js + TypeScript Example">
+    <Layout title="Gerry Richardson Trust | Donation Made">
+      <Header
+        title="Congratulations"
+        heading="Your Donation has been authorised"
+        center
+      >
+        <p>
+          You have donated NEED TO ADD AMOUNT to help the local youths of
+          Blackpool, Fylde and Wyre 💖
+        </p>
+      </Header>
       <div className="container">
-        <h1>Checkout Payment Result</h1>
-        <h2>Status: {data?.payment_intent?.status ?? 'loading...'}</h2>
-        <h3>CheckoutSession response:</h3>
+        <p>Thank you for your generous gift to the Gerry Richardson Trust.</p>
+        <p>We are thrilled to have your support.</p>
+        <p>
+          Through your donation we will be able to accomplish our goal of
+          supporting young people, aged 25 or under, to attend courses and
+          activities of an educational, cultural, sporting, adventuresome or
+          character-building nature.
+        </p>
+        <p>
+          You truly make the difference for us, and we are extremely grateful!
+        </p>
+        <p>Yours</p>
+        <p>The Trustees</p>
         <PrintObject content={data ?? 'loading...'} />
-        Test
       </div>
     </Layout>
   );

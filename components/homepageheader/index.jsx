@@ -8,7 +8,7 @@ function HomePageHeader() {
       <div className="inner">
         <h1>Gerry Richardson</h1>
         <h3>Trust</h3>
-        <a href="#" className={styles.banner_button}>
+        <a href="/contact" className={styles.banner_button}>
           Contact Us
         </a>
       </div>

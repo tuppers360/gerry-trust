@@ -202,7 +202,12 @@ const DonationForm = () => {
           type="submit"
           disabled={loading}
         >
-          Donate
+          {loading && (
+            <span className="icon_margin_right">
+              <FontAwesomeIcon icon="sync" spin />
+            </span>
+          )}
+          &nbsp;Donate&nbsp;
           {donation >= config.MIN_AMOUNT && (
             <span className="currency-icon">
               {formatAmountForDisplay(donation, config.CURRENCY)}

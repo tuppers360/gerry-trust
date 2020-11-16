@@ -20,6 +20,14 @@
     text-decoration: none;
     transition: all 0.25s;
   }
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
 }
 
 .btn_depth {

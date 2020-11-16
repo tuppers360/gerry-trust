@@ -26,6 +26,11 @@
     line-height: 1.6;
     letter-spacing: -0.02em;
   }
+
+  &.center {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .title {
@@ -53,4 +58,11 @@
   max-width: 720px;
   margin-bottom: 60px;
   text-align: left;
+}
+
+.wrap_center {
+  flex-direction: column;
+  max-width: 720px;
+  margin-bottom: 60px;
+  text-align: center;
 }

@@ -1,4 +1,4 @@
-import type { AppProps /*, AppContext */ } from 'next/app'
+import type { AppProps /*, AppContext */ } from 'next/app';
 import '../styles/globals.scss';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -12,6 +12,7 @@ import {
   faGift,
   faHome,
   faPaperPlane,
+  faPoundSign,
   faPhone,
   faSync,
 } from '@fortawesome/free-solid-svg-icons';
@@ -29,12 +30,13 @@ library.add(
   faGift,
   faHome,
   faPaperPlane,
+  faPoundSign,
   faPhone,
   faSync
 );
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

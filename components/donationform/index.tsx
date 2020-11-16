@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 
-import CustomDonationInput from '../customdonationinput';
-import StripeTestCards from '../stripetestcards';
-
 import getStripe from '../../utils/get-stripejs';
 import { fetchPostJSON } from '../../utils/api-helpers';
 import { formatAmountForDisplay } from '../../utils/stripe-helpers';
@@ -12,11 +9,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const DonationForm = () => {
   const [donation, setDonation] = useState(0);
+  const [showCustomDonation, setShowCustomDonation] = useState(false);
   const [loading, setLoading] = useState(false);
   const [giftAid, setGiftAid] = useState(false);
   const [input, setInput] = useState({
     customDonation: Math.round(config.MAX_AMOUNT / config.AMOUNT_STEP),
   });
+  const [activeButton, setActiveButton] = useState(0);
+  const [activeButtonAmountType, setActiveButtonAmountType] = useState(1);
+  const buttonArray = [
+    { id: 1, text: '5' },
+    { id: 2, text: '10' },
+    { id: 3, text: '20' },
+    { id: 4, text: 'Other' },
+  ];
 
   const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) =>
     setInput({
@@ -29,7 +35,7 @@ const DonationForm = () => {
     setLoading(true);
     // Create a Checkout Session.
     const response = await fetchPostJSON('/api/stripe/checkout_sessions', {
-      amount: input.customDonation,
+      amount: donation,
       giftAid: giftAid,
     });
 
@@ -53,51 +59,113 @@ const DonationForm = () => {
     setLoading(false);
   };
 
+  const toggle = (id: number, donation: any) => {
+    if (id != 4) {
+      setShowCustomDonation(false);
+      setActiveButton(id);
+      setDonation(donation);
+    } else {
+      setShowCustomDonation(true);
+      setDonation(0);
+      setActiveButton(id);
+    }
+  };
+
   return (
     <>
-      <div className="btn-container">
-        <div className="btn item one">Flex Item 1</div>
-        <div className="btn item one">Flex Item 2</div>
-        <div className="btn item one">Flex Item 3</div>
-        <div className="btn item one">Flex Item 4</div>
-      </div>
       <form onSubmit={handleSubmit}>
-        <CustomDonationInput
-          className="checkout-style"
-          name={'customDonation'}
-          value={input.customDonation}
-          min={config.MIN_AMOUNT}
-          max={config.MAX_AMOUNT}
-          step={config.AMOUNT_STEP}
-          currency={config.CURRENCY}
-          onChange={handleInputChange}
-        />
-
+        <div>
+          <ul
+            className="btn-group-donation-type"
+            aria-label="Donation Button Group Type"
+          >
+            <li key="1">
+              <span
+                className={`btn btn_depth btn${
+                  activeButtonAmountType === 1 ? '_warning' : '_primary'
+                }`}
+              >
+                One Off Payment
+              </span>
+            </li>
+            <li key="2">
+              <span className="btn btn_depth btn_primary disabled">
+                Regular Payment (coming Soon)
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul
+            className="btn-group-donate-buttons"
+            aria-label="Donation Button Group Amount"
+          >
+            {buttonArray.map((button) => {
+              return (
+                <li key={button.id}>
+                  <span
+                    className={`btn btn_depth btn${
+                      activeButton === button.id ? '_warning' : '_primary'
+                    }`}
+                    onClick={() => toggle(button.id, button.text)}
+                  >
+                    {button.id != 4 ? (
+                      <div>
+                        {formatAmountForDisplay(
+                          parseFloat(button.text),
+                          config.CURRENCY
+                        )}
+                      </div>
+                    ) : (
+                      <div>{button.text}</div>
+                    )}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        {showCustomDonation && (
+          <div className="form_item customdonation-amount">
+            <label htmlFor="customdonationamount">Donate what you want:</label>
+            <input
+              id="customdonationamount"
+              pattern="[0-9]*"
+              name="donation"
+              type="number"
+              aria-describedby="Custom Donation Amount"
+              placeholder="Enter Donation"
+              min="1"
+              onChange={(e) => setDonation(parseFloat(e.currentTarget.value))}
+              className="form_input text_center"
+            />
+          </div>
+        )}
         <div className="giftaid">
           <img src="/images/gift-aid-logo.png" alt="Gift Aid" />
           <h2>Are you a UK tax payer?</h2>
-          <small>
+          <p>
             Gift Aid is reclaimed by the charity from the tax you pay for the
             current year. Your address is needed to identify you as a current UK
             taxpayer.
-          </small>
-          <h3>
+          </p>
+          <p>
             Boost your donation by&nbsp;
             <strong>
               25%&nbsp;
               {donation > 0 && (
-                <strong>
+                <span>
                   (
                   {new Intl.NumberFormat('en-GB', {
                     style: 'currency',
                     currency: 'GBP',
                   }).format(donation * 0.25)}
                   )&nbsp;
-                </strong>
+                </span>
               )}
             </strong>
             at no extra cost to you.
-          </h3>
+          </p>
           <FontAwesomeIcon
             id="giftAid"
             icon={giftAid ? ['far', 'check-square'] : ['far', 'square']}
@@ -127,13 +195,19 @@ const DonationForm = () => {
             </p>
           </div>
         )}
-        <StripeTestCards />
         <button
-          className="checkout-style-background"
+          className={`btn btn_primary full-width donate ${
+            donation >= 0.3 ? '' : 'disabled'
+          }`}
           type="submit"
           disabled={loading}
         >
-          Donate {formatAmountForDisplay(input.customDonation, config.CURRENCY)}
+          Donate
+          {donation >= config.MIN_AMOUNT && (
+            <span className="currency-icon">
+              {formatAmountForDisplay(donation, config.CURRENCY)}
+            </span>
+          )}
         </button>
       </form>
     </>

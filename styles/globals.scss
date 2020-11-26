@@ -127,3 +127,13 @@ p {
     padding: 50px 10% 100px;
   }
 }
+
+//TODO - test and add this to site typography
+.gradient-text {
+  display: inline-block;
+  width: 100%;
+  color: transparent;
+  background-image: linear-gradient(to right, #005e7f, #61b6cd);
+  -webkit-background-clip: text;
+  background-clip: text;
+}

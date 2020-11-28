@@ -13,6 +13,8 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "@mdx-js/loader": "^1.6.21",
+    "@next/mdx": "^10.0.3",
     "@sendgrid/mail": "^7.2.6",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.11.0",

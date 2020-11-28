@@ -1,13 +1,13 @@
 import React from 'react';
 import ContactForm from '../../components/contactform';
 import Header from '../../components/header';
-import Layout from '../../components/layout/index';
+import Layout from '../../components/layout';
 import styles from './contact.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Contact() {
   return (
-    <Layout>
+    <Layout title="Contact Us">
       <main>
         <Header
           title="Contact Us"

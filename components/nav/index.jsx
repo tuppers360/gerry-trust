@@ -28,7 +28,7 @@ function Nav() {
           }
           onClick={() => setIsActive(!isActive)}
         >
-          <Link href="/#">Stories (coming soon)</Link>
+          <Link href="/stories">Stories</Link>
         </li>
         <li
           className={

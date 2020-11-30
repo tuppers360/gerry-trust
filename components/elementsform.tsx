@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import CustomDonationInput from '../components/customdonationinput';
+import CustomDonationInput from './custom-donation-input';
 import PrintObject from '../components/printobject';
 
 import { fetchPostJSON } from '../utils/api-helpers';

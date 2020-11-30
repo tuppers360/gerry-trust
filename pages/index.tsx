@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Layout from '../components/layout';
-import HomePageHeader from '../components/homepageheader';
+import HomePageHeader from '../components/homepage-header';
 
 const IndexPage: NextPage = () => {
   return (

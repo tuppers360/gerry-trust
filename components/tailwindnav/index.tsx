@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 export default function TailwindNav() {
   const [isOpen, setIsOpen] = useState(false);
-  console.log('isOpen', isOpen);
 
   return (
     // <!-- This example requires Tailwind CSS v2.0+ -->

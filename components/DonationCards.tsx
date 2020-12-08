@@ -9,11 +9,11 @@ export default function DonationCards() {
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center">
           <h2 className="text-5xl tracking-tight font-extrabold text-gray-800 sm:text-6xl">
-            From the blog
+            Whats going on
           </h2>
           <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
-            libero labore natus atque, ducimus sed.
+            Our latest news and whats we are doing with the local comunity of
+            Blackpoool, Fylde & Wyre
           </p>
         </div>
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
@@ -29,24 +29,25 @@ export default function DonationCards() {
               <div className="flex-1">
                 <p className="text-sm font-medium text-indigo-600">
                   <a href="#" className="hover:underline">
-                    Article
+                    Fundraising
                   </a>
                 </p>
                 <a href="#" className="block mt-2">
                   <p className="text-xl font-semibold text-gray-800">
-                    Boost your conversion rate
+                    Local fundraising in the community
                   </p>
                   <p className="mt-3 text-base text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Architecto accusantium praesentium eius, ut atque fuga
-                    culpa, similique sequi cum eos quis dolorum.
+                    Raised £189.89 over the last few months through donation
+                    box's in local public houses & the Blackpool Police Station
+                    Headquarters. Our trustee Claire also had a street party to
+                    raise funds.
                   </p>
                 </a>
               </div>
               <div className="mt-6 flex items-center">
                 <div className="flex-shrink-0">
                   <a href="#">
-                    <span className="sr-only">Roel Aufderehar</span>
+                    <span className="sr-only">Gareth</span>
                     <img
                       className="h-10 w-10 rounded-full"
                       src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -57,13 +58,13 @@ export default function DonationCards() {
                 <div className="ml-3">
                   <p className="text-sm font-medium text-gray-800">
                     <a href="#" className="hover:underline">
-                      Roel Aufderehar
+                      Gareth
                     </a>
                   </p>
                   <div className="flex space-x-1 text-sm text-gray-500">
                     <time dateTime="2020-03-16">Mar 16, 2020</time>
-                    <span aria-hidden="true">&middot;</span>
-                    <span>6 min read</span>
+                    {/* <span aria-hidden="true">&middot;</span>
+                    <span>6 min read</span> */}
                   </div>
                 </div>
               </div>
@@ -90,10 +91,9 @@ export default function DonationCards() {
                     How to use search engine optimization to drive sales
                   </p>
                   <p className="mt-3 text-base text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Velit facilis asperiores porro quaerat doloribus, eveniet
-                    dolore. Adipisci tempora aut inventore optio animi., tempore
-                    temporibus quo laudantium.
+                    Raised £1,580 over the last year after members of the group
+                    voted on two charities to support. Fundraising challenges
+                    included coffee mornings, a sponsored run and quiz nights.
                   </p>
                 </a>
               </div>

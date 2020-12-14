@@ -1,11 +1,15 @@
 import { NextPage } from 'next';
 import Layout from '../components/layout';
-import HomePageHeader from '../components/homepage-header';
+import LandingSection from './../components/LandingSection';
+import HeroSection from './../components/HeroSection';
+import DonationCards from '../components/DonationCards';
 
 const IndexPage: NextPage = () => {
   return (
     <Layout title="Home | Gerry Richardson Trust">
-      <HomePageHeader />
+      <LandingSection />
+      <HeroSection />
+      <DonationCards />
     </Layout>
   );
 };

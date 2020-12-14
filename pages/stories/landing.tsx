@@ -1,13 +1,13 @@
-import TailwindNav from './../../components/tailwindnav/index';
-import DonationCards from '../../components/DonationCards';
-import HeroSection from './../../components/HeroSection';
+import Navbar from './../../components/Navbar';
 import LandingSection from './../../components/LandingSection';
-import Footer from '../../components/footer';
+import HeroSection from './../../components/HeroSection';
+import DonationCards from '../../components/DonationCards';
+import Footer from '../../components/Footer';
 
 export default function landing() {
   return (
     <>
-      <TailwindNav />
+      <Navbar />
       <LandingSection />
       <HeroSection />
       <DonationCards />

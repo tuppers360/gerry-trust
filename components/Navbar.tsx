@@ -2,27 +2,26 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
-export default function TailwindNav() {
+export default function Navbar2() {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
-    // <!-- This example requires Tailwind CSS v2.0+ -->
-    <nav className="bg-white shadow">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-gray-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="-ml-2 mr-2 flex items-center md:hidden">
               {/* <!-- Mobile menu button --> */}
               <button
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-expanded="false"
               >
                 <span className="sr-only">Open main menu</span>
-                {/* <!-- Icon when menu is closed. --> */}
-                {/* <!--
-                  Heroicon name: menu
-                  Menu open: "hidden", Menu closed: "block"
-                --> */}
+                {/* <!-- Icon when menu is closed. -->
+            <!--
+              Heroicon name: menu
+
+              Menu open: "hidden", Menu closed: "block"
+            --> */}
                 <svg
                   className={`h-6 w-6 ${isOpen ? 'hidden' : 'block'}`}
                   onClick={() => setIsOpen(!isOpen)}
@@ -39,11 +38,12 @@ export default function TailwindNav() {
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
-                {/* <!-- Icon when menu is open. --> */}
-                {/* <!--
-                  Heroicon name: x
-                  Menu open: "block", Menu closed: "hidden"
-                --> */}
+                {/* <!-- Icon when menu is open. -->
+            <!--
+              Heroicon name: x
+
+              Menu open: "block", Menu closed: "hidden"
+            --> */}
                 <svg
                   className={`h-6 w-6 ${isOpen ? 'block' : 'hidden'}`}
                   onClick={() => setIsOpen(!isOpen)}
@@ -63,36 +63,47 @@ export default function TailwindNav() {
               </button>
             </div>
             <div className="flex-shrink-0 flex items-center">
-              <img
+              {/* <img
                 className="block lg:hidden h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                 alt="Workflow"
               />
               <img
                 className="hidden lg:block h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
+                src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
                 alt="Workflow"
-              />
+              /> */}
+              <div className="flex items-center">
+                <Link href="/">
+                  <a className="font-extrabold text-gray-300 text-2xl leading-tight md:leading-snug md:mr-2">
+                    <FontAwesomeIcon
+                      icon="fingerprint"
+                      className="text-gray-300 w-6 h-6 mr-2 inline-block"
+                    />
+                    GRT
+                  </a>
+                </Link>
+              </div>
             </div>
-            <div className="hidden md:ml-6 md:flex md:space-x-8">
-              {/* <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" --> */}
+            <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+              {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
               <Link href="/stories">
-                <a className="border-blue-800 text-gray-800 inline-flex items-center px-1 pt-1 border-b-4 text-md font-semibold">
+                <a className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
                   Stories
                 </a>
               </Link>
               <Link href="#">
-                <a className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-4 text-md font-semibold">
+                <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   News
                 </a>
               </Link>
               <Link href="/about">
-                <a className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-4 text-md font-semibold">
+                <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   About
                 </a>
               </Link>
               <Link href="/contact">
-                <a className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-4 text-md font-semibold">
+                <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   Contact Us
                 </a>
               </Link>
@@ -110,30 +121,30 @@ export default function TailwindNav() {
       </div>
 
       {/* <!--
-        Mobile menu, toggle classes based on menu state.
-    
-        Menu open: "block", Menu closed: "hidden"
-      --> */}
+    Mobile menu, toggle classes based on menu state.
+
+    Menu open: "block", Menu closed: "hidden"
+  --> */}
       <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
-        <div className="pt-2 pb-3 space-y-1">
-          {/* <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" --> */}
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
           <Link href="/stories">
-            <a className="bg-indigo-50 border-blue-800 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6">
+            <a className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
               Stories
             </a>
           </Link>
           <Link href="#">
-            <a className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6">
+            <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
               News
             </a>
           </Link>
           <Link href="/about">
-            <a className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6">
+            <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
               About
             </a>
           </Link>
           <Link href="contact">
-            <a className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6">
+            <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
               Contact Us
             </a>
           </Link>

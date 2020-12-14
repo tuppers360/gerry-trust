@@ -7,6 +7,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
   faBars,
   faCoffee,
+  faCopyright,
   faEdit,
   faEnvelope,
   faFingerprint,
@@ -25,6 +26,7 @@ library.add(
   far,
   faBars,
   faCoffee,
+  faCopyright,
   faEdit,
   faEnvelope,
   faFingerprint,

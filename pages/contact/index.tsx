@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactForm from '../../components/contact-form';
-import Header from '../../components/header';
+import PageHeaderSection from '../../components/PageHeaderSection';
 import Layout from '../../components/layout';
 import styles from './contact.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,12 +9,12 @@ function Contact() {
   return (
     <Layout title="Contact Us">
       <main>
-        <Header
+        <PageHeaderSection
           title="Contact Us"
           heading="Get in contact and discover how we can help you"
         >
           <p>Below you will find a few ways to contact us</p>
-        </Header>
+        </PageHeaderSection>
         <div className={styles.content_section}>
           <div className={styles.container}>
             <div className={`${styles.contact_grid} ${styles.layout_grid}`}>

@@ -6,7 +6,7 @@ import PrintObject from '../../components/printobject';
 
 import { fetchGetJSON } from '../../utils/api-helpers';
 import useSWR from 'swr';
-import Header from '../../components/header';
+import PageHeaderSection from '../../components/PageHeaderSection';
 
 const ResultPage: NextPage = () => {
   const router = useRouter();
@@ -22,16 +22,15 @@ const ResultPage: NextPage = () => {
 
   return (
     <Layout title="Gerry Richardson Trust | Donation Made">
-      <Header
+      <PageHeaderSection
         title="Congratulations"
         heading="Your Donation has been authorised"
-        center
       >
         <p>
           You have donated NEED TO ADD AMOUNT to help the local youths of
           Blackpool, Fylde and Wyre 💖
         </p>
-      </Header>
+      </PageHeaderSection>
       <div className="container">
         <p>Thank you for your generous gift to the Gerry Richardson Trust.</p>
         <p>We are thrilled to have your support.</p>

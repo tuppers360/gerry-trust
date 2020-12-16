@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import getStripe from '../../utils/get-stripejs';
-import { fetchPostJSON } from '../../utils/api-helpers';
-import { formatAmountForDisplay } from '../../utils/stripe-helpers';
-import * as config from '../../config';
+import getStripe from '../utils/get-stripejs';
+import { fetchPostJSON } from '../utils/api-helpers';
+import { formatAmountForDisplay } from '../utils/stripe-helpers';
+import * as config from '../config';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

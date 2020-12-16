@@ -3,9 +3,9 @@ import { getAllPosts } from '../../lib/api';
 import Head from 'next/head';
 import { CMS_NAME } from '../../lib/constants';
 import Intro from './../../components/intro';
-import HeroPost from './../../components/hero-post';
-import MoreStories from './../../components/more-stories';
-import Container from './../../components/container/index';
+import HeroPost from '../../components/StoriesHeroPost';
+import MoreStories from '../../components/StoriesPost';
+import Container from './../../components/Container';
 
 export default function Index({ allPosts }) {
   const heroPost = allPosts[0];

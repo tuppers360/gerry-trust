@@ -2,10 +2,10 @@ import Layout from '../../components/Layout';
 import { getAllPosts } from '../../lib/api';
 import Head from 'next/head';
 import { CMS_NAME } from '../../lib/constants';
-import Intro from '../../components/StoriesIntro';
-import HeroPost from '../../components/StoriesHeroPost';
-import MoreStories from '../../components/StoriesPost';
-import Container from './../../components/Container';
+import Intro from '../../components/stories/StoriesIntro';
+import HeroPost from '../../components/stories/StoriesHeroPost';
+import MoreStories from '../../components/stories/StoriesPost';
+import Container from '../../components/stories/StoriesContainer';
 
 export default function Index({ allPosts }) {
   const heroPost = allPosts[0];

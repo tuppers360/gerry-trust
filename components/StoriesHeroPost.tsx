@@ -1,4 +1,4 @@
-import Avatar from './avatar';
+import Avatar from './StoriesAvatar';
 import DateFormatter from './DateFormatter';
 import Link from 'next/link';
 import CoverImage from './CoverImage';

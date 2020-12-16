@@ -2,7 +2,7 @@ import Layout from '../../components/Layout';
 import { getAllPosts } from '../../lib/api';
 import Head from 'next/head';
 import { CMS_NAME } from '../../lib/constants';
-import Intro from './../../components/intro';
+import Intro from '../../components/StoriesIntro';
 import HeroPost from '../../components/StoriesHeroPost';
 import MoreStories from '../../components/StoriesPost';
 import Container from './../../components/Container';

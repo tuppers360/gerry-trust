@@ -2,8 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import Navbar from './../Navbar';
-import Footer from './../Footer';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY

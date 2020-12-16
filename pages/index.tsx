@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import LandingSection from './../components/LandingSection';
 import HeroSection from './../components/HeroSection';
 import DonationCards from '../components/DonationCards';

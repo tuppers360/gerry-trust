@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import PrintObject from '../../components/printobject';
 
 import { fetchGetJSON } from '../../utils/api-helpers';

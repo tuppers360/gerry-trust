@@ -1,4 +1,4 @@
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import { getAllPosts } from '../../lib/api';
 import Head from 'next/head';
 import { CMS_NAME } from '../../lib/constants';

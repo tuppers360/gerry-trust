@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './application.module.scss';
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import PageHeaderSection from '../../components/PageHeaderSection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ApplicationForm from '../../components/application-form';

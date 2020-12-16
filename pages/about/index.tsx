@@ -1,4 +1,4 @@
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import styles from './about.module.scss';
 import { SocialIcon } from '../../components/socialicon/socialIcon';
 import PageHeaderSection from '../../components/PageHeaderSection';

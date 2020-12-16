@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import DonationForm from '../../components/donation-form';
 import PageHeaderSection from '../../components/PageHeaderSection';
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 
 //import CheckoutForm from '../components/CheckoutForm'
 

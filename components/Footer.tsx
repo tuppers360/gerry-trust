@@ -122,7 +122,7 @@ export default function Footer() {
           </div>
           <h2 className="sr-only">Copyright - Footer</h2>
           <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1 text-center">
-            <FontAwesomeIcon icon="copyright" /> Gerry Richardson Trust 2020 -
+            <FontAwesomeIcon icon="copyright" /> Gerry Richardson Trust 2021 -
             All rights reserved. Registered Charity No. 504413
           </p>
         </div>

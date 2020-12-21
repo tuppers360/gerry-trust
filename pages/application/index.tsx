@@ -1,17 +1,20 @@
 import React from 'react';
 import styles from './application.module.scss';
-import Layout from '../../components/layout/index';
-import Header from '../../components/header/index';
+import Layout from '../../components/Layout';
+import PageHeaderSection from '../../components/PageHeaderSection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ApplicationForm from '../../components/applicationform/index';
+import ApplicationForm from '../../components/application-form';
 
 export default function Application() {
   return (
     <Layout title="Application | Gerry Richardson Trust">
       <main>
-        <Header title="Application Form" heading="Lets see if we can help you?">
+        <PageHeaderSection
+          title="Application Form"
+          heading="Lets see if we can help you?"
+        >
           <p>Apply for a grant</p>
-        </Header>
+        </PageHeaderSection>
         <div className={styles.content_section}>
           <div className={styles.container}>
             <div className={`${styles.contact_grid} ${styles.layout_grid}`}>

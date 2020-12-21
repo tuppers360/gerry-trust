@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import CustomDonationInput from '../components/customdonationinput';
-import PrintObject from '../components/printobject';
+import CustomDonationInput from './custom-donation-input';
+import PrintObject from './PrintObject';
 
 import { fetchPostJSON } from '../utils/api-helpers';
 import { formatAmountForDisplay } from '../utils/stripe-helpers';

@@ -1,13 +1,16 @@
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import styles from './about.module.scss';
 import { SocialIcon } from '../../components/socialicon/socialIcon';
-import Header from '../../components/header/index';
+import PageHeaderSection from '../../components/PageHeaderSection';
 
 export default function About() {
   return (
     <Layout title="About | Gerry Richardson Trust">
       <main>
-        <Header title="About Us" heading="Learn about why we do this" />
+        <PageHeaderSection
+          title="About Us"
+          heading="Learn about why we do this"
+        />
         <div className={styles.content_section}>
           <div className={styles.container}>
             <p>

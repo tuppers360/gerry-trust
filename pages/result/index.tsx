@@ -39,7 +39,7 @@ const ResultPage: NextPage = () => {
         )}
       </PageHeaderSection>
       <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-4xl lg:px-8 m-16">
-        <h2 className="text-xl font-semibold leading-relaxed">
+        <h2 className="text-xl font-medium leading-relaxed">
           Thank you for your generous gift to the Gerry Richardson Trust.
         </h2>
         <p className="text-lg mt-4">We are thrilled to have your support.</p>

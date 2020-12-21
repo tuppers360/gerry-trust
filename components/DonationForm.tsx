@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 import getStripe from '../utils/get-stripejs';
 import { fetchPostJSON } from '../utils/api-helpers';
-import { formatAmountForDisplay } from '../utils/stripe-helpers';
-import * as config from '../config';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GiftAid from './GiftAid';
@@ -14,7 +12,7 @@ const DonationForm = () => {
   const [loading, setLoading] = useState(false);
   const [giftAid, setGiftAid] = useState(false);
   const [activeButton, setActiveButton] = useState(0);
-  //const [activeButtonAmountType, setActiveButtonAmountType] = useState(1);
+
   const buttonArray = [
     { id: 1, value: 5, text: '£5' },
     { id: 2, value: 10, text: '£10' },

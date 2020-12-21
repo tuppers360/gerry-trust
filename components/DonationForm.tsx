@@ -68,18 +68,18 @@ const DonationForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-4 gap-x-1 gap-y-2">
-          <div className="bg-blue-800 text-gray-100 shadow-sm py-4 px-2 rounded text-base text-center flex justify-center items-center cursor-pointer col-span-2">
+        <div className="grid grid-cols-4 gap-2">
+          <div className="transition-colors duration-300 ease-in-out bg-blue-800 text-gray-100 shadow-sm py-4 px-2 rounded text-base text-center flex justify-center items-center cursor-pointer col-span-2">
             One-Off Payment
           </div>
-          <div className="border-2 border-solid border-blue-800 shadow-sm text-gray-800 py-4 px-2 rounded text-base text-center flex items-center justify-center col-span-2 cursor-auto">
+          <div className="transition-colors duration-300 ease-in-out border-2 border-solid border-blue-800 shadow-sm text-gray-800 py-4 px-2 rounded text-base text-center flex items-center justify-center col-span-2 cursor-auto">
             Monthly Donation (coming soon)
           </div>
           {buttonArray.map((button) => {
             return (
               <div
                 key={button.id}
-                className={`transition-colors duration-300 easr-in-out py-2 rounded text-lg font-semibold flex justify-center items-center cursor-pointer hover:bg-blue-800 hover:text-gray-100 focus:outline-none ${
+                className={`transition-colors duration-300 ease-in-out py-2 rounded text-lg font-semibold flex justify-center items-center cursor-pointer hover:bg-blue-800 hover:text-gray-100 focus:outline-none ${
                   activeButton === button.id
                     ? 'bg-blue-800 text-gray-100'
                     : 'border-2 border-solid border-blue-800 shadow-sm text-gray-700'

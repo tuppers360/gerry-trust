@@ -16,10 +16,8 @@ const DonatePage: NextPage = () => {
           </p>
         </PageHeaderSection>
       </main>
-      <div className="content_section">
-        <div className="container">
-          <DonationForm />
-        </div>
+      <div className="max-w-xl mx-auto m-16 px-4">
+        <DonationForm />
       </div>
     </Layout>
   );

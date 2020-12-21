@@ -10,6 +10,18 @@ export function formatAmountForDisplay(
     return numberFormat.format(amount)
   }
   
+  export function formatAmountForDisplayForStripe(
+    amount: number,
+    currency: string
+  ): string {
+    let numberFormat = new Intl.NumberFormat(['en-US'], {
+      style: 'currency',
+      currency: currency,
+      currencyDisplay: 'symbol',
+    })
+    return numberFormat.format(amount / 100)
+  }
+
   export function formatAmountForStripe(
     amount: number,
     currency: string

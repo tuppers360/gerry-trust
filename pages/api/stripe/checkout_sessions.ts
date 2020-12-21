@@ -31,7 +31,7 @@ export default async function handler(
         billing_address_collection: 'required',
         line_items: [
           {
-            name: 'Custom amount donation',
+            name: 'Gerry Richardson Trust Donation',
             amount: formatAmountForStripe(amount, CURRENCY),
             currency: CURRENCY,
             quantity: 1,

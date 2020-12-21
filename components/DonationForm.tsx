@@ -128,11 +128,9 @@ const DonationForm = () => {
         />
         <div className="flex items-center justify-center">
           <button
-            className={`uppercase inline-flex items-center mt-5 justify-center px-8 py-3 mb-1 border border-transparent text-base font-semibold rounded-md text-white bg-blue-900 hover:bg-blue-800 md:py-4 md:px-24  ${
-              donation >= 1 ? '' : 'disabled'
-            }`}
+            className="uppercase inline-flex items-center mt-5 justify-center px-8 py-3 mb-1 border border-transparent text-base font-semibold rounded-md text-white bg-blue-900 hover:bg-blue-800 md:py-4 md:px-24 disabled:opacity-75"
             type="submit"
-            disabled={loading || donation === 0}
+            disabled={donation < 1 || loading}
           >
             {loading && (
               <span className="mr-2">

@@ -11,7 +11,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: { backgroundColor: ['responsive', 'hover', 'focus', 'active'] },
+    extend: {
+      backgroundColor: ['responsive', 'hover', 'focus', 'active'],
+      opacity: ['disabled'],
+    },
   },
   plugins: [require('@tailwindcss/forms')],
 };

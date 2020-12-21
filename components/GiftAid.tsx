@@ -41,7 +41,7 @@ export default function GiftAid({
         <label className="flex flex-col items-center mt-4">
           <input
             type="checkbox"
-            className="h-6 w-6 rounded text-blue-800 border-2 focus:ring-0 focus:ring-offset-0"
+            className="h-6 w-6 rounded transition-colors duration-300 ease-in-out text-blue-800 border-2 focus:ring-0 focus:ring-offset-0"
             onClick={() => handleGiftAid()}
           />
           <span className="mt-4 text-md font-semibold">

@@ -1,33 +1,123 @@
-import React from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import FormErrorIcon from './FormErrorIcon';
 import ToggleButton from './ToggleButton';
 
+export interface IStatus {
+  submitted?: boolean;
+  submitting?: boolean;
+  info: {
+    error: boolean;
+    msg: string;
+  };
+}
+
+export interface IInputs {
+  firstName: string;
+  lastName: string;
+  email: string;
+  message: string;
+}
+
 export default function ContactFormTest() {
+  const [status, setStatus] = useState<IStatus>({
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: null },
+  });
+
+  const [inputs, setInputs] = useState<IInputs>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: '',
+  });
+
+  const { register, handleSubmit, errors } = useForm();
+
+  const handleResponse = (status, msg) => {
+    if (status === 200) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: msg },
+      });
+      setInputs({
+        firstName: '',
+        lastName: '',
+        email: '',
+        message: '',
+      });
+    } else {
+      setStatus({
+        info: { error: true, msg: msg },
+      });
+    }
+  };
+
+  const handleOnChange = (e) => {
+    e.persist();
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+    setStatus({
+      submitted: false,
+      submitting: false,
+      info: { error: false, msg: null },
+    });
+  };
+
+  const handleOnSubmit = async ({}, e) => {
+    e.preventDefault();
+    console.log('errors', errors);
+    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
+    const res = await fetch('/api/sendgrid/contactus', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs),
+    });
+    const text = await res.text();
+    handleResponse(res.status, text);
+  };
+
   return (
     <form
-      action="#"
-      method="POST"
+      onSubmit={handleSubmit(handleOnSubmit)}
+      noValidate
       className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8 mt-8"
     >
       <div>
         <label
-          htmlFor="first_name"
+          htmlFor="firstName"
           className="block text-base font-medium text-gray-700"
         >
           First name
         </label>
-        <div className="mt-1">
+        <div className="mt-1 relative">
           <input
-            type="text"
-            name="first_name"
-            id="first_name"
+            aria-describedby="Enter your First Name"
             autoComplete="given-name"
-            className="py-3 px-4 block w-full shadow-sm focus:ring-blue-900 focus:border-blue-900 border-gray-300 rounded-md"
+            className={`py-3 px-4 block w-full shadow-sm rounded-md ${
+              errors.firstName
+                ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
+                : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
+            }`}
+            id="firstName"
+            name="firstName"
+            onChange={handleOnChange}
+            ref={register({ required: 'Please enter your name' })}
+            type="text"
+            value={inputs.firstName}
           />
+          {errors.firstName && <FormErrorIcon />}
         </div>
       </div>
       <div>
         <label
-          htmlFor="last_name"
+          htmlFor="lastName"
           className="block text-base font-medium text-gray-700"
         >
           Last name
@@ -35,8 +125,8 @@ export default function ContactFormTest() {
         <div className="mt-1">
           <input
             type="text"
-            name="last_name"
-            id="last_name"
+            name="lastName"
+            id="lastName"
             autoComplete="family-name"
             className="py-3 px-4 block w-full shadow-sm focus:ring-blue-900 focus:border-blue-900 border-gray-300 rounded-md"
           />

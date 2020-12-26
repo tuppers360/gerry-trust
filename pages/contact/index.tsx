@@ -15,48 +15,10 @@ function Contact() {
         >
           <p>Below you will find a few ways to contact us</p>
         </PageHeaderSection>
-        {/* <div className="">
-          <div className="">
-            <div className="">
-              <div className="">
-                <h3>Send us a message</h3>
-                <div>
-                  <ContactForm />
-                </div>
-              </div>
-              <div className="">
-                <h3>
-                  <span className="">
-                    <FontAwesomeIcon icon="home" fixedWidth />
-                  </span>
-                  Get in touch
-                </h3>
-                <p>
-                  We’re very approachable and would love to speak to you. Feel
-                  free to call, send us an email, Tweet us or simply complete
-                  the enquiry form.
-                </p>
-                <p>
-                  <strong>Gerry Richardson Trust</strong>
-                  <br />
-                  Northdene,
-                  <br />
-                  Stoney Lane,
-                  <br />
-                  Hambleton,
-                  <br />
-                  Poulton-Le-Fylde,
-                  <br />
-                  FY6 9AF
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> */}
         <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-6xl lg:px-8 m-12">
           <div className="grid lg:grid-cols-2 gap-8">
             <section>
-              <h3 className="text-2xl font-extrabold tracking-tight text-gray-800 text-center">
+              <h3 className="text-2xl font-extrabold tracking-tight text-gray-700 text-center">
                 <span className="mr-2">
                   <FontAwesomeIcon icon="envelope" fixedWidth />
                 </span>
@@ -64,7 +26,7 @@ function Contact() {
               </h3>
               <p className="mt-4 text-lg">
                 We’re very approachable and would love to speak to you. You can
-                use any of the following or enquiry form.
+                use any of the following or our enquiry form.
               </p>
               <ul className="mt-8">
                 <li className="mt-4">
@@ -109,7 +71,19 @@ function Contact() {
                 </li>
               </ul>
             </section>
-            <ContactFormTest />
+            <section className="bg-white">
+              <div className="max-w-xl mx-auto">
+                <div className="text-center">
+                  <h2 className="text-2xl font-extrabold tracking-tight text-gray-700">
+                    <span className="mr-2">
+                      <FontAwesomeIcon icon="edit" />
+                    </span>
+                    Send us a message
+                  </h2>
+                </div>
+                <ContactFormTest />
+              </div>
+            </section>
           </div>
         </div>
       </main>

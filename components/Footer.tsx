@@ -100,21 +100,22 @@ export default function Footer() {
           <div className="flex justify-center space-x-6 md:order-2">
             <a
               href="https://www.facebook.com/groups/649311542556032/"
-              className="text-gray-400 hover:text-gray-300 text-xl"
+              className="text-gray-400 hover:text-facebook text-xl"
             >
+              //TODO: figure out how to make it white text for icon
               <span className="sr-only">Facebook</span>
               <FontAwesomeIcon icon={['fab', 'facebook']} />
             </a>
             <a
               href="https://www.instagram.com/gerryrichardsontrust/"
-              className="text-gray-400 hover:text-gray-300 text-xl"
+              className="text-gray-400 hover:text-instagram text-xl"
             >
               <span className="sr-only">Instagram</span>
               <FontAwesomeIcon icon={['fab', 'instagram']} />
             </a>
             <a
               href="https://twitter.com/gerrytrust"
-              className="text-gray-400 hover:text-gray-300 text-xl"
+              className="text-gray-400 hover:text-twitter text-xl"
             >
               <span className="sr-only">Twitter</span>
               <FontAwesomeIcon icon={['fab', 'twitter']} />

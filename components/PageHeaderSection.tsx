@@ -12,7 +12,7 @@ const PageHeaderSection: FunctionComponent<HeaderProps> = ({
   children,
 }) => {
   return (
-    <div className="bg-gray-100 py-12">
+    <div className="bg-gradient-to-r from-gray-200 to-gray-100 py-12 shadow-lg">
       <div className="mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 text-center">
         <p className="text-gray-600 text-2xl font-extrabold uppercase">
           {title}

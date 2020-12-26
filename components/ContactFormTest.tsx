@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import ToggleButton from './ToggleButton';
 
@@ -7,6 +8,9 @@ export default function ContactFormTest() {
       <div className="max-w-xl mx-auto">
         <div className="text-center">
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-800">
+            <span className="mr-2">
+              <FontAwesomeIcon icon="edit" />
+            </span>
             Send us a message
           </h2>
         </div>
@@ -137,11 +141,11 @@ export default function ContactFormTest() {
                 </div>
                 <div className="ml-3">
                   <p className="text-base text-gray-500">
-                    By selecting this, you agree to the
+                    By selecting this, you agree to the&nbsp;
                     <a href="#" className="font-medium text-gray-700 underline">
                       Privacy Policy
                     </a>
-                    and
+                    &nbsp;and&nbsp;
                     <a href="#" className="font-medium text-gray-700 underline">
                       Cookie Policy
                     </a>

@@ -1,5 +1,4 @@
 import React from 'react';
-import ContactForm from '../../components/ContactForm';
 import PageHeaderSection from '../../components/PageHeaderSection';
 import Layout from '../../components/Layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

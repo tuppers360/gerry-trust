@@ -24,7 +24,7 @@ function Contact() {
                 </span>
                 Get in touch
               </h3>
-              <p className="mt-4 text-lg">
+              <p className="mt-8 text-lg">
                 We’re very approachable and would love to speak to you. You can
                 use any of the following or our enquiry form.
               </p>

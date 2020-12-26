@@ -137,3 +137,23 @@ p {
   -webkit-background-clip: text;
   background-clip: text;
 }
+
+.typography-hero-headline {
+  font-size: 96px;
+  line-height: 1.04167;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
+.hero-manifesto .manifesto-headline {
+  background-repeat: no-repeat;
+  background-image: url(/v/ipad-pro/ac/images/overview/hero_manifesto_bg__c0zrbe748m82_large.jpg);
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+// <h2 class="manifesto-headline typography-hero-headline">Your next computer is not a computer.</h2>

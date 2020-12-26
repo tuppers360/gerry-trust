@@ -77,11 +77,19 @@ $grays: (
   '900': $gray-900,
 ) !default;
 
-$apple-red: f84439;
-$apple-blue: #0a84ff;
+$apple-red: #f84439;
+$apple-blue: #0071e3;
+$apple-blue-alt: #0077ed;
+$apple-blue-dark: #20418b;
 $apple-green: #32d74b;
-$apple-purple: purple;
+$apple-green-dark: #2e9315;
+$apple-purple: #6339b8;
 $apple-orange: #f56300;
+$apple-pink: #fc3e63;
+$apple-yellow: #ffe045;
+
+$apple-error-red: #e30000;
+$apple-error-red-background: #fff2f4;
 
 $blue: #339af0 !default;
 $indigo: #6610f2 !default;

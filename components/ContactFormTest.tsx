@@ -13,12 +13,12 @@ export interface IStatus {
   };
 }
 
-export interface FormInputs {
+type FormInputs = {
   firstName: string;
   lastName: string;
   email: string;
   message: string;
-}
+};
 
 export default function ContactFormTest() {
   const [status, setStatus] = useState<IStatus>({

@@ -12,7 +12,7 @@ export interface IStatus {
   };
 }
 
-export interface IInputs {
+export interface FormInputs {
   firstName: string;
   lastName: string;
   email: string;
@@ -26,14 +26,9 @@ export default function ContactFormTest() {
     info: { error: false, msg: null },
   });
 
-  const [inputs, setInputs] = useState<IInputs>({
-    firstName: '',
-    lastName: '',
-    email: '',
-    message: '',
-  });
+  const { register, handleSubmit, errors, reset } = useForm<FormInputs>();
 
-  const { register, handleSubmit, errors } = useForm();
+  const [submittedData, setSubmittedData] = useState({});
 
   const handleResponse = (status, msg) => {
     if (status === 200) {
@@ -42,12 +37,7 @@ export default function ContactFormTest() {
         submitting: false,
         info: { error: false, msg: msg },
       });
-      setInputs({
-        firstName: '',
-        lastName: '',
-        email: '',
-        message: '',
-      });
+      reset({ ...submittedData });
     } else {
       setStatus({
         info: { error: true, msg: msg },
@@ -55,21 +45,9 @@ export default function ContactFormTest() {
     }
   };
 
-  const handleOnChange = (e) => {
-    e.persist();
-    setInputs((prev) => ({
-      ...prev,
-      [e.target.id]: e.target.value,
-    }));
-    setStatus({
-      submitted: false,
-      submitting: false,
-      info: { error: false, msg: null },
-    });
-  };
-
-  const handleOnSubmit = async ({}, e) => {
+  const handleOnSubmit = async (data: FormInputs, e) => {
     e.preventDefault();
+    setSubmittedData(data);
     console.log('errors', errors);
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
     const res = await fetch('/api/sendgrid/contactus', {
@@ -77,7 +55,7 @@ export default function ContactFormTest() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(inputs),
+      body: JSON.stringify(data),
     });
     const text = await res.text();
     handleResponse(res.status, text);
@@ -99,7 +77,6 @@ export default function ContactFormTest() {
         <div className="mt-1 relative">
           <input
             aria-describedby="Enter your First Name"
-            autoComplete="given-name"
             className={`py-3 px-4 block w-full shadow-sm rounded-md ${
               errors.firstName
                 ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -107,13 +84,16 @@ export default function ContactFormTest() {
             }`}
             id="firstName"
             name="firstName"
-            onChange={handleOnChange}
-            ref={register({ required: 'Please enter your name' })}
+            ref={register({ required: 'Please enter your first name' })}
             type="text"
-            value={inputs.firstName}
           />
           {errors.firstName && <FormErrorIcon />}
         </div>
+        {errors.firstName && (
+          <p className="mt-2 text-sm text-red-600" id="firstName-error">
+            {errors.firstName.message}
+          </p>
+        )}
       </div>
       <div>
         <label
@@ -122,32 +102,26 @@ export default function ContactFormTest() {
         >
           Last name
         </label>
-        <div className="mt-1">
+        <div className="mt-1 relative">
           <input
-            type="text"
-            name="lastName"
+            aria-describedby="Enter your Last Name"
+            className={`py-3 px-4 block w-full shadow-sm rounded-md ${
+              errors.lastName
+                ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
+                : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
+            }`}
             id="lastName"
-            autoComplete="family-name"
-            className="py-3 px-4 block w-full shadow-sm focus:ring-blue-900 focus:border-blue-900 border-gray-300 rounded-md"
-          />
-        </div>
-      </div>
-      <div className="sm:col-span-2">
-        <label
-          htmlFor="company"
-          className="block text-base font-medium text-gray-700"
-        >
-          Company
-        </label>
-        <div className="mt-1">
-          <input
+            name="lastName"
+            ref={register({ required: 'Please enter your last name' })}
             type="text"
-            name="company"
-            id="company"
-            autoComplete="organization"
-            className="py-3 px-4 block w-full shadow-sm focus:ring-blue-900 focus:border-blue-900 border-gray-300 rounded-md"
           />
+          {errors.lastName && <FormErrorIcon />}
         </div>
+        {errors.lastName && (
+          <p className="mt-2 text-sm text-red-600" id="lastName-error">
+            {errors.lastName.message}
+          </p>
+        )}
       </div>
       <div className="sm:col-span-2">
         <label
@@ -156,45 +130,32 @@ export default function ContactFormTest() {
         >
           Email
         </label>
-        <div className="mt-1">
+        <div className="mt-1 relative">
           <input
+            aria-describedby="Enter your email"
+            className={`py-3 px-4 block w-full shadow-sm rounded-md ${
+              errors.email
+                ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
+                : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
+            }`}
             id="email"
             name="email"
-            type="email"
-            autoComplete="email"
-            className="py-3 px-4 block w-full shadow-sm focus:ring-blue-900 focus:border-blue-900 border-gray-300 rounded-md"
-          />
-        </div>
-      </div>
-      <div className="sm:col-span-2">
-        <label
-          htmlFor="phone_number"
-          className="block text-base font-medium text-gray-700"
-        >
-          Phone Number
-        </label>
-        <div className="mt-1 relative rounded-md shadow-sm">
-          <div className="absolute inset-y-0 left-0 flex items-center">
-            <label htmlFor="country" className="sr-only">
-              Country
-            </label>
-            <select
-              id="country"
-              name="country"
-              className="h-full py-0 pl-4 pr-8 border-transparent bg-transparent text-gray-500 focus:ring-blue-900 focus:border-blue-900 rounded-md"
-            >
-              <option>GB</option>
-            </select>
-          </div>
-          <input
+            ref={register({
+              required: 'Please enter your email',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: 'Please enter a valid email address',
+              },
+            })}
             type="text"
-            name="phone_number"
-            id="phone_number"
-            autoComplete="tel"
-            className="py-3 px-4 block w-full pl-20 focus:ring-blue-900 focus:border-blue-900 border-gray-300 rounded-md"
-            placeholder="+1 (555) 987-6543"
           />
+          {errors.email && <FormErrorIcon />}
         </div>
+        {errors.email && (
+          <p className="mt-2 text-sm text-red-600" id="email-error">
+            {errors.email.message}
+          </p>
+        )}
       </div>
       <div className="sm:col-span-2">
         <label
@@ -203,14 +164,26 @@ export default function ContactFormTest() {
         >
           Message
         </label>
-        <div className="mt-1">
+        <div className="mt-1 relative">
           <textarea
+            aria-describedby="Enter your message"
+            className={`py-3 px-4 block w-full shadow-sm rounded-md ${
+              errors.message
+                ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
+                : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
+            }`}
             id="message"
             name="message"
+            ref={register({ required: 'Please enter your message' })}
             rows={4}
-            className="py-3 px-4 block w-full shadow-sm focus:ring-blue-900 focus:border-blue-900 border-gray-300 rounded-md"
           ></textarea>
+          {errors.message && <FormErrorIcon />}
         </div>
+        {errors.message && (
+          <p className="mt-2 text-sm text-red-600" id="message-error">
+            {errors.message.message}
+          </p>
+        )}
       </div>
       <div className="sm:col-span-2">
         <div className="flex items-start">

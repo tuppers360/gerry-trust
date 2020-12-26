@@ -1,4 +1,5 @@
 import React from 'react';
+import ToggleButton from './ToggleButton';
 
 export default function ContactFormTest() {
   return (
@@ -132,18 +133,7 @@ export default function ContactFormTest() {
             <div className="sm:col-span-2">
               <div className="flex items-start">
                 <div className="flex-shrink-0">
-                  <button
-                    type="button"
-                    aria-pressed="false"
-                    className="bg-gray-200 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
-                  >
-                    <span className="sr-only">Agree to policies</span>
-
-                    <span
-                      aria-hidden="true"
-                      className="translate-x-0 inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
-                    ></span>
-                  </button>
+                  <ToggleButton />
                 </div>
                 <div className="ml-3">
                   <p className="text-base text-gray-500">

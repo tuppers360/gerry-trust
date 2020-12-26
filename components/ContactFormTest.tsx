@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import FormErrorIcon from './FormErrorIcon';
@@ -48,7 +49,6 @@ export default function ContactFormTest() {
   const handleOnSubmit = async (data: FormInputs, e) => {
     e.preventDefault();
     setSubmittedData(data);
-    console.log('errors', errors);
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
     const res = await fetch('/api/sendgrid/contactus', {
       method: 'POST',
@@ -209,8 +209,22 @@ export default function ContactFormTest() {
         <button
           type="submit"
           className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-semibold text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
+          disabled={status.submitting || status.submitted}
         >
-          Let's talk
+          {!status.submitting ? (
+            !status.submitted ? (
+              "Let's talk"
+            ) : (
+              'Message Sent'
+            )
+          ) : (
+            <div>
+              <span className="mr-1">
+                <FontAwesomeIcon icon="sync" spin />
+              </span>
+              Submitting...
+            </div>
+          )}
         </button>
       </div>
     </form>

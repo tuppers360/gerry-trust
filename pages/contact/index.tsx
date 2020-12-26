@@ -2,7 +2,7 @@ import React from 'react';
 import PageHeaderSection from '../../components/PageHeaderSection';
 import Layout from '../../components/Layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ContactFormTest from '../../components/ContactFormTest';
+import ContactForm from '../../components/ContactForm';
 
 function Contact() {
   return (
@@ -80,7 +80,7 @@ function Contact() {
                     Send us a message
                   </h2>
                 </div>
-                <ContactFormTest />
+                <ContactForm />
               </div>
             </section>
           </div>

@@ -280,7 +280,8 @@ export default function ContactFormTest() {
               </p>
             )}
           </div>
-          <div className="sm:col-span-2">
+          {/* //TODO: need to create the privacy and cookie policy */}
+          {/* <div className="sm:col-span-2">
             <div className="flex items-start">
               <div className="flex-shrink-0">
                 <ToggleButton />
@@ -299,7 +300,7 @@ export default function ContactFormTest() {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="sm:col-span-2">
             <button
               type="submit"

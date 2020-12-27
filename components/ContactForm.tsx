@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import FormErrorIcon from './FormErrorIcon';
-import ToggleButton from './ToggleButton';
+import ToggleButton from './ToggleButton'; //Commented out until Privacy and Cookies Policy written
 
 export interface IStatus {
   submitted?: boolean;

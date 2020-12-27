@@ -102,7 +102,7 @@ export default function Footer() {
               href="https://www.facebook.com/groups/649311542556032/"
               className="text-gray-400 hover:text-facebook text-xl"
             >
-              //TODO: figure out how to make it white text for icon
+              {/* //TODO: figure out how to make it white text for icon */}
               <span className="sr-only">Facebook</span>
               <FontAwesomeIcon icon={['fab', 'facebook']} />
             </a>

@@ -21,6 +21,26 @@ export default function Application() {
           <div className="grid lg:grid-cols-2 gap-4 lg:gap-8">
             <section>
               <ApplicationForm />
+              <h3 className="text-2xl font-extrabold tracking-tight text-gray-700 text-center mt-8">
+                <FontAwesomeIcon icon="edit" fixedWidth /> Other Ways to apply
+              </h3>
+              <p className="mt-8 text-lg">
+                Whilst we would prefer you to complete our online form, you can
+                also write to us using the address below.
+              </p>
+              <p className="mt-4 text-lg">
+                <strong>Gerry Richardson Trust</strong>
+                <br />
+                Northdene,
+                <br />
+                Stoney Lane,
+                <br />
+                Hambleton,
+                <br />
+                Poulton-Le-Fylde,
+                <br />
+                FY6 9AF
+              </p>
             </section>
             <section>
               <p className="mt-4 lg:mt-8 text-lg">
@@ -65,28 +85,6 @@ export default function Application() {
                   will contact you by email.
                 </li>
               </ul>
-            </section>
-            <section>
-              <h3 className="text-2xl font-extrabold tracking-tight text-gray-700 text-center mt-8">
-                <FontAwesomeIcon icon="edit" fixedWidth /> Other Ways to apply
-              </h3>
-              <p className="mt-8 text-lg">
-                Whilst we would prefer you to complete our online form, you can
-                also write to us using the address below.
-              </p>
-              <p className="mt-4 text-lg">
-                <strong>Gerry Richardson Trust</strong>
-                <br />
-                Northdene,
-                <br />
-                Stoney Lane,
-                <br />
-                Hambleton,
-                <br />
-                Poulton-Le-Fylde,
-                <br />
-                FY6 9AF
-              </p>
             </section>
           </div>
         </div>

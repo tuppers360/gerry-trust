@@ -87,16 +87,16 @@ export default function Navbar() {
             </div>
             <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
               {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-              <Link href="/stories">
+              {/* <Link href="/">
                 <a className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
-                  Stories
+                  Stories (Coming Soon)
                 </a>
               </Link>
               <Link href="/">
                 <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                  News
+                  News (Coming Soon)
                 </a>
-              </Link>
+              </Link> */}
               <Link href="/about">
                 <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   About
@@ -128,16 +128,16 @@ export default function Navbar() {
       <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-          <Link href="/stories">
+          {/* <Link href="/">
             <a className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
-              Stories
+              Stories (Coming Soon)
             </a>
           </Link>
           <Link href="/">
             <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              News
+              News (Coming Soon)
             </a>
-          </Link>
+          </Link> */}
           <Link href="/about">
             <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
               About

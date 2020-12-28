@@ -473,10 +473,10 @@ function ApplicationForm() {
           </section>
 
           <div className="sm:col-span-2"></div>
-          <div className="flex justify-start mt-4">
+          <div className="flex justify-end mt-4">
             <button
               type="submit"
-              className="ml-4 inline-flex items-center justify-center px-8 py-3 border border-transparent rounded-md shadow-sm text-base font-semibold text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
+              className="w-full md:w-auto ml-4 inline-flex items-center justify-center px-8 py-3 border border-transparent rounded-md shadow-sm text-base font-semibold text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
               disabled={status.submitting}
             >
               {!status.submitting ? (

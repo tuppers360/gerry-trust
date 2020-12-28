@@ -49,7 +49,7 @@ export default function Footer() {
               <h2 className="text-2xl font-semibold text-blue-400 uppercase tracking-wide">
                 Get in Touch
               </h2>
-              <p className="mt-4 text-lg font-extrabold text-blue-500">
+              <p className="mt-4 text-lg font-extrabold text-blue-500 tracking-wide">
                 Gerry Richardson Trust
               </p>
               <address className="mt-2 text-lg text-gray-300">

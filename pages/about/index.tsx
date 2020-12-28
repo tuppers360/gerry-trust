@@ -5,16 +5,13 @@ import { Trustee } from './../../components/Trustee';
 export default function About() {
   return (
     <Layout title="About | Gerry Richardson Trust">
+      <PageHeaderSection
+        title="About Us"
+        heading="Our History"
+      ></PageHeaderSection>
       <main>
-        <PageHeaderSection
-          title="About Us"
-          heading="Learn about why we do this"
-        />
-        <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
-          <section className="text-lg space-y-4">
-            <h1 className="max-w-4xl mx-auto text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900 text-4xl sm:text-6xl lg:text-7xl leading-snug font-extrabold tracking-tight mt-10 mb-8 sm:mt-4 sm:mb-10">
-              Our History
-            </h1>
+        <div className="max-w-6xl mx-auto py-4 px-4 sm:px-6 lg:px-8 ">
+          <section className="text-lg space-y-4 text-gray-600">
             <p>
               On the 23rd August 1971 Superintendent Gerald Richardson was shot
               dead while attempting to arrest robbers involved in a raid on a
@@ -66,10 +63,10 @@ export default function About() {
           <section className="bg-white">
             <div className="">
               <div className="text-center">
-                <h1 className="max-w-4xl mx-auto bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900 text-4xl sm:text-6xl lg:text-7xl leading-snug font-extrabold tracking-tight mt-10 mb-16 sm:mt-14 sm:mb-10">
-                  Meet our team ready to help young people accross the fylde
+                <h1 className="max-w-4xl mx-auto bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900 text-6xl lg:text-7xl leading-tight font-extrabold tracking-tight mt-10 mb-16 sm:mt-14 sm:mb-10">
+                  Meet our team
                 </h1>
-                <ul className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
+                <ul className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl py-4 lg:py-16">
                   <li>
                     <Trustee
                       image="/images/lee_wilson.jpg"

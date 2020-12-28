@@ -99,7 +99,7 @@ export default function Navbar() {
               </Link> */}
               <Link href="/about">
                 <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                  About
+                  About Us
                 </a>
               </Link>
               <Link href="/contact">
@@ -140,7 +140,7 @@ export default function Navbar() {
           </Link> */}
           <Link href="/about">
             <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              About
+              About Us
             </a>
           </Link>
           <Link href="/contact">

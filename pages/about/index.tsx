@@ -1,7 +1,6 @@
 import Layout from '../../components/Layout';
-import styles from './about.module.scss';
-import { SocialIcon } from '../../components/socialicon/socialIcon';
 import PageHeaderSection from '../../components/PageHeaderSection';
+import { Trustee } from './../../components/Trustee';
 
 export default function About() {
   return (
@@ -11,8 +10,11 @@ export default function About() {
           title="About Us"
           heading="Learn about why we do this"
         />
-        <div className={styles.content_section}>
-          <div className={styles.container}>
+        <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
+          <section className="text-lg space-y-4">
+            <h1 className="max-w-4xl mx-auto text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900 text-4xl sm:text-6xl lg:text-7xl leading-snug font-extrabold tracking-tight mt-10 mb-8 sm:mt-4 sm:mb-10">
+              Our History
+            </h1>
             <p>
               On the 23rd August 1971 Superintendent Gerald Richardson was shot
               dead while attempting to arrest robbers involved in a raid on a
@@ -59,189 +61,89 @@ export default function About() {
               would like to thank the Harrison Family of Ribby Hall Village,
               Wrea Green for the splendid facilities provided.
             </p>
-            <div className={styles.trustee_container}>
-              <h1>Meet the Trustees</h1>
-              <div className={styles.box}>
-                <div className={styles.imgBx}>
-                  <img src="/images/lee_wilson.jpg" alt="Lee Wilson" />
-                </div>
-                <ul className={styles.social_icon}>
-                  <SocialIcon
-                    url="https://twitter.com/Leew1341S"
-                    brand="twitter"
-                  />
+          </section>
+
+          <section className="bg-white">
+            <div className="">
+              <div className="text-center">
+                <h1 className="max-w-4xl mx-auto bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900 text-4xl sm:text-6xl lg:text-7xl leading-snug font-extrabold tracking-tight mt-10 mb-16 sm:mt-14 sm:mb-10">
+                  Meet our team ready to help young people accross the fylde
+                </h1>
+                <ul className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
+                  <li>
+                    <Trustee
+                      image="/images/lee_wilson.jpg"
+                      name="Lee Wilson"
+                      position="Chair"
+                    />
+                  </li>
+                  <li>
+                    <Trustee
+                      image="/images/chris_hardy.jpg"
+                      name="Chris Hardy"
+                      position="Trustee / Compere"
+                    />
+                  </li>
+                  <li>
+                    <Trustee
+                      image="/images/claire_goss.jpg"
+                      name="Claire van Deurs Goss"
+                      position="Trustee"
+                    />
+                  </li>
+                  <li>
+                    <Trustee
+                      image="/images/david_williamson.jpg"
+                      name="David Williamson"
+                      position="Treasurer / Trustee"
+                    />
+                  </li>
+                  <li>
+                    <Trustee
+                      image="/images/sample4.jpg"
+                      name="Gareth Tupman"
+                      position="Trustee"
+                    />
+                  </li>
+                  <li>
+                    <Trustee
+                      image="/images/sample2.jpg"
+                      name="Susannah Clarke"
+                      position="Trustee"
+                    />
+                  </li>
+                  <li>
+                    <Trustee
+                      image="/images/sample6.jpg"
+                      name="Jacqueline Longdon BEM"
+                      position="Trustee"
+                    />
+                  </li>
+                  <li>
+                    <Trustee
+                      image="/images/sample7.jpg"
+                      name="Sarah Longden"
+                      position="Trustee"
+                    />
+                  </li>
+                  <li>
+                    <Trustee
+                      image="/images/chris_pickard.jpg"
+                      name="Christine Pickard"
+                      position="Trustee"
+                    />
+                  </li>
+                  <li>
+                    <Trustee
+                      image="/images/john_pickard.jpg"
+                      name="John Pickard"
+                      position="Trustee"
+                    />
+                  </li>
                 </ul>
-                <div className={styles.details}>
-                  <h2>
-                    Lee Wilson
-                    <br />
-                    <span>Chair</span>
-                  </h2>
-                </div>
-              </div>
-              <div className={styles.box}>
-                <div className={styles.imgBx}>
-                  <img src="/images/chris_hardy.jpg" alt="Chris Hardy" />
-                </div>
-                <ul className={styles.social_icon}>
-                  <SocialIcon
-                    url="https://twitter.com/CI3951Hardy"
-                    brand="twitter"
-                  />
-                </ul>
-                <div className={styles.details}>
-                  <h2>
-                    Chris Hardy
-                    <br />
-                    <span>Trustee / Compere</span>
-                  </h2>
-                </div>
-              </div>
-              <div className={styles.box}>
-                <div className={styles.imgBx}>
-                  <img
-                    src="/images/claire_goss.jpg"
-                    alt="Claire van Deurs Goss"
-                  />
-                </div>
-                <ul className={styles.social_icon}>
-                  <SocialIcon
-                    url="https://twitter.com/claralou3819"
-                    brand="twitter"
-                  />
-                </ul>
-                <div className={styles.details}>
-                  <h2>
-                    Claire van Deurs Goss
-                    <br />
-                    <span>Trustee</span>
-                  </h2>
-                </div>
-              </div>
-              <div className={styles.box}>
-                <div className={styles.imgBx}>
-                  <img
-                    src="/images/david_williamson.jpg"
-                    alt="David Williamson"
-                  />
-                </div>
-                <div className={styles.details}>
-                  <h2>
-                    David Williamson
-                    <br />
-                    <span>Treasurer / Trustee</span>
-                  </h2>
-                </div>
-              </div>
-              <div className={styles.box}>
-                <div className={styles.imgBx}>
-                  <img src="/images/sample4.jpg" alt="Gareth Tupman" />
-                </div>
-                <ul className={styles.social_icon}>
-                  <SocialIcon
-                    url="www.twitter.com/tuppers360"
-                    brand="twitter"
-                  />
-                  <SocialIcon url="www.instagram.com/" brand="instagram" />
-                </ul>
-                <div className={styles.details}>
-                  <h2>
-                    Gareth Tupman
-                    <br />
-                    <span>Trustee</span>
-                  </h2>
-                </div>
-              </div>
-              <div className={styles.box}>
-                <div className={styles.imgBx}>
-                  <img src="/images/sample2.jpg" alt="Susannah Clarke" />
-                </div>
-                <ul className={styles.social_icon}>
-                  <SocialIcon url="www.twitter.com/" brand="twitter" />
-                </ul>
-                <div className={styles.details}>
-                  <h2>
-                    Susannah Clarke
-                    <br />
-                    <span>Trustee</span>
-                  </h2>
-                </div>
-              </div>
-              <div className={styles.box}>
-                <div className={styles.imgBx}>
-                  <img src="/images/sample6.jpg" alt="Jacqueline Longdon" />
-                </div>
-                <ul className={styles.social_icon}>
-                  <SocialIcon
-                    url="www.teitter.com/tuppers360"
-                    brand="twitter"
-                  />
-                </ul>
-                <div className={styles.details}>
-                  <h2>
-                    Jacqueline Longdon Bem
-                    <br />
-                    <span>Trustee</span>
-                  </h2>
-                </div>
-              </div>
-              <div className={styles.box}>
-                <div className={styles.imgBx}>
-                  <img src="/images/sample7.jpg" alt="Sarah Longden" />
-                </div>
-                <ul className={styles.social_icon}>
-                  <SocialIcon
-                    url="www.teitter.com/tuppers360"
-                    brand="twitter"
-                  />
-                </ul>
-                <div className={styles.details}>
-                  <h2>
-                    Sarah Longden
-                    <br />
-                    <span>Trustee</span>
-                  </h2>
-                </div>
-              </div>
-              <div className={styles.box}>
-                <div className={styles.imgBx}>
-                  <img
-                    src="/images/chris_pickard.jpg"
-                    alt="Christine Pickard"
-                  />
-                </div>
-                <ul className={styles.social_icon}>
-                  <SocialIcon url="www.facebook.com" brand="facebook" />
-                  <SocialIcon url="www.twitter.com/" brand="twitter" />
-                  <SocialIcon url="www.instagram.com" brand="instagram" />
-                </ul>
-                <div className={styles.details}>
-                  <h2>
-                    Christine Pickard
-                    <br />
-                    <span>Trustee</span>
-                  </h2>
-                </div>
-              </div>
-              <div className={styles.box}>
-                <div className={styles.imgBx}>
-                  <img src="/images/john_pickard.jpg" alt="John Pickard" />
-                </div>
-                <ul className={styles.social_icon}>
-                  <SocialIcon url="www.facebook.com" brand="facebook" />
-                  <SocialIcon url="www.twitter.com/" brand="twitter" />
-                  <SocialIcon url="www.instagram.com" brand="instagram" />
-                </ul>
-                <div className={styles.details}>
-                  <h2>
-                    John Pickard
-                    <br />
-                    <span>Trustee</span>
-                  </h2>
-                </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </main>
     </Layout>

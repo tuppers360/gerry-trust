@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FormErrorIcon from './FormErrorIcon';
-import CrossCircle from './svg-images/CrossCircle';
 import ExclamationTriangle from './svg-images/ExclamationTriangle';
 import CheckCircle from './svg-images/CheckCircle';
+import CrossCircle from './svg-images/CrossCircle';
 
 export interface IStatus {
   submitted?: boolean;
@@ -441,7 +441,7 @@ function ApplicationForm() {
                     >
                       Application
                     </label>
-                    <div className="mt-1 relative -mt-4">
+                    <div className="relative -mt-4">
                       <textarea
                         aria-label="Enter your message"
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${

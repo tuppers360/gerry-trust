@@ -15,6 +15,7 @@ export interface IStatus {
   };
 }
 
+//TODO - set default value of empty string??
 type FormInputs = {
   firstName: string;
   lastName: string;

@@ -7,12 +7,9 @@ export default function LandingSection() {
       <main className="lg:relative">
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
-            <h2 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 text-5xl font-extrabold sm:text-6xl leading-tight md:leading-snug">
-              Gerry Richardson
-            </h2>
-            <h2 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900 text-5xl font-extrabold sm:text-6xl leading-tight md:leading-snug">
-              Trust
-            </h2>
+            <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 text-6xl font-extrabold sm:text-7xl leading-tight md:leading-tight">
+              Gerry Richardson Trust
+            </h1>
             <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
               Supporting young people of Blackpool, Fylde & Wyre for over 50
               years

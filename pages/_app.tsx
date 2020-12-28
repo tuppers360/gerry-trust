@@ -1,5 +1,4 @@
 import type { AppProps /*, AppContext */ } from 'next/app';
-import '../styles/globals.scss';
 import '../styles/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { library } from '@fortawesome/fontawesome-svg-core';

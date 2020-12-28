@@ -8,7 +8,10 @@ export default async function (req, res) {
     lastName,
     dateOfBirth,
     email,
-    address,
+    addressLine1,
+    addressLine2,
+    town,
+    county,
     postCode,
     application,
   } = req.body;
@@ -20,17 +23,20 @@ export default async function (req, res) {
     text: firstName,
     lastName,
     dateOfBirth,
-    address,
+    addressLine1,
+    addressLine2,
+    town,
+    county,
     postCode,
     application,
     html: `
     <p>${firstName}</p><p>${lastName}</p><p>${dateOfBirth}</p>
-    <p>${address}</p><p>${postCode}</p><p>${application}</p>`,
+    <p>${addressLine1}</p><p>${addressLine2}</p><p>${town}</p><p>${county}</p><p>${postCode}</p><p>${application}</p>`,
   };
 
   try {
     await sgMail.send(content);
-    res.status(200).send('Message sent successfully.');
+    res.status(200).send('Your application was sent successfully.');
   } catch (error) {
     console.log('ERROR', error);
     res.status(400).send('Message not sent.');

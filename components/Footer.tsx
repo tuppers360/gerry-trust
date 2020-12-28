@@ -49,7 +49,7 @@ export default function Footer() {
               <h2 className="text-2xl font-semibold text-blue-400 uppercase tracking-wide">
                 Get in Touch
               </h2>
-              <p className="mt-4 text-lg font-extrabold text-blue-500">
+              <p className="mt-4 text-lg font-extrabold text-blue-500 tracking-wide">
                 Gerry Richardson Trust
               </p>
               <address className="mt-2 text-lg text-gray-300">
@@ -102,7 +102,7 @@ export default function Footer() {
               href="https://www.facebook.com/groups/649311542556032/"
               className="text-gray-400 hover:text-facebook text-xl"
             >
-              //TODO: figure out how to make it white text for icon
+              {/* //TODO: figure out how to make it white text for icon */}
               <span className="sr-only">Facebook</span>
               <FontAwesomeIcon icon={['fab', 'facebook']} />
             </a>

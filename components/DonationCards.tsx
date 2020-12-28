@@ -8,7 +8,7 @@ export default function DonationCards() {
       </div>
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center">
-          <h2 className="text-5xl tracking-tight font-extrabold text-gray-800 sm:text-6xl">
+          <h2 className="text-5xl tracking-tight font-extrabold sm:text-6xl">
             Whats going on
           </h2>
           <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
@@ -71,7 +71,7 @@ export default function DonationCards() {
             </div>
           </div>
 
-          <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+          {/* <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
             <div className="flex-shrink-0">
               <img
                 className="h-48 w-full object-cover"
@@ -175,8 +175,8 @@ export default function DonationCards() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </div> 
+          </div>*/}
         </div>
       </div>
     </div>

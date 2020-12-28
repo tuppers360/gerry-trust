@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
-export default function Navbar2() {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="bg-gray-800">
@@ -92,7 +92,7 @@ export default function Navbar2() {
                   Stories
                 </a>
               </Link>
-              <Link href="#">
+              <Link href="/">
                 <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   News
                 </a>
@@ -133,7 +133,7 @@ export default function Navbar2() {
               Stories
             </a>
           </Link>
-          <Link href="#">
+          <Link href="/">
             <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
               News
             </a>
@@ -143,7 +143,7 @@ export default function Navbar2() {
               About
             </a>
           </Link>
-          <Link href="contact">
+          <Link href="/contact">
             <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
               Contact Us
             </a>

@@ -1,7 +1,6 @@
 import { NextPage } from 'next';
 import Layout from '../../components/Layout';
-
-import ElementsForm from '../../components/elementsform';
+import ElementsForm from './../../components/ElementsForm';
 
 const DonatePage: NextPage = () => {
   return (

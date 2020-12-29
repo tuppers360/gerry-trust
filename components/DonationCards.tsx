@@ -21,7 +21,7 @@ export default function DonationCards() {
             <div className="flex-shrink-0">
               <img
                 className="h-48 w-full object-cover"
-                src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
+                src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
                 alt=""
               />
             </div>
@@ -56,11 +56,7 @@ export default function DonationCards() {
                   </a>
                 </div>
                 <div className="ml-3">
-                  <p className="text-sm font-medium text-gray-800">
-                    <a href="#" className="hover:underline">
-                      Gareth
-                    </a>
-                  </p>
+                  <p className="text-sm font-medium text-gray-800">Gareth</p>
                   <div className="flex space-x-1 text-sm text-gray-500">
                     <time dateTime="2020-03-16">Mar 16, 2020</time>
                     {/* <span aria-hidden="true">&middot;</span>

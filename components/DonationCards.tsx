@@ -8,10 +8,10 @@ export default function DonationCards() {
       </div>
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center">
-          <h2 className="text-3xl tracking-tight font-extrabold py-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-blue-500 sm:text-6xl">
+          <h2 className="text-3xl tracking-tight font-extrabold py-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 sm:text-6xl">
             Whats going on
           </h2>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4 leading-relaxed">
             Our latest news and whats we are doing with the local comunity of
             Blackpoool, Fylde & Wyre
           </p>

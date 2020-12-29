@@ -14,10 +14,10 @@ function Contact() {
         >
           <p>Below you will find a few ways to contact us</p>
         </PageHeaderSection>
-        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-6xl lg:px-8 m-12">
+        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-6xl lg:px-8 m-4">
           <div className="grid lg:grid-cols-2 gap-8">
             <section>
-              <h3 className="text-2xl font-extrabold tracking-tight text-gray-700 text-center">
+              <h3 className="text-2xl font-extrabold tracking-tight text-gray-600 text-center">
                 <span className="mr-2">
                   <FontAwesomeIcon icon="envelope" fixedWidth />
                 </span>
@@ -73,7 +73,7 @@ function Contact() {
             <section className="bg-white">
               <div className="max-w-xl mx-auto">
                 <div className="text-center">
-                  <h2 className="text-2xl font-extrabold tracking-tight text-gray-700">
+                  <h2 className="text-2xl font-extrabold tracking-tight text-gray-600">
                     <span className="mr-2">
                       <FontAwesomeIcon icon="edit" />
                     </span>

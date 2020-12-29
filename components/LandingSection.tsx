@@ -15,9 +15,9 @@ export default function LandingSection() {
               years
             </p>
             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
-              <div className="rounded-md shadow">
+              <div className="">
                 <Link href="/contact">
-                  <a className="w-full flex items-center justify-center px-8 py-3 mr-1 mb-1 border border-transparent text-base font-semibold rounded-md text-white bg-blue-900 hover:bg-blue-800 md:py-4 md:text-lg md:px-10">
+                  <a className="w-full transition-colors duration-300 ease-in-out px-8 py-4 mr-1 mb-1 rounded-md text-lg font-semibold flex justify-center items-center cursor-pointer bg-blue-800 hover:bg-gray-100 hover:text-blue-800 focus:outline-none border-2 border-solid border-blue-800 text-gray-100">
                     <FontAwesomeIcon
                       className="mr-1"
                       icon="envelope"
@@ -27,9 +27,9 @@ export default function LandingSection() {
                   </a>
                 </Link>
               </div>
-              <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+              <div className="mt-3 sm:mt-0 sm:ml-3">
                 <Link href="/application">
-                  <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-semibold rounded-md text-blue-900 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10">
+                  <a className="w-full transition-colors duration-300 ease-in-out px-8 py-4 mr-1 mb-1 rounded-md text-lg font-semibold flex justify-center items-center cursor-pointer bg-blue-800 hover:bg-gray-100 hover:text-blue-800 focus:outline-none border-2 border-solid border-blue-800 text-gray-100">
                     <FontAwesomeIcon className="mr-1" icon="edit" fixedWidth />
                     Apply for a grant
                   </a>

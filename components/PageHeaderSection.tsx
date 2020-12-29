@@ -17,7 +17,7 @@ const PageHeaderSection: FunctionComponent<HeaderProps> = ({
         <p className="text-gray-600 text-xl font-extrabold uppercase">
           {title}
         </p>
-        <h1 className="mt-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900 text-6xl lg:text-7xl font-extrabold leading-tight">
+        <h1 className="mt-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900 text-6xl lg:text-7xl font-extrabold py-4">
           {heading}
         </h1>
         <div className="mt-6 text-xl font-bold">{children}</div>

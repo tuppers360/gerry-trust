@@ -8,17 +8,38 @@ export default function index() {
       <PageHeaderSection
         title="Legal"
         heading="Gerry Richardson Trust Privacy Notice"
-      />
+      >
+        Effective 01 January 2021
+      </PageHeaderSection>
       <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-6xl lg:px-8 m-4 space-y-4">
         <h3 className="font-semibold text-2xl">Introduction</h3>
         <p>
-          Our Company is part of the Our Company Group which includes Our
-          Company International and Our Company Direct. This privacy policy will
-          explain how our organization uses the personal data we collect from
-          you when you use our website.
+          The Gerry Richardson Trust (“we” or “us” or “our”) respects the
+          privacy of our users (“user” or “you”). This Privacy Policy explains
+          how we collect, use, disclose, and safeguard your information when you
+          visit our website www.gerryrichardsontrust.org, including any other
+          media form, media channel, mobile website, or mobile application
+          related or connected thereto (collectively, the “Site”). Please read
+          this privacy policy carefully. If you do not agree with the terms of
+          this privacy policy, please do not access the site.
+        </p>
+        <p>
+          We reserve the right to make changes to this Privacy Policy at any
+          time and for any reason. We will alert you about any changes by
+          updating the “Last Updated” date of this Privacy Policy. Any changes
+          or modifications will be effective immediately upon posting the
+          updated Privacy Policy on the Site, and you waive the right to receive
+          specific notice of each such change or modification.
+        </p>
+        <p>
+          You are encouraged to periodically review this Privacy Policy to stay
+          informed of updates. You will be deemed to have been made aware of,
+          will be subject to, and will be deemed to have accepted the changes in
+          any revised Privacy Policy by your continued use of the Site after the
+          date such revised Privacy Policy is posted.
         </p>
         <p>Topics:</p>
-        <ul>
+        <ul className="list-disc px-6 space-y-2">
           <li>What data do we collect?</li>
           <li>How do we collect your data?</li>
           <li>How will we use your data?</li>
@@ -35,24 +56,52 @@ export default function index() {
           <li>How to contact the appropriate authorities</li>
         </ul>
         <h3 className="font-semibold text-2xl">What data do we collect?</h3>
-        <p>Our Company collects the following data:</p>
-        <ul>
+        <p>We may collect the following data:</p>
+        <ul className="list-disc px-6 space-y-2">
           <li>
-            Personal identification information (Name, email address, phone
-            number, etc.)
+            Personally identifiable information, such as your name, email
+            address, and telephone number, and demographic information, such as
+            your age, gender, hometown, and interests, that you voluntarily give
+            to us when you contact us, make an application for a grant or make a
+            donation with the Site. You are under no obligation to provide us
+            with personal information of any kind, however your refusal to do so
+            may prevent you from using certain features of the Site.
           </li>
-          <li>[Add any other data your company collects]</li>
+          <li>
+            Derivative Data Information our servers automatically collect when
+            you access the Site, such as your IP address, your browser type,
+            your operating system, your access times, and the pages you have
+            viewed directly before and after accessing the Site. If you are
+            using our mobile site, this information may also include your device
+            name and type, your operating system, your phone number, your
+            country, and other interactions with the application via server log
+            files, as well as any other information you choose to provide.
+          </li>
+          <li>
+            Financial information, such as data related to your payment method
+            (e.g. valid credit card number, card brand, expiration date) that we
+            may collect when you donate. We store only very limited, if any,
+            financial information that we collect. Otherwise, all financial
+            information is stored by our payment processor, Stripe, and you are
+            encouraged to review their privacy policy and contact them directly
+            for responses to your questions.
+          </li>
+          <li>
+            Mobile Device information, such as your mobile device ID, model, and
+            manufacturer, and information about the location of your device, if
+            you access the Site from a mobile device.
+          </li>
         </ul>
         <h3 className="font-semibold text-2xl">How do we collect your data?</h3>
         <p>
-          You directly provide Our Company with most of the data we collect. We
-          collect data and process data when you:
+          You directly provide us with most of the data we collect. We collect
+          data and process data when you:
         </p>
-        <ul>
+        <ul className="list-disc px-6 space-y-2">
           <li>Make a donation online.</li>
           <li>
-            Complete the contact us form supplying your details for us to
-            contact you.
+            Complete the contact us form supplying your details for us to make
+            contact with you.
           </li>
           <li>
             Complete the application form supplying your details for us to
@@ -64,12 +113,15 @@ export default function index() {
           Our Company may also receive your data indirectly from the following
           sources:
         </p>
-        <ul>
-          <li>[Add any indirect source of data your company has]</li>
+        <ul className="list-disc px-6 space-y-2">
+          <li>
+            Third party websites such we use to run and maintain our site such
+            as payment processing and email communication.
+          </li>
         </ul>
         <h3 className="font-semibold text-2xl">How will we use your data?</h3>
         <p>Our Company collects your data so that we can:</p>
-        <ul>
+        <ul className="list-disc px-6 space-y-2">
           <li>Process your order and manage your account.</li>
           <li>
             Email you with special offers on other products and services we
@@ -81,7 +133,7 @@ export default function index() {
           If you agree, Our Company will share your data with our partner
           companies so that they may offer you their products and services.
         </p>
-        <ul>
+        <ul className="list-disc px-6 space-y-2">
           <li>[List organizations that will receive data]</li>
         </ul>
         <p>
@@ -91,8 +143,15 @@ export default function index() {
         </p>
         <h3 className="font-semibold text-2xl">How do we store your data?</h3>
         <p>
-          Our Company securely stores your data at [enter the location and
-          describe security precautions taken].
+          We use administrative, technical, and physical security measures to
+          help protect your personal information. While we have taken reasonable
+          steps to secure the personal information you provide to us, please be
+          aware that despite our efforts, no security measures are perfect or
+          impenetrable, and no method of data transmission can be guaranteed
+          against any interception or other type of misuse. Any information
+          disclosed online is vulnerable to interception and misuse by
+          unauthorised parties. Therefore, we cannot guarantee complete security
+          if you provide personal information.
         </p>
         <p>
           Our Company will keep your [enter type of data] for [enter time
@@ -105,7 +164,7 @@ export default function index() {
           services of ours that we think you might like, as well as those of our
           partner companies.
         </p>
-        <ul>
+        <ul className="list-disc px-6 space-y-2">
           <li>[List organizations that will receive data]</li>
         </ul>
         <p>
@@ -164,8 +223,11 @@ export default function index() {
           would like to exercise any of these rights, please contact us at our
           email:
         </p>
-        <p>Call us at:</p>
-        <p>Or write to us:</p>
+        <p>Call us at: (01253) 590510</p>
+        <p>
+          Or write to us: Gerry Richardson Trust Northdene, Stoney Lane,
+          Hambleton, Poulton-Le-Fylde, FY6 9AF
+        </p>
         <h3 className="font-semibold text-2xl">Cookies</h3>
         <p>
           Cookies are text files placed on your computer to collect standard
@@ -179,7 +241,7 @@ export default function index() {
           Our Company uses cookies in a range of ways to improve your experience
           on our website, including:
         </p>
-        <ul>
+        <ul className="list-disc px-6 space-y-2">
           <li>Keeping you signed in</li>
           <li>Understanding how you use our website</li>
           <li>[Add any uses your company has for cookies]</li>
@@ -191,7 +253,7 @@ export default function index() {
           There are a number of different types of cookies, however, our website
           uses:
         </p>
-        <ul>
+        <ul className="list-disc px-6 space-y-2">
           <li>
             Functionality – Our Company uses these cookies so that we recognize
             you on our website and remember your previously selected
@@ -229,9 +291,9 @@ export default function index() {
           Changes to our privacy policy
         </h3>
         <p>
-          Our Company keeps its privacy policy under regular review and places
-          any updates on this web page. This privacy policy was last updated on
-          9 January 2019.
+          We keep our privacy policy under regular review and place any updates
+          on this web page. This privacy policy was last updated on 1 January
+          2021.
         </p>
         <h3 className="font-semibold text-2xl">How to contact us</h3>
         <p>
@@ -239,19 +301,28 @@ export default function index() {
           we hold on you, or you would like to exercise one of your data
           protection rights, please do not hesitate to contact us.
         </p>
-        <p>Email us at:</p>
-        <p>Call us:</p>
-        <p>Or write to us at:</p>
+        <p>Email us at: cotactus@gerryrichardsontrust.org</p>
+        <p>Call us: (01253) 590510</p>
+        <p>
+          Or write to us at: Gerry Richardson Trust Northdene, Stoney Lane,
+          Hambleton, Poulton-Le-Fylde, FY6 9AF
+        </p>
         <h3 className="font-semibold text-2xl">
           How to contact the appropriate authority
         </h3>
         <p>
-          Should you wish to report a complaint or if you feel that Our Company
-          has not addressed your concern in a satisfactory manner, you may
-          contact the Information Commissioner’s Office.
+          Should you wish to report a complaint or if you feel that we have not
+          addressed your concern in a satisfactory manner, you may contact the
+          Charity Commissioner’s Office.
         </p>
-        <p>Email: contactus@gerryrichardsontrust.org</p>
-        <p>Address</p>
+        <p>Tel: 0300 066 9197</p>
+        <p>
+          Website:&nbsp;
+          <a href="https://www.gov.uk/complain-about-charity">
+            Charity Commision
+          </a>
+        </p>
+        <p>Address: Charity Commission PO Box 211 Bootle L20 7YX</p>
       </div>
     </Layout>
   );

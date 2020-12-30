@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import FormErrorIcon from './FormErrorIcon';
 import ToggleButton from './ToggleButton'; //Commented out until Privacy and Cookies Policy written
+import CrossCircle from './svg-images/CrossCircle';
 
 export interface IStatus {
   submitted?: boolean;
@@ -67,27 +68,18 @@ export default function ContactFormTest() {
         {Object.keys(errors).length > 0 && (
           <div className="rounded-md bg-red-100 border-l-4 border-red-400 p-4">
             <div className="flex">
-              <div className="flex-shrink-0">
-                <svg
-                  className="h-5 w-5 text-red-400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+              <div className="flex-shrink-0 mt-1">
+                <CrossCircle styles="h-5 w-5 text-red-500" />
               </div>
               <div className="ml-3">
-                <h3 className="text-sm font-medium text-red-800">
-                  Holy guacamole!
+                <h3 className="text-lg font-semibold text-red-800">
+                  Sorry, there was a problem with the form
                 </h3>
                 <div className="mt-2 text-sm text-red-700">
-                  <p>You should check in on some of those fields below.</p>
+                  <p>
+                    Please see the form fields below for more information on how
+                    to solve the issues.
+                  </p>
                 </div>
               </div>
             </div>
@@ -112,10 +104,10 @@ export default function ContactFormTest() {
                 </svg>
               </div>
               <div className="ml-3">
-                <h3 className="text-sm font-medium text-yellow-800">
+                <h3 className="text font-semibold text-yellow-800">
                   There was a problem sending your message
                 </h3>
-                <div className="mt-2 text-sm text-yellow-700">
+                <div className="mt-2 text-lg text-yellow-700">
                   <p>{status.info.msg}</p>
                   <p className="mt-2">
                     Please try again, if the problem persists please try another
@@ -145,10 +137,10 @@ export default function ContactFormTest() {
                 </svg>
               </div>
               <div className="ml-3">
-                <h3 className="text-sm font-medium text-green-800">
+                <h3 className="text-lg font-semibold text-green-800">
                   Your message has been sent
                 </h3>
-                <div className="mt-2 text-sm text-green-700">
+                <div className="mt-2 text text-green-700">
                   <p>Please allow us a short while to respond.</p>
                 </div>
               </div>

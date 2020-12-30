@@ -122,10 +122,10 @@ export default function index() {
               </li>
               <li>
                 <a
-                  href="#how-to-contact-the-appropriate-authorities"
+                  href="#how-to-contact-the-appropriate-authority"
                   className="text-blue-600 hover:text-blue-800 hover:underline"
                 >
-                  How to contact the appropriate authorities
+                  How to contact the appropriate authority
                 </a>
               </li>
             </ul>

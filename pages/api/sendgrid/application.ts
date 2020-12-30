@@ -76,7 +76,7 @@ export default async function (req, res) {
   try {
     await sgMail.send(content);
     await sgMail.send(msgClient);
-    res.status(200).send('Your application was sent successfully.');
+    res.status(200).send('Your grant application was sent successfully.');
   } catch (error) {
     console.log('ERROR', error);
     res.status(400).send('Message not sent.');

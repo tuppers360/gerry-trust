@@ -8,7 +8,7 @@ export default function Footer() {
       <h2 id="footerHeading" className="sr-only">
         Footer
       </h2>
-      <div className="py-12">
+      <div className="py-12 mt-24">
         <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="sr-only">Navigation - Footer</h2>
           <div className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
@@ -30,11 +30,6 @@ export default function Footer() {
                 <li className="mt-2">
                   <Link href="/about">
                     <a className="hover:text-gray-100">About Us</a>
-                  </Link>
-                </li>
-                <li className="mt-2">
-                  <Link href="/stories">
-                    <a className="hover:text-gray-100">Terms</a>
                   </Link>
                 </li>
                 <li className="mt-2">

@@ -76,15 +76,18 @@ function ApplicationForm() {
         {Object.keys(errors).length > 0 && (
           <div className="rounded-md bg-red-100 border-l-4 border-red-400 p-4">
             <div className="flex">
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 mt-1">
                 <CrossCircle styles="h-5 w-5 text-red-500" />
               </div>
               <div className="ml-3">
-                <h3 className="text-sm font-medium text-red-800">
-                  Holy guacamole!
+                <h3 className="text-lg font-medium text-red-800">
+                  Sorry, there was a problem with the form
                 </h3>
                 <div className="mt-2 text-sm text-red-700">
-                  <p>You should check in on some of those fields below.</p>
+                  <p>
+                    Please see the form fields below for more information on how
+                    to solve the issues.
+                  </p>
                 </div>
               </div>
             </div>
@@ -97,7 +100,7 @@ function ApplicationForm() {
                 <ExclamationTriangle styles="h-5 w-5 text-yellow-400" />
               </div>
               <div className="ml-3">
-                <h3 className="text-sm font-medium text-yellow-800">
+                <h3 className="text-lg font-medium text-yellow-800">
                   There was a problem sending your message
                 </h3>
                 <div className="mt-2 text-sm text-yellow-700">
@@ -114,13 +117,22 @@ function ApplicationForm() {
         {!status.info.error && status.info.msg && (
           <div className="rounded-md bg-green-100 border-l-4 border border-green-400 p-4">
             <div className="flex">
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 mt-1">
                 <CheckCircle styles="h-5 w-5 text-green-400" />
               </div>
               <div className="ml-3">
-                <h3 className="text-sm font-medium text-green-800">Eureka!</h3>
-                <div className="mt-2 text-sm text-green-700">
-                  <p>{status.info.msg}</p>
+                <h3 className="text-lg font-semibold text-green-800">
+                  {status.info.msg}
+                </h3>
+                <div className="mt-2 space-y-2 text-green-700">
+                  <p>
+                    We have received your application and will consider it at
+                    our next meeting.
+                  </p>
+                  <p>
+                    We will contact you by email to let you know if you are
+                    successful or not.
+                  </p>
                 </div>
               </div>
             </div>

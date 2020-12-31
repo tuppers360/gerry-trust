@@ -12,10 +12,10 @@ export default function Index({ allPosts }) {
   const morePosts = allPosts.slice(1);
   return (
     <>
-      <Layout>
-        <Head>
-          <title>GRT - Stories</title>
-        </Head>
+      <Layout
+        title="The Gerry Richardson Trust"
+        url="gerryrichardsontrust.org/stories"
+      >
         <Container>
           <Intro />
           {heroPost && (

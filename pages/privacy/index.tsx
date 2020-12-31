@@ -4,7 +4,11 @@ import PageHeaderSection from '../../components/PageHeaderSection';
 
 export default function index() {
   return (
-    <Layout title="Privacy Notice">
+    <Layout
+      title="Privacy Notice - The Gerry Richardson Trust"
+      description="You can find our privacy policy here that covers: Privacy &amp; Cookies."
+      url="gerryrichardsontrust.org/privacy"
+    >
       <PageHeaderSection
         title="Legal"
         heading="Gerry Richardson Trust Privacy Notice"

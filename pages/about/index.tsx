@@ -4,7 +4,10 @@ import { Trustee } from './../../components/Trustee';
 
 export default function About() {
   return (
-    <Layout title="About | Gerry Richardson Trust">
+    <Layout
+      title="About Us - The Gerry Richardson Trust"
+      url="gerryrichardsontrust.org/about"
+    >
       <PageHeaderSection
         title="About Us"
         heading="Our History"

@@ -3,11 +3,12 @@ import DonationForm from '../../components/DonationForm';
 import PageHeaderSection from '../../components/PageHeaderSection';
 import Layout from '../../components/Layout';
 
-//import CheckoutForm from '../components/CheckoutForm'
-
 const DonatePage: NextPage = () => {
   return (
-    <Layout title="Gerry Richardson Trust | Make a Donation">
+    <Layout
+      title="Make a Donation - The Gerry Richardson Trust"
+      url="gerryrichardsontrust.org/donate"
+    >
       <main>
         <PageHeaderSection heading="Make a Donation" center>
           <p>

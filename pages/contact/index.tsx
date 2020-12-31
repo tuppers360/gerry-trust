@@ -6,7 +6,10 @@ import ContactForm from '../../components/ContactForm';
 
 function Contact() {
   return (
-    <Layout title="Contact Us">
+    <Layout
+      title="Contact Us - The Gerry Richardson Trust"
+      url="gerryrichardsontrust.org/contact"
+    >
       <main>
         <PageHeaderSection
           title="Contact Us"

@@ -22,7 +22,10 @@ const ResultPage: NextPage = () => {
   if (error) return <div>failed to load</div>;
 
   return (
-    <Layout title="Gerry Richardson Trust | Donation Made">
+    <Layout
+      title="Donation Made - The Gerry Richardson Trust"
+      url="gerryrichardsontrust.org/result"
+    >
       <PageHeaderSection
         title="Congratulations"
         heading="Your Donation has been authorised"

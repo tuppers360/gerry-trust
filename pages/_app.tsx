@@ -1,3 +1,5 @@
+import { DefaultSeo } from 'next-seo';
+import SEO from './../next-seo.config';
 import type { AppProps /*, AppContext */ } from 'next/app';
 import '../styles/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -38,7 +40,12 @@ library.add(
 );
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <DefaultSeo {...SEO} />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;

@@ -6,7 +6,7 @@ import DonationCards from '../components/DonationCards';
 
 const IndexPage: NextPage = () => {
   return (
-    <Layout title="Home | Gerry Richardson Trust">
+    <Layout title="The Gerry Richardson Trust" url="gerryrichardsontrust.org/">
       <LandingSection />
       <HeroSection />
       <DonationCards />

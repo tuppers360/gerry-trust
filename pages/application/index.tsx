@@ -6,7 +6,12 @@ import ApplicationForm from '../../components/ApplicationForm';
 
 export default function Application() {
   return (
-    <Layout title="Application | Gerry Richardson Trust">
+    <Layout
+      title="Make an Applcation - The Gerry Richardson Trust"
+      description="Apply for a grant from The Gerry Richardson Trust"
+      url="gerryrichardsontrust.org/application"
+    >
+      {' '}
       <main>
         <PageHeaderSection
           title="Application Form"

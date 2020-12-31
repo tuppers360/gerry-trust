@@ -20,5 +20,10 @@ const SEO = {
       },
     ],
   },
+  twitter: {
+    handle: '@gerrytrust',
+    site: 'https://twitter.com/gerrytrust',
+    cardType: 'summary_large_image',
+  },
 };
 export default SEO;

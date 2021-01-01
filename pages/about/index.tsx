@@ -114,14 +114,14 @@ export default function About() {
                   </li>
                   <li>
                     <Trustee
-                      image="/images/sample6.jpg"
-                      name="Jacqueline Longdon BEM"
+                      image="/images/jacqueline_longden.jpg"
+                      name="Jacqueline Longden BEM"
                       position="Trustee"
                     />
                   </li>
                   <li>
                     <Trustee
-                      image="/images/sample7.jpg"
+                      image="/images/sarah_longden.jpg"
                       name="Sarah Longden"
                       position="Trustee"
                     />

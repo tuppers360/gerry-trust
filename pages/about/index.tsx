@@ -143,7 +143,7 @@ export default function About() {
                   <li>
                     <Trustee
                       image="/images/andy_mitchell.jpg"
-                      name="Andy Mitchell"
+                      name="Andy Mitchell BEM"
                       position="Trustee"
                     />
                   </li>

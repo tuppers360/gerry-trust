@@ -147,6 +147,13 @@ export default function About() {
                       position="Trustee"
                     />
                   </li>
+                  <li>
+                    <Trustee
+                      image="/images/angela_butcher.jpg"
+                      name="Angela Butcher"
+                      position="Trustee"
+                    />
+                  </li>
                 </ul>
               </div>
             </div>

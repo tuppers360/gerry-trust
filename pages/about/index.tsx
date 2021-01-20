@@ -107,7 +107,7 @@ export default function About() {
                   </li>
                   <li>
                     <Trustee
-                      image="/images/sample2.jpg"
+                      image="/images/sue_clarke.jpg"
                       name="Susannah Clarke"
                       position="Trustee"
                     />

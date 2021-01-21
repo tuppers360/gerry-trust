@@ -1,9 +1,9 @@
+import { CURRENCY, MAX_AMOUNT, MIN_AMOUNT } from '../../../config';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { CURRENCY, MIN_AMOUNT, MAX_AMOUNT } from '../../../config';
+import Stripe from 'stripe';
 import { formatAmountForStripe } from '../../../utils/stripe-helpers';
 
-import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   // https://github.com/stripe/stripe-node#configuration
   apiVersion: '2020-08-27',
@@ -17,8 +17,6 @@ export default async function handler(
     const amount: number = req.body.amount;
     const giftAid: string = req.body.giftAid;
 
-    console.log('GiftAid', giftAid);
-    
     try {
       // Validate the amount that was passed from the client.
       if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) {
@@ -37,7 +35,7 @@ export default async function handler(
             quantity: 1,
           },
         ],
-        payment_intent_data: {metadata: {'gift_aid': giftAid}},
+        payment_intent_data: { metadata: { gift_aid: giftAid } },
         success_url: `${req.headers.origin}/result?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${req.headers.origin}/donate`,
       };

@@ -1,6 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Footer() {
   return (
@@ -55,7 +55,7 @@ export default function Footer() {
                 <br /> FY6 9AF
               </address>
               <p className="mt-4 text-lg text-gray-300">
-                <FontAwesomeIcon icon="phone" /> (01253) 590510
+                <FontAwesomeIcon icon="phone" /> (01253) 700879
               </p>
               <Link href="/contact">
                 <a className="inline-flex items-center mt-5 justify-center px-4 py-3 mb-1 border border-transparent text-base font-semibold rounded-md text-white bg-blue-900 hover:bg-blue-800 md:py-4 md:px-6">

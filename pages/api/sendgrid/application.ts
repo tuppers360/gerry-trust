@@ -49,7 +49,7 @@ export default async function (req, res) {
       Hambleton,\r\n
       Poulton-Le-Fylde,\r\n
       FY6 9AF\r\n
-      Tel: 01253 590510\r\n
+      Tel: 01253 700879\r\n
       Email: contactus@gerryrichardsontrust.org`, // plain text body
     html: `<p>Hi ${firstName}</p>
       <strong>Thank you for your application!</strong>
@@ -67,7 +67,7 @@ export default async function (req, res) {
       Poulton-Le-Fylde,<br>
       FY6 9AF
       </address>
-      <p><strong>Tel:</strong> 01253 590510</p>
+      <p><strong>Tel:</strong> 01253 700879</p>
       <p><strong>Email:</strong> contactus@gerryrichardsontrust.org</p>`, // html body
   };
 

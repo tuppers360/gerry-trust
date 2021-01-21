@@ -1,6 +1,6 @@
-import React from 'react';
 import Layout from '../../components/Layout';
 import PageHeaderSection from '../../components/PageHeaderSection';
+import React from 'react';
 
 export default function index() {
   return (
@@ -343,7 +343,7 @@ export default function index() {
               <span className="font-semibold text-gray-800">
                 Call us:&nbsp;
               </span>
-              (01253) 590510
+              (01253) 700879
             </p>
             <p>
               <span className="font-semibold text-gray-800">
@@ -455,7 +455,7 @@ export default function index() {
               <span className="font-semibold text-gray-800">
                 Call us:&nbsp;
               </span>
-              (01253) 590510
+              (01253) 700879
             </p>
             <p>
               <span className="font-semibold text-gray-800">

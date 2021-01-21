@@ -1,8 +1,8 @@
-import React from 'react';
-import PageHeaderSection from '../../components/PageHeaderSection';
-import Layout from '../../components/Layout';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ContactForm from '../../components/ContactForm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Layout from '../../components/Layout';
+import PageHeaderSection from '../../components/PageHeaderSection';
+import React from 'react';
 
 function Contact() {
   return (
@@ -34,7 +34,7 @@ function Contact() {
                 <li className="mt-4">
                   Call us -
                   <span className="text-gray-800 font-semibold ml-1">
-                    (01253) 590510
+                    (01253) 700879
                   </span>
                 </li>
                 <li className="mt-4">

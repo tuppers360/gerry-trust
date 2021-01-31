@@ -11,10 +11,7 @@ const DonatePage: NextPage = () => {
   );
 
   return (
-    <Container
-      title="Make a Donation - The Gerry Richardson Trust"
-      url="gerryrichardsontrust.org/donate"
-    >
+    <Container title="Make a Donation - The Gerry Richardson Trust">
       <main>
         <PageHeaderSection heading="Make a Donation" center>
           <p>
@@ -24,9 +21,11 @@ const DonatePage: NextPage = () => {
         </PageHeaderSection>
       </main>
       <div className="max-w-xl mx-auto m-16 px-4">
-        <Elements stripe={stripePromise}>
-          <DonationForm />
-        </Elements>
+        {stripePromise && (
+          <Elements stripe={stripePromise}>
+            <DonationForm />
+          </Elements>
+        )}
       </div>
     </Container>
   );

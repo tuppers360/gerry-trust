@@ -1,15 +1,12 @@
-import ContactForm from '../../components/ContactForm';
+import ContactForm from '../components/ContactForm';
 import Container from 'components/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import PageHeaderSection from '../../components/PageHeaderSection';
+import PageHeaderSection from '../components/PageHeaderSection';
 import React from 'react';
 
 function Contact() {
   return (
-    <Container
-      title="Contact Us - The Gerry Richardson Trust"
-      url="gerryrichardsontrust.org/contact"
-    >
+    <Container title="Contact Us - The Gerry Richardson Trust">
       <main>
         <PageHeaderSection
           title="Contact Us"

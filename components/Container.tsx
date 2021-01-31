@@ -7,7 +7,6 @@ import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 
 interface LayoutProps {
-  url?: string;
   title?: string;
   description?: string;
   children?: ReactNode;
@@ -28,7 +27,6 @@ export default function Container(props: LayoutProps) {
       'Our mission promote youth development by supporting young people, aged 25 or under, to attend courses and activities of an educational, cultural, sporting, adventuresome or character-building nature. It is willing to entertain written applications for financial assistance from young people living or working within 15 miles of the town hall in Blackpool, Lancashire.',
     image: '',
     type: 'website',
-    url: 'gerryrichardsontrust.org',
     date: null,
     ...customMeta
   };

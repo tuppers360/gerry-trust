@@ -1,11 +1,17 @@
+import Container from 'components/Container';
+import DonationForm from 'components/DonationForm';
+import { Elements } from '@stripe/react-stripe-js';
 import { NextPage } from 'next';
-import DonationForm from '../../components/DonationForm';
-import PageHeaderSection from '../../components/PageHeaderSection';
-import Layout from '../../components/Layout';
+import PageHeaderSection from 'components/PageHeaderSection';
+import { loadStripe } from '@stripe/stripe-js';
 
 const DonatePage: NextPage = () => {
+  const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  );
+
   return (
-    <Layout
+    <Container
       title="Make a Donation - The Gerry Richardson Trust"
       url="gerryrichardsontrust.org/donate"
     >
@@ -18,9 +24,11 @@ const DonatePage: NextPage = () => {
         </PageHeaderSection>
       </main>
       <div className="max-w-xl mx-auto m-16 px-4">
-        <DonationForm />
+        <Elements stripe={stripePromise}>
+          <DonationForm />
+        </Elements>
       </div>
-    </Layout>
+    </Container>
   );
 };
 

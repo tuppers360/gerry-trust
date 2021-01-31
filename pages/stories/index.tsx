@@ -1,22 +1,18 @@
-import Layout from '../../components/Layout';
-import { getAllPosts } from '../../lib/api';
-import Head from 'next/head';
-import { CMS_NAME } from '../../lib/constants';
-import Intro from '../../components/stories/StoriesIntro';
-import HeroPost from '../../components/stories/StoriesHeroPost';
-import MoreStories from '../../components/stories/StoriesPost';
-import Container from '../../components/stories/StoriesContainer';
+import { CMS_NAME } from 'lib/constants';
+import Container from 'components/Container';
+import HeroPost from 'components/stories/StoriesHeroPost';
+import Intro from 'components/stories/StoriesIntro';
+import MoreStories from 'components/stories/StoriesPost';
+import StoriesContainer from 'components/stories/StoriesContainer';
+import { getAllPosts } from 'lib/api';
 
 export default function Index({ allPosts }) {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
   return (
     <>
-      <Layout
-        title="The Gerry Richardson Trust"
-        url="gerryrichardsontrust.org/stories"
-      >
-        <Container>
+      <Container title="The Gerry Richardson Trust">
+        <StoriesContainer>
           <Intro />
           {heroPost && (
             <HeroPost
@@ -29,8 +25,8 @@ export default function Index({ allPosts }) {
             />
           )}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
+        </StoriesContainer>
+      </Container>
     </>
   );
 }
@@ -42,10 +38,10 @@ export async function getStaticProps() {
     'slug',
     'author',
     'coverImage',
-    'excerpt',
+    'excerpt'
   ]);
 
   return {
-    props: { allPosts },
+    props: { allPosts }
   };
 }

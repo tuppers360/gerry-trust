@@ -1,16 +1,16 @@
+import Container from 'components/Container';
+import DonationCards from 'components/DonationCards';
+import HeroSection from 'components/HeroSection';
+import LandingSection from 'components/LandingSection';
 import { NextPage } from 'next';
-import Layout from '../components/Layout';
-import LandingSection from './../components/LandingSection';
-import HeroSection from './../components/HeroSection';
-import DonationCards from '../components/DonationCards';
 
 const IndexPage: NextPage = () => {
   return (
-    <Layout title="The Gerry Richardson Trust" url="gerryrichardsontrust.org/">
+    <Container>
       <LandingSection />
       <HeroSection />
       <DonationCards />
-    </Layout>
+    </Container>
   );
 };
 

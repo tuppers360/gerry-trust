@@ -1,12 +1,12 @@
 import ContactForm from '../../components/ContactForm';
+import Container from 'components/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Layout from '../../components/Layout';
 import PageHeaderSection from '../../components/PageHeaderSection';
 import React from 'react';
 
 function Contact() {
   return (
-    <Layout
+    <Container
       title="Contact Us - The Gerry Richardson Trust"
       url="gerryrichardsontrust.org/contact"
     >
@@ -89,7 +89,7 @@ function Contact() {
           </div>
         </div>
       </main>
-    </Layout>
+    </Container>
   );
 }
 

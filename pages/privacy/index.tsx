@@ -1,10 +1,10 @@
-import Layout from '../../components/Layout';
-import PageHeaderSection from '../../components/PageHeaderSection';
+import Container from 'components/Container';
+import PageHeaderSection from 'components/PageHeaderSection';
 import React from 'react';
 
 export default function index() {
   return (
-    <Layout
+    <Container
       title="Privacy Notice - The Gerry Richardson Trust"
       description="You can find our privacy policy here that covers: Privacy &amp; Cookies."
       url="gerryrichardsontrust.org/privacy"
@@ -499,6 +499,6 @@ export default function index() {
           </section>
         </div>
       </div>
-    </Layout>
+    </Container>
   );
 }

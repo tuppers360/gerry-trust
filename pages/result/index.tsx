@@ -1,17 +1,15 @@
-import { NextPage } from 'next';
-import { useRouter } from 'next/router';
-
-import Layout from '../../components/Layout';
-
-import { fetchGetJSON } from '../../utils/api-helpers';
-import useSWR from 'swr';
-import PageHeaderSection from '../../components/PageHeaderSection';
-import { formatAmountForDisplayForStripe } from './../../utils/stripe-helpers';
 import * as config from '../../config';
+
+import Container from '../../components/Container';
+import { NextPage } from 'next';
+import PageHeaderSection from '../../components/PageHeaderSection';
+import { fetchGetJSON } from '../../utils/api-helpers';
+import { formatAmountForDisplayForStripe } from '../../utils/stripe-helpers';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 
 const ResultPage: NextPage = () => {
   const router = useRouter();
-
   // Fetch CheckoutSession from static page via
   // https://nextjs.org/docs/basic-features/data-fetching#static-generation
   const { data, error } = useSWR(
@@ -22,7 +20,7 @@ const ResultPage: NextPage = () => {
   if (error) return <div>failed to load</div>;
 
   return (
-    <Layout
+    <Container
       title="Donation Made - The Gerry Richardson Trust"
       url="gerryrichardsontrust.org/result"
     >
@@ -58,7 +56,7 @@ const ResultPage: NextPage = () => {
         <p className="text-lg mt-4">Yours</p>
         <h3 className="text-lg font-semibold mt-4">The Trustees</h3>
       </div>
-    </Layout>
+    </Container>
   );
 };
 

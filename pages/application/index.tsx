@@ -1,12 +1,12 @@
-import React from 'react';
-import Layout from '../../components/Layout';
-import PageHeaderSection from '../../components/PageHeaderSection';
+import ApplicationForm from 'components/ApplicationForm';
+import Container from 'components/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ApplicationForm from '../../components/ApplicationForm';
+import PageHeaderSection from 'components/PageHeaderSection';
+import React from 'react';
 
 export default function Application() {
   return (
-    <Layout
+    <Container
       title="Make an Applcation - The Gerry Richardson Trust"
       description="Apply for a grant from The Gerry Richardson Trust"
       url="gerryrichardsontrust.org/application"
@@ -93,6 +93,6 @@ export default function Application() {
           </section>
         </div>
       </main>
-    </Layout>
+    </Container>
   );
 }

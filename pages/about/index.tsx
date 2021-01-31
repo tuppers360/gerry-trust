@@ -1,10 +1,10 @@
-import Layout from '../../components/Layout';
-import PageHeaderSection from '../../components/PageHeaderSection';
-import { Trustee } from './../../components/Trustee';
+import Container from 'components/Container';
+import PageHeaderSection from 'components/PageHeaderSection';
+import { Trustee } from 'components/Trustee';
 
 export default function About() {
   return (
-    <Layout
+    <Container
       title="About Us - The Gerry Richardson Trust"
       url="gerryrichardsontrust.org/about"
     >
@@ -160,6 +160,6 @@ export default function About() {
           </section>
         </div>
       </main>
-    </Layout>
+    </Container>
   );
 }

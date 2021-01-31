@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import FormErrorIcon from './FormErrorIcon';
-import ExclamationTriangle from './svg-images/ExclamationTriangle';
+
 import CheckCircle from './svg-images/CheckCircle';
 import CrossCircle from './svg-images/CrossCircle';
+import ExclamationTriangle from './svg-images/ExclamationTriangle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FormErrorIcon from './FormErrorIcon';
+import { useForm } from 'react-hook-form';
 
 export interface IStatus {
   submitted?: boolean;
@@ -33,7 +34,7 @@ function ApplicationForm() {
   const [status, setStatus] = useState<IStatus>({
     submitted: false,
     submitting: false,
-    info: { error: false, msg: null },
+    info: { error: false, msg: '' }
   });
 
   const { register, handleSubmit, errors, reset } = useForm<FormInputs>();
@@ -45,12 +46,12 @@ function ApplicationForm() {
       setStatus({
         submitted: true,
         submitting: false,
-        info: { error: false, msg: msg },
+        info: { error: false, msg: msg }
       });
       reset({ ...submittedData });
     } else {
       setStatus({
-        info: { error: true, msg: msg },
+        info: { error: true, msg: msg }
       });
     }
   };
@@ -62,9 +63,9 @@ function ApplicationForm() {
     const res = await fetch('/api/sendgrid/application', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     });
     const text = await res.text();
     handleResponse(res.status, text);
@@ -169,7 +170,7 @@ function ApplicationForm() {
                         id="firstName"
                         name="firstName"
                         ref={register({
-                          required: 'Please enter your first name',
+                          required: 'Please enter your first name'
                         })}
                         type="text"
                         autoComplete="first-name"
@@ -204,7 +205,7 @@ function ApplicationForm() {
                         id="lastName"
                         name="lastName"
                         ref={register({
-                          required: 'Please enter your last name',
+                          required: 'Please enter your last name'
                         })}
                         type="text"
                       />
@@ -241,8 +242,8 @@ function ApplicationForm() {
                           required: 'Please enter your email',
                           pattern: {
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                            message: 'Please enter a valid email address',
-                          },
+                            message: 'Please enter a valid email address'
+                          }
                         })}
                         type="text"
                       />
@@ -294,7 +295,7 @@ function ApplicationForm() {
                         id="addressLine1"
                         name="addressLine1"
                         ref={register({
-                          required: 'Please enter your address',
+                          required: 'Please enter your address'
                         })}
                         type="text"
                       />
@@ -375,7 +376,7 @@ function ApplicationForm() {
                         id="county"
                         name="county"
                         ref={register({
-                          required: 'Please enter your county',
+                          required: 'Please enter your county'
                         })}
                         type="text"
                       />
@@ -409,7 +410,7 @@ function ApplicationForm() {
                         id="postCode"
                         name="postCode"
                         ref={register({
-                          required: 'Please enter your message',
+                          required: 'Please enter your message'
                         })}
                         type="text"
                       />
@@ -465,7 +466,7 @@ function ApplicationForm() {
                         id="application"
                         name="application"
                         ref={register({
-                          required: 'Please complete your application',
+                          required: 'Please complete your application'
                         })}
                         rows={10}
                       ></textarea>

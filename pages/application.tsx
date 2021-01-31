@@ -9,9 +9,7 @@ export default function Application() {
     <Container
       title="Make an Applcation - The Gerry Richardson Trust"
       description="Apply for a grant from The Gerry Richardson Trust"
-      url="gerryrichardsontrust.org/application"
     >
-      {' '}
       <main>
         <PageHeaderSection
           title="Application Form"

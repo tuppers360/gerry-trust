@@ -7,7 +7,6 @@ export default function index() {
     <Container
       title="Privacy Notice - The Gerry Richardson Trust"
       description="You can find our privacy policy here that covers: Privacy &amp; Cookies."
-      url="gerryrichardsontrust.org/privacy"
     >
       <PageHeaderSection
         title="Legal"

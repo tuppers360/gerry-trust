@@ -1,10 +1,10 @@
-import * as config from '../../config';
+import * as config from 'config';
 
-import Container from '../../components/Container';
+import Container from 'components/Container';
 import { NextPage } from 'next';
-import PageHeaderSection from '../../components/PageHeaderSection';
-import { fetchGetJSON } from '../../utils/api-helpers';
-import { formatAmountForDisplayForStripe } from '../../utils/stripe-helpers';
+import PageHeaderSection from 'components/PageHeaderSection';
+import { fetchGetJSON } from 'utils/api-helpers';
+import { formatAmountForDisplayForStripe } from 'utils/stripe-helpers';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
@@ -20,10 +20,7 @@ const ResultPage: NextPage = () => {
   if (error) return <div>failed to load</div>;
 
   return (
-    <Container
-      title="Donation Made - The Gerry Richardson Trust"
-      url="gerryrichardsontrust.org/result"
-    >
+    <Container title="Donation Made - The Gerry Richardson Trust">
       <PageHeaderSection
         title="Congratulations"
         heading="Your Donation has been authorised"

@@ -1,12 +1,12 @@
-import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-4 lg:px-6">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="-ml-2 mr-2 flex items-center md:hidden">

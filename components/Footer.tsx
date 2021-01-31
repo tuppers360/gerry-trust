@@ -9,9 +9,9 @@ export default function Footer() {
         Footer
       </h2>
       <div className="py-12 mt-24">
-        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-6xl lg:px-8">
           <h2 className="sr-only">Navigation - Footer</h2>
-          <div className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
+          <div className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-4">
             <section className="text-center">
               <h2 className="text-2xl font-semibold text-blue-400 uppercase tracking-wide">
                 Navigation

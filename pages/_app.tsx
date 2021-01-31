@@ -1,10 +1,6 @@
-import { DefaultSeo } from 'next-seo';
-import SEO from './../next-seo.config';
-import type { AppProps /*, AppContext */ } from 'next/app';
-import '../styles/tailwind.css';
+import 'styles/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+
 import {
   faBars,
   faCoffee,
@@ -15,12 +11,18 @@ import {
   faGift,
   faHome,
   faPaperPlane,
-  faPoundSign,
   faPhone,
-  faSync,
+  faPoundSign,
+  faSync
 } from '@fortawesome/free-solid-svg-icons';
 
+import type { AppProps } from 'next/app';
+import MDXComponents from 'components/MDXComponents';
+import { MDXProvider } from '@mdx-js/react';
+import { ThemeProvider } from 'next-themes';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
 
 library.add(
   fab,
@@ -41,10 +43,11 @@ library.add(
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <DefaultSeo {...SEO} />
-      <Component {...pageProps} />
-    </>
+    <ThemeProvider attribute="class">
+      <MDXProvider components={MDXComponents}>
+        <Component {...pageProps} />
+      </MDXProvider>
+    </ThemeProvider>
   );
 }
 

@@ -4,7 +4,9 @@ import Footer from './Footer';
 import Head from 'next/head';
 import Navbar from './Navbar';
 import { useRouter } from 'next/router';
-import { useTheme } from 'next-themes';
+
+//TODO - implement light and dark theme
+//import { useTheme } from 'next-themes';
 
 interface LayoutProps {
   title?: string;
@@ -13,11 +15,12 @@ interface LayoutProps {
 }
 
 export default function Container(props: LayoutProps) {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  //TODO - implement light and dark theme
+  //const [mounted, setMounted] = useState(false);
+  //const { theme, setTheme } = useTheme();
 
   // After mounting, we have access to the theme
-  useEffect(() => setMounted(true), []);
+  //useEffect(() => setMounted(true), []);
 
   const { children, ...customMeta } = props;
   const router = useRouter();
@@ -32,7 +35,7 @@ export default function Container(props: LayoutProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-white dark:bg-gray-800">
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
@@ -55,7 +58,7 @@ export default function Container(props: LayoutProps) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <button
+      {/* <button
         aria-label="Toggle Dark Mode"
         type="button"
         className="bg-gray-200 dark:bg-gray-800 rounded p-3 h-10 w-10"
@@ -86,42 +89,10 @@ export default function Container(props: LayoutProps) {
             )}
           </svg>
         )}
-      </button>
+      </button> */}
       <Navbar />
       {children}
       <Footer />
     </div>
   );
 }
-
-// const Layout = ({
-//   children,
-//   url,
-//   title,
-//   description = 'Our mission promote youth development by supporting young people, aged 25 or under, to attend courses and activities of an educational, cultural, sporting, adventuresome or character-building nature. It is willing to entertain written applications for financial assistance from young people living or working within 15 miles of the town hall in Blackpool, Lancashire.'
-// }) => (
-//   <Elements stripe={stripePromise}>
-//     <NextSeo
-//       title={title}
-//       description={description}
-//       canonical={url}
-//       openGraph={{
-//         url,
-//         title,
-//         description
-//       }}
-//     />
-//     <Head>
-//       <title>{title}</title>
-//       <link rel="icon" href="/favicon.ico" />
-//       <meta charSet="utf-8" />
-//       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-//     </Head>
-//     <Navbar />
-
-//     {children}
-//     <Footer />
-//   </Elements>
-// );
-
-// export default Layout;

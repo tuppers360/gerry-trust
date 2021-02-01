@@ -12,14 +12,12 @@ const DonatePage: NextPage = () => {
 
   return (
     <Container title="Make a Donation - The Gerry Richardson Trust">
-      <main>
-        <PageHeaderSection heading="Make a Donation" center>
-          <p>
-            Donate to help us to help the local youths of Blackpool, Fylde and
-            Wyre 💖
-          </p>
-        </PageHeaderSection>
-      </main>
+      <PageHeaderSection heading="Make a Donation" center>
+        <p>
+          Donate to help us to help the local youths of Blackpool, Fylde and
+          Wyre 💖
+        </p>
+      </PageHeaderSection>
       <div className="max-w-xl mx-auto m-16 px-4">
         {stripePromise && (
           <Elements stripe={stripePromise}>

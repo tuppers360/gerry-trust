@@ -11,6 +11,9 @@ import { useRouter } from 'next/router';
 interface LayoutProps {
   title?: string;
   description?: string;
+  image?: string;
+  date?: string;
+  type?: string;
   children?: ReactNode;
 }
 
@@ -91,7 +94,7 @@ export default function Container(props: LayoutProps) {
         )}
       </button> */}
       <Navbar />
-      {children}
+      <main id="skip">{children}</main>
       <Footer />
     </div>
   );

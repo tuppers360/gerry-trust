@@ -1,7 +1,7 @@
 import { getFileBySlug, getFiles } from 'lib/mdx';
 
-import BlogLayout from 'layouts/blog';
 import MDXComponents from 'components/MDXComponents';
+import StoryLayout from 'layouts/story';
 import hydrate from 'next-mdx-remote/hydrate';
 
 export default function Blog({ mdxSource, frontMatter }) {
@@ -9,7 +9,7 @@ export default function Blog({ mdxSource, frontMatter }) {
     components: MDXComponents
   });
 
-  return <BlogLayout frontMatter={frontMatter}>{content}</BlogLayout>;
+  return <StoryLayout frontMatter={frontMatter}>{content}</StoryLayout>;
 }
 
 export async function getStaticPaths() {

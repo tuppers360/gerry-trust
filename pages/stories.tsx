@@ -61,7 +61,7 @@ function Stories({ stories }) {
 export default Stories;
 
 export async function getStaticProps() {
-  const stories = await getAllFilesFrontMatter('blog');
+  const stories = await getAllFilesFrontMatter('stories');
 
   return { props: { stories } };
 }

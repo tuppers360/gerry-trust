@@ -1,5 +1,9 @@
 module.exports = {
-  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+  purge: [
+    './components/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './layouts/**/*.js'
+  ],
   darkMode: 'class', // or 'media' or 'class'
 
   theme: {
@@ -21,5 +25,5 @@ module.exports = {
       opacity: ['disabled']
     }
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')]
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
 };

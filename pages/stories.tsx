@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import BlogPost from 'components/BlogPost';
 import Container from 'components/Container';
 import PageHeaderSection from 'components/PageHeaderSection';
+import Post from 'components/Post';
 import { getAllFilesFrontMatter } from 'lib/mdx';
 
 function Stories({ stories }) {
@@ -51,7 +51,7 @@ function Stories({ stories }) {
         </div>
         {!filteredBlogPosts.length && 'No posts found.'}
         {filteredBlogPosts.map((frontMatter) => (
-          <BlogPost key={frontMatter.title} {...frontMatter} />
+          <Post key={frontMatter.title} {...frontMatter} />
         ))}
       </main>
     </Container>

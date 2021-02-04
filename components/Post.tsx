@@ -6,12 +6,12 @@ import Link from 'next/link';
 
 //import fetcher from '@/lib/fetcher';
 
-const BlogPost = ({ title, summary, slug }) => {
+const Post = ({ title, summary, slug }) => {
   //   const { data } = useSWR(`/api/views/${slug}`, fetcher);
   //   const views = data?.total;
 
   return (
-    <Link href={`/blog/${slug}`}>
+    <Link href={`/stories/${slug}`}>
       <a className="w-full">
         <div className="mb-8 w-full">
           <div className="flex flex-col md:flex-row justify-between">
@@ -29,4 +29,4 @@ const BlogPost = ({ title, summary, slug }) => {
   );
 };
 
-export default BlogPost;
+export default Post;

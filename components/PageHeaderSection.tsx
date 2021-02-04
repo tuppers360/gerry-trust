@@ -16,9 +16,11 @@ const PageHeaderSection: FunctionComponent<HeaderProps> = ({
   return (
     <div className="py-12">
       <div className="mx-auto px-4 sm:px-6 lg:max-w-4xl lg:px-8 text-center">
-        <p className="text-gray-600 text-xl font-extrabold uppercase">
-          {title}
-        </p>
+        {title && (
+          <p className="text-gray-600 text-xl font-extrabold uppercase">
+            {title}
+          </p>
+        )}
         {/* //TODO - add the Julliette Font for the title */}
         <h1
           className={`bg-clip-text text-transparent bg-gradient-to-r to-blue-500 text-6xl font-extrabold py-4 ${

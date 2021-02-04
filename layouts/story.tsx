@@ -28,7 +28,7 @@ export default function StoryLayout({ children, frontMatter }) {
         </p>
       </PageHeaderSection>
       <article className="flex flex-col justify-center items-start max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 m-4">
-        <div className="prose md:prose-lg dark:prose-dark max-w-none w-full space-y-8">
+        <div className="prose md:prose-lg dark:prose-dark max-w-none w-full">
           {children}
         </div>
         <div className="mt-8">{/* <Subscribe /> */}</div>

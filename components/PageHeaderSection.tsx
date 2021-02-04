@@ -2,9 +2,10 @@ import React, { FunctionComponent } from 'react';
 
 type HeaderProps = {
   title?: string;
-  heading?: string;
+  heading: string;
   type?: string;
   center?: boolean;
+  author?: string;
 };
 
 const PageHeaderSection: FunctionComponent<HeaderProps> = ({
@@ -21,15 +22,14 @@ const PageHeaderSection: FunctionComponent<HeaderProps> = ({
             {title}
           </p>
         )}
-        {/* //TODO - add the Julliette Font for the title */}
         <h1
-          className={`bg-clip-text text-transparent bg-gradient-to-r to-blue-500 text-6xl font-extrabold py-4 ${
-            type === 'story' ? 'from-blue-900' : 'from-blue-900'
+          className={`bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 font-bold py-4 ${
+            type === 'story' ? ' font-julietta text-7xl' : ' text-6xl'
           }`}
         >
           {heading}
         </h1>
-        <div className="mt-6 text-xl font-bold">{children}</div>
+        {children && <div className="mt-6 text-xl font-bold">{children}</div>}
       </div>
     </div>
   );

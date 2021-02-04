@@ -1,11 +1,17 @@
-module.exports = {
-  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class', // or 'media' or 'class'
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
+module.exports = {
+  purge: [
+    './components/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './layouts/**/*.{js,ts,jsx,tsx}'
+  ],
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: {
-      display: ['Poppins', 'system-ui', 'sans-serif'],
-      body: ['Poppins', 'system-ui', 'sans-serif']
+      display: ['Inter', 'system-ui', 'sans-serif'],
+      body: ['Inter', 'system-ui', 'sans-serif'],
+      julietta: ['Julietta', ...fontFamily.sans]
     },
     extend: {
       colors: {
@@ -21,5 +27,5 @@ module.exports = {
       opacity: ['disabled']
     }
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')]
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
 };

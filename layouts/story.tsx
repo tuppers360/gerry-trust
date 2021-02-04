@@ -17,18 +17,26 @@ export default function StoryLayout({ children, frontMatter }) {
       type="article"
     >
       <PageHeaderSection heading={frontMatter.title} type="story">
-        <p className="text-gray-700 text-lg dark:text-gray-300">
+        <p className="text-gray-700 md:text-2xl dark:text-gray-300">
           Published -&nbsp;
           {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
         </p>
-        <p className="text-sm text-gray-500 min-w-32 mt-2 md:mt-4">
+        {frontMatter.author && (
+          <>
+            <p className="text-base text-gray-600 min-w-32 mt-8 md:mt-8">
+              written by
+            </p>
+            <p className="mt-4 text-base md:text-xl">{frontMatter.author}</p>
+          </>
+        )}
+        <p className="text-sm text-gray-500 min-w-32 mt-4 md:mt-4">
           {frontMatter.readingTime.text}
           {/* {` • `}
           <ViewCounter slug={frontMatter.slug} /> */}
         </p>
       </PageHeaderSection>
       <article className="flex flex-col justify-center items-start max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 m-4">
-        <div className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl dark:prose-dark max-w-none w-full space-y-8">
+        <div className="prose md:prose-lg dark:prose-dark max-w-none w-full">
           {children}
         </div>
         <div className="mt-8">{/* <Subscribe /> */}</div>

@@ -86,16 +86,12 @@ export default function Navbar() {
                   Contact Us
                 </a>
               </Link>
-              <Link href="/test">
+              <Link href="/stories">
                 <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                  Test
+                  Stories
                 </a>
               </Link>
-              {/* <Link href="/stories">
-                <a className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
-                  Stories (Coming Soon)
-                </a>
-              </Link>
+              {/* 
               <Link href="/news">
                 <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   News (Coming Soon)
@@ -125,16 +121,12 @@ export default function Navbar() {
               Contact Us
             </a>
           </Link>
-          <Link href="/test">
+          <Link href="/stories">
             <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-              Test
+              Stories
             </a>
           </Link>
-          {/* <Link href="/">
-            <a className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
-              Stories (Coming Soon)
-            </a>
-          </Link>
+          {/*
           <Link href="/">
             <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
               News (Coming Soon)

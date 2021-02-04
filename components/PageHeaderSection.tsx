@@ -23,8 +23,8 @@ const PageHeaderSection: FunctionComponent<HeaderProps> = ({
           </p>
         )}
         <h1
-          className={`bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 text-6xl font-extrabold py-4${
-            type === 'story' ? ' font-julietta' : ''
+          className={`bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 font-bold py-4${
+            type === 'story' ? ' text-7xl font-julietta' : ' text-6xl'
           }`}
         >
           {heading}

@@ -17,11 +17,19 @@ export default function StoryLayout({ children, frontMatter }) {
       type="article"
     >
       <PageHeaderSection heading={frontMatter.title} type="story">
-        <p className="text-gray-700 text-lg dark:text-gray-300">
+        <p className="text-gray-700 md:text-2xl dark:text-gray-300">
           Published -&nbsp;
           {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
         </p>
-        <p className="text-sm text-gray-500 min-w-32 mt-2 md:mt-4">
+        {frontMatter.author && (
+          <>
+            <p className="text-base text-gray-600 min-w-32 mt-8 md:mt-8">
+              written by
+            </p>
+            <p className="mt-4 text-base md:text-xl">{frontMatter.author}</p>
+          </>
+        )}
+        <p className="text-sm text-gray-500 min-w-32 mt-4 md:mt-4">
           {frontMatter.readingTime.text}
           {/* {` • `}
           <ViewCounter slug={frontMatter.slug} /> */}

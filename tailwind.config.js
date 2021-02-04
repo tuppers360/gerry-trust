@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 module.exports = {
   purge: [
     './components/**/*.{js,ts,jsx,tsx}',
@@ -5,11 +7,13 @@ module.exports = {
     './layouts/**/*.{js,ts,jsx,tsx}'
   ],
   darkMode: 'class', // or 'media' or 'class'
-
   theme: {
     fontFamily: {
       display: ['Poppins', 'system-ui', 'sans-serif'],
-      body: ['Poppins', 'system-ui', 'sans-serif']
+      body: ['Poppins', 'system-ui', 'sans-serif'],
+      sans: ['Inter', ...fontFamily.sans],
+      // julietta: ['Julietta', ...fontFamily.sans],
+      roboto: ['Roboto', ...fontFamily.sans]
     },
     extend: {
       colors: {

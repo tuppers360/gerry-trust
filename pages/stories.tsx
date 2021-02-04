@@ -17,7 +17,10 @@ function Stories({ stories }) {
     );
   return (
     <Container>
-      <PageHeaderSection heading="Some of our Stories" />
+      <PageHeaderSection
+        title="Stories"
+        heading="Read about some of the adventures"
+      />
       <main className="flex flex-col justify-center items-start max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 m-4">
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           {`Here are some of the stories of those we have helped along the way. In total, we have ${stories.length} stories so far with many more to come.

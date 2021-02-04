@@ -9,11 +9,9 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: {
-      display: ['Poppins', 'system-ui', 'sans-serif'],
-      body: ['Poppins', 'system-ui', 'sans-serif'],
-      sans: ['Inter', ...fontFamily.sans],
-      // julietta: ['Julietta', ...fontFamily.sans],
-      roboto: ['Roboto', ...fontFamily.sans]
+      display: ['Inter', 'system-ui', 'sans-serif'],
+      body: ['Inter', 'system-ui', 'sans-serif'],
+      julietta: ['Julietta', ...fontFamily.sans]
     },
     extend: {
       colors: {

@@ -50,9 +50,13 @@ function Stories({ stories }) {
           </svg>
         </div>
         {!filteredBlogPosts.length && 'No posts found.'}
-        {filteredBlogPosts.map((frontMatter) => (
-          <Post key={frontMatter.title} {...frontMatter} />
-        ))}
+        {filteredBlogPosts && (
+          <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+            {filteredBlogPosts.map((frontMatter) => (
+              <Post key={frontMatter.title} {...frontMatter} />
+            ))}
+          </div>
+        )}
       </main>
     </Container>
   );

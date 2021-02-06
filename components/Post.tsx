@@ -1,3 +1,5 @@
+import { format, parseISO } from 'date-fns';
+
 import Link from 'next/link';
 
 //TODO - add views for each article
@@ -6,24 +8,38 @@ import Link from 'next/link';
 
 //import fetcher from '@/lib/fetcher';
 
-const Post = ({ title, summary, slug }) => {
+const Post = ({ title, summary, publishedAt, image, slug }) => {
   //   const { data } = useSWR(`/api/views/${slug}`, fetcher);
   //   const views = data?.total;
 
   return (
     <Link href={`/stories/${slug}`}>
-      <a className="w-full">
-        <div className="mb-8 w-full">
-          <div className="flex flex-col md:flex-row justify-between">
-            <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">
-              {title}
-            </h4>
-            <p className="text-gray-500 text-left md:text-right w-32 mb-4 md:mb-0">
-              {/* {`${views ? format(views) : '–––'} views`} */}
-            </p>
+      <a>
+        <article className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+          <div className="flex-shrink-0">
+            <img className="h-48 w-full object-cover" src={image} alt="" />
           </div>
-          <p className="text-gray-600 dark:text-gray-400">{summary}</p>
-        </div>
+          <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+            <div className="flex-1">
+              <p className="text-sm font-medium text-gray-500">
+                Published
+                <span className="block text-base text-gray-700">
+                  {format(parseISO(publishedAt), 'MMMM dd, yyyy')}
+                </span>
+              </p>
+              <h1 className="text-xl font-semibold text-gray-800 mt-4">
+                {title}
+              </h1>
+              <p className="mt-3 text-base text-gray-500">{summary}</p>
+            </div>
+            <div className="mt-6 flex items-center">
+              <div className="flex space-x-1 text-sm text-gray-500">
+                {/* <span aria-hidden="true">&middot;</span>
+                    <span>6 min read</span> */}
+              </div>
+            </div>
+          </div>
+        </article>
       </a>
     </Link>
   );

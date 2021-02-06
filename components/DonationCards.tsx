@@ -17,7 +17,7 @@ export default function DonationCards() {
           </p>
         </div>
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-          <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+          <article className="flex flex-col rounded-lg shadow-lg overflow-hidden">
             <div className="flex-shrink-0">
               <img
                 className="h-48 w-full object-cover"
@@ -65,7 +65,7 @@ export default function DonationCards() {
                 </div>
               </div>
             </div>
-          </div>
+          </article>
 
           {/* <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
             <div className="flex-shrink-0">

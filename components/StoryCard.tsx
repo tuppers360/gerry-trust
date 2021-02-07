@@ -28,16 +28,18 @@ const Post = ({ title, summary, publishedAt, author, image, slug }) => {
         <div className="h-0 flex-1">
           <Link href={`/stories/${slug}`}>
             <a>
-              <h1 className="text-2xl font-bold text-cyan-800 mt-4 hover:underline">
+              <h1 className="text-3xl font-semibold text-cyan-800 mt-4 hover:underline">
                 {title}
               </h1>
             </a>
           </Link>
-          <p className="text-sm font-base text-gray-500 italic mt-2">
+          <p className="font-base text-gray-500 italic mt-4">
             Written by
             <span className="ml-1 text-sm text-gray-500">{author}</span>
           </p>
-          <p className="mt-3 text-base font-medium text-gray-700">{summary}</p>
+          <p className="mt-4 text-lg leading-relaxed  text-gray-700">
+            {summary}
+          </p>
         </div>
 
         <div className="mt-6 flex text-sm justify-between text-gray-500">

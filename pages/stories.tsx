@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Container from 'components/Container';
 import PageHeaderSection from 'components/PageHeaderSection';
-import Post from 'components/Post';
+import StoryCard from 'components/StoryCard';
 import { getAllFilesFrontMatter } from 'lib/mdx';
 
 function Stories({ stories }) {
@@ -54,7 +54,7 @@ function Stories({ stories }) {
         {filteredBlogPosts && (
           <div className="mt-8 mx-auto grid gap-5 auto-rows-fr lg:grid-cols-2 lg:max-w-none">
             {filteredBlogPosts.map((frontMatter) => (
-              <Post key={frontMatter.title} {...frontMatter} />
+              <StoryCard key={frontMatter.title} {...frontMatter} />
             ))}
           </div>
         )}

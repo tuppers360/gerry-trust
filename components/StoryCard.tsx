@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 //import fetcher from '@/lib/fetcher';
 
-const Post = ({ title, summary, publishedAt, image, slug }) => {
+const Post = ({ title, summary, publishedAt, author, image, slug }) => {
   //   const { data } = useSWR(`/api/views/${slug}`, fetcher);
   //   const views = data?.total;
   return (
@@ -34,15 +34,13 @@ const Post = ({ title, summary, publishedAt, image, slug }) => {
             </a>
           </Link>
           <p className="text-sm font-base text-gray-500 italic mt-2">
-            Published
-            <span className="ml-1 text-sm text-gray-500">
-              {format(parseISO(publishedAt), 'MMMM dd, yyyy')}
-            </span>
+            Written by
+            <span className="ml-1 text-sm text-gray-500">{author}</span>
           </p>
           <p className="mt-3 text-base font-medium text-gray-700">{summary}</p>
         </div>
 
-        <div className="mt-6 flex text-sm text-gray-500">
+        <div className="mt-6 flex text-sm justify-between text-gray-500">
           <div className="inline-flex items-center">
             <svg
               aria-hidden="true"
@@ -60,6 +58,12 @@ const Post = ({ title, summary, publishedAt, image, slug }) => {
               ></path>
             </svg>
             1 Views
+          </div>
+          <div>
+            Published -
+            <span className="ml-1 text-sm text-gray-500">
+              {format(parseISO(publishedAt), 'MMMM dd, yyyy')}
+            </span>
           </div>
         </div>
       </div>

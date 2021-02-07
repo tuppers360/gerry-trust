@@ -1,4 +1,5 @@
 const { fontFamily } = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   purge: [
@@ -17,7 +18,13 @@ module.exports = {
       colors: {
         twitter: '#00abe3',
         instagram: '#bc2a8d',
-        facebook: ' #4060a5'
+        facebook: ' #4060a5',
+
+        blueGray: colors.blueGray,
+        coolGray: colors.coolGray,
+
+        cyan: colors.cyan,
+        lightBlue: colors.lightBlue
       }
     }
   },

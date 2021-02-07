@@ -22,16 +22,16 @@ function Stories({ stories }) {
         heading="Read about some of the adventures"
       />
       <main className="flex flex-col justify-center items-start max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 m-4">
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
+        <p className="text-gray-600 dark:text-gray-400">
           {`Here are some of the stories of those we have helped along the way. In total, we have ${stories.length} stories so far with many more to come.
             Use the search below to filter by title of the stories`}
         </p>
-        <div className="relative w-full mb-4">
+        <div className="relative w-full mt-8">
           <input
-            aria-label="Search articles"
+            aria-label="Search stories"
             type="text"
             onChange={(e) => setSearchValue(e.target.value)}
-            placeholder="Search articles"
+            placeholder="Search stories"
             className="px-4 py-2 border border-gray-300 dark:border-gray-900 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
           />
           <svg
@@ -49,10 +49,15 @@ function Stories({ stories }) {
             />
           </svg>
         </div>
+        {/* //TODO - style No Posts Found */}
         {!filteredBlogPosts.length && 'No posts found.'}
-        {filteredBlogPosts.map((frontMatter) => (
-          <Post key={frontMatter.title} {...frontMatter} />
-        ))}
+        {filteredBlogPosts && (
+          <div className="mt-8 mx-auto grid gap-5 auto-rows-fr lg:grid-cols-2 lg:max-w-none">
+            {filteredBlogPosts.map((frontMatter) => (
+              <Post key={frontMatter.title} {...frontMatter} />
+            ))}
+          </div>
+        )}
       </main>
     </Container>
   );

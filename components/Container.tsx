@@ -38,7 +38,7 @@ export default function Container(props: LayoutProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800">
+    <>
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
@@ -96,6 +96,6 @@ export default function Container(props: LayoutProps) {
       <Navbar />
       <main id="skip">{children}</main>
       <Footer />
-    </div>
+    </>
   );
 }

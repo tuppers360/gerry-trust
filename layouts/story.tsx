@@ -2,10 +2,11 @@ import { format, parseISO } from 'date-fns';
 
 import Container from 'components/Container';
 import PageHeaderSection from 'components/PageHeaderSection';
+import ViewCounter from 'components/ViewCounter';
 
 //TODO - add these components later
 // import Subscribe from '@/components/Subscribe';
-// import ViewCounter from '@/components/ViewCounter';
+
 
 export default function StoryLayout({ children, frontMatter }) {
   return (
@@ -47,8 +48,8 @@ export default function StoryLayout({ children, frontMatter }) {
           </svg>
           {frontMatter.readingTime.text}
         </div>
-        {/* {` • `}
-          <ViewCounter slug={frontMatter.slug} /> */}
+        {` • `}
+        <ViewCounter slug={frontMatter.slug} />
       </PageHeaderSection>
       <article className="flex flex-col justify-center items-start max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 m-4">
         <div className="prose md:prose-lg dark:prose-dark max-w-none w-full">

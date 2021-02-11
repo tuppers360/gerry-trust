@@ -13,20 +13,12 @@ function Contact() {
       >
         <p>Below you will find a few ways to contact us</p>
       </PageHeaderSection>
-      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 m-4">
+      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 mt-8">
         <div className="grid lg:grid-cols-2 gap-8">
           <section>
-            <div className="text-center">
-              <div className="inline-flex items-center">
-                <span className="mr-2 text-2xl">
-                  <FontAwesomeIcon icon="envelope" fixedWidth />
-                </span>
-                <h3 className="text-3xl font-semibold text-gray-600 text-center">
-                  Get in touch
-                </h3>
-              </div>
-            </div>
-
+            <h3 className="text-2xl font-semibold text-gray-600 text-center">
+              <FontAwesomeIcon icon="envelope" fixedWidth /> Get in touch
+            </h3>
             <p className="mt-8 text-lg">
               We’re very approachable and would love to speak to you. You can
               use any of the following or our enquiry form.
@@ -75,16 +67,9 @@ function Contact() {
             </ul>
           </section>
           <section>
-            <div className="max-w-xl mx-auto text-center">
-              <div className="inline-flex items-center">
-                <span className="mr-2 text-2xl">
-                  <FontAwesomeIcon icon="edit" />
-                </span>
-                <h2 className="text-3xl font-semibold text-gray-600">
-                  Send us a message
-                </h2>
-              </div>
-            </div>
+            <h2 className="text-2xl font-semibold text-gray-600 text-center">
+              <FontAwesomeIcon icon="edit" fixedWidth /> Send us a message
+            </h2>
             <ContactForm />
           </section>
         </div>

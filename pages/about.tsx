@@ -9,7 +9,7 @@ export default function About() {
         title="About Us"
         heading="Our History"
       ></PageHeaderSection>
-      <div className="max-w-6xl mx-auto py-4 px-4 sm:px-6 lg:px-8 ">
+      <div className="max-w-6xl mx-auto py-4 px-4 sm:px-6 lg:px-8 mt-8">
         <section className="text-lg space-y-4 text-gray-600">
           <p>
             On the 23rd August 1971 Superintendent Gerald Richardson was shot

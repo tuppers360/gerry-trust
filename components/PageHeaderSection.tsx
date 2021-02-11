@@ -15,8 +15,8 @@ const PageHeaderSection: FunctionComponent<HeaderProps> = ({
   children
 }) => {
   return (
-    <div className="pt-12 pb-8">
-      <div className="mx-auto px-4 sm:px-6 lg:max-w-4xl lg:px-8 text-center">
+    <div className="pt-12 pb-12 bg-gray-200">
+      <div className="mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 text-center">
         {title && (
           <p className="text-gray-600 text-xl font-bold uppercase">{title}</p>
         )}

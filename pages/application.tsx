@@ -16,8 +16,8 @@ export default function Application() {
       >
         <p>Apply for a grant</p>
       </PageHeaderSection>
-      <div className="max-w-xl mx-auto px-4 sm:px-6 md:max-w-6xl lg:px-8 m-12">
-        <h2 className="text-2xl font-extrabold tracking-tight text-gray-700 text-center">
+      <div className="max-w-xl mx-auto px-4 sm:px-6 md:max-w-6xl lg:px-8 mt-8">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-700 text-center">
           Application Form & Guidance Notes
         </h2>
         <section>
@@ -31,7 +31,7 @@ export default function Application() {
             ensure that you have explored and considered ALL sections of our
             website.
           </p>
-          <h3 className="text font-extrabold tracking-tight text-gray-700 mt-4">
+          <h3 className="text font-bold tracking-tight text-gray-700 mt-4">
             Please note the following when applying for a grant:
           </h3>
           <ul className="list-disc pl-8 bg-gray-100 p-4 border border-gray-00 rounded-md shadow-sm mt-4">
@@ -66,7 +66,7 @@ export default function Application() {
         </section>
         <section>
           <ApplicationForm />
-          <h3 className="text-2xl font-extrabold tracking-tight text-gray-700 text-center mt-8">
+          <h3 className="text-2xl font-bold tracking-tight text-gray-700 text-center mt-8">
             <FontAwesomeIcon icon="edit" fixedWidth /> Other Ways to apply
           </h3>
           <p className="mt-8 text-lg">

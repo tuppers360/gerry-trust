@@ -18,7 +18,7 @@ const DonatePage: NextPage = () => {
           Wyre 💖
         </p>
       </PageHeaderSection>
-      <div className="max-w-xl mx-auto m-16 px-4">
+      <div className="max-w-xl mx-auto mt-12 px-4">
         {stripePromise && (
           <Elements stripe={stripePromise}>
             <DonationForm />

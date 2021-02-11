@@ -21,7 +21,7 @@ function Stories({ stories }) {
         title="Stories"
         heading="Read about who we have helped support along the way"
       />
-      <main className="flex flex-col justify-center items-start max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 m-4">
+      <div className="flex flex-col justify-center items-start max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 m-4">
         <p className="text-gray-600 dark:text-gray-400">
           {`Here are some of the stories of those we have helped along the way. In total, we have ${stories.length} stories so far with many more to come.
             Use the search below to filter by title of the stories`}
@@ -58,7 +58,7 @@ function Stories({ stories }) {
             ))}
           </div>
         )}
-      </main>
+      </div>
     </Container>
   );
 }

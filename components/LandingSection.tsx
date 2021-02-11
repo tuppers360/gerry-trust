@@ -1,10 +1,10 @@
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 
 export default function LandingSection() {
   return (
     <div className="relative bg-gray-50">
-      <main className="lg:relative">
+      <div className="lg:relative">
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
             <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 text-6xl font-extrabold sm:text-7xl leading-tight md:leading-tight">
@@ -45,7 +45,7 @@ export default function LandingSection() {
             alt=""
           />
         </div>
-      </main>
+      </div>
     </div>
   );
 }

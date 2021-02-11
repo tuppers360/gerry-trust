@@ -173,7 +173,7 @@ function ApplicationForm() {
                           required: 'Please enter your first name'
                         })}
                         type="text"
-                        autoComplete="first-name"
+                        autoComplete="given-name"
                       />
                       {errors.firstName && <FormErrorIcon />}
                     </div>
@@ -196,7 +196,7 @@ function ApplicationForm() {
                     </label>
                     <div className="mt-1 relative">
                       <input
-                        aria-label="Enter your Last Name"
+                        autoComplete="family-name"
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.lastName
                             ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -285,7 +285,6 @@ function ApplicationForm() {
                     </label>
                     <div className="mt-1 relative">
                       <input
-                        aria-label="Enter your address"
                         autoComplete="address-line1"
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.addressLine1
@@ -319,7 +318,6 @@ function ApplicationForm() {
                     </label>
                     <div className="mt-1 relative">
                       <input
-                        aria-label="Enter your address"
                         autoComplete="address-line2"
                         className="py-3 px-4 block w-full shadow-sm rounded-md focus:ring-blue-900 focus:border-blue-900 border-gray-300"
                         id="addressLine2"
@@ -338,7 +336,6 @@ function ApplicationForm() {
                     </label>
                     <div className="mt-1 relative">
                       <input
-                        aria-label="Enter your town"
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.town
                             ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -367,7 +364,6 @@ function ApplicationForm() {
                     </label>
                     <div className="mt-1 relative">
                       <input
-                        aria-label="Enter your address"
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.county
                             ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -401,7 +397,6 @@ function ApplicationForm() {
                     </label>
                     <div className="mt-1 relative">
                       <input
-                        aria-label="Enter your post code"
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.postCode
                             ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -457,7 +452,6 @@ function ApplicationForm() {
                     </label>
                     <div className="relative -mt-4">
                       <textarea
-                        aria-label="Enter your message"
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.application
                             ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`

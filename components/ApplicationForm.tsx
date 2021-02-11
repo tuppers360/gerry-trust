@@ -309,13 +309,7 @@ function ApplicationForm() {
                       </p>
                     )}
                   </div>
-                  <div className="col-span-6 -mt-8">
-                    <label
-                      htmlFor="address-line2"
-                      className="block text-base font-medium text-gray-700 invisible"
-                    >
-                      Address
-                    </label>
+                  <div className="col-span-6">
                     <div className="mt-1 relative">
                       <input
                         autoComplete="address-line2"

@@ -16,12 +16,17 @@ function Contact() {
       <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 m-4">
         <div className="grid lg:grid-cols-2 gap-8">
           <section>
-            <h3 className="text-2xl font-extrabold tracking-tight text-gray-600 text-center">
-              <span className="mr-2">
-                <FontAwesomeIcon icon="envelope" fixedWidth />
-              </span>
-              Get in touch
-            </h3>
+            <div className="text-center">
+              <div className="inline-flex items-center">
+                <span className="mr-2 text-2xl">
+                  <FontAwesomeIcon icon="envelope" fixedWidth />
+                </span>
+                <h3 className="text-3xl font-semibold text-gray-600 text-center">
+                  Get in touch
+                </h3>
+              </div>
+            </div>
+
             <p className="mt-8 text-lg">
               We’re very approachable and would love to speak to you. You can
               use any of the following or our enquiry form.
@@ -34,7 +39,7 @@ function Contact() {
                 </span>
               </li>
               <li className="mt-4">
-                Send us an email -{' '}
+                Send us an email -
                 <a
                   href="mailto:contactus@gerryrichardsontrust.org"
                   className="text-gray-800 hover:text-gray-500 font-semibold ml-1"
@@ -69,18 +74,18 @@ function Contact() {
               </li>
             </ul>
           </section>
-          <section className="bg-white">
-            <div className="max-w-xl mx-auto">
-              <div className="text-center">
-                <h2 className="text-2xl font-extrabold tracking-tight text-gray-600">
-                  <span className="mr-2">
-                    <FontAwesomeIcon icon="edit" />
-                  </span>
+          <section>
+            <div className="max-w-xl mx-auto text-center">
+              <div className="inline-flex items-center">
+                <span className="mr-2 text-2xl">
+                  <FontAwesomeIcon icon="edit" />
+                </span>
+                <h2 className="text-3xl font-semibold text-gray-600">
                   Send us a message
                 </h2>
               </div>
-              <ContactForm />
             </div>
+            <ContactForm />
           </section>
         </div>
       </div>

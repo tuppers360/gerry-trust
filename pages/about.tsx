@@ -62,7 +62,7 @@ export default function About() {
         <section className="bg-white">
           <div className="">
             <div className="text-center">
-              <h1 className="max-w-4xl mx-auto bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900 text-6xl lg:text-7xl leading-tight font-extrabold tracking-tight mt-10 mb-16 sm:mt-14 sm:mb-10">
+              <h1 className="max-w-4xl mx-auto bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900 text-5xl lg:text-6xl leading-tight font-bold tracking-tight mt-10 mb-16 sm:mt-14 sm:mb-10">
                 Meet our team
               </h1>
               <ul className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl py-4 lg:py-16">

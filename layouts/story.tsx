@@ -17,7 +17,7 @@ export default function StoryLayout({ children, frontMatter }) {
       type="article"
     >
       <PageHeaderSection heading={frontMatter.title} type="story">
-        <p className="text-gray-700 md:text-2xl dark:text-gray-300">
+        <p className="text-gray-600 md:text-2xl dark:text-gray-300">
           Published -&nbsp;
           {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
         </p>

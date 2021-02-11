@@ -11,8 +11,7 @@ module.exports = {
   theme: {
     fontFamily: {
       display: ['Inter', 'system-ui', 'sans-serif'],
-      body: ['Inter', 'system-ui', 'sans-serif'],
-      julietta: ['Julietta', ...fontFamily.sans]
+      body: ['Inter', 'system-ui', 'sans-serif']
     },
     extend: {
       colors: {
@@ -22,9 +21,26 @@ module.exports = {
 
         blueGray: colors.blueGray,
         coolGray: colors.coolGray,
-
+        //gray: colors.gray, //default Gray is coolGray
+        trueGray: colors.trueGray,
+        warmGray: colors.warmGray,
+        //red: colors.red, //default Red is Red
+        orange: colors.orange,
+        amber: colors.amber,
+        //yellow: colors.yellow, //default Yellow is Amber
+        lime: colors.lime,
+        //green: colors.green, //default Green is Emerald
+        emerald: colors.emerald,
+        teal: colors.teal,
         cyan: colors.cyan,
-        lightBlue: colors.lightBlue
+        lightBlue: colors.lightBlue,
+        //blue: colors.blue, //default Blue is Blue
+        //indigo: colors.indigo, //default Indigo is Indigo
+        violet: colors.violet,
+        //purple: colors.purple, //default Purple is violet
+        fuchsia: colors.fuchsia,
+        //pink: colors.pink, //default Pink is Pink
+        rose: colors.rose
       }
     }
   },

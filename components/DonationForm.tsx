@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
-import getStripe from '../utils/get-stripejs';
-import { fetchPostJSON } from '../utils/api-helpers';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GiftAid from './GiftAid';
+import { fetchPostJSON } from '../utils/api-helpers';
+import getStripe from '../utils/get-stripejs';
 
 const DonationForm = () => {
   const [donation, setDonation] = useState(0);
@@ -17,7 +16,7 @@ const DonationForm = () => {
     { id: 1, value: 5, text: '£5' },
     { id: 2, value: 10, text: '£10' },
     { id: 3, value: 20, text: '£20' },
-    { id: 4, value: 0, text: 'Other' },
+    { id: 4, value: 0, text: 'Other' }
   ];
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
@@ -26,7 +25,7 @@ const DonationForm = () => {
     // Create a Checkout Session.
     const response = await fetchPostJSON('/api/stripe/checkout_sessions', {
       amount: donation,
-      giftAid: giftAid,
+      giftAid: giftAid
     });
 
     if (response.statusCode === 500) {
@@ -40,7 +39,7 @@ const DonationForm = () => {
       // Make the id field from the Checkout Session creation API response
       // available to this file, so you can provide it as parameter here
       // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
-      sessionId: response.id,
+      sessionId: response.id
     });
     // If `redirectToCheckout` fails due to a browser or network
     // error, display the localized error message to your customer
@@ -109,7 +108,7 @@ const DonationForm = () => {
                   pattern="[0-9]*"
                   name="donation"
                   type="number"
-                  aria-describedby="Custom Donation Amount"
+                  aria-description="Custom Donation Amount"
                   placeholder="Enter Donation"
                   min="1"
                   onChange={(e) =>

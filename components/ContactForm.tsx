@@ -1,9 +1,9 @@
+import CrossCircle from './svg-images/CrossCircle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import FormErrorIcon from './FormErrorIcon';
 import ToggleButton from './ToggleButton'; //Commented out until Privacy and Cookies Policy written
-import CrossCircle from './svg-images/CrossCircle';
+import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
 export interface IStatus {
   submitted?: boolean;
@@ -25,7 +25,7 @@ export default function ContactFormTest() {
   const [status, setStatus] = useState<IStatus>({
     submitted: false,
     submitting: false,
-    info: { error: false, msg: null },
+    info: { error: false, msg: null }
   });
 
   const { register, handleSubmit, errors, reset } = useForm<FormInputs>();
@@ -37,12 +37,12 @@ export default function ContactFormTest() {
       setStatus({
         submitted: true,
         submitting: false,
-        info: { error: false, msg: msg },
+        info: { error: false, msg: msg }
       });
       reset({ ...submittedData });
     } else {
       setStatus({
-        info: { error: true, msg: msg },
+        info: { error: true, msg: msg }
       });
     }
   };
@@ -54,9 +54,9 @@ export default function ContactFormTest() {
     const res = await fetch('/api/sendgrid/contactus', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     });
     const text = await res.text();
     handleResponse(res.status, text);
@@ -163,7 +163,7 @@ export default function ContactFormTest() {
             </label>
             <div className="mt-1 relative">
               <input
-                aria-describedby="Enter your First Name"
+                aria-description="Enter your First Name"
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.firstName
                     ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -191,7 +191,7 @@ export default function ContactFormTest() {
             </label>
             <div className="mt-1 relative">
               <input
-                aria-describedby="Enter your Last Name"
+                aria-description="Enter your Last Name"
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.lastName
                     ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -219,7 +219,7 @@ export default function ContactFormTest() {
             </label>
             <div className="mt-1 relative">
               <input
-                aria-describedby="Enter your email"
+                aria-description="Enter your email"
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.email
                     ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -231,8 +231,8 @@ export default function ContactFormTest() {
                   required: 'Please enter your email',
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                    message: 'Please enter a valid email address',
-                  },
+                    message: 'Please enter a valid email address'
+                  }
                 })}
                 type="text"
               />
@@ -253,7 +253,7 @@ export default function ContactFormTest() {
             </label>
             <div className="mt-1 relative">
               <textarea
-                aria-describedby="Enter your message"
+                aria-description="Enter your message"
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.message
                     ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`

@@ -19,7 +19,7 @@ function Stories({ stories }) {
     <Container>
       <PageHeaderSection
         title="Stories"
-        heading="Read about some of the adventures"
+        heading="Read about who we have helped support along the way"
       />
       <main className="flex flex-col justify-center items-start max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 m-4">
         <p className="text-gray-600 dark:text-gray-400">

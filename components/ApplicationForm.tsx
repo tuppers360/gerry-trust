@@ -278,7 +278,7 @@ function ApplicationForm() {
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6">
                     <label
-                      htmlFor="address-line1"
+                      htmlFor="addressLine1"
                       className="block text-base font-medium text-gray-700"
                     >
                       Address
@@ -303,13 +303,19 @@ function ApplicationForm() {
                     {errors.addressLine1 && (
                       <p
                         className="mt-2 text-sm text-red-600"
-                        id="address-line1-error"
+                        id="addressLine1-error"
                       >
                         {errors.addressLine1.message}
                       </p>
                     )}
                   </div>
-                  <div className="col-span-6">
+                  <div className="col-span-6 -mt-8">
+                    <label
+                      htmlFor="addressLine2"
+                      className="block text-base font-medium text-gray-700 invisible"
+                    >
+                      Address
+                    </label>
                     <div className="mt-1 relative">
                       <input
                         autoComplete="address-line2"

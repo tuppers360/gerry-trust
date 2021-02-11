@@ -163,7 +163,6 @@ export default function ContactFormTest() {
             </label>
             <div className="mt-1 relative">
               <input
-                aria-description="Enter your First Name"
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.firstName
                     ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -172,6 +171,7 @@ export default function ContactFormTest() {
                 id="firstName"
                 name="firstName"
                 ref={register({ required: 'Please enter your first name' })}
+                required
                 type="text"
               />
               {errors.firstName && <FormErrorIcon />}
@@ -191,7 +191,6 @@ export default function ContactFormTest() {
             </label>
             <div className="mt-1 relative">
               <input
-                aria-description="Enter your Last Name"
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.lastName
                     ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -200,6 +199,7 @@ export default function ContactFormTest() {
                 id="lastName"
                 name="lastName"
                 ref={register({ required: 'Please enter your last name' })}
+                required
                 type="text"
               />
               {errors.lastName && <FormErrorIcon />}
@@ -219,7 +219,6 @@ export default function ContactFormTest() {
             </label>
             <div className="mt-1 relative">
               <input
-                aria-description="Enter your email"
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.email
                     ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -234,6 +233,7 @@ export default function ContactFormTest() {
                     message: 'Please enter a valid email address'
                   }
                 })}
+                required
                 type="text"
               />
               {errors.email && <FormErrorIcon />}
@@ -253,7 +253,6 @@ export default function ContactFormTest() {
             </label>
             <div className="mt-1 relative">
               <textarea
-                aria-description="Enter your message"
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.message
                     ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -262,6 +261,7 @@ export default function ContactFormTest() {
                 id="message"
                 name="message"
                 ref={register({ required: 'Please enter your message' })}
+                required
                 rows={4}
               ></textarea>
               {errors.message && <FormErrorIcon />}

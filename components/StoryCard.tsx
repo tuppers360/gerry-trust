@@ -25,14 +25,9 @@ const Post = ({ title, summary, publishedAt, author, image, slug }) => {
             <p className="sm:text-lg sm:leading-snug font-semibold tracking-wide text-blue-600 mt-4">
               Written by {author}
             </p>
-            <Link href={`/stories/${slug}`}>
-              <a>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-relaxed font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 mt-4 hover:underline">
-                  {title}
-                </h1>
-              </a>
-            </Link>
-
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-relaxed font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 mt-4 hover:underline">
+              {title}
+            </h1>
             <p className="mt-4 text-lg font-medium text-gray-500">{summary}</p>
           </div>
           <div className="mt-8 flex text-sm justify-between text-gray-400">

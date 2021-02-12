@@ -12,13 +12,6 @@ export default class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="anonymous"
           />
-          <link
-            rel="preload"
-            href="/fonts/Julietta-Messie-Demo.ttf.woff"
-            as="font"
-            type="font/woff"
-            crossOrigin="anonymous"
-          />
         </Head>
         <body className="text-gray-700 bg-white dark:bg-gray-800 dark:text-gray-100">
           <Main />

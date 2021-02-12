@@ -2,8 +2,6 @@ import { format, parseISO } from 'date-fns';
 
 import Link from 'next/link';
 import ViewCounter from 'components/ViewCounter';
-import fetcher from 'lib/fetcher';
-import useSWR from 'swr';
 
 const Post = ({ title, summary, publishedAt, author, image, slug }) => {
   return (

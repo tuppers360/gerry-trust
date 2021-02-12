@@ -8,15 +8,11 @@ const Post = ({ title, summary, publishedAt, author, image, slug }) => {
     <Link href={`/stories/${slug}`}>
       <a className="flex flex-col rounded-lg shadow-lg overflow-hidden border-gray-300 border">
         <div className="flex-shrink-0">
-          <Link href={`/stories/${slug}`}>
-            <a>
-              <img
-                className="h-56 lg:h-72 w-full object-cover"
-                src={image}
-                alt=""
-              />
-            </a>
-          </Link>
+          <img
+            className="h-56 lg:h-72 w-full object-cover"
+            src={image}
+            alt=""
+          />
         </div>
         <div className="flex-1 bg-gray-50 px-6 py-3 flex flex-col justify-between">
           <div className="h-0 flex-1">

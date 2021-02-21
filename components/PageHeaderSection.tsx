@@ -22,7 +22,7 @@ const PageHeaderSection: FunctionComponent<HeaderProps> = ({
             {title}
           </p>
         )}
-        <h1 className="mt-2 text-3xl font-extrabold text-gray-700 tracking-tight sm:text-5xl">
+        <h1 className="mt-4 text-3xl font-extrabold text-gray-700 tracking-tight sm:text-5xl">
           {heading}
         </h1>
         {children && (

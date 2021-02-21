@@ -9,7 +9,7 @@ export default function About() {
         title="About Us"
         heading="Our History"
       ></PageHeaderSection>
-      <div className="max-w-6xl mx-auto py-4 px-4 sm:px-6 lg:px-8 mt-8">
+      <div className="max-w-6xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
         <section className="text-lg space-y-4 text-gray-600">
           <p>
             On the 23rd August 1971 Superintendent Gerald Richardson was shot
@@ -62,7 +62,10 @@ export default function About() {
         <section className="bg-white">
           <div className="">
             <div className="text-center">
-              <h1 className="max-w-4xl mx-auto bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900 text-5xl lg:text-6xl leading-tight font-bold tracking-tight mt-10 mb-16 sm:mt-14 sm:mb-10">
+              <p className="text-xl font-semibold tracking-wider text-cyan-600 uppercase mt-16">
+                Trustees
+              </p>
+              <h1 className="max-w-4xl mx-auto text-3xl font-extrabold text-gray-700 tracking-tight sm:text-5xl">
                 Meet our team
               </h1>
               <ul className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl py-4 lg:py-16">

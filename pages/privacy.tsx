@@ -14,7 +14,7 @@ export default function index() {
       >
         Effective 01 January 2021
       </PageHeaderSection>
-      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-6xl lg:px-8 mt-8">
+      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-6xl lg:px-8">
         <div className="flex flex-col lg:flex-row-reverse">
           <section className="w-full p-4 lg:w-1/3 ">
             <h3 className="font-semibold text-2xl">Topics:</h3>

@@ -23,7 +23,7 @@ function Stories({ stories }) {
       >{`Here are some of the stories of those we have helped along the way. In total, we have ${stories.length} stories so far with many more to come.
       Use the search below to filter by title of the stories`}</PageHeaderSection>
 
-      <div className="flex flex-col justify-center items-start mx-auto px-4 max-w-md sm:max-w-lg lg:max-w-7xl sm:px-6 lg:px-8 mt-8">
+      <div className="flex flex-col justify-center items-start mx-auto px-4 max-w-md sm:max-w-lg lg:max-w-7xl sm:px-6 lg:px-8">
         <div className="relative w-full max-w-md lg:max-w-4xl mx-auto mt-4 px-4">
           <input
             aria-label="Search stories"

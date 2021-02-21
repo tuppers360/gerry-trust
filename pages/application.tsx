@@ -11,27 +11,23 @@ export default function Application() {
       description="Apply for a grant from The Gerry Richardson Trust"
     >
       <PageHeaderSection
-        title="Application Form"
+        title="Apply for a grant"
         heading="Lets see if we can help you?"
       >
-        <p>Apply for a grant</p>
+        <p>Application Form & Guidance Notes</p>
+        <p className="mt-4 text-base">
+          These notes are here to help you provide all the information required
+          so that Trustees can come to a decision about your application.
+        </p>
+        <p className="mt-4 text-base">
+          Please read these notes before progressing to the applic and also
+          ensure that you have explored and considered ALL sections of our
+          website.
+        </p>
       </PageHeaderSection>
-      <div className="max-w-xl mx-auto px-4 sm:px-6 md:max-w-6xl lg:px-8 mt-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-700 text-center">
-          Application Form & Guidance Notes
-        </h2>
+      <div className="max-w-xl mx-auto px-4 sm:px-6 md:max-w-6xl lg:px-8">
         <section>
-          <p className="mt-4 lg:mt-8 text-lg">
-            These notes are here to help you provide all the information
-            required so that Trustees can come to a decision about your
-            application.
-          </p>
-          <p className="mt-4 text-lg">
-            Please read these notes before progressing to the applic and also
-            ensure that you have explored and considered ALL sections of our
-            website.
-          </p>
-          <h3 className="text font-bold tracking-tight text-gray-700 mt-4">
+          <h3 className="text font-bold tracking-tight text-gray-700">
             Please note the following when applying for a grant:
           </h3>
           <ul className="list-disc pl-8 bg-gray-100 p-4 border border-gray-00 rounded-md shadow-sm mt-4">

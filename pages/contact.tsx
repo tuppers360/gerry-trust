@@ -13,7 +13,7 @@ function Contact() {
       >
         <p>Below you will find a few ways to contact us</p>
       </PageHeaderSection>
-      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 mt-8">
+      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8">
           <section>
             <h3 className="text-2xl font-semibold text-gray-600 text-center">

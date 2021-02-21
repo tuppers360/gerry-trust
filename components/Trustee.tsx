@@ -16,9 +16,9 @@ export function Trustee({ image, name, position, children }: TrusteeProps) {
         alt=""
       />
       <div className="space-y-2">
-        <div className="text-lg leading-normal font-semibold space-y-1 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-900">
+        <div className="text-lg leading-normal font-semibold space-y-1 text-cyan-600">
           <h3>{name}</h3>
-          <p className="text-gray-700">{position}</p>
+          <p className="text-gray-500">{position}</p>
         </div>
       </div>
     </div>

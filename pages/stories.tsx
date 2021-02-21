@@ -20,22 +20,20 @@ function Stories({ stories }) {
       <PageHeaderSection
         title="Stories"
         heading="Read about who we have helped support along the way"
-      />
-      <div className="flex flex-col justify-center items-start max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 mt-8">
-        <p className="text-gray-600 dark:text-gray-400">
-          {`Here are some of the stories of those we have helped along the way. In total, we have ${stories.length} stories so far with many more to come.
-            Use the search below to filter by title of the stories`}
-        </p>
-        <div className="relative w-full mt-8">
+      >{`Here are some of the stories of those we have helped along the way. In total, we have ${stories.length} stories so far with many more to come.
+      Use the search below to filter by title of the stories`}</PageHeaderSection>
+
+      <div className="flex flex-col justify-center items-start mx-auto px-4 max-w-md sm:max-w-lg lg:max-w-7xl sm:px-6 lg:px-8 mt-8">
+        <div className="relative w-full max-w-md lg:max-w-4xl mx-auto mt-4 px-4">
           <input
             aria-label="Search stories"
             type="text"
             onChange={(e) => setSearchValue(e.target.value)}
             placeholder="Search stories"
-            className="px-4 py-2 border border-gray-300 dark:border-gray-900 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-900 focus:ring-blue-500 focus:border-cyan-500 block w-full rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
           />
           <svg
-            className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
+            className="absolute right-6 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -52,10 +50,12 @@ function Stories({ stories }) {
         {/* //TODO - style No Posts Found */}
         {!filteredBlogPosts.length && 'No posts found.'}
         {filteredBlogPosts && (
-          <div className="mt-8 mx-auto grid gap-5 auto-rows-fr lg:grid-cols-2 lg:max-w-none">
-            {filteredBlogPosts.map((frontMatter) => (
-              <StoryCard key={frontMatter.title} {...frontMatter} />
-            ))}
+          <div className="relative">
+            <div className="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
+              {filteredBlogPosts.map((frontMatter) => (
+                <StoryCard key={frontMatter.title} {...frontMatter} />
+              ))}
+            </div>
           </div>
         )}
       </div>

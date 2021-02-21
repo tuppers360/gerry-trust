@@ -15,16 +15,20 @@ const PageHeaderSection: FunctionComponent<HeaderProps> = ({
   children
 }) => {
   return (
-    <div className="pt-12 pb-12 bg-gray-200">
-      <div className="mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 text-center">
+    <div className="pt-12 pb-12">
+      <div className="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-3xl">
         {title && (
-          <p className="text-gray-600 text-xl font-bold uppercase">{title}</p>
+          <p className="text-xl font-semibold tracking-wider text-cyan-600 uppercase">
+            {title}
+          </p>
         )}
-        <h1 className="bg-clip-text text-5xl lg:text-6xl text-transparent bg-gradient-to-r from-blue-900 to-blue-500 font-bold py-4">
+        <h1 className="mt-2 text-3xl font-extrabold text-gray-700 tracking-tight sm:text-5xl">
           {heading}
         </h1>
         {children && (
-          <div className="mt-6 text-xl font-semibold">{children}</div>
+          <div className="mt-8 mx-auto max-w-prose text-xl text-gray-500">
+            {children}
+          </div>
         )}
       </div>
     </div>

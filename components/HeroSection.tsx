@@ -3,8 +3,8 @@ import React from 'react';
 export default function HeroSection() {
   return (
     <div className="bg-gray-100">
-      <div className="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
-        <h2 className="text-5xl tracking-tight font-extrabold sm:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 py-4">
+      <div className="max-w-2xl px-4 py-16 mx-auto text-center bg-gray-100 sm:py-20 sm:px-6 lg:px-8">
+        <h2 className="py-4 text-5xl font-extrabold tracking-tight text-transparent sm:text-6xl bg-clip-text bg-gradient-to-r from-blue-900 to-blue-500">
           Our Mission
         </h2>
         <p className="mt-4 text-lg leading-loose text-gray-800">

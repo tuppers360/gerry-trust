@@ -20,17 +20,17 @@ export default function Application() {
           so that Trustees can come to a decision about your application.
         </p>
         <p className="mt-4 text-base">
-          Please read these notes before progressing to the applic and also
+          Please read these notes before progressing to the application and also
           ensure that you have explored and considered ALL sections of our
           website.
         </p>
       </PageHeaderSection>
-      <div className="max-w-xl mx-auto px-4 sm:px-6 md:max-w-6xl lg:px-8">
+      <div className="max-w-xl px-4 mx-auto sm:px-6 md:max-w-6xl lg:px-8">
         <section>
-          <h3 className="text font-bold tracking-tight text-gray-700">
+          <h3 className="font-bold tracking-tight text-gray-700 text">
             Please note the following when applying for a grant:
           </h3>
-          <ul className="list-disc pl-8 bg-gray-100 p-4 border border-gray-00 rounded-md shadow-sm mt-4">
+          <ul className="p-4 pl-8 mt-4 list-disc bg-gray-100 border rounded-md shadow-sm border-gray-00">
             <li>All form fields are required.</li>
             <li>
               Your application must meet our criteria - live within 15 miles of
@@ -62,7 +62,7 @@ export default function Application() {
         </section>
         <section>
           <ApplicationForm />
-          <h3 className="text-2xl font-bold tracking-tight text-gray-700 text-center mt-8">
+          <h3 className="mt-8 text-2xl font-bold tracking-tight text-center text-gray-700">
             <FontAwesomeIcon icon="edit" fixedWidth /> Other Ways to apply
           </h3>
           <p className="mt-8 text-lg">

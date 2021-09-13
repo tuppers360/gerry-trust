@@ -13,10 +13,10 @@ function Contact() {
       >
         <p>Below you will find a few ways to contact us</p>
       </PageHeaderSection>
-      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8">
+      <div className="max-w-xl px-4 mx-auto sm:px-6 lg:max-w-5xl lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-2">
           <section>
-            <h3 className="text-xl font-medium text-gray-600 text-center">
+            <h3 className="text-xl font-medium text-center text-gray-600">
               <FontAwesomeIcon icon="envelope" fixedWidth /> Get in touch
             </h3>
             <p className="mt-8 text-lg">
@@ -26,15 +26,19 @@ function Contact() {
             <ul className="mt-8">
               <li className="mt-4">
                 Call us -
-                <span className="text-gray-800 font-semibold ml-1">
-                  (01253) 700879
+                <span className="ml-1 mr-1 font-semibold text-gray-800">
+                  (01253)700879
+                </span>
+                or
+                <span className="ml-1 mr-1 font-semibold text-gray-800">
+                  07799763108
                 </span>
               </li>
               <li className="mt-4">
                 Send us an email -
                 <a
                   href="mailto:contactus@gerryrichardsontrust.org"
-                  className="text-gray-800 hover:text-gray-500 font-semibold ml-1"
+                  className="ml-1 font-semibold text-gray-800 hover:text-gray-500"
                 >
                   contactus@gerryrichardsontrust.org
                 </a>
@@ -43,7 +47,7 @@ function Contact() {
                 Tweet us - <span className="sr-only">Twitter</span>
                 <a
                   href="https://twitter.com/gerrytrust"
-                  className="text-gray-800 hover:text-twitter font-semibold ml-1"
+                  className="ml-1 font-semibold text-gray-800 hover:text-twitter"
                 >
                   @gerrytrust
                 </a>
@@ -67,7 +71,7 @@ function Contact() {
             </ul>
           </section>
           <section>
-            <h2 className="text-xl font-medium text-gray-600 text-center">
+            <h2 className="text-xl font-medium text-center text-gray-600">
               <FontAwesomeIcon icon="edit" fixedWidth /> Send us a message
             </h2>
             <ContactForm />

@@ -9,11 +9,11 @@ export default function Footer() {
         Footer
       </h2>
       <div className="py-12 mt-24">
-        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-6xl lg:px-8">
+        <div className="max-w-xl px-4 mx-auto sm:px-6 lg:max-w-6xl lg:px-8">
           <h2 className="sr-only">Navigation - Footer</h2>
           <div className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-4">
             <section className="text-center">
-              <h2 className="text-2xl font-semibold text-blue-400 uppercase tracking-wide">
+              <h2 className="text-2xl font-semibold tracking-wide text-blue-400 uppercase">
                 Navigation
               </h2>
               <ul className="mt-2 text-base text-gray-300">
@@ -41,10 +41,10 @@ export default function Footer() {
             </section>
             <section className="text-center">
               <h2 className="sr-only">Contect Us - Footer</h2>
-              <h2 className="text-2xl font-semibold text-blue-400 uppercase tracking-wide">
+              <h2 className="text-2xl font-semibold tracking-wide text-blue-400 uppercase">
                 Get in Touch
               </h2>
-              <p className="mt-4 text-lg font-extrabold text-blue-500 tracking-wide">
+              <p className="mt-4 text-lg font-extrabold tracking-wide text-blue-500">
                 Gerry Richardson Trust
               </p>
               <address className="mt-2 text-lg text-gray-300">
@@ -57,8 +57,11 @@ export default function Footer() {
               <p className="mt-4 text-lg text-gray-300">
                 <FontAwesomeIcon icon="phone" /> (01253) 700879
               </p>
+              <p className="mt-4 text-lg text-gray-300">
+                <FontAwesomeIcon icon="phone" /> 07799763108
+              </p>
               <Link href="/contact">
-                <a className="inline-flex items-center mt-5 justify-center px-4 py-3 mb-1 border border-transparent text-base font-semibold rounded-md text-white bg-blue-900 hover:bg-blue-800 md:py-4 md:px-6">
+                <a className="inline-flex items-center justify-center px-4 py-3 mt-5 mb-1 text-base font-semibold text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-4 md:px-6">
                   <FontAwesomeIcon
                     className="mr-1"
                     icon="envelope"
@@ -70,7 +73,7 @@ export default function Footer() {
             </section>
             <section className="text-center">
               <h2 className="sr-only">Apply for a grant - Footer</h2>
-              <h3 className="text-2xl font-semibold text-blue-400 uppercase tracking-wide">
+              <h3 className="text-2xl font-semibold tracking-wide text-blue-400 uppercase">
                 Would you like to apply?
               </h3>
               <p className="mt-4 text-base text-gray-300">
@@ -79,7 +82,7 @@ export default function Footer() {
               </p>
 
               <Link href="/application">
-                <a className="inline-flex items-center mt-5 justify-center px-4 py-3 mb-1 border border-transparent text-base font-semibold rounded-md text-white bg-blue-900 hover:bg-blue-800 md:py-4 md:px-6">
+                <a className="inline-flex items-center justify-center px-4 py-3 mt-5 mb-1 text-base font-semibold text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-4 md:px-6">
                   <FontAwesomeIcon className="mr-1" icon="edit" />
                   Apply for a grant
                 </a>
@@ -89,13 +92,13 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-xl mx-auto pb-8 px-4 sm:px-6 lg:max-w-7xl lg:px-8 text-gray-800">
-        <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+      <div className="max-w-xl px-4 pb-8 mx-auto text-gray-800 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="pt-8 mt-8 border-t border-gray-700 md:flex md:items-center md:justify-between">
           <h2 className="sr-only">Social Media - Footer</h2>
           <div className="flex justify-center space-x-6 md:order-2">
             <a
               href="https://www.facebook.com/groups/649311542556032/"
-              className="text-gray-400 hover:text-facebook text-xl"
+              className="text-xl text-gray-400 hover:text-facebook"
             >
               {/* //TODO: figure out how to make it white text for icon */}
               <span className="sr-only">Facebook</span>
@@ -103,21 +106,21 @@ export default function Footer() {
             </a>
             <a
               href="https://www.instagram.com/gerryrichardsontrust/"
-              className="text-gray-400 hover:text-instagram text-xl"
+              className="text-xl text-gray-400 hover:text-instagram"
             >
               <span className="sr-only">Instagram</span>
               <FontAwesomeIcon icon={['fab', 'instagram']} />
             </a>
             <a
               href="https://twitter.com/gerrytrust"
-              className="text-gray-400 hover:text-twitter text-xl"
+              className="text-xl text-gray-400 hover:text-twitter"
             >
               <span className="sr-only">Twitter</span>
               <FontAwesomeIcon icon={['fab', 'twitter']} />
             </a>
           </div>
           <h2 className="sr-only">Copyright - Footer</h2>
-          <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1 text-center">
+          <p className="mt-8 text-base text-center text-gray-400 md:mt-0 md:order-1">
             <FontAwesomeIcon icon="copyright" /> Gerry Richardson Trust 2021 -
             All rights reserved. Registered Charity No. 504413
           </p>

@@ -37,7 +37,12 @@ function ApplicationForm() {
     info: { error: false, msg: '' }
   });
 
-  const { register, handleSubmit, errors, reset } = useForm<FormInputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm<FormInputs>();
 
   const [submittedData, setSubmittedData] = useState({});
 
@@ -56,7 +61,10 @@ function ApplicationForm() {
     }
   };
 
-  const handleOnSubmit = async (data: FormInputs, e) => {
+  const handleOnSubmit = async (
+    data: FormInputs,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     e.preventDefault();
     setSubmittedData(data);
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
@@ -75,7 +83,7 @@ function ApplicationForm() {
     <>
       <div className="mt-4 mb-4">
         {Object.keys(errors).length > 0 && (
-          <div className="rounded-md bg-red-100 border-l-4 border-red-400 p-4">
+          <div className="p-4 bg-red-100 border-l-4 border-red-400 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0 mt-1">
                 <CrossCircle styles="h-5 w-5 text-red-500" />
@@ -95,7 +103,7 @@ function ApplicationForm() {
           </div>
         )}
         {status.info.error && (
-          <div className="rounded-md bg-yellow-100 border-l-4 border-yellow-400 p-4">
+          <div className="p-4 bg-yellow-100 border-l-4 border-yellow-400 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0">
                 <ExclamationTriangle styles="h-5 w-5 text-yellow-400" />
@@ -116,7 +124,7 @@ function ApplicationForm() {
           </div>
         )}
         {!status.info.error && status.info.msg && (
-          <div className="rounded-md bg-green-100 border-l-4 border border-green-400 p-4">
+          <div className="p-4 bg-green-100 border border-l-4 border-green-400 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0 mt-1">
                 <CheckCircle styles="h-5 w-5 text-green-400" />
@@ -143,10 +151,10 @@ function ApplicationForm() {
 
       {!status.submitted && (
         <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
-          <section className="bg-gray-50 shadow px-4 py-5 rounded-lg sm:p-6 border border-gray-300">
+          <section className="px-4 py-5 border border-gray-300 rounded-lg shadow bg-gray-50 sm:p-6">
             <div className="md:grid md:grid-cols-3 md:gap-6">
               <div className="md:col-span-1">
-                <h3 className="text-lg font-medium leading-6 text-gray-900 mt-1">
+                <h3 className="mt-1 text-lg font-medium leading-6 text-gray-900">
                   Personal Information
                 </h3>
               </div>
@@ -159,22 +167,20 @@ function ApplicationForm() {
                     >
                       First name
                     </label>
-                    <div className="mt-1 relative">
+                    <div className="relative mt-1">
                       <input
-                        aria-label="Enter your First Name"
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.firstName
                             ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
                             : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
                         }`}
-                        id="firstName"
-                        name="firstName"
-                        ref={register({
-                          required: 'Please enter your first name'
+                        {...register('firstName', {
+                          required: 'First name is required'
                         })}
+                        id="firstName"
                         type="text"
-                        autoComplete="given-name"
                       />
+
                       {errors.firstName && <FormErrorIcon />}
                     </div>
                     {errors.firstName && (
@@ -194,18 +200,16 @@ function ApplicationForm() {
                     >
                       Last name
                     </label>
-                    <div className="mt-1 relative">
+                    <div className="relative mt-1">
                       <input
-                        autoComplete="family-name"
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.lastName
                             ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
                             : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
                         }`}
                         id="lastName"
-                        name="lastName"
-                        ref={register({
-                          required: 'Please enter your last name'
+                        {...register('lastName', {
+                          required: 'Last name is required'
                         })}
                         type="text"
                       />
@@ -227,10 +231,8 @@ function ApplicationForm() {
                     >
                       Email
                     </label>
-                    <div className="mt-1 relative">
+                    <div className="relative mt-1">
                       <input
-                        aria-label="Enter your email"
-                        autoComplete="email"
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.email
                             ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
@@ -238,13 +240,14 @@ function ApplicationForm() {
                         }`}
                         id="email"
                         name="email"
-                        ref={register({
+                        {...register('email', {
                           required: 'Please enter your email',
                           pattern: {
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                             message: 'Please enter a valid email address'
                           }
                         })}
+                        required
                         type="text"
                       />
                       {errors.email && <FormErrorIcon />}
@@ -264,10 +267,10 @@ function ApplicationForm() {
               <div className="border-t border-gray-200"></div>
             </div>
           </div>
-          <section className="bg-gray-50 shadow px-4 py-5 rounded-lg sm:p-6 border border-gray-300 mt-4 sm:mt-0">
+          <section className="px-4 py-5 mt-4 border border-gray-300 rounded-lg shadow bg-gray-50 sm:p-6 sm:mt-0">
             <div className="md:grid md:grid-cols-3 md:gap-6">
               <div className="md:col-span-1">
-                <h3 className="text-lg font-medium leading-6 text-gray-900 mt-1">
+                <h3 className="mt-1 text-lg font-medium leading-6 text-gray-900">
                   Address Information
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
@@ -283,7 +286,7 @@ function ApplicationForm() {
                     >
                       Address
                     </label>
-                    <div className="mt-1 relative">
+                    <div className="relative mt-1">
                       <input
                         autoComplete="address-line1"
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
@@ -293,7 +296,7 @@ function ApplicationForm() {
                         }`}
                         id="addressLine1"
                         name="addressLine1"
-                        ref={register({
+                        {...register('addressLine1', {
                           required: 'Please enter your address'
                         })}
                         type="text"
@@ -312,14 +315,14 @@ function ApplicationForm() {
                   <div className="col-span-6 -mt-8">
                     <label
                       htmlFor="addressLine2"
-                      className="block text-base font-medium text-gray-700 invisible"
+                      className="invisible block text-base font-medium text-gray-700"
                     >
                       Address
                     </label>
-                    <div className="mt-1 relative">
+                    <div className="relative mt-1">
                       <input
                         autoComplete="address-line2"
-                        className="py-3 px-4 block w-full shadow-sm rounded-md focus:ring-blue-900 focus:border-blue-900 border-gray-300"
+                        className="block w-full px-4 py-3 border-gray-300 rounded-md shadow-sm focus:ring-blue-900 focus:border-blue-900"
                         id="addressLine2"
                         name="addressLine2"
                         type="text"
@@ -334,7 +337,7 @@ function ApplicationForm() {
                     >
                       Town
                     </label>
-                    <div className="mt-1 relative">
+                    <div className="relative mt-1">
                       <input
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.town
@@ -343,7 +346,9 @@ function ApplicationForm() {
                         }`}
                         id="town"
                         name="town"
-                        ref={register({ required: 'Please enter your town' })}
+                        {...register('town', {
+                          required: 'Please enter your town'
+                        })}
                         type="text"
                       />
                       {errors.town && <FormErrorIcon />}
@@ -362,7 +367,7 @@ function ApplicationForm() {
                     >
                       County
                     </label>
-                    <div className="mt-1 relative">
+                    <div className="relative mt-1">
                       <input
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.county
@@ -371,7 +376,7 @@ function ApplicationForm() {
                         }`}
                         id="county"
                         name="county"
-                        ref={register({
+                        {...register('county', {
                           required: 'Please enter your county'
                         })}
                         type="text"
@@ -395,7 +400,7 @@ function ApplicationForm() {
                     >
                       Post Code
                     </label>
-                    <div className="mt-1 relative">
+                    <div className="relative mt-1">
                       <input
                         className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                           errors.postCode
@@ -404,7 +409,7 @@ function ApplicationForm() {
                         }`}
                         id="postCode"
                         name="postCode"
-                        ref={register({
+                        {...register('postCode', {
                           required: 'Please enter your message'
                         })}
                         type="text"
@@ -429,10 +434,10 @@ function ApplicationForm() {
               <div className="border-t border-gray-200"></div>
             </div>
           </div>
-          <section className="bg-gray-50 shadow px-4 py-5 rounded-lg sm:p-6 border border-gray-300 mt-4 sm:mt-0">
+          <section className="px-4 py-5 mt-4 border border-gray-300 rounded-lg shadow bg-gray-50 sm:p-6 sm:mt-0">
             <div className="md:grid md:grid-cols-3 md:gap-6">
               <div className="md:col-span-1">
-                <h3 className="text-lg font-medium leading-6 text-gray-900 mt-1">
+                <h3 className="mt-1 text-lg font-medium leading-6 text-gray-900">
                   Application
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
@@ -446,7 +451,7 @@ function ApplicationForm() {
                   <div className="col-span-6">
                     <label
                       htmlFor="application"
-                      className="block text-base font-medium text-gray-700 invisible"
+                      className="invisible block text-base font-medium text-gray-700"
                     >
                       Application
                     </label>
@@ -459,7 +464,7 @@ function ApplicationForm() {
                         }`}
                         id="application"
                         name="application"
-                        ref={register({
+                        {...register('application', {
                           required: 'Please complete your application'
                         })}
                         rows={10}
@@ -484,7 +489,7 @@ function ApplicationForm() {
           <div className="flex justify-end mt-4">
             <button
               type="submit"
-              className="w-full md:w-auto inline-flex items-center justify-center px-16 py-3 border border-transparent rounded-md shadow-sm text-base font-semibold text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
+              className="inline-flex items-center justify-center w-full px-16 py-3 text-base font-semibold text-white bg-blue-900 border border-transparent rounded-md shadow-sm md:w-auto hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
               disabled={status.submitting}
             >
               {!status.submitting ? (

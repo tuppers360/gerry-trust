@@ -28,7 +28,12 @@ export default function ContactFormTest() {
     info: { error: false, msg: null }
   });
 
-  const { register, handleSubmit, errors, reset } = useForm<FormInputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm<FormInputs>();
 
   const [submittedData, setSubmittedData] = useState({});
 
@@ -47,7 +52,10 @@ export default function ContactFormTest() {
     }
   };
 
-  const handleOnSubmit = async (data: FormInputs, e) => {
+  const handleOnSubmit = async (
+    data: FormInputs,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     e.preventDefault();
     setSubmittedData(data);
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
@@ -66,7 +74,7 @@ export default function ContactFormTest() {
     <>
       <div className="mt-8">
         {Object.keys(errors).length > 0 && (
-          <div className="rounded-md bg-red-100 border-l-4 border-red-400 p-4">
+          <div className="p-4 bg-red-100 border-l-4 border-red-400 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0 mt-1">
                 <CrossCircle styles="h-5 w-5 text-red-500" />
@@ -86,11 +94,11 @@ export default function ContactFormTest() {
           </div>
         )}
         {status.info.error && (
-          <div className="rounded-md bg-yellow-100 border-l-4 border-yellow-400 p-4">
+          <div className="p-4 bg-yellow-100 border-l-4 border-yellow-400 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0">
                 <svg
-                  className="h-5 w-5 text-yellow-400"
+                  className="w-5 h-5 text-yellow-400"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -104,7 +112,7 @@ export default function ContactFormTest() {
                 </svg>
               </div>
               <div className="ml-3">
-                <h3 className="text font-semibold text-yellow-800">
+                <h3 className="font-semibold text-yellow-800 text">
                   There was a problem sending your message
                 </h3>
                 <div className="mt-2 text-lg text-yellow-700">
@@ -119,11 +127,11 @@ export default function ContactFormTest() {
           </div>
         )}
         {!status.info.error && status.info.msg && (
-          <div className="rounded-md bg-green-100 border-l-4 border border-green-400 p-4">
+          <div className="p-4 bg-green-100 border border-l-4 border-green-400 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0">
                 <svg
-                  className="h-5 w-5 text-green-400"
+                  className="w-5 h-5 text-green-400"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -140,7 +148,7 @@ export default function ContactFormTest() {
                 <h3 className="text-lg font-semibold text-green-800">
                   Your message has been sent
                 </h3>
-                <div className="mt-2 text text-green-700">
+                <div className="mt-2 text-green-700 text">
                   <p>Please allow us a short while to respond.</p>
                 </div>
               </div>
@@ -152,7 +160,7 @@ export default function ContactFormTest() {
         <form
           onSubmit={handleSubmit(handleOnSubmit)}
           noValidate
-          className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8 mt-8"
+          className="grid grid-cols-1 mt-8 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
         >
           <div>
             <label
@@ -161,19 +169,20 @@ export default function ContactFormTest() {
             >
               First name
             </label>
-            <div className="mt-1 relative">
+            <div className="relative mt-1">
               <input
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.firstName
                     ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
                     : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
                 }`}
+                {...register('firstName', {
+                  required: 'First name is required'
+                })}
                 id="firstName"
-                name="firstName"
-                ref={register({ required: 'Please enter your first name' })}
-                required
                 type="text"
               />
+
               {errors.firstName && <FormErrorIcon />}
             </div>
             {errors.firstName && (
@@ -189,7 +198,7 @@ export default function ContactFormTest() {
             >
               Last name
             </label>
-            <div className="mt-1 relative">
+            <div className="relative mt-1">
               <input
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.lastName
@@ -197,9 +206,7 @@ export default function ContactFormTest() {
                     : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
                 }`}
                 id="lastName"
-                name="lastName"
-                ref={register({ required: 'Please enter your last name' })}
-                required
+                {...register('lastName', { required: 'Last name is required' })}
                 type="text"
               />
               {errors.lastName && <FormErrorIcon />}
@@ -210,6 +217,7 @@ export default function ContactFormTest() {
               </p>
             )}
           </div>
+
           <div className="sm:col-span-2">
             <label
               htmlFor="email"
@@ -217,7 +225,7 @@ export default function ContactFormTest() {
             >
               Email
             </label>
-            <div className="mt-1 relative">
+            <div className="relative mt-1">
               <input
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.email
@@ -226,7 +234,7 @@ export default function ContactFormTest() {
                 }`}
                 id="email"
                 name="email"
-                ref={register({
+                {...register('email', {
                   required: 'Please enter your email',
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
@@ -251,7 +259,7 @@ export default function ContactFormTest() {
             >
               Message
             </label>
-            <div className="mt-1 relative">
+            <div className="relative mt-1">
               <textarea
                 className={`py-3 px-4 block w-full shadow-sm rounded-md ${
                   errors.message
@@ -260,7 +268,9 @@ export default function ContactFormTest() {
                 }`}
                 id="message"
                 name="message"
-                ref={register({ required: 'Please enter your message' })}
+                {...register('message', {
+                  required: 'Please enter your message'
+                })}
                 required
                 rows={4}
               ></textarea>
@@ -296,7 +306,7 @@ export default function ContactFormTest() {
           <div className="sm:col-span-2">
             <button
               type="submit"
-              className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-semibold text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
+              className="inline-flex items-center justify-center w-full px-6 py-3 text-base font-semibold text-white bg-blue-900 border border-transparent rounded-md shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
               disabled={status.submitting}
             >
               {!status.submitting ? (

@@ -1,15 +1,9 @@
 import Container from 'components/Container';
 import DonationForm from 'components/DonationForm';
-import { Elements } from '@stripe/react-stripe-js';
 import { NextPage } from 'next';
 import PageHeaderSection from 'components/PageHeaderSection';
-import { loadStripe } from '@stripe/stripe-js';
 
 const DonatePage: NextPage = () => {
-  const stripePromise = loadStripe(
-    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-  );
-
   return (
     <Container title="Make a Donation - The Gerry Richardson Trust">
       <PageHeaderSection title="Donate" heading="Make a Donation" center>
@@ -18,12 +12,8 @@ const DonatePage: NextPage = () => {
           Wyre 💖
         </p>
       </PageHeaderSection>
-      <div className="max-w-xl mx-auto px-4">
-        {stripePromise && (
-          <Elements stripe={stripePromise}>
-            <DonationForm />
-          </Elements>
-        )}
+      <div className="max-w-xl px-4 mx-auto">
+        <DonationForm />
       </div>
     </Container>
   );

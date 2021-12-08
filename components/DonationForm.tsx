@@ -68,10 +68,10 @@ const DonationForm = () => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-4 gap-2">
-          <div className="transition-colors duration-300 ease-in-out bg-blue-800 text-gray-100 shadow-sm py-4 px-2 rounded text-base text-center flex justify-center items-center cursor-pointer col-span-2">
+          <div className="flex items-center justify-center col-span-2 px-2 py-4 text-base text-center text-gray-100 transition-colors duration-300 ease-in-out bg-blue-800 rounded shadow-sm cursor-pointer">
             One-Off Payment
           </div>
-          <div className="transition-colors duration-300 ease-in-out border-2 border-solid border-blue-800 shadow-sm text-gray-800 py-4 px-2 rounded text-base text-center flex items-center justify-center col-span-2 cursor-auto">
+          <div className="flex items-center justify-center col-span-2 px-2 py-4 text-base text-center text-gray-800 transition-colors duration-300 ease-in-out border-2 border-blue-800 border-solid rounded shadow-sm cursor-auto">
             Monthly Donation (coming soon)
           </div>
           {buttonArray.map((button) => {
@@ -91,7 +91,7 @@ const DonationForm = () => {
           })}
         </div>
         {showCustomDonation && (
-          <div className="sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start max-w-xl mx-auto mt-4">
+          <div className="max-w-xl mx-auto mt-4 sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start">
             <label
               htmlFor="donation"
               className="block text-lg font-semibold text-center text-gray-600 sm:pt-2 sm:col-span-2 sm:text-left"
@@ -99,8 +99,8 @@ const DonationForm = () => {
               Donate what you want:
             </label>
             <div className="mt-1 sm:mt-0 sm:col-span-2">
-              <div className="max-w-lg flex rounded-md shadow-sm">
-                <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+              <div className="flex max-w-lg rounded-md shadow-sm">
+                <span className="inline-flex items-center px-3 text-gray-500 border border-r-0 border-gray-300 rounded-l-md bg-gray-50 sm:text-sm">
                   <FontAwesomeIcon icon="pound-sign" />
                 </span>
                 <input
@@ -114,7 +114,7 @@ const DonationForm = () => {
                   onChange={(e) =>
                     setDonation(parseFloat(e.currentTarget.value))
                   }
-                  className="flex-1 block w-full focus:ring-indigo-500 focus:border-blue-800 min-w-0 rounded-none rounded-r-md text-center sm:text-sm border-gray-300"
+                  className="flex-1 block w-full min-w-0 text-center border-gray-300 rounded-none focus:ring-indigo-500 focus:border-blue-800 rounded-r-md sm:text-sm"
                 />
               </div>
             </div>
@@ -127,7 +127,7 @@ const DonationForm = () => {
         />
         <div className="flex items-center justify-center">
           <button
-            className="uppercase inline-flex items-center mt-5 justify-center px-8 py-3 mb-1 border border-transparent text-base font-semibold rounded-md text-white bg-blue-900 hover:bg-blue-800 md:py-4 md:px-24 disabled:opacity-75"
+            className="inline-flex items-center justify-center px-8 py-3 mt-5 mb-1 text-base font-semibold text-white uppercase bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-4 md:px-24 disabled:opacity-75"
             type="submit"
             disabled={donation < 1 || loading}
           >

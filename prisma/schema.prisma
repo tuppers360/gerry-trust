@@ -19,6 +19,10 @@ model Views {
 }
 
 model Donation {
-  id String @id @default(cuid())
-  amount Int
+  id              String   @id @default(cuid())
+  amount          Int
+  giftAid         Boolean  @default(false)
+  confirmed       Boolean  @default(false)
+  checkoutSession String
+  createdAt       DateTime @default(now())
 }

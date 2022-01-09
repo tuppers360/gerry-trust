@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import GiftAid from './GiftAid';
-import { fetchPostJSON } from '../utils/api-helpers';
-import getStripe from '../utils/get-stripejs';
+import GiftAid from '../GiftAid';
+import { fetchPostJSON } from '../../utils/api-helpers';
+import getStripe from '../../utils/get-stripejs';
 
 const DonationForm = () => {
   const [donation, setDonation] = useState(0);

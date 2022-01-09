@@ -1,5 +1,5 @@
 import Container from 'components/Container';
-import DonationForm from 'components/DonationForm';
+import DonationFormStep1 from 'components/donation/DonationFormStep1';
 import { NextPage } from 'next';
 import PageHeaderSection from 'components/PageHeaderSection';
 
@@ -13,7 +13,7 @@ const DonatePage: NextPage = () => {
         </p>
       </PageHeaderSection>
       <div className="max-w-xl px-4 mx-auto">
-        <DonationForm />
+        <DonationFormStep1 />
       </div>
     </Container>
   );

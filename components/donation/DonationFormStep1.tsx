@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GiftAid from '../GiftAid';
-import { fetchPostJSON } from '../../utils/api-helpers';
-import getStripe from '../../utils/get-stripejs';
+import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
+import { useStateMachine } from 'little-state-machine';
 
-const DonationForm = () => {
-  const [donation, setDonation] = useState(0);
+const DonationFormStep1 = ({ step, setStep }) => {
+  const { state, actions } = useStateMachine({ updateDonationDetailsAction });
+  const [activeButton, setActiveButton] = useState(1);
   const [showCustomDonation, setShowCustomDonation] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [donation, setDonation] = useState(5);
   const [giftAid, setGiftAid] = useState(false);
-  const [activeButton, setActiveButton] = useState(0);
 
   const buttonArray = [
     { id: 1, value: 5, text: '£5' },
@@ -19,36 +19,13 @@ const DonationForm = () => {
     { id: 4, value: 0, text: 'Other' }
   ];
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    // Create a Checkout Session.
-    const response = await fetchPostJSON('/api/stripe/checkout_sessions', {
-      amount: donation,
-      giftAid: giftAid
-    });
-
-    if (response.statusCode === 500) {
-      console.error(response.message);
-      return;
-    }
-
-    // Redirect to Checkout.
-    const stripe = await getStripe();
-    const { error } = await stripe!.redirectToCheckout({
-      // Make the id field from the Checkout Session creation API response
-      // available to this file, so you can provide it as parameter here
-      // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
-      sessionId: response.id
-    });
-    // If `redirectToCheckout` fails due to a browser or network
-    // error, display the localized error message to your customer
-    // using `error.message`.
-    console.warn(error.message);
-    setLoading(false);
+  const onSubmit = () => {
+    const data = { amount: donation, giftAid };
+    actions.updateDonationDetailsAction(data);
+    setStep(step + 1);
   };
 
-  const toggle = (id: number, donation: any) => {
+  const toggle = (id: number, donation: number) => {
     if (id != 4) {
       setShowCustomDonation(false);
       setActiveButton(id);
@@ -66,7 +43,7 @@ const DonationForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onSubmit}>
         <div className="grid grid-cols-4 gap-2">
           <div className="flex items-center justify-center col-span-2 px-2 py-4 text-base text-center text-gray-100 transition-colors duration-300 ease-in-out bg-blue-800 rounded shadow-sm cursor-pointer">
             One-Off Payment
@@ -108,13 +85,13 @@ const DonationForm = () => {
                   pattern="[0-9]*"
                   name="donation"
                   type="number"
-                  aria-description="Custom Donation Amount"
                   placeholder="Enter Donation"
                   min="1"
                   onChange={(e) =>
                     setDonation(parseFloat(e.currentTarget.value))
                   }
                   className="flex-1 block w-full min-w-0 text-center border-gray-300 rounded-none focus:ring-indigo-500 focus:border-blue-800 rounded-r-md sm:text-sm"
+                  value={donation}
                 />
               </div>
             </div>
@@ -127,16 +104,11 @@ const DonationForm = () => {
         />
         <div className="flex items-center justify-center">
           <button
-            className="inline-flex items-center justify-center px-8 py-3 mt-5 mb-1 text-base font-semibold text-white uppercase bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-4 md:px-24 disabled:opacity-75"
+            className="inline-flex items-center justify-center px-4 py-2 text-base font-semibold text-white uppercase bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-4 md:px-24 disabled:opacity-75"
             type="submit"
-            disabled={donation < 1 || loading}
+            disabled={donation < 1}
           >
-            {loading && (
-              <span className="mr-2">
-                <FontAwesomeIcon icon="sync" spin />
-              </span>
-            )}
-            Proceed to payment
+            Next Step
           </button>
         </div>
       </form>
@@ -144,4 +116,4 @@ const DonationForm = () => {
   );
 };
 
-export default DonationForm;
+export default DonationFormStep1;

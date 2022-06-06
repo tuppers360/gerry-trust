@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GiftAid from '../GiftAid';
+import { faPoundSign } from '@fortawesome/free-solid-svg-icons';
 import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
 import { useStateMachine } from 'little-state-machine';
 
@@ -78,7 +79,7 @@ const DonationFormStep1 = ({ step, setStep }) => {
             <div className="mt-1 sm:mt-0 sm:col-span-2">
               <div className="flex max-w-lg rounded-md shadow-sm">
                 <span className="inline-flex items-center px-3 text-gray-500 border border-r-0 border-gray-300 rounded-l-md bg-gray-50 sm:text-sm">
-                  <FontAwesomeIcon icon="pound-sign" />
+                  <FontAwesomeIcon icon={faPoundSign} />
                 </span>
                 <input
                   id="customdonationamount"

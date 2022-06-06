@@ -3,6 +3,7 @@ import Container from 'components/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PageHeaderSection from 'components/PageHeaderSection';
 import React from 'react';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 export default function Application() {
   return (
@@ -63,7 +64,7 @@ export default function Application() {
         <section>
           <ApplicationForm />
           <h3 className="mt-8 text-2xl font-bold tracking-tight text-center text-gray-700">
-            <FontAwesomeIcon icon="edit" fixedWidth /> Other Ways to apply
+            <FontAwesomeIcon icon={faEdit} fixedWidth /> Other Ways to apply
           </h3>
           <p className="mt-8 text-lg">
             Whilst we would prefer you to complete our online form, you can also

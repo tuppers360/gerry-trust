@@ -1,3 +1,5 @@
+import { faEdit, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
@@ -20,7 +22,7 @@ export default function LandingSection() {
                   <a className="w-full transition-colors duration-300 ease-in-out px-8 py-4 mr-1 mb-1 rounded-md text-lg font-semibold flex justify-center items-center cursor-pointer bg-blue-800 hover:bg-gray-100 hover:text-blue-800 focus:outline-none border-2 border-solid border-blue-800 text-gray-100">
                     <FontAwesomeIcon
                       className="mr-1"
-                      icon="envelope"
+                      icon={faEnvelope}
                       fixedWidth
                     />
                     Contact Us
@@ -30,7 +32,11 @@ export default function LandingSection() {
               <div className="mt-3 sm:mt-0 sm:ml-3">
                 <Link href="/application">
                   <a className="w-full transition-colors duration-300 ease-in-out px-8 py-4 mr-1 mb-1 rounded-md text-lg font-semibold flex justify-center items-center cursor-pointer bg-blue-800 hover:bg-gray-100 hover:text-blue-800 focus:outline-none border-2 border-solid border-blue-800 text-gray-100">
-                    <FontAwesomeIcon className="mr-1" icon="edit" fixedWidth />
+                    <FontAwesomeIcon
+                      className="mr-1"
+                      icon={faEdit}
+                      fixedWidth
+                    />
                     Apply for a grant
                   </a>
                 </Link>

@@ -5,6 +5,7 @@ import CrossCircle from './svg-images/CrossCircle';
 import ExclamationTriangle from './svg-images/ExclamationTriangle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FormErrorIcon from './FormErrorIcon';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
 
 export interface IStatus {
@@ -497,7 +498,7 @@ function ApplicationForm() {
               ) : (
                 <div>
                   <span className="mr-1">
-                    <FontAwesomeIcon icon="sync" spin />
+                    <FontAwesomeIcon icon={faSync} spin />
                   </span>
                   Submitting...
                 </div>

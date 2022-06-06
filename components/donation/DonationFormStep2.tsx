@@ -6,6 +6,7 @@ import CrossCircle from 'components/svg-images/CrossCircle';
 import ExclamationTriangle from 'components/svg-images/ExclamationTriangle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FormErrorIcon from 'components/FormErrorIcon';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { fetchPostJSON } from '../../utils/api-helpers';
 import getStripe from '../../utils/get-stripejs';
 import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
@@ -419,7 +420,7 @@ const DonationFormStep2 = ({ step, setStep }) => {
           >
             {loading && (
               <span className="mr-2">
-                <FontAwesomeIcon icon="sync" spin />
+                <FontAwesomeIcon icon={faSync} spin />
               </span>
             )}
             Proceed to payment

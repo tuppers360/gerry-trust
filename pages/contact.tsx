@@ -1,3 +1,5 @@
+import { faEdit, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
 import ContactForm from '../components/ContactForm';
 import Container from 'components/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,7 +19,7 @@ function Contact() {
         <div className="grid gap-8 lg:grid-cols-2">
           <section>
             <h3 className="text-xl font-medium text-center text-gray-600">
-              <FontAwesomeIcon icon="envelope" fixedWidth /> Get in touch
+              <FontAwesomeIcon icon={faEnvelope} fixedWidth /> Get in touch
             </h3>
             <p className="mt-8 text-lg">
               We’re very approachable and would love to speak to you. You can
@@ -72,7 +74,7 @@ function Contact() {
           </section>
           <section>
             <h2 className="text-xl font-medium text-center text-gray-600">
-              <FontAwesomeIcon icon="edit" fixedWidth /> Send us a message
+              <FontAwesomeIcon icon={faEdit} fixedWidth /> Send us a message
             </h2>
             <ContactForm />
           </section>

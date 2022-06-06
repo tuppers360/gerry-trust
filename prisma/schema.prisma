@@ -23,6 +23,6 @@ model Donation {
   amount          Int
   giftAid         Boolean  @default(false)
   confirmed       Boolean  @default(false)
-  checkoutSession String
+  checkoutSession String   @unique
   createdAt       DateTime @default(now())
 }

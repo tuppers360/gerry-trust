@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import Stripe from 'stripe';
 import { buffer } from 'micro';
-import prisma from './../../../lib/prisma';
+import { prisma } from 'lib/prisma';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   // https://github.com/stripe/stripe-node#configuration
@@ -40,21 +40,21 @@ export default async function handler(
     // Successfully constructed event
     console.log('✅ Success:', event.id);
 
-    const { metadata } = event.data.object;
-    const checkout_session = event.data.object.id;
     // 2. Handle event type (add business logic here)
     switch (event.type) {
       case 'checkout.session.completed':
-        console.log(`💰  Payment received!`);
-        console.log('WEBHOOK BODY', checkout_session);
-        await prisma.donation.update({
+        console.log(`💰 Payment received!`);
+        const checkout_session = event.data.object;
+
+        await prisma.donation.updateMany({
           where: {
-            checkout_session
+            checkoutSession: checkout_session.id
           },
           data: {
             confirmed: true
           }
         });
+
         break;
       case 'customer.created':
         const customer = event.data.object;

@@ -6,7 +6,7 @@ import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
 import { useStateMachine } from 'little-state-machine';
 
 const DonationFormStep1 = ({ step, setStep }) => {
-  const { state, actions } = useStateMachine({ updateDonationDetailsAction });
+  const { actions } = useStateMachine({ updateDonationDetailsAction });
   const [activeButton, setActiveButton] = useState(1);
   const [showCustomDonation, setShowCustomDonation] = useState(false);
   const [donation, setDonation] = useState(5);

@@ -87,7 +87,8 @@ const DonationFormStep2 = ({ step, setStep }) => {
     }
 
     console.log('Checkout Session:', response);
-
+    console.log('Donation Details:', state.donationDetails);
+    console.log('StripeSessionId:', response.id);
     // Create a donation in the database with the session id.
     const donationResponse = await fetch('/api/donation/create_donation', {
       method: 'POST',

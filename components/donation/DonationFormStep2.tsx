@@ -84,7 +84,6 @@ const DonationFormStep2 = ({ step, setStep }) => {
       console.error(response.message);
       return;
     }
-    console.log('STATE - STEP Out', state);
 
     // Create a donation in the database with the session id.
     const donationResponse = await fetch('/api/donation/create_donation', {
@@ -100,8 +99,6 @@ const DonationFormStep2 = ({ step, setStep }) => {
       console.error(donationResponse);
       return;
     }
-
-    console.log('Donation Response:', donationResponse);
 
     // Redirect to Checkout.
     const stripe = await getStripe();

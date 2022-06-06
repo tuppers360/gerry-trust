@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from 'lib/prisma';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  console.log('End Point Hit - First Step');
+  console.log('End Point Hit - First Step', req.body.data);
   if (req.method === 'POST') {
     console.log('End Point Hit - its a POST');
     try {

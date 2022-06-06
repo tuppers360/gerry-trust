@@ -98,6 +98,7 @@ const DonationFormStep2 = ({ step, setStep }) => {
         stripeSessionId: response.id
       })
     });
+    console.log('Donation Response:', donationResponse);
 
     if (donationResponse.status === 500) {
       console.error(donationResponse);

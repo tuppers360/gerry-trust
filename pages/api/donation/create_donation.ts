@@ -11,6 +11,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       console.log('Donation Body', req.body);
 
       const { amount, giftAid } = req.body.data;
+      console.log('Amount', amount);
+      console.log('Gift Aid', giftAid);
       const stripeSessionId: string = req.body.stripeSessionId;
       console.log('stripeSessionId:', stripeSessionId);
 

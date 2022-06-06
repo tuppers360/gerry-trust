@@ -17,6 +17,8 @@ export default async function handler(
     const amount: number = req.body.amount;
     const giftAid: string = req.body.giftAid;
 
+    console.log('RES BODY', req.body);
+
     try {
       // Validate the amount that was passed from the client.
       if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) {

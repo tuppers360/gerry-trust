@@ -6,7 +6,6 @@ import CrossCircle from 'components/svg-images/CrossCircle';
 import ExclamationTriangle from 'components/svg-images/ExclamationTriangle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FormErrorIcon from 'components/FormErrorIcon';
-import { Input } from './Input';
 import { fetchPostJSON } from '../../utils/api-helpers';
 import getStripe from '../../utils/get-stripejs';
 import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';

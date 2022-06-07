@@ -15,8 +15,6 @@ export default function updateDonationDetailsAction(
     giftAid?: boolean;
   }
 ) {
-  console.log('state:', state);
-  console.log('payload:', payload);
   return {
     ...state,
     donationDetails: {

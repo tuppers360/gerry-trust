@@ -86,9 +86,6 @@ const DonationFormStep2 = ({ step, setStep }) => {
       return;
     }
 
-    console.log('Checkout Session:', response);
-    console.log('Donation Details:', state.donationDetails);
-    console.log('StripeSessionId:', response.id);
     // Create a donation in the database with the session id.
     const donationResponse = await fetch('/api/donation/create_donation', {
       method: 'POST',
@@ -98,7 +95,6 @@ const DonationFormStep2 = ({ step, setStep }) => {
         stripeSessionId: response.id
       })
     });
-    console.log('Donation Response:', donationResponse);
 
     if (donationResponse.status === 500) {
       console.error(donationResponse);

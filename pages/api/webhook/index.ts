@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import Cors from 'micro-cors';
 import Stripe from 'stripe';
 import { buffer } from 'micro';
 import { prisma } from 'lib/prisma';
@@ -9,30 +10,34 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2020-08-27'
 });
 
+const webhookSecret: string = process.env.STRIPE_WEBHOOK_SECRET!;
+
 export const config = {
   api: {
     bodyParser: false
   }
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+const cors = Cors({
+  allowMethods: ['POST', 'HEAD']
+});
+
+const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    let event;
+    let event: Stripe.Event;
+
+    // 1. Retrieve the event by verifying the signature using the raw body and secret
+    const rawBody = await buffer(req);
+    const signature = req.headers['stripe-signature']!;
+
+    console.log('✅ RawBody:', rawBody);
+    console.log('✅ Signature:', signature);
+
     try {
-      // 1. Retrieve the event by verifying the signature using the raw body and secret
-      const rawBody = await buffer(req);
-      const signature = req.headers['stripe-signature'];
-
-      console.log('✅ RawBody:', rawBody);
-      console.log('✅ Signature:', signature);
-
       event = stripe.webhooks.constructEvent(
         rawBody.toString(),
         signature,
-        process.env.STRIPE_WEBHOOK_SECRET
+        webhookSecret
       );
     } catch (err) {
       console.log(`❌ Error message: ${err.message}`);
@@ -47,11 +52,12 @@ export default async function handler(
     switch (event.type) {
       case 'checkout.session.completed':
         console.log(`💰 Payment received!`);
-        const checkout_session = event.data.object;
+        const session = event.data.object as Stripe.Checkout.Session;
 
+        console.log(session);
         await prisma.donation.updateMany({
           where: {
-            checkoutSession: checkout_session.id
+            checkoutSession: session.id
           },
           data: {
             confirmed: true
@@ -73,4 +79,6 @@ export default async function handler(
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
   }
-}
+};
+
+export default cors(webhookHandler as any);

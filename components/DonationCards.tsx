@@ -2,30 +2,30 @@ export interface CardProps {}
 
 export default function DonationCards() {
   return (
-    <div className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+    <div className="relative px-4 pt-16 pb-20 bg-gray-50 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <div className="absolute inset-0">
         <div className="bg-white h-1/3 sm:h-2/3"></div>
       </div>
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative mx-auto max-w-7xl">
         <div className="text-center">
-          <h2 className="text-3xl tracking-tight font-extrabold py-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 sm:text-6xl">
+          <h2 className="py-4 text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-500 sm:text-6xl">
             Whats going on
           </h2>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4 leading-relaxed">
-            Our latest news and whats we are doing with the local comunity of
+          <p className="max-w-2xl mx-auto mt-3 text-xl leading-relaxed text-gray-500 sm:mt-4">
+            Our latest news and whats we are doing with the local community of
             Blackpoool, Fylde & Wyre
           </p>
         </div>
-        <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-          <article className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+        <div className="grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
+          <article className="flex flex-col overflow-hidden rounded-lg shadow-lg">
             <div className="flex-shrink-0">
               <img
-                className="h-48 w-full object-cover"
+                className="object-cover w-full h-48"
                 src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
                 alt=""
               />
             </div>
-            <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+            <div className="flex flex-col justify-between flex-1 p-6 bg-white">
               <div className="flex-1">
                 <p className="text-sm font-medium text-indigo-600">
                   <a href="#" className="hover:underline">
@@ -44,12 +44,12 @@ export default function DonationCards() {
                   </p>
                 </a>
               </div>
-              <div className="mt-6 flex items-center">
+              <div className="flex items-center mt-6">
                 <div className="flex-shrink-0">
                   <a href="#">
                     <span className="sr-only">Gareth</span>
                     <img
-                      className="h-10 w-10 rounded-full"
+                      className="w-10 h-10 rounded-full"
                       src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
@@ -67,15 +67,15 @@ export default function DonationCards() {
             </div>
           </article>
 
-          {/* <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+          {/* <div className="flex flex-col overflow-hidden rounded-lg shadow-lg">
             <div className="flex-shrink-0">
               <img
-                className="h-48 w-full object-cover"
+                className="object-cover w-full h-48"
                 src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
                 alt=""
               />
             </div>
-            <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+            <div className="flex flex-col justify-between flex-1 p-6 bg-white">
               <div className="flex-1">
                 <p className="text-sm font-medium text-indigo-600">
                   <a href="#" className="hover:underline">
@@ -93,12 +93,12 @@ export default function DonationCards() {
                   </p>
                 </a>
               </div>
-              <div className="mt-6 flex items-center">
+              <div className="flex items-center mt-6">
                 <div className="flex-shrink-0">
                   <a href="#">
                     <span className="sr-only">Brenna Goyette</span>
                     <img
-                      className="h-10 w-10 rounded-full"
+                      className="w-10 h-10 rounded-full"
                       src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
@@ -120,15 +120,15 @@ export default function DonationCards() {
             </div>
           </div>
 
-          <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+          <div className="flex flex-col overflow-hidden rounded-lg shadow-lg">
             <div className="flex-shrink-0">
               <img
-                className="h-48 w-full object-cover"
+                className="object-cover w-full h-48"
                 src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
                 alt=""
               />
             </div>
-            <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+            <div className="flex flex-col justify-between flex-1 p-6 bg-white">
               <div className="flex-1">
                 <p className="text-sm font-medium text-indigo-600">
                   <a href="#" className="hover:underline">
@@ -147,12 +147,12 @@ export default function DonationCards() {
                   </p>
                 </a>
               </div>
-              <div className="mt-6 flex items-center">
+              <div className="flex items-center mt-6">
                 <div className="flex-shrink-0">
                   <a href="#">
                     <span className="sr-only">Daniela Metz</span>
                     <img
-                      className="h-10 w-10 rounded-full"
+                      className="w-10 h-10 rounded-full"
                       src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />

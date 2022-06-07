@@ -51,8 +51,9 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         console.log(`💰 Payment received!`);
         const session = event.data.object as Stripe.Checkout.Session;
 
-        console.log('✅ Session:', session);
-        await prisma.donation.updateMany({
+        console.log('✅ Session:', session.id);
+        console.log('***********BEFORE************');
+        const data = await prisma.donation.updateMany({
           where: {
             checkoutSession: session.id
           },
@@ -60,7 +61,8 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
             confirmed: true
           }
         });
-
+        console.log('***********AFTER************');
+        console.log('✅ Data from Prisma:', data);
         break;
       default:
         console.warn(`🤷‍♀️ Unhandled event type: ${event.type}`);

@@ -30,9 +30,6 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     const rawBody = await buffer(req);
     const signature = req.headers['stripe-signature']!;
 
-    console.log('✅ RawBody:', rawBody);
-    console.log('✅ Signature:', signature);
-
     try {
       event = stripe.webhooks.constructEvent(
         rawBody.toString(),
@@ -54,7 +51,7 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         console.log(`💰 Payment received!`);
         const session = event.data.object as Stripe.Checkout.Session;
 
-        console.log(session);
+        console.log('✅ Session:', session);
         await prisma.donation.updateMany({
           where: {
             checkoutSession: session.id
@@ -64,10 +61,6 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
           }
         });
 
-        break;
-      case 'customer.created':
-        const customer = event.data.object;
-        // Then define and call a function to handle the event customer.created
         break;
       default:
         console.warn(`🤷‍♀️ Unhandled event type: ${event.type}`);

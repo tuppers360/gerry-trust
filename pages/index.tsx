@@ -12,6 +12,7 @@ const IndexPage: NextPage = () => {
       <LandingSection />
       <HeroSection />
       <DonationCards />
+      {/* Hello */}
     </Container>
   );
 };

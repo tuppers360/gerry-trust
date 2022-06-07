@@ -26,6 +26,9 @@ export default async function handler(
       const rawBody = await buffer(req);
       const signature = req.headers['stripe-signature'];
 
+      console.log('✅ RawBody:', rawBody);
+      console.log('✅ Signature:', signature);
+
       event = stripe.webhooks.constructEvent(
         rawBody.toString(),
         signature,

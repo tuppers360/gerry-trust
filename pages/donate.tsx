@@ -1,15 +1,30 @@
+import { StateMachineProvider, createStore } from 'little-state-machine';
+
 import Container from 'components/Container';
-import DonationForm from 'components/DonationForm';
-import { Elements } from '@stripe/react-stripe-js';
+import DonationFormStep1 from 'components/donation/DonationFormStep1';
+import DonationFormStep2 from 'components/donation/DonationFormStep2';
 import { NextPage } from 'next';
 import PageHeaderSection from 'components/PageHeaderSection';
-import { loadStripe } from '@stripe/stripe-js';
+import { useState } from 'react';
+
+// createStore({})
+createStore({
+  donationDetails: {
+    firstName: '',
+    lastName: '',
+    email: '',
+    addressLine1: '',
+    addressLine2: '',
+    town: '',
+    county: '',
+    postCode: '',
+    amount: 0,
+    giftAid: false
+  }
+});
 
 const DonatePage: NextPage = () => {
-  const stripePromise = loadStripe(
-    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-  );
-
+  const [step, setStep] = useState(1);
   return (
     <Container title="Make a Donation - The Gerry Richardson Trust">
       <PageHeaderSection title="Donate" heading="Make a Donation" center>
@@ -18,13 +33,12 @@ const DonatePage: NextPage = () => {
           Wyre 💖
         </p>
       </PageHeaderSection>
-      <div className="max-w-xl mx-auto px-4">
-        {stripePromise && (
-          <Elements stripe={stripePromise}>
-            <DonationForm />
-          </Elements>
-        )}
-      </div>
+      <StateMachineProvider>
+        <div className="max-w-4xl px-4 mx-auto">
+          {step == 1 && <DonationFormStep1 step={step} setStep={setStep} />}
+          {step == 2 && <DonationFormStep2 step={step} setStep={setStep} />}
+        </div>
+      </StateMachineProvider>
     </Container>
   );
 };

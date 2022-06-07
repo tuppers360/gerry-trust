@@ -1,3 +1,15 @@
+import {
+  faCopyright,
+  faEdit,
+  faEnvelope,
+  faPhone
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faInstagram,
+  faTwitter,
+  faYoutube
+} from '@fortawesome/free-brands-svg-icons';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React from 'react';
@@ -55,16 +67,16 @@ export default function Footer() {
                 <br /> FY6 9AF
               </address>
               <p className="mt-4 text-lg text-gray-300">
-                <FontAwesomeIcon icon="phone" /> (01253) 700879
+                <FontAwesomeIcon icon={faPhone} /> (01253) 700879
               </p>
               <p className="mt-4 text-lg text-gray-300">
-                <FontAwesomeIcon icon="phone" /> 07799763108
+                <FontAwesomeIcon icon={faPhone} /> 07799763108
               </p>
               <Link href="/contact">
                 <a className="inline-flex items-center justify-center px-4 py-3 mt-5 mb-1 text-base font-semibold text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-4 md:px-6">
                   <FontAwesomeIcon
                     className="mr-1"
-                    icon="envelope"
+                    icon={faEnvelope}
                     fixedWidth
                   />
                   Contact Us by Email
@@ -83,7 +95,7 @@ export default function Footer() {
 
               <Link href="/application">
                 <a className="inline-flex items-center justify-center px-4 py-3 mt-5 mb-1 text-base font-semibold text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-4 md:px-6">
-                  <FontAwesomeIcon className="mr-1" icon="edit" />
+                  <FontAwesomeIcon className="mr-1" icon={faEdit} />
                   Apply for a grant
                 </a>
               </Link>
@@ -102,26 +114,26 @@ export default function Footer() {
             >
               {/* //TODO: figure out how to make it white text for icon */}
               <span className="sr-only">Facebook</span>
-              <FontAwesomeIcon icon={['fab', 'facebook']} />
+              <FontAwesomeIcon icon={faYoutube} />
             </a>
             <a
               href="https://www.instagram.com/gerryrichardsontrust/"
               className="text-xl text-gray-400 hover:text-instagram"
             >
               <span className="sr-only">Instagram</span>
-              <FontAwesomeIcon icon={['fab', 'instagram']} />
+              <FontAwesomeIcon icon={faInstagram} />
             </a>
             <a
               href="https://twitter.com/gerrytrust"
               className="text-xl text-gray-400 hover:text-twitter"
             >
               <span className="sr-only">Twitter</span>
-              <FontAwesomeIcon icon={['fab', 'twitter']} />
+              <FontAwesomeIcon icon={faTwitter} />
             </a>
           </div>
           <h2 className="sr-only">Copyright - Footer</h2>
           <p className="mt-8 text-base text-center text-gray-400 md:mt-0 md:order-1">
-            <FontAwesomeIcon icon="copyright" /> Gerry Richardson Trust 2021 -
+            <FontAwesomeIcon icon={faCopyright} /> Gerry Richardson Trust 2021 -
             All rights reserved. Registered Charity No. 504413
           </p>
         </div>

@@ -1,6 +1,8 @@
-const sgMail = require('@sendgrid/mail');
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function (req, res) {
+import sgMail from '@sendgrid/mail';
+
+export default async function (req: NextApiRequest, res: NextApiResponse) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const { firstName, lastName, email, message } = req.body;
   const content = {
@@ -8,7 +10,7 @@ export default async function (req, res) {
     from: email,
     subject: `New Message From - ${firstName} ${lastName} - ${email}`,
     text: message,
-    html: `<p>${message}</p>`,
+    html: `<p>${message}</p>`
   };
 
   const msgClient = {
@@ -41,7 +43,7 @@ export default async function (req, res) {
     FY6 9AF
     </address>
     <p><strong>Tel:</strong> 01253 700879</p>
-    <p><strong>Email:</strong> contactus@gerryrichardsontrust.org</p>`, // html body
+    <p><strong>Email:</strong> contactus@gerryrichardsontrust.org</p>` // html body
   };
 
   try {

@@ -1,3 +1,5 @@
+import { faFingerprint, faGift } from '@fortawesome/free-solid-svg-icons';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -67,7 +69,7 @@ export default function Navbar() {
                 <Link href="/">
                   <a className="font-extrabold text-gray-300 text-2xl leading-tight md:leading-snug md:mr-2">
                     <FontAwesomeIcon
-                      icon="fingerprint"
+                      icon={faFingerprint}
                       className="text-gray-300 w-6 h-6 mr-2 inline-block"
                     />
                     GRT
@@ -102,7 +104,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/donate">
               <a className="bg-blue-900 text-white hover:bg-blue-800 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1">
-                <FontAwesomeIcon className="mr-1" icon="gift" fixedWidth />
+                <FontAwesomeIcon className="mr-1" icon={faGift} fixedWidth />
                 Donate
               </a>
             </Link>

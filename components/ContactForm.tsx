@@ -2,6 +2,7 @@ import CrossCircle from './svg-images/CrossCircle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FormErrorIcon from './FormErrorIcon';
 import ToggleButton from './ToggleButton'; //Commented out until Privacy and Cookies Policy written
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 
@@ -314,7 +315,7 @@ export default function ContactFormTest() {
               ) : (
                 <div>
                   <span className="mr-1">
-                    <FontAwesomeIcon icon="sync" spin />
+                    <FontAwesomeIcon icon={faSync} spin />
                   </span>
                   Submitting...
                 </div>

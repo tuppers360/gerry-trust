@@ -6,7 +6,7 @@ import { formatAmountForStripe } from '../../../utils/stripe-helpers';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   // https://github.com/stripe/stripe-node#configuration
-  apiVersion: '2020-08-27',
+  apiVersion: '2020-08-27'
 });
 
 export default async function handler(
@@ -26,22 +26,21 @@ export default async function handler(
       const params: Stripe.Checkout.SessionCreateParams = {
         submit_type: 'donate',
         payment_method_types: ['card'],
-        billing_address_collection: 'required',
+        billing_address_collection: 'auto',
         line_items: [
           {
             name: 'Gerry Richardson Trust Donation',
             amount: formatAmountForStripe(amount, CURRENCY),
             currency: CURRENCY,
-            quantity: 1,
-          },
+            quantity: 1
+          }
         ],
         payment_intent_data: { metadata: { gift_aid: giftAid } },
         success_url: `${req.headers.origin}/result?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${req.headers.origin}/donate`,
+        cancel_url: `${req.headers.origin}/donate`
       };
-      const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create(
-        params
-      );
+      const checkoutSession: Stripe.Checkout.Session =
+        await stripe.checkout.sessions.create(params);
 
       res.status(200).json(checkoutSession);
     } catch (err) {

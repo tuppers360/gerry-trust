@@ -1,12 +1,17 @@
 import { getFileBySlug, getFiles } from 'lib/mdx';
 
+import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote';
 import StoryLayout from 'layouts/story';
+
+const mdxComponents = {
+  Image
+};
 
 export default function Blog({ mdxSource, frontMatter }) {
   return (
     <StoryLayout frontMatter={frontMatter}>
-      <MDXRemote {...mdxSource} />
+      <MDXRemote {...mdxSource} components={mdxComponents} />
     </StoryLayout>
   );
 }

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
-import CheckCircle from './svg-images/CheckCircle';
-import CrossCircle from './svg-images/CrossCircle';
-import ExclamationTriangle from './svg-images/ExclamationTriangle';
+import {
+  CheckCircleIcon,
+  XCircleIcon,
+  ExclamationIcon
+} from '@heroicons/react/solid';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FormErrorIcon from './FormErrorIcon';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
@@ -87,7 +90,7 @@ function ApplicationForm() {
           <div className="p-4 bg-red-100 border-l-4 border-red-400 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0 mt-1">
-                <CrossCircle styles="h-5 w-5 text-red-500" />
+                <XCircleIcon className="w-5 h-5 text-red-500" />
               </div>
               <div className="ml-3">
                 <h3 className="text-lg font-medium text-red-800">
@@ -107,7 +110,7 @@ function ApplicationForm() {
           <div className="p-4 bg-yellow-100 border-l-4 border-yellow-400 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0">
-                <ExclamationTriangle styles="h-5 w-5 text-yellow-400" />
+                <ExclamationIcon className="w-5 h-5 text-yellow-400" />
               </div>
               <div className="ml-3">
                 <h3 className="text-lg font-medium text-yellow-800">
@@ -128,7 +131,7 @@ function ApplicationForm() {
           <div className="p-4 bg-green-100 border border-l-4 border-green-400 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0 mt-1">
-                <CheckCircle styles="h-5 w-5 text-green-400" />
+                <CheckCircleIcon className="w-5 h-5 text-green-400" />
               </div>
               <div className="ml-3">
                 <h3 className="text-lg font-semibold text-green-800">

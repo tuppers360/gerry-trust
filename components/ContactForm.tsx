@@ -1,7 +1,7 @@
-import CrossCircle from './svg-images/CrossCircle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FormErrorIcon from './FormErrorIcon';
 import ToggleButton from './ToggleButton'; //Commented out until Privacy and Cookies Policy written
+import { XCircleIcon } from '@heroicons/react/solid';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
@@ -78,7 +78,7 @@ export default function ContactFormTest() {
           <div className="p-4 bg-red-100 border-l-4 border-red-400 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0 mt-1">
-                <CrossCircle styles="h-5 w-5 text-red-500" />
+                <XCircleIcon className="h-5 w-5 text-red-500" />
               </div>
               <div className="ml-3">
                 <h3 className="text-lg font-semibold text-red-800">

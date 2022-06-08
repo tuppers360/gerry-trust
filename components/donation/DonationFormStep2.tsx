@@ -2,8 +2,6 @@ import * as yup from 'yup';
 
 import React, { useState } from 'react';
 
-import CrossCircle from 'components/svg-images/CrossCircle';
-import ExclamationTriangle from 'components/svg-images/ExclamationTriangle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FormErrorIcon from 'components/FormErrorIcon';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +11,7 @@ import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
 import { useForm } from 'react-hook-form';
 import { useStateMachine } from 'little-state-machine';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { ExclamationIcon, XCircleIcon } from '@heroicons/react/solid';
 
 const schema = yup.object({
   firstName: yup.string().required('Please enter your first name'),
@@ -122,7 +121,7 @@ const DonationFormStep2 = ({ step, setStep }) => {
         <div className="p-4 bg-red-100 border-l-4 border-red-400 rounded-md">
           <div className="flex">
             <div className="flex-shrink-0 mt-1">
-              <CrossCircle styles="h-5 w-5 text-red-500" />
+              <XCircleIcon className="w-5 h-5 text-red-500" />
             </div>
             <div className="ml-3">
               <h3 className="text-lg font-medium text-red-800">
@@ -142,7 +141,7 @@ const DonationFormStep2 = ({ step, setStep }) => {
         <div className="p-4 bg-yellow-100 border-l-4 border-yellow-400 rounded-md">
           <div className="flex">
             <div className="flex-shrink-0">
-              <ExclamationTriangle styles="h-5 w-5 text-yellow-400" />
+              <ExclamationIcon className="w-5 h-5 text-yellow-400" />
             </div>
             <div className="ml-3">
               <h3 className="text-lg font-medium text-yellow-800">

@@ -2,7 +2,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: [
+  content: [
     './components/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './layouts/**/*.{js,ts,jsx,tsx}'
@@ -19,11 +19,7 @@ module.exports = {
         instagram: '#bc2a8d',
         facebook: '#3c5a99',
 
-        blueGray: colors.blueGray,
-        coolGray: colors.coolGray,
         //gray: colors.gray, //default Gray is coolGray
-        trueGray: colors.trueGray,
-        warmGray: colors.warmGray,
         //red: colors.red, //default Red is Red
         orange: colors.orange,
         amber: colors.amber,
@@ -33,7 +29,6 @@ module.exports = {
         emerald: colors.emerald,
         teal: colors.teal,
         cyan: colors.cyan,
-        lightBlue: colors.lightBlue,
         //blue: colors.blue, //default Blue is Blue
         //indigo: colors.indigo, //default Indigo is Indigo
         violet: colors.violet,

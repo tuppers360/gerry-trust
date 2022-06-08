@@ -7,7 +7,7 @@ import {
 import {
   faInstagram,
   faTwitter,
-  faYoutube
+  faFacebook
 } from '@fortawesome/free-brands-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -114,7 +114,7 @@ export default function Footer() {
             >
               {/* //TODO: figure out how to make it white text for icon */}
               <span className="sr-only">Facebook</span>
-              <FontAwesomeIcon icon={faYoutube} />
+              <FontAwesomeIcon icon={faFacebook} />
             </a>
             <a
               href="https://www.instagram.com/gerryrichardsontrust/"

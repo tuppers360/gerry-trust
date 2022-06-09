@@ -1,30 +1,19 @@
-import { StateMachineProvider, createStore } from 'little-state-machine';
-
 import Container from 'components/Container';
 import DonationFormStep1 from 'components/donation/DonationFormStep1';
 import DonationFormStep2 from 'components/donation/DonationFormStep2';
 import { NextPage } from 'next';
 import PageHeaderSection from 'components/PageHeaderSection';
 import { useState } from 'react';
-
-// createStore({})
-createStore({
-  donationDetails: {
-    firstName: '',
-    lastName: '',
-    email: '',
-    addressLine1: '',
-    addressLine2: '',
-    town: '',
-    county: '',
-    postCode: '',
-    amount: 0,
-    giftAid: false
-  }
-});
+import { useRouter } from 'next/router';
 
 const DonatePage: NextPage = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
+  const router = useRouter();
+  const formStep = router.query.step ?? 0;
+
+  const goToStep = (step, asPath) => {
+    router.push(`/?step=${step}`, asPath);
+  };
   return (
     <Container title="Make a Donation - The Gerry Richardson Trust">
       <PageHeaderSection title="Donate" heading="Make a Donation" center>
@@ -33,12 +22,10 @@ const DonatePage: NextPage = () => {
           Wyre 💖
         </p>
       </PageHeaderSection>
-      <StateMachineProvider>
-        <div className="max-w-4xl px-4 mx-auto">
-          {step == 1 && <DonationFormStep1 step={step} setStep={setStep} />}
-          {step == 2 && <DonationFormStep2 step={step} setStep={setStep} />}
-        </div>
-      </StateMachineProvider>
+      <div className="max-w-4xl px-4 mx-auto">
+        {step >= 0 && <DonationFormStep1 step={step} setStep={setStep} />}
+        {step >= 1 && <DonationFormStep2 step={step} setStep={setStep} />}
+      </div>
     </Container>
   );
 };

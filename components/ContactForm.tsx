@@ -1,10 +1,12 @@
 import * as yup from 'yup';
+
+import { Path, UseFormRegister, useForm } from 'react-hook-form';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FormErrorIcon from './FormErrorIcon';
 import ToggleButton from './ToggleButton'; //Commented out until Privacy and Cookies Policy written
 import { XCircleIcon } from '@heroicons/react/solid';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
-import { Path, useForm, UseFormRegister } from 'react-hook-form';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -222,8 +224,8 @@ export default function ContactFormTest() {
               label="firstName"
               type="text"
               placeholder="First Name"
-              register={register}
               labelText="First Name"
+              register={register}
             />
           </div>
           <div>
@@ -231,8 +233,8 @@ export default function ContactFormTest() {
               label="lastName"
               type="text"
               placeholder="Last Name"
-              register={register}
               labelText="Last Name"
+              register={register}
             />
           </div>
           <div className="sm:col-span-2">
@@ -240,8 +242,8 @@ export default function ContactFormTest() {
               label="email"
               type="email"
               placeholder="Email address"
-              register={register}
               labelText="Email"
+              register={register}
             />
           </div>
           <div className="sm:col-span-2">

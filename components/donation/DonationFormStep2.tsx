@@ -1,5 +1,7 @@
 import * as yup from 'yup';
 
+import { ExclamationIcon, XCircleIcon } from '@heroicons/react/solid';
+import { Path, UseFormRegister, useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,10 +10,8 @@ import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { fetchPostJSON } from '../../utils/api-helpers';
 import getStripe from '../../utils/get-stripejs';
 import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
-import { useForm } from 'react-hook-form';
 import { useStateMachine } from 'little-state-machine';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { ExclamationIcon, XCircleIcon } from '@heroicons/react/solid';
 
 const schema = yup.object({
   firstName: yup.string().required('Please enter your first name'),
@@ -35,7 +35,15 @@ export interface IStatus {
   };
 }
 
-export type FormInputs = {
+type InputProps = {
+  label: Path<IFormValues>;
+  register: UseFormRegister<IFormValues>;
+  type: string;
+  placeholder?: string;
+  labelText?: string;
+};
+
+interface IFormValues {
   firstName: string;
   lastName: string;
   email: string;
@@ -44,7 +52,7 @@ export type FormInputs = {
   town: string;
   county: string;
   postCode: string;
-};
+}
 
 const DonationFormStep2 = ({ step, setStep }) => {
   const { state, actions } = useStateMachine({ updateDonationDetailsAction });
@@ -52,10 +60,44 @@ const DonationFormStep2 = ({ step, setStep }) => {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm<FormInputs>({
+  } = useForm<IFormValues>({
     defaultValues: state.donationDetails,
     resolver: yupResolver(schema)
   });
+
+  const Input = ({
+    label,
+    type,
+    register,
+    placeholder,
+    labelText
+  }: InputProps) => {
+    return (
+      <>
+        <label className="block text-sm font-medium text-gray-700">
+          {labelText}
+        </label>
+        <div className="relative mt-1">
+          <input
+            className={`py-3 px-4 block w-full shadow-sm rounded-md sm:text-sm ${
+              errors[label]
+                ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
+                : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
+            }`}
+            type={type}
+            {...register(label)}
+            placeholder={placeholder}
+          />
+          {errors[label] && <FormErrorIcon />}
+        </div>
+        {errors[label] && (
+          <p className="mt-2 text-sm text-red-600" id="email-error">
+            <span>{errors[label].message}</span>
+          </p>
+        )}
+      </>
+    );
+  };
 
   const [loading, setLoading] = useState(false);
 
@@ -173,90 +215,32 @@ const DonationFormStep2 = ({ step, setStep }) => {
             </div>
             <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
               <div className="sm:col-span-3">
-                <label
-                  htmlFor="firstName"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  First name
-                </label>
-                <div className="relative mt-1">
-                  <input
-                    {...register('firstName')}
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    autoComplete="given-name"
-                    className={`py-3 px-3 block w-full shadow-sm rounded-md sm:text-sm ${
-                      errors.firstName
-                        ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
-                        : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
-                    }`}
-                  />
-                  {errors.firstName && <FormErrorIcon />}
-                </div>
-                {errors.firstName && (
-                  <p className="mt-2 text-sm text-red-600" id="firstName-error">
-                    {errors.firstName.message}
-                  </p>
-                )}
+                <Input
+                  label="firstName"
+                  type="text"
+                  register={register}
+                  labelText="First Name"
+                  placeholder="First Name"
+                />
               </div>
-
               <div className="sm:col-span-3">
-                <label
-                  htmlFor="lastName"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Last name
-                </label>
-                <div className="relative mt-1">
-                  <input
-                    {...register('lastName')}
-                    type="text"
-                    name="lastName"
-                    id="lastName"
-                    autoComplete="family-name"
-                    className={`py-3 px-3 block w-full shadow-sm rounded-md sm:text-sm ${
-                      errors.lastName
-                        ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
-                        : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
-                    }`}
-                  />
-                  {errors.firstName && <FormErrorIcon />}
-                </div>
-                {errors.lastName && (
-                  <p className="mt-2 text-sm text-red-600" id="lastName-error">
-                    {errors.lastName.message}
-                  </p>
-                )}
+                <Input
+                  label="lastName"
+                  type="text"
+                  register={register}
+                  labelText="Last Name"
+                  placeholder="Last Name"
+                />
               </div>
 
               <div className="sm:col-span-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Email address
-                </label>
-                <div className="relative mt-1">
-                  <input
-                    {...register('email')}
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    className={`py-3 px-3 block w-full shadow-sm rounded-md sm:text-sm ${
-                      errors.email
-                        ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
-                        : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
-                    }`}
-                  />
-                  {errors.email && <FormErrorIcon />}
-                </div>
-                {errors.email && (
-                  <p className="mt-2 text-sm text-red-600" id="email-error">
-                    {errors.email.message}
-                  </p>
-                )}
+                <Input
+                  label="email"
+                  type="email"
+                  register={register}
+                  labelText="Email"
+                  placeholder="Email Address"
+                />
               </div>
             </div>
           </div>
@@ -272,135 +256,39 @@ const DonationFormStep2 = ({ step, setStep }) => {
           </div>
           <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
             <div className="sm:col-span-6">
-              <label
-                htmlFor="addressLine1"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Street address
-              </label>
-              <div className="relative mt-1">
-                <input
-                  {...register('addressLine1')}
-                  type="text"
-                  name="addressLine1"
-                  id="addressLine1"
-                  autoComplete="street-address"
-                  className={`py-3 px-3 block w-full shadow-sm rounded-md sm:text-sm ${
-                    errors.addressLine1
-                      ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
-                      : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
-                  }`}
-                />
-                {errors.addressLine1 && <FormErrorIcon />}
-              </div>
-              {errors.addressLine1 && (
-                <p
-                  className="mt-2 text-sm text-red-600"
-                  id="addressLine1-error"
-                >
-                  {errors.addressLine1.message}
-                </p>
-              )}
+              <Input
+                label="addressLine1"
+                type="text"
+                register={register}
+                labelText="Address"
+              />
             </div>
-            <div className="-mt-8 sm:col-span-6">
-              <label
-                htmlFor="addressLine2"
-                className="invisible block text-sm font-medium text-gray-700"
-              >
-                Street address
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="addressLine2"
-                  id="addressLine2"
-                  autoComplete="street-address"
-                  className="block w-full px-3 py-3 border-gray-300 rounded-md shadow-sm sm:text-sm focus:ring-blue-900 focus:border-blue-900"
-                />
-              </div>
+            <div className="-mt-4 sm:col-span-6">
+              <Input label="addressLine2" type="text" register={register} />
             </div>
             <div className="sm:col-span-2">
-              <label
-                htmlFor="town"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Town
-              </label>
-              <div className="relative mt-1">
-                <input
-                  className={`py-3 px-3 block w-full shadow-sm rounded-md sm:text-sm ${
-                    errors.town
-                      ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
-                      : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
-                  }`}
-                  id="town"
-                  name="town"
-                  {...register('town')}
-                  type="text"
-                />
-                {errors.town && <FormErrorIcon />}
-              </div>
-              {errors.town && (
-                <p className="mt-2 text-sm text-red-600" id="town-error">
-                  {errors.town.message}
-                </p>
-              )}
+              <Input
+                label="town"
+                type="text"
+                register={register}
+                labelText="Town"
+              />
             </div>
-
             <div className="sm:col-span-2">
-              <label
-                htmlFor="county"
-                className="block text-sm font-medium text-gray-700"
-              >
-                County
-              </label>
-              <div className="relative mt-1">
-                <input
-                  className={`py-3 px-3 block w-full shadow-sm rounded-md sm:text-sm${
-                    errors.county
-                      ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
-                      : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
-                  }`}
-                  id="county"
-                  name="county"
-                  {...register('county')}
-                  type="text"
-                />
-                {errors.county && <FormErrorIcon />}
-              </div>
-              {errors.county && (
-                <p className="mt-2 text-sm text-red-600" id="county-error">
-                  {errors.county.message}
-                </p>
-              )}
+              <Input
+                label="county"
+                type="text"
+                register={register}
+                labelText="County"
+              />
             </div>
-
             <div className="sm:col-span-2">
-              <label
-                htmlFor="postCode"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Post Code
-              </label>
-              <div className="relative mt-1">
-                <input
-                  className={`py-3 px-3 block w-full shadow-sm rounded-md sm:text-sm${
-                    errors.postCode
-                      ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
-                      : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
-                  }`}
-                  id="postCode"
-                  name="postCode"
-                  {...register('postCode')}
-                  type="text"
-                />
-                {errors.postCode && <FormErrorIcon />}
-              </div>
-              {errors.postCode && (
-                <p className="mt-2 text-sm text-red-600" id="postCode-error">
-                  {errors.postCode.message}
-                </p>
-              )}
+              <Input
+                label="postCode"
+                type="text"
+                register={register}
+                labelText="Post Code"
+              />
             </div>
           </div>
         </section>

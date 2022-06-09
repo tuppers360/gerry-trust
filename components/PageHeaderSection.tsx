@@ -1,19 +1,14 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
 type HeaderProps = {
   title?: string;
   heading: string;
-  type?: string;
   center?: boolean;
   author?: string;
+  children?: any;
 };
 
-const PageHeaderSection: FunctionComponent<HeaderProps> = ({
-  title,
-  heading,
-  type,
-  children
-}) => {
+const PageHeaderSection = ({ title, heading, children }) => {
   return (
     <div className="pt-12 pb-12">
       <div className="max-w-md px-4 mx-auto text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-3xl">

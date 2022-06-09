@@ -19,6 +19,7 @@ const schema = yup.object({
     .email('Please enter a valid email address'),
   message: yup.string().required('Please enter your message')
 });
+
 export interface IStatus {
   submitted?: boolean;
   submitting?: boolean;
@@ -114,7 +115,6 @@ export default function ContactFormTest() {
   ) => {
     e.preventDefault();
     setSubmittedData(data);
-    console.log('DATA:', data);
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
     const res = await fetch('/api/sendgrid/contactus', {
       method: 'POST',

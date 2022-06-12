@@ -6,22 +6,18 @@ import Link from 'next/link';
 import { NextPage } from 'next';
 
 export async function getStaticPaths() {
-  const paths: string[] = allPosts.map((post) => post.slug);
   return {
-    paths,
+    paths: allPosts.map((post) => ({
+      params: { slug: post.slug }
+    })),
     fallback: false
   };
 }
 
 export async function getStaticProps({ params }) {
-  const post: Post = allPosts.find(
-    (post) => post._raw.flattenedPath === params.slug
-  );
-  return {
-    props: {
-      post
-    }
-  };
+  const post = allPosts.find((post) => post.slug === params.slug);
+
+  return { props: { post } };
 }
 
 const PostLayout: NextPage = ({ post }: { post: Post }) => {

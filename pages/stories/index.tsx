@@ -6,10 +6,15 @@ import Container from 'components/Container';
 import Link from 'next/link';
 import { NextPage } from 'next';
 import PageHeaderSection from 'components/PageHeaderSection';
+import { Views } from 'lib/types';
 import { compareDesc } from 'date-fns';
+import fetcher from 'lib/fetcher';
 import { pick } from 'contentlayer/client';
+import useSWR from 'swr';
 
 function StoryCard({ title, publishedAt, summary, coverImage, slug }: Story) {
+  const { data } = useSWR<Views>(`/api/views/${slug}`, fetcher);
+  const views = data?.total;
   return (
     <Link href={`/stories/${slug}`}>
       <a className="flex flex-col overflow-hidden rounded-lg shadow-lg group">
@@ -30,7 +35,7 @@ function StoryCard({ title, publishedAt, summary, coverImage, slug }: Story) {
           </div>
           <div className="flex justify-between mt-8 text-sm text-gray-400">
             <div className="inline-flex items-center">
-              {/* {`${views ? format(views) : '–––'} views`} */}
+              {`${views ? new Number(views).toLocaleString() : '–––'} views`}
             </div>
             <div>
               Published -
@@ -47,7 +52,6 @@ function StoryCard({ title, publishedAt, summary, coverImage, slug }: Story) {
 
 const Stories: NextPage = ({ stories }: { stories: Story[] }) => {
   const [searchValue, setSearchValue] = useState('');
-  console.log(stories);
   const filteredstories = stories.filter((story) =>
     story.title.toLowerCase().includes(searchValue.toLowerCase())
   );

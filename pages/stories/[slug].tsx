@@ -3,6 +3,7 @@ import { Story, allStories } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';
 
 import Container from 'components/Container';
+import ViewCounter from 'components/ViewCounter';
 import components from 'components/MDXComponents';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
@@ -37,7 +38,7 @@ export default function StoryPage({ story }: { story: Story }) {
             <span>{` • `}</span>
             <span className="inline-flex items-center">
               <EyeIcon className="w-5 h-5 mr-2" />
-              {/* <ViewCounter slug={story.slug} /> */}
+              <ViewCounter slug={story.slug} />
             </span>
           </div>
         </div>

@@ -9,6 +9,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 
 export default function StoryPage({ story }: { story: Story }) {
   const Component = useMDXComponent(story.body.code);
+
   return (
     <Container
       title={`${story.title} – Gerry Richardson Trust`}
@@ -17,23 +18,29 @@ export default function StoryPage({ story }: { story: Story }) {
       date={new Date(story.publishedAt).toISOString()}
       type="article"
     >
-      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 mt-4 pt-12">
-        <h1 className="bg-clip-text text-5xl lg:text-6xl text-transparent bg-gradient-to-r from-blue-900 to-blue-500 font-bold py-4">
+      <div className="max-w-xl px-4 pt-12 mx-auto mt-4 text-center sm:px-6 lg:max-w-5xl lg:px-8">
+        <h1 className="py-4 text-5xl font-bold text-transparent bg-clip-text lg:text-6xl bg-gradient-to-r from-blue-900 to-blue-500">
           {story.title}
         </h1>
-        <h2 className="text-gray-600 md:text-xl dark:text-gray-300 mt-4">
+        <h2 className="mt-4 text-gray-600 md:text-xl dark:text-gray-300">
           Published -&nbsp;
           {format(parseISO(story.publishedAt), 'dd MMMM yyyy')}
         </h2>
+        <div className="inline-flex items-center p-2">
+          {story.author && <h3>written by {story.author.name}</h3>}
+        </div>
+        <div className="p-2 text-sm text-gray-500 text">
+          <span className="inline-flex items-center">
+            <EyeIcon className="w-5 h-5 mr-2" />
+            <ViewCounter slug={story.slug} />
+          </span>
+        </div>
 
-        <div className="mt-4 flex justify-between text-gray-500 text-sm">
-          <div className="inline-flex items-center">
-            {story.author && <h3>written by {story.author.name}</h3>}
-          </div>
+        <div className="flex justify-between mt-4 text-sm text-gray-500 text">
           <div className="inline-flex items-center space-x-2">
             <span className="inline-flex items-center">
               <BookOpenIcon className="inline-block w-5 h-5 mr-2" />
-              Reading Time
+              {story.readingTime.text}
             </span>
             <span>{` • `}</span>
             <span className="inline-flex items-center">
@@ -43,11 +50,10 @@ export default function StoryPage({ story }: { story: Story }) {
           </div>
         </div>
       </div>
-      <article className="flex flex-col justify-center items-start max-w-xl mx-auto px-4 sm:px-6 lg:max-w-5xl lg:px-8 mt-8">
-        <div className="prose md:prose-lg dark:prose-dark max-w-none w-full">
+      <article className="flex flex-col items-start justify-center max-w-xl px-4 mx-auto mt-8 sm:px-6 lg:max-w-5xl lg:px-8">
+        <div className="w-full prose md:prose-lg dark:prose-dark max-w-none">
           <Component components={{ ...components }} />
         </div>
-        {/* <div className="mt-8"><Subscribe /></div> */}
       </article>
     </Container>
   );
@@ -55,13 +61,13 @@ export default function StoryPage({ story }: { story: Story }) {
 
 export async function getStaticPaths() {
   return {
-    paths: allStories.map((p) => ({ params: { slug: p.slug } })),
+    paths: allStories.map((s) => ({ params: { slug: s.slug } })),
     fallback: false
   };
 }
 
 export async function getStaticProps({ params }) {
-  const story = allStories.find((post) => post.slug === params.slug);
+  const story = allStories.find((story) => story.slug === params.slug);
 
   return { props: { story } };
 }

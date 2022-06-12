@@ -5,11 +5,18 @@ import {
   makeSource
 } from 'contentlayer/source-files';
 
+import readingTime from 'reading-time';
+
 const computedFields: ComputedFields = {
+  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
   slug: {
     type: 'string',
     resolve: (doc: any) =>
       doc._raw.sourceFileName.replace(/\.md$/, '').replace(/\.mdx$/, '')
+  },
+  wordCount: {
+    type: 'number',
+    resolve: (doc) => doc.body.raw.split(/\s+/gu).length
   }
 };
 

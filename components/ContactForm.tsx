@@ -1,11 +1,10 @@
 import * as yup from 'yup';
 
+import { ExclamationCircleIcon, XCircleIcon } from '@heroicons/react/solid';
 import { Path, UseFormRegister, useForm } from 'react-hook-form';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import FormErrorIcon from './FormErrorIcon';
 import ToggleButton from './ToggleButton'; //Commented out until Privacy and Cookies Policy written
-import { XCircleIcon } from '@heroicons/react/solid';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -81,7 +80,11 @@ export default function ContactFormTest() {
             {...register(label)}
             placeholder={placeholder}
           />
-          {errors[label] && <FormErrorIcon />}
+          {errors[label] && (
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+            </div>
+          )}
         </div>
         {errors[label] && (
           <p className="mt-2 text-sm text-red-600" id="email-error">
@@ -266,7 +269,11 @@ export default function ContactFormTest() {
                 required
                 rows={4}
               ></textarea>
-              {errors.message && <FormErrorIcon />}
+              {errors.message && (
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                  <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+                </div>
+              )}
             </div>
             {errors.message && (
               <p className="mt-2 text-sm text-red-600" id="message-error">

@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-
 import {
   CheckCircleIcon,
-  XCircleIcon,
-  ExclamationIcon
+  ExclamationCircleIcon,
+  ExclamationIcon,
+  XCircleIcon
 } from '@heroicons/react/solid';
+import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import FormErrorIcon from './FormErrorIcon';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from 'react-hook-form';
 
@@ -185,7 +184,11 @@ function ApplicationForm() {
                         type="text"
                       />
 
-                      {errors.firstName && <FormErrorIcon />}
+                      {errors.firstName && (
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                          <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+                        </div>
+                      )}
                     </div>
                     {errors.firstName && (
                       <p
@@ -217,7 +220,11 @@ function ApplicationForm() {
                         })}
                         type="text"
                       />
-                      {errors.lastName && <FormErrorIcon />}
+                      {errors.lastName && (
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                          <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+                        </div>
+                      )}
                     </div>
                     {errors.lastName && (
                       <p
@@ -254,7 +261,11 @@ function ApplicationForm() {
                         required
                         type="text"
                       />
-                      {errors.email && <FormErrorIcon />}
+                      {errors.email && (
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                          <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+                        </div>
+                      )}
                     </div>
                     {errors.email && (
                       <p className="mt-2 text-sm text-red-600" id="email-error">
@@ -305,7 +316,11 @@ function ApplicationForm() {
                         })}
                         type="text"
                       />
-                      {errors.addressLine1 && <FormErrorIcon />}
+                      {errors.addressLine1 && (
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                          <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+                        </div>
+                      )}
                     </div>
                     {errors.addressLine1 && (
                       <p
@@ -355,7 +370,11 @@ function ApplicationForm() {
                         })}
                         type="text"
                       />
-                      {errors.town && <FormErrorIcon />}
+                      {errors.town && (
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                          <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+                        </div>
+                      )}
                     </div>
                     {errors.town && (
                       <p className="mt-2 text-sm text-red-600" id="town-error">
@@ -385,7 +404,11 @@ function ApplicationForm() {
                         })}
                         type="text"
                       />
-                      {errors.county && <FormErrorIcon />}
+                      {errors.county && (
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                          <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+                        </div>
+                      )}
                     </div>
                     {errors.county && (
                       <p
@@ -418,7 +441,11 @@ function ApplicationForm() {
                         })}
                         type="text"
                       />
-                      {errors.postCode && <FormErrorIcon />}
+                      {errors.postCode && (
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                          <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+                        </div>
+                      )}
                     </div>
                     {errors.postCode && (
                       <p
@@ -473,7 +500,11 @@ function ApplicationForm() {
                         })}
                         rows={10}
                       ></textarea>
-                      {errors.application && <FormErrorIcon />}
+                      {errors.application && (
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                          <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+                        </div>
+                      )}
                     </div>
                     {errors.application && (
                       <p

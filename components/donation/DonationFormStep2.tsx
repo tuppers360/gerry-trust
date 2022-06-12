@@ -1,14 +1,17 @@
 import * as yup from 'yup';
 
-import { ExclamationIcon, XCircleIcon } from '@heroicons/react/solid';
+import {
+  ExclamationCircleIcon,
+  ExclamationIcon,
+  XCircleIcon
+} from '@heroicons/react/solid';
 import { Path, UseFormRegister, useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import FormErrorIcon from 'components/FormErrorIcon';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
-import { fetchPostJSON } from '../../utils/api-helpers';
-import getStripe from '../../utils/get-stripejs';
+import { fetchPostJSON } from 'utils/api-helpers';
+import getStripe from 'utils/get-stripejs';
 import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
 import { useStateMachine } from 'little-state-machine';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -88,7 +91,11 @@ const DonationFormStep2 = ({ step, setStep }) => {
             {...register(label)}
             placeholder={placeholder}
           />
-          {errors[label] && <FormErrorIcon />}
+          {errors[label] && (
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+            </div>
+          )}
         </div>
         {errors[label] && (
           <p className="mt-2 text-sm text-red-600" id="email-error">

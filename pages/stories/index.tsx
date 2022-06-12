@@ -17,7 +17,7 @@ function StoryCard({ title, publishedAt, summary, coverImage, slug }: Story) {
   const views = data?.total;
   return (
     <Link href={`/stories/${slug}`}>
-      <article className="flex flex-col overflow-hidden transition duration-200 rounded-lg shadow-lg group hover:scale-105">
+      <article className="flex flex-col overflow-hidden transition duration-200 rounded-lg shadow-lg cursor-pointer group hover:scale-105">
         <div className="flex-shrink-0">
           <img
             className="object-cover w-full h-48 lg:h-72"

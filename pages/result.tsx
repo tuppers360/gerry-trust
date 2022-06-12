@@ -1,5 +1,6 @@
 import * as config from 'config';
 
+import Confetti from 'react-confetti';
 import Container from 'components/Container';
 import { NextPage } from 'next';
 import PageHeaderSection from 'components/PageHeaderSection';
@@ -8,9 +9,12 @@ import { fetchGetJSON } from 'utils/api-helpers';
 import { formatAmountForDisplayForStripe } from 'utils/stripe-helpers';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
+import { useWindowSize } from '@react-hook/window-size';
 
 const ResultPage: NextPage = () => {
   const router = useRouter();
+
+  const [height, width] = useWindowSize();
   // Fetch CheckoutSession from static page via
   // https://nextjs.org/docs/basic-features/data-fetching#static-generation
   const { data, error } = useSWR(
@@ -37,6 +41,7 @@ const ResultPage: NextPage = () => {
           </h2>
         )}
       </PageHeaderSection>
+      {<Confetti numberOfPieces={200} height={height} width={width} />}
       <div className="max-w-xl px-4 mx-auto mt-8 sm:px-6 lg:max-w-4xl lg:px-8">
         <h2 className="text-xl font-medium leading-relaxed">
           Thank you for your generous gift to the Gerry Richardson Trust.

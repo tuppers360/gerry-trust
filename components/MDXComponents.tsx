@@ -27,8 +27,12 @@ const CustomLink = (props) => {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
 
+function RoundedImage(props) {
+  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+}
+
 const MDXComponents = {
-  Image,
+  Image: RoundedImage,
   a: CustomLink
 
   //TODO - as above build these as we add the blog

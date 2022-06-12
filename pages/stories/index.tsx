@@ -103,7 +103,9 @@ export default Stories;
 
 export async function getStaticProps() {
   const stories = allStories
-    .map((story) => pick(story, ['slug', 'title', 'summary', 'publishedAt']))
+    .map((story) =>
+      pick(story, ['slug', 'title', 'summary', 'publishedAt', 'coverImage'])
+    )
     .sort((a, b) => {
       return compareDesc(new Date(a.publishedAt), new Date(b.publishedAt));
     });

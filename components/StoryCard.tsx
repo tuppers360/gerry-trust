@@ -1,12 +1,20 @@
 import { format as formatDate, parseISO } from 'date-fns';
 
 import Link from 'next/link';
+import { Story } from 'contentlayer/generated';
 import ViewCounter from 'components/ViewCounter';
 import fetcher from 'lib/fetcher';
 import format from 'comma-number';
 import useSWR from 'swr';
 
-const Post = ({ title, summary, publishedAt, author, image, slug }) => {
+const StoryCard = ({
+  title,
+  summary,
+  publishedAt,
+  author,
+  coverImage,
+  slug
+}: Story) => {
   const { data } = useSWR(`/api/views/${slug}`, fetcher);
   const views = data?.total;
 
@@ -16,7 +24,7 @@ const Post = ({ title, summary, publishedAt, author, image, slug }) => {
         <div className="flex-shrink-0">
           <img
             className="object-cover w-full h-48 lg:h-72"
-            src={image}
+            src={coverImage}
             alt=""
           />
         </div>
@@ -45,4 +53,4 @@ const Post = ({ title, summary, publishedAt, author, image, slug }) => {
   );
 };
 
-export default Post;
+export default StoryCard;

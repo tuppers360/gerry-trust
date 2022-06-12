@@ -519,8 +519,6 @@ function ApplicationForm() {
               </div>
             </div>
           </section>
-
-          <div className="sm:col-span-2"></div>
           <div className="flex justify-end mt-4">
             <button
               type="submit"

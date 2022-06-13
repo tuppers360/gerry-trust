@@ -86,10 +86,24 @@ const BillingInfo: NextPage = () => {
     router.push('/donate');
   }
 
+  const handleResponse = (status, msg) => {
+    if (status === 200) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: msg }
+      });
+    } else {
+      setStatus({
+        info: { error: true, msg: msg }
+      });
+    }
+  };
+
   const handleOnSubmit = async (data) => {
     setLoading(true);
     actions.updateDonationDetailsAction(data);
-
+    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
     // Create a Checkout Session.
     const response = await fetchPostJSON('/api/stripe/checkout_sessions', {
       amount: state.donationDetails.amount,
@@ -115,6 +129,7 @@ const BillingInfo: NextPage = () => {
       console.error(donationResponse);
       return;
     }
+    handleResponse(donationResponse.status, donationResponse.statusText);
 
     // Redirect to Checkout.
     const stripe = await getStripe();

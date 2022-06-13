@@ -1,6 +1,14 @@
 import Container from 'components/Container';
 import PageHeaderSection from 'components/PageHeaderSection';
 import { Trustee } from 'components/Trustee';
+import { trustees } from 'data/trustees';
+
+interface Trustees {
+  id: number;
+  name: string;
+  position: string;
+  image: string;
+}
 
 export default function About() {
   return (
@@ -8,8 +16,8 @@ export default function About() {
       <PageHeaderSection title="About Us" heading="Our Story">
         A brief history of how it all began
       </PageHeaderSection>
-      <div className="max-w-6xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-        <section className="text-lg space-y-4 text-gray-600">
+      <div className="max-w-6xl px-4 py-4 mx-auto sm:px-6 lg:px-8">
+        <section className="space-y-4 text-lg text-gray-600">
           <p>
             On the 23rd August 1971 Superintendent Gerald Richardson was shot
             dead while attempting to arrest robbers involved in a raid on a
@@ -60,97 +68,22 @@ export default function About() {
 
         <section>
           <div className="text-center">
-            <p className="text-xl font-semibold tracking-wider text-cyan-600 uppercase mt-16">
+            <p className="mt-16 text-xl font-semibold tracking-wider uppercase text-cyan-600">
               Trustees
             </p>
-            <h1 className="max-w-4xl mx-auto text-3xl font-extrabold text-gray-700 tracking-tight sm:text-5xl mt-4">
+            <h1 className="max-w-4xl mx-auto mt-4 text-3xl font-extrabold tracking-tight text-gray-700 sm:text-5xl">
               Meet our team
             </h1>
-            <ul className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl py-8 md:py-16 mt-4">
-              <li>
-                <Trustee
-                  image="/images/lee_wilson.jpg"
-                  name="Lee Wilson"
-                  position="Chair"
-                />
-              </li>
-              <li>
-                <Trustee
-                  image="/images/chris_hardy.jpg"
-                  name="Chris Hardy"
-                  position="Trustee / Compere"
-                />
-              </li>
-              <li>
-                <Trustee
-                  image="/images/claire_goss.jpg"
-                  name="Claire van Deurs Goss"
-                  position="Trustee"
-                />
-              </li>
-              <li>
-                <Trustee
-                  image="/images/david_williamson.jpg"
-                  name="David Williamson"
-                  position="Treasurer / Trustee"
-                />
-              </li>
-              <li>
-                <Trustee
-                  image="/images/gareth_tupman.jpg"
-                  name="Gareth Tupman"
-                  position="Trustee"
-                />
-              </li>
-              <li>
-                <Trustee
-                  image="/images/sue_clarke.jpg"
-                  name="Susannah Clarke"
-                  position="Trustee"
-                />
-              </li>
-              <li>
-                <Trustee
-                  image="/images/jacqueline_longden.jpg"
-                  name="Jacqueline Longden BEM"
-                  position="Trustee"
-                />
-              </li>
-              <li>
-                <Trustee
-                  image="/images/sarah_longden.jpg"
-                  name="Sarah Longden"
-                  position="Trustee"
-                />
-              </li>
-              <li>
-                <Trustee
-                  image="/images/chris_pickard.jpg"
-                  name="Christine Pickard"
-                  position="Trustee"
-                />
-              </li>
-              <li>
-                <Trustee
-                  image="/images/john_pickard.jpg"
-                  name="John Pickard"
-                  position="Trustee"
-                />
-              </li>
-              <li>
-                <Trustee
-                  image="/images/andy_mitchell.jpg"
-                  name="Andy Mitchell BEM"
-                  position="Trustee"
-                />
-              </li>
-              <li>
-                <Trustee
-                  image="/images/angela_butcher.jpg"
-                  name="Angela Butcher"
-                  position="Trustee"
-                />
-              </li>
+            <ul className="py-8 mx-auto mt-4 space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl md:py-16">
+              {trustees.map((trustee) => (
+                <li key={trustee.id}>
+                  <Trustee
+                    image={trustee.image}
+                    name={trustee.name}
+                    position={trustee.position}
+                  />
+                </li>
+              ))}
             </ul>
           </div>
         </section>

@@ -15,7 +15,6 @@
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@heroicons/react": "^1.0.6",
     "@hookform/resolvers": "^2.9.0",
-    "@next/mdx": "^12.1.6",
     "@prisma/client": "^3.15.0",
     "@react-hook/window-size": "^3.0.7",
     "@sendgrid/mail": "^7.7.0",

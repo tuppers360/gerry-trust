@@ -1,14 +1,46 @@
+import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 import { faFingerprint, faGift } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import NavLink from './NavLink';
-import { useState } from 'react';
+import { useTheme } from 'next-themes';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { systemTheme, theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const toggleTheme = () => {
+    if (!mounted) return null;
+
+    const currentTheme = theme === 'system' ? systemTheme : theme;
+
+    if (currentTheme === 'dark') {
+      return (
+        <SunIcon
+          className="w-10 h-10 p-2 border rounded-sm "
+          role="button"
+          onClick={() => setTheme('light')}
+        />
+      );
+    } else {
+      return (
+        <MoonIcon
+          className="w-10 h-10 p-2 border rounded-sm "
+          role="button"
+          onClick={() => setTheme('dark')}
+        />
+      );
+    }
+  };
   return (
-    <nav className="bg-gray-800">
+    <nav className="bg-gray-100 dark:bg-gray-800">
       <a href="#skip" className="sr-only focus:not-sr-only">
         Skip to content
       </a>
@@ -85,13 +117,14 @@ export default function Navbar() {
               {/* <NavLink href="News" name="News" block=""/> */}
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center space-x-2">
             <Link href="/donate">
-              <a className="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase bg-blue-900 rounded shadow outline-none hover:bg-blue-800 hover:shadow-lg focus:outline-none">
+              <a className="px-6 py-3 text-sm font-bold text-white uppercase bg-blue-900 rounded shadow outline-none hover:bg-blue-800 hover:shadow-lg focus:outline-none">
                 <FontAwesomeIcon className="mr-1" icon={faGift} fixedWidth />
                 Donate
               </a>
             </Link>
+            {toggleTheme()}
           </div>
         </div>
       </div>

@@ -3,7 +3,6 @@ import 'styles/tailwind.css';
 import { StateMachineProvider, createStore } from 'little-state-machine';
 
 import type { AppProps } from 'next/app';
-import MDXComponents from 'components/MDXComponents';
 import { ThemeProvider } from 'next-themes';
 
 // createStore({})

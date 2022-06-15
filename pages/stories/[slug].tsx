@@ -22,14 +22,14 @@ export default function StoryPage({ story }: { story: Story }) {
         <h1 className="py-4 text-5xl font-bold text-transparent bg-clip-text lg:text-6xl bg-gradient-to-r from-blue-900 to-blue-500">
           {story.title}
         </h1>
-        <h2 className="mt-4 text-gray-600 md:text-xl dark:text-gray-300">
+        <h2 className="mt-4 text-slate-600 md:text-xl dark:text-slate-300">
           Published -&nbsp;
           {format(parseISO(story.publishedAt), 'dd MMMM yyyy')}
         </h2>
         <div className="inline-flex items-center p-2">
           {story.author && <h3>written by {story.author.name}</h3>}
         </div>
-        <div className="flex items-center justify-center p-2 space-x-2 text-sm text-gray-500 text">
+        <div className="flex items-center justify-center p-2 space-x-2 text-sm text-slate-500 text">
           <span className="inline-flex items-center">
             <BookOpenIcon className="inline-block w-5 h-5 mr-2" />
             {story.readingTime.text}
@@ -42,7 +42,7 @@ export default function StoryPage({ story }: { story: Story }) {
         </div>
       </div>
       <article className="flex flex-col items-start justify-center max-w-xl px-4 mx-auto mt-8 sm:px-6 lg:max-w-5xl lg:px-8">
-        <div className="w-full prose md:prose-lg dark:prose-dark max-w-none">
+        <div className="w-full prose md:prose-lg dark:prose-invert max-w-none">
           <Component components={{ ...components }} />
         </div>
       </article>

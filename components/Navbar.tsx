@@ -23,16 +23,16 @@ export default function Navbar() {
 
     if (currentTheme === 'dark') {
       return (
-        <SunIcon
-          className="w-10 h-10 p-2 border rounded-sm "
+        <MoonIcon
+          className="w-10 h-10 p-2 fill-sky-500"
           role="button"
           onClick={() => setTheme('light')}
         />
       );
     } else {
       return (
-        <MoonIcon
-          className="w-10 h-10 p-2 border rounded-sm "
+        <SunIcon
+          className="w-10 h-10 p-2 fill-sky-500"
           role="button"
           onClick={() => setTheme('dark')}
         />
@@ -40,7 +40,7 @@ export default function Navbar() {
     }
   };
   return (
-    <nav className="bg-gray-100 dark:bg-gray-800">
+    <nav className="flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75 text-slate-700 dark:text-slate-200 font-semibold">
       <a href="#skip" className="sr-only focus:not-sr-only">
         Skip to content
       </a>
@@ -49,7 +49,7 @@ export default function Navbar() {
           <div className="flex">
             <div className="flex items-center mr-2 -ml-2 md:hidden">
               <button
-                className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                className="inline-flex items-center justify-center p-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-expanded="false"
               >
                 <span className="sr-only">Open main menu</span>
@@ -100,10 +100,10 @@ export default function Navbar() {
               /> */}
               <div className="flex items-center">
                 <Link href="/">
-                  <a className="text-2xl font-extrabold leading-tight text-gray-300 md:leading-snug md:mr-2">
+                  <a className="text-2xl font-extrabold leading-tight md:leading-snug md:mr-2 text-sky-600 dark:text-sky-500">
                     <FontAwesomeIcon
                       icon={faFingerprint}
-                      className="inline-block w-6 h-6 mr-2 text-gray-300"
+                      className="inline-block w-6 h-6 mr-2"
                     />
                     GRT
                   </a>
@@ -119,7 +119,7 @@ export default function Navbar() {
           </div>
           <div className="flex items-center space-x-2">
             <Link href="/donate">
-              <a className="px-6 py-3 text-sm font-bold text-white uppercase bg-blue-900 rounded shadow outline-none hover:bg-blue-800 hover:shadow-lg focus:outline-none">
+              <a className="px-6 py-3 text-sm font-bold uppercase bg-blue-900 rounded shadow outline-none hover:bg-blue-800 hover:shadow-lg focus:outline-none text-slate-100">
                 <FontAwesomeIcon className="mr-1" icon={faGift} fixedWidth />
                 Donate
               </a>

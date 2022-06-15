@@ -13,7 +13,7 @@ function NavLink({ href, name, block }: ILink) {
       <a
         className={`${
           block ? 'block' : ''
-        } px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white`}
+        } px-3 py-2 text-md rounded-md hover:text-sky-500 dark:hover:text-sky-400`}
       >
         {name}
       </a>

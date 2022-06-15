@@ -3,10 +3,10 @@ import React from 'react';
 function FormInfoMessage(status) {
   return (
     <div className="p-4 bg-yellow-100 border-l-4 border-yellow-400 rounded-md">
-      <div className="flex">
+      <div className="flex items-center">
         <div className="flex-shrink-0">
           <svg
-            className="w-5 h-5 text-yellow-400"
+            className="w-8 h-8 text-yellow-400"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -20,11 +20,11 @@ function FormInfoMessage(status) {
           </svg>
         </div>
         <div className="ml-3">
-          <h3 className="font-semibold text-yellow-800 text">
+          <h3 className="font-bold text-yellow-800 text-xl">
             There was a problem sending your message
           </h3>
-          <div className="mt-2 text-lg text-yellow-700">
-            <p>{status.info.msg}</p>
+          <div className="mt-2 text-md text-yellow-700">
+            {/* <p>{status.info.msg}</p> */}
             <p className="mt-2">
               Please try again, if the problem persists please try another
               method.

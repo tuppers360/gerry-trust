@@ -168,7 +168,7 @@ const BillingInfo: NextPage = () => {
               <section>
                 <div className="pt-8">
                   <div>
-                    <h3 className="text-xl font-medium leading-6 text-gray-900">
+                    <h3 className="text-xl font-medium leading-6 dark:text-slate-300">
                       Personal Information
                     </h3>
                   </div>
@@ -206,10 +206,10 @@ const BillingInfo: NextPage = () => {
               </section>
               <section>
                 <div className="pt-8">
-                  <h3 className="text-xl font-medium leading-6 text-gray-900">
+                  <h3 className="text-xl font-medium leading-6 ">
                     Address Information
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm ">
                     Please use your address where you receive mail.
                   </p>
                 </div>
@@ -261,7 +261,7 @@ const BillingInfo: NextPage = () => {
                   </div>
                 </div>
               </section>
-              <div className="flex justify-between">
+              <div className="flex justify-between mt-8">
                 <button
                   className="inline-flex items-center justify-center px-8 py-3 mt-5 mb-1 text-base font-semibold text-white uppercase bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-3 md:px-8 disabled:opacity-75"
                   type="button"

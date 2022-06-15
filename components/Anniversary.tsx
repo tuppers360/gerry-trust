@@ -3,12 +3,12 @@ import React from 'react';
 
 export default function Example() {
   return (
-    <div className="overflow-hidden bg-white">
-      <div className="relative px-4 py-8 mx-auto mb-48 max-w-7xl sm:px-6 lg:px-8">
-        <div className="absolute top-0 bottom-0 hidden w-screen lg:block bg-gray-50 left-3/4" />
+    <div className="overflow-hidden">
+      <div className="relative px-4 py-8 mx-auto lg:mb-24 max-w-7xl sm:px-6 lg:px-8">
+        <div className="absolute top-0 bottom-0 hidden w-screen lg:block left-3/4" />
         <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
           <div className="col-span-2">
-            <h3 className="text-6xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-500 sm:text-7xl md:leading-tight">
+            <h3 className="text-6xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-sky-800 dark:from-sky-500 to-sky-300 sm:text-7xl md:leading-tight text-center">
               50 Year Anniversary
             </h3>
           </div>
@@ -31,14 +31,14 @@ export default function Example() {
           </div>
           <div className="mt-8 lg:mt-0">
             <div className="mx-auto text-base max-w-prose lg:max-w-none">
-              <p className="text-lg font-semibold text-gray-500">
+              <p className="text-lg font-semibold">
                 23rd August 1971, marks the 50th anniversary of the death of
                 Supt Gerry Richardson who was killed in the line of duty, whilst
                 attending an armed robbery in Blackpool on 23rd August 1971.
                 Gerry was aged just 38.
               </p>
             </div>
-            <div className="mx-auto mt-5 prose text-gray-500 prose-indigo lg:max-w-none lg:row-start-1 lg:col-start-1">
+            <div className="mx-auto mt-5 prose prose-indigo dark:prose-invert lg:max-w-none lg:row-start-1 lg:col-start-1">
               <p>
                 Lancashire Police's chief constable joined trustees and other
                 officers to lay flowers at Supt Richardson's grave in Layton

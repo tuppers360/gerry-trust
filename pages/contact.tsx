@@ -117,7 +117,7 @@ const Contact: NextPage = () => {
             <ContactFormHeader />
           </section>
           <section>
-            <h2 className="text-xl font-medium text-center text-gray-600">
+            <h2 className="text-xl font-medium text-center text-slate-600 dark:text-slate-300">
               <FontAwesomeIcon icon={faEdit} fixedWidth /> Send us a message
             </h2>
             <div className="mt-8">
@@ -163,7 +163,7 @@ const Contact: NextPage = () => {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="message"
-                    className="block text-base font-medium text-gray-700"
+                    className="block text-base font-medium text-slate-700 dark:text-slate-300"
                   >
                     Message
                   </label>
@@ -199,13 +199,13 @@ const Contact: NextPage = () => {
                 <ToggleButton />
               </div>
               <div className="ml-3">
-                <p className="text-base text-gray-500">
+                <p className="text-base text-slate-500">
                   By selecting this, you agree to the&nbsp;
-                  <a href="#" className="font-medium text-gray-700 underline">
+                  <a href="#" className="font-medium text-slate-700 underline">
                     Privacy Policy
                   </a>
                   &nbsp;and&nbsp;
-                  <a href="#" className="font-medium text-gray-700 underline">
+                  <a href="#" className="font-medium text-slate-700 underline">
                     Cookie Policy
                   </a>
                   .

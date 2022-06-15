@@ -1,4 +1,5 @@
 import Container from 'components/Container';
+import HyperLink from 'components/HyperLink';
 import PageHeaderSection from 'components/PageHeaderSection';
 import React from 'react';
 
@@ -19,118 +20,57 @@ export default function index() {
           <section className="w-full p-4 lg:w-1/3 ">
             <h3 className="text-2xl font-semibold">Topics:</h3>
             <ul className="px-6 mt-4 space-y-2 list-disc">
-              <li>
-                <a
-                  href="#introduction"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  Introduction
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#what-data-do-we-collect"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  What data do we collect?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-do-we-collect-your-data"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How do we collect your data?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-will-we-use-your-data"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How will we use your data?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-do-we-store-your-data"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How do we store your data?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#what-are-your-data-protection-rights"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  What are your data protection rights?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#what-are-cookies"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  What are cookies?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-do-we-use-cookies"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How do we use cookies?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#what-typesof-cookies-do-we-use"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  What types of cookies do we use?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-to-manage-your-cookies"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How to manage your cookies
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#privacy-policy-of-other-websites"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  Privacy policies of other websites
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#changes-to-our-privacy-policy"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  Changes to our privacy policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-to-contact-us"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How to contact us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-to-contact-the-appropriate-authority"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How to contact the appropriate authority
-                </a>
-              </li>
+              <HyperLink id="#introduction" name="Introduction" />
+              <HyperLink
+                id="#what-data-do-we-collect"
+                name="What data do we collect?"
+              />
+              <HyperLink
+                id="#how-do-we-collect-your-data"
+                name="How do we collect your data?"
+              />
+              <HyperLink
+                id="#how-will-we-use-your-data"
+                name="How will we use your data?"
+              />
+              <HyperLink
+                id="#how-do-we-store-your-data"
+                name="How do we store your data?"
+              />
+              <HyperLink
+                id="#what-are-your-data-protection-rights"
+                name="What are your data protection rights?"
+              />
+              <HyperLink id="#what-are-cookies" name="What are cookies?" />
+              <HyperLink
+                id="#how-do-we-use-cookies"
+                name="How do we use cookies?"
+              />
+              <HyperLink
+                id="#how-to-manage-your-cookies"
+                name="How to manage your cookies"
+              />
+              <HyperLink
+                id="#privacy-policy-of-other-websites"
+                name="Privacy policies of other websites"
+              />
+              <HyperLink
+                id="#changes-to-our-privacy-policy"
+                name="Changes to our privacy policy"
+              />
+              <HyperLink
+                id="#how-do-we-use-cookies-in-our-services"
+                name="How do we use cookies in our services?"
+              />
+              <HyperLink
+                id="#how-do-we-use-cookies-in-our-websites-and-applications"
+                name="How do we use cookies in our websites and applications?"
+              />
+              <HyperLink id="#how-to-contact-us" name="How to contact us" />
+              <HyperLink
+                id="#how-to-contact-the-appropriate-authority"
+                name="How to contact the appropriate authority"
+              />
             </ul>
           </section>
           <section className="w-full p-4 space-y-4 lg:w-2/3">
@@ -331,7 +271,7 @@ export default function index() {
               <span className="font-semibold ">Email us at:&nbsp;</span>
               <a
                 href="mailto:cotactus@gerryrichardsontrust.org"
-                className="text-blue-600 hover:text-blue-800 hover:underline"
+                className="text-sky-600 hover:text-sky-800 hover:underline"
               >
                 cotactus@gerryrichardsontrust.org
               </a>
@@ -358,7 +298,7 @@ export default function index() {
               For further information, visit&nbsp;
               <a
                 href="www.allaboutcookies.org"
-                className="text-blue-600 hover:text-blue-800 hover:underline"
+                className="text-sky-600 hover:text-sky-800 hover:underline"
               >
                 allaboutcookies.org
               </a>
@@ -437,7 +377,7 @@ export default function index() {
               <span className="font-semibold ">Email us at:&nbsp;</span>
               <a
                 href="mailto:cotactus@gerryrichardsontrust.org"
-                className="text-blue-600 hover:text-blue-800 hover:underline"
+                className="text-sky-600 hover:text-sky-800 hover:underline"
               >
                 cotactus@gerryrichardsontrust.org
               </a>
@@ -470,7 +410,7 @@ export default function index() {
               <span className="font-semibold ">Website:&nbsp;</span>
               <a
                 href="https://www.gov.uk/complain-about-charity"
-                className="text-blue-600 hover:text-blue-800 hover:underline"
+                className="text-sky-600 hover:text-sky-800 hover:underline"
               >
                 Charity Commision
               </a>

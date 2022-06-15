@@ -3,10 +3,10 @@ import React from 'react';
 function ApplicationFormHeader() {
   return (
     <>
-      <h3 className="font-bold tracking-tight text-gray-700 text">
+      <h3 className="font-bold tracking-tight text-slate-700 dark:text-slate-300 text">
         Please note the following when applying for a grant:
       </h3>
-      <ul className="p-4 pl-8 mt-4 list-disc bg-gray-100 border rounded-md shadow-sm border-gray-00">
+      <ul className="p-4 pl-8 mt-4 list-disc">
         <li>All form fields are required.</li>
         <li>
           Your application must meet our criteria - live within 15 miles of

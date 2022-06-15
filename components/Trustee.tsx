@@ -6,16 +6,16 @@ type TrusteeProps = {
 
 export function Trustee({ image, name, position }: TrusteeProps) {
   return (
-    <div className="space-y-6 transition duration-200 hover:scale-105">
+    <div className="space-y-6 transition duration-200 hover:scale-[1.02]">
       <img
         className="object-cover w-40 h-40 mx-auto rounded-full xl:w-56 xl:h-56 hover:shadow-2xl"
         src={image}
         alt=""
       />
       <div className="space-y-2">
-        <div className="space-y-1 text-lg leading-normal text-cyan-600">
+        <div className="space-y-1 text-lg leading-normal text-sky-600">
           <h3 className="font-semibold">{name}</h3>
-          <p className="text-gray-500">{position}</p>
+          <p className="text-slate-700 dark:text-slate-300">{position}</p>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@ export function Trustee({ image, name, position }: TrusteeProps) {
 {
   /* <ul className="flex justify-center space-x-5">
           <li>
-            <a href="#" className="text-gray-400 hover:text-gray-500">
+            <a href="#" className="text-slate-400 hover:text-slate-500">
               <span className="sr-only">Twitter</span>
               <svg
                 className="w-5 h-5"
@@ -37,7 +37,7 @@ export function Trustee({ image, name, position }: TrusteeProps) {
             </a>
           </li>
           <li>
-            <a href="#" className="text-gray-400 hover:text-gray-500">
+            <a href="#" className="text-slate-400 hover:text-slate-500">
               <span className="sr-only">LinkedIn</span>
               <svg
                 className="w-5 h-5"

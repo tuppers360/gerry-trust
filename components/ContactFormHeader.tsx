@@ -5,7 +5,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 function ContactFormHeader() {
   return (
     <>
-      <h3 className="text-xl font-medium text-center text-gray-600">
+      <h3 className="text-xl font-medium text-center text-slate-600 dark:text-slate-300">
         <FontAwesomeIcon icon={faEnvelope} fixedWidth /> Get in touch
       </h3>
       <p className="mt-8 text-lg">
@@ -15,11 +15,11 @@ function ContactFormHeader() {
       <ul className="mt-8">
         <li className="mt-4">
           Call us -
-          <span className="ml-1 mr-1 font-semibold text-gray-800">
+          <span className="ml-1 mr-1 font-semibold text-slate-800 dark:text-slate-300">
             (01253)700879
           </span>
           or
-          <span className="ml-1 mr-1 font-semibold text-gray-800">
+          <span className="ml-1 mr-1 font-semibold text-slate-800 dark:text-slate-300">
             07799763108
           </span>
         </li>
@@ -27,7 +27,7 @@ function ContactFormHeader() {
           Send us an email -
           <a
             href="mailto:contactus@gerryrichardsontrust.org"
-            className="ml-1 font-semibold text-gray-800 hover:text-gray-500"
+            className="ml-1 font-semibold text-slate-800 hover:text-slate-500 dark:text-slate-300 dark:hover:text-slate-500"
           >
             contactus@gerryrichardsontrust.org
           </a>
@@ -36,7 +36,7 @@ function ContactFormHeader() {
           Tweet us - <span className="sr-only">Twitter</span>
           <a
             href="https://twitter.com/gerrytrust"
-            className="ml-1 font-semibold text-gray-800 hover:text-twitter"
+            className="ml-1 font-semibold text-slate-800 dark:text-slate-300 hover:text-twitter dark:hover:text-twitter"
           >
             @gerrytrust
           </a>

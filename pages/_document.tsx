@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
             crossOrigin="anonymous"
           />
         </Head>
-        <body className="text-gray-700 bg-white dark:bg-gray-800 dark:text-gray-100">
+        <body className="antialiased bg-white text-slate-500 dark:text-slate-400 dark:bg-slate-900">
           <Main />
           <NextScript />
         </body>

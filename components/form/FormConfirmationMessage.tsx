@@ -3,10 +3,10 @@ import React from 'react';
 function FormConfirmationMessage() {
   return (
     <div className="p-4 bg-green-100 border border-l-4 border-green-400 rounded-md">
-      <div className="flex">
+      <div className="flex items-center">
         <div className="flex-shrink-0">
           <svg
-            className="w-5 h-5 text-green-400"
+            className="w-8 h-8 text-green-400"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -20,10 +20,10 @@ function FormConfirmationMessage() {
           </svg>
         </div>
         <div className="ml-3">
-          <h3 className="text-lg font-semibold text-green-800">
+          <h3 className="text-xl font-bold text-green-800">
             Your message has been sent
           </h3>
-          <div className="mt-2 text-green-700 text">
+          <div className="mt-2 text-green-700 text-md">
             <p>Please allow us a short while to respond.</p>
           </div>
         </div>

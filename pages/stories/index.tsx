@@ -17,7 +17,7 @@ function StoryCard({ title, publishedAt, summary, coverImage, slug }: Story) {
   const views = data?.total;
   return (
     <Link href={`/stories/${slug}`}>
-      <article className="flex flex-col overflow-hidden transition duration-200 rounded-lg shadow-lg cursor-pointer group hover:scale-105">
+      <article className="flex flex-col overflow-hidden transition duration-200 rounded-lg shadow-lg dark:shadow-md dark:shadow-sky-500/60 cursor-pointer group hover:scale-[1.02] ring-1 ring-gray-900/5">
         <div className="flex-shrink-0">
           <img
             className="object-cover w-full h-48 lg:h-72"
@@ -27,13 +27,13 @@ function StoryCard({ title, publishedAt, summary, coverImage, slug }: Story) {
         </div>
         <div className="flex flex-col justify-between flex-1 p-6 bg-white">
           <div className="flex-1">
-            <p className="text-sm font-medium text-cyan-600">Story</p>
-            <p className="mt-2 text-xl font-semibold text-gray-700 group-hover:underline">
+            <p className="text-sm font-medium text-sky-600">Story</p>
+            <p className="mt-2 text-xl font-semibold text-slate-700 group-hover:underline">
               {title}
             </p>
-            <p className="mt-3 text-base text-gray-500">{summary}</p>
+            <p className="mt-3 text-base text-slate-500">{summary}</p>
           </div>
-          <div className="flex justify-between mt-8 text-sm text-gray-400">
+          <div className="flex justify-between mt-8 text-sm text-slate-400">
             <div className="inline-flex items-center">
               {`${views ? new Number(views).toLocaleString() : '–––'} views`}
             </div>
@@ -63,17 +63,17 @@ const Stories: NextPage = ({ stories }: { stories: Story[] }) => {
       >{`Here are some of the stories of those we have helped along the way. In total, we have stories so far with many more to come.
       Use the search below to filter by title of the stories`}</PageHeaderSection>
 
-      <div className="flex flex-col items-start justify-center max-w-md px-4 mx-auto sm:max-w-lg lg:max-w-7xl sm:px-6 lg:px-8">
-        <div className="relative w-full max-w-md px-4 mx-auto mt-4 lg:max-w-4xl">
+      <div className="flex flex-col items-start justify-center max-w-md px-4 mx-auto sm:max-w-lg lg:max-w-7xl sm:px-6 lg:px-8 dark:text-slate-400">
+        <div className="relative w-full max-w-md px-4 mx-auto lg:max-w-xl">
           <input
             aria-label="Search stories"
             type="text"
             onChange={(e) => setSearchValue(e.target.value)}
             placeholder="Search stories"
-            className="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-md dark:border-gray-900 focus:ring-blue-500 focus:border-cyan-500 dark:bg-gray-800 dark:text-gray-100"
+            className="block w-full px-4 py-2 text-slate-900 bg-white border border-gray-300 rounded-md dark:border-gray-900 focus:ring-gray-500 focus:border-cyan-500 dark:text-slate-100"
           />
           <svg
-            className="absolute w-5 h-5 text-gray-400 right-6 top-3 dark:text-gray-300"
+            className="absolute w-5 h-5 text-slate-400 right-6 top-3 dark:text-slate-500"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -91,7 +91,7 @@ const Stories: NextPage = ({ stories }: { stories: Story[] }) => {
         {!stories.length && 'No posts found.'}
         {filteredstories && (
           <div className="relative">
-            <div className="grid max-w-md gap-8 px-4 mx-auto mt-12 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-2 xl:grid-cols-3 lg:max-w-7xl">
+            <div className="grid max-w-md gap-8 px-4 mx-auto pt-12 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-2 xl:grid-cols-3 lg:max-w-7xl">
               {filteredstories.map((story) => (
                 <StoryCard key={story.title} {...story} />
               ))}

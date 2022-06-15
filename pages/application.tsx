@@ -11,6 +11,7 @@ import FormConfirmationMessage from 'components/form/FormConfirmationMessage';
 import FormErrorMessage from 'components/form/FormErrorMessage';
 import FormInfoMessage from 'components/form/FormInfoMessage';
 import { FormInput } from 'components/form/FormInput';
+import FormSection from 'components/FormSection';
 import { NextPage } from 'next';
 import PageHeaderSection from 'components/PageHeaderSection';
 import { useForm } from 'react-hook-form';
@@ -124,7 +125,7 @@ const ApplicationPage: NextPage = () => {
         </p>
       </PageHeaderSection>
       <div className="max-w-xl px-4 mx-auto sm:px-6 md:max-w-6xl lg:px-8">
-        <section>
+        <section className="px-4 py-5 rounded-lg shadow bg-slate-100 dark:bg-slate-700 sm:p-6 leading-6 dark:bg-slate-700/40 dark:ring-1 dark:ring-white/20">
           <ApplicationFormHeader />
         </section>
         <section>
@@ -138,13 +139,8 @@ const ApplicationPage: NextPage = () => {
 
           {!status.submitted && (
             <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
-              <section className="px-4 py-5 border border-gray-300 rounded-lg shadow bg-gray-50 sm:p-6">
-                <div className="md:grid md:grid-cols-3 md:gap-6">
-                  <div className="md:col-span-1">
-                    <h3 className="mt-1 text-lg font-medium leading-6 text-gray-900">
-                      Personal Information
-                    </h3>
-                  </div>
+              <div className="px-4 py-5 rounded-lg shadow bg-slate-100 dark:bg-slate-700 sm:p-6 leading-6 dark:bg-slate-700/40 dark:ring-1 dark:ring-white/20">
+                <FormSection title="Personal Details">
                   <div className="mt-5 md:mt-0 md:col-span-2">
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6 sm:col-span-3">
@@ -176,23 +172,11 @@ const ApplicationPage: NextPage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
-              <div className="hidden sm:block" aria-hidden="true">
-                <div className="py-5">
-                  <div className="border-t border-gray-200"></div>
-                </div>
-              </div>
-              <section className="px-4 py-5 mt-4 border border-gray-300 rounded-lg shadow bg-gray-50 sm:p-6 sm:mt-0">
-                <div className="md:grid md:grid-cols-3 md:gap-6">
-                  <div className="md:col-span-1">
-                    <h3 className="mt-1 text-lg font-medium leading-6 text-gray-900">
-                      Address Information
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Use a permanent address where you can receive mail.
-                    </p>
-                  </div>
+                </FormSection>
+                <FormSection
+                  title="Address Information"
+                  info="Use a permanent address where you can receive mail."
+                >
                   <div className="mt-5 md:mt-0 md:col-span-2">
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6">
@@ -244,31 +228,19 @@ const ApplicationPage: NextPage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
-              <div className="hidden sm:block" aria-hidden="true">
-                <div className="py-5">
-                  <div className="border-t border-gray-200"></div>
-                </div>
-              </div>
-              <section className="px-4 py-5 mt-4 border border-gray-300 rounded-lg shadow bg-gray-50 sm:p-6 sm:mt-0">
-                <div className="md:grid md:grid-cols-3 md:gap-6">
-                  <div className="md:col-span-1">
-                    <h3 className="mt-1 text-lg font-medium leading-6 text-gray-900">
-                      Application
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Please provide us with as much information about your
+                </FormSection>
+                <FormSection
+                  title="Application"
+                  info="Please provide us with as much information about your
                       application as possible. How will this funding make a
-                      difference? Who will benefit?
-                    </p>
-                  </div>
+                      difference? Who will benefit?"
+                >
                   <div className="mt-5 md:mt-0 md:col-span-2">
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6">
                         <label
                           htmlFor="application"
-                          className="invisible block text-base font-medium text-gray-700"
+                          className="invisible block text-base font-medium text-slate-700"
                         >
                           Application
                         </label>
@@ -301,8 +273,8 @@ const ApplicationPage: NextPage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
+                </FormSection>
+              </div>
               <div className="flex justify-end mt-4">
                 <button
                   type="submit"
@@ -323,7 +295,7 @@ const ApplicationPage: NextPage = () => {
               </div>
             </form>
           )}
-          <h3 className="mt-8 text-2xl font-bold tracking-tight text-center text-gray-700">
+          <h3 className="mt-8 text-2xl font-bold tracking-tight text-center text-slate-700 dark:text-slate-300">
             <FontAwesomeIcon icon={faEdit} fixedWidth /> Other Ways to apply
           </h3>
           <p className="mt-8 text-lg">

@@ -4,7 +4,6 @@ import { StateMachineProvider, createStore } from 'little-state-machine';
 
 import type { AppProps } from 'next/app';
 import MDXComponents from 'components/MDXComponents';
-import { MDXProvider } from '@mdx-js/react';
 import { ThemeProvider } from 'next-themes';
 
 // createStore({})
@@ -26,10 +25,8 @@ createStore({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <StateMachineProvider>
-      <ThemeProvider attribute="class">
-        <MDXProvider components={MDXComponents}>
-          <Component {...pageProps} />
-        </MDXProvider>
+      <ThemeProvider enableSystem={true} attribute="class">
+        <Component {...pageProps} />
       </ThemeProvider>
     </StateMachineProvider>
   );

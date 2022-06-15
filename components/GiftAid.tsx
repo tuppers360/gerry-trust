@@ -51,7 +51,7 @@ export default function GiftAid({
       </div>
 
       {giftaid && (
-        <div className="mt-4text-center leading-loose">
+        <div className="mt-10 text-center leading-loose border p-4 rounded-lg bg-slate-200/60 dark:bg-slate-800">
           <p>
             I confirm that this is my own money and I would like The Gerry
             Richardson Trust to treat all the donations I have made in the past

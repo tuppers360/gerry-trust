@@ -74,7 +74,7 @@ export default function About() {
             <h1 className="mx-auto mt-4 max-w-4xl text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 sm:text-5xl">
               Meet our team
             </h1>
-            <ul className="mx-auto mt-4 space-y-16 py-8 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 md:py-16 lg:max-w-5xl lg:grid-cols-3">
+            <ul className="mx-auto mt-4 list-none space-y-16 py-8 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 md:py-16 lg:max-w-5xl lg:grid-cols-3">
               {trustees.map((trustee) => (
                 <li key={trustee.id}>
                   <Trustee

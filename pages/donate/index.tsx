@@ -55,23 +55,23 @@ const DonatePage: NextPage = () => {
           Wyre 💖
         </p>
       </PageHeaderSection>
-      <div className="max-w-4xl px-4 mx-auto">
+      <div className="mx-auto max-w-4xl px-4">
         <form onSubmit={onSubmit}>
           <div className="grid grid-cols-4 gap-2">
-            <div className="flex items-center justify-center col-span-2 px-2 py-4 text-lg font-medium text-center text-slate-300 transition-colors duration-300 ease-in-out bg-blue-800 rounded shadow-sm cursor-pointer">
+            <div className="col-span-2 flex cursor-pointer items-center justify-center rounded bg-blue-800 px-2 py-4 text-center text-lg font-medium text-slate-300 shadow-sm transition-colors duration-300 ease-in-out">
               One-Off Payment
             </div>
-            <div className="flex items-center justify-center col-span-2 px-2 py-4 font-medium text-lg text-center text-slate-800 transition-colors duration-300 ease-in-out border-2 border-blue-800 border-solid rounded shadow-sm cursor-auto dark:bg-slate-100 dark:text-slate-700">
+            <div className="col-span-2 flex cursor-auto items-center justify-center rounded border-2 border-solid border-blue-800 px-2 py-4 text-center text-lg font-medium text-slate-800 shadow-sm transition-colors duration-300 ease-in-out dark:bg-slate-100 dark:text-slate-700">
               Monthly Donation (coming soon)
             </div>
             {buttonArray.map((button) => {
               return (
                 <div
                   key={button.id}
-                  className={`transition-colors duration-300 ease-in-out py-2 rounded text-lg font-semibold flex justify-center items-center cursor-pointer hover:bg-blue-800 hover:text-slate-100 focus:outline-none ${
+                  className={`flex cursor-pointer items-center justify-center rounded py-2 text-lg font-semibold transition-colors duration-300 ease-in-out hover:bg-blue-800 hover:text-slate-100 focus:outline-none ${
                     activeButton === button.id
                       ? 'bg-blue-800 text-slate-100'
-                      : 'border-2 border-solid border-blue-800 dark:text-slate-700 dark:bg-slate-100 dark:hover:text-slate-300 dark:hover:bg-blue-800 shadow-sm'
+                      : 'border-2 border-solid border-blue-800 shadow-sm dark:bg-slate-100 dark:text-slate-700 dark:hover:bg-blue-800 dark:hover:text-slate-300'
                   }`}
                   onClick={() => toggle(button.id, button.value)}
                 >
@@ -81,16 +81,16 @@ const DonatePage: NextPage = () => {
             })}
           </div>
           {showCustomDonation && (
-            <div className="max-w-xl mx-auto mt-4 sm:grid sm:grid-cols-4 sm:gap-4 sm:items-start">
+            <div className="mx-auto mt-4 max-w-xl sm:grid sm:grid-cols-4 sm:items-start sm:gap-4">
               <label
                 htmlFor="donation"
-                className="block text-lg font-semibold text-center text-slate-600 dark:text-slate-300 sm:pt-2 sm:col-span-2 sm:text-left"
+                className="block text-center text-lg font-semibold text-slate-600 dark:text-slate-300 sm:col-span-2 sm:pt-2 sm:text-left"
               >
                 Donate what you want:
               </label>
-              <div className="mt-1 sm:mt-0 sm:col-span-2">
+              <div className="mt-1 sm:col-span-2 sm:mt-0">
                 <div className="flex max-w-lg rounded-md shadow-sm">
-                  <span className="inline-flex items-center px-3 text-slate-500 border border-r-0 border-gray-300 rounded-l-md bg-gray-50 sm:text-sm">
+                  <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-slate-500 sm:text-sm">
                     <FontAwesomeIcon icon={faPoundSign} />
                   </span>
                   <input
@@ -103,7 +103,7 @@ const DonatePage: NextPage = () => {
                     onChange={(e) =>
                       setDonation(parseFloat(e.currentTarget.value))
                     }
-                    className="flex-1 block w-full min-w-0 text-center border-gray-300 rounded-none focus:ring-indigo-500 focus:border-blue-800 rounded-r-md sm:text-sm"
+                    className="block w-full min-w-0 flex-1 rounded-none rounded-r-md border-gray-300 text-center focus:border-blue-800 focus:ring-indigo-500 sm:text-sm"
                     value={donation}
                   />
                 </div>
@@ -115,9 +115,9 @@ const DonatePage: NextPage = () => {
             donation={donation}
             giftaid={giftAid}
           />
-          <div className="flex items-center justify-center py-4 mt-8">
+          <div className="mt-8 flex items-center justify-center py-4">
             <button
-              className="inline-flex items-center justify-center px-4 py-2 text-base font-semibold text-slate-100 uppercase bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-4 md:px-24 disabled:opacity-75"
+              className="inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-4 py-2 text-base font-semibold uppercase text-slate-100 hover:bg-blue-800 disabled:opacity-75 md:py-4 md:px-24"
               type="submit"
               disabled={donation < 1}
             >

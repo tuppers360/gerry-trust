@@ -124,8 +124,8 @@ const ApplicationPage: NextPage = () => {
           website.
         </p>
       </PageHeaderSection>
-      <div className="max-w-xl px-4 mx-auto sm:px-6 md:max-w-6xl lg:px-8">
-        <section className="px-4 py-5 rounded-lg shadow bg-slate-100 dark:bg-slate-700 sm:p-6 leading-6 dark:bg-slate-700/40 dark:ring-1 dark:ring-white/20">
+      <div className="mx-auto max-w-xl px-4 sm:px-6 md:max-w-6xl lg:px-8">
+        <section className="rounded-lg bg-slate-100 px-4 py-5 leading-6 shadow dark:bg-slate-700 dark:bg-slate-700/40 dark:ring-1 dark:ring-white/20 sm:p-6">
           <ApplicationFormHeader />
         </section>
         <section>
@@ -139,9 +139,9 @@ const ApplicationPage: NextPage = () => {
 
           {!status.submitted && (
             <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
-              <div className="px-4 py-5 rounded-lg shadow bg-slate-100 dark:bg-slate-700 sm:p-6 leading-6 dark:bg-slate-700/40 dark:ring-1 dark:ring-white/20">
+              <div className="rounded-lg bg-slate-100 px-4 py-5 leading-6 shadow dark:bg-slate-700 dark:bg-slate-700/40 dark:ring-1 dark:ring-white/20 sm:p-6">
                 <FormSection title="Personal Details">
-                  <div className="mt-5 md:mt-0 md:col-span-2">
+                  <div className="mt-5 md:col-span-2 md:mt-0">
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6 sm:col-span-3">
                         <Input
@@ -177,7 +177,7 @@ const ApplicationPage: NextPage = () => {
                   title="Address Information"
                   info="Use a permanent address where you can receive mail."
                 >
-                  <div className="mt-5 md:mt-0 md:col-span-2">
+                  <div className="mt-5 md:col-span-2 md:mt-0">
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6">
                         <Input
@@ -235,7 +235,7 @@ const ApplicationPage: NextPage = () => {
                       application as possible. How will this funding make a
                       difference? Who will benefit?"
                 >
-                  <div className="mt-5 md:mt-0 md:col-span-2">
+                  <div className="mt-5 md:col-span-2 md:mt-0">
                     <div className="grid grid-cols-6 gap-6">
                       <div className="col-span-6">
                         <label
@@ -246,10 +246,10 @@ const ApplicationPage: NextPage = () => {
                         </label>
                         <div className="relative -mt-4">
                           <textarea
-                            className={`py-3 px-4 block w-full shadow-sm rounded-md ${
+                            className={`block w-full rounded-md py-3 px-4 shadow-sm ${
                               errors.application
-                                ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
-                                : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
+                                ? `border-red-300 pr-10 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500`
+                                : 'border-gray-300 focus:border-blue-900 focus:ring-blue-900'
                             }`}
                             id="application"
                             name="application"
@@ -257,8 +257,8 @@ const ApplicationPage: NextPage = () => {
                             rows={10}
                           ></textarea>
                           {errors.application && (
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                              <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                              <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
                             </div>
                           )}
                         </div>
@@ -275,10 +275,10 @@ const ApplicationPage: NextPage = () => {
                   </div>
                 </FormSection>
               </div>
-              <div className="flex justify-end mt-4">
+              <div className="mt-4 flex justify-end">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center w-full px-16 py-3 text-base font-semibold text-white bg-blue-900 border border-transparent rounded-md shadow-sm md:w-auto hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
+                  className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-blue-900 px-16 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 md:w-auto"
                   disabled={status.submitting}
                 >
                   {!status.submitting ? (
@@ -295,7 +295,7 @@ const ApplicationPage: NextPage = () => {
               </div>
             </form>
           )}
-          <h3 className="mt-8 text-2xl font-bold tracking-tight text-center text-slate-700 dark:text-slate-300">
+          <h3 className="mt-8 text-center text-2xl font-bold tracking-tight text-slate-700 dark:text-slate-300">
             <FontAwesomeIcon icon={faEdit} fixedWidth /> Other Ways to apply
           </h3>
           <p className="mt-8 text-lg">

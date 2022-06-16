@@ -42,7 +42,7 @@ const ResultPage: NextPage = () => {
         )}
       </PageHeaderSection>
       {<Confetti numberOfPieces={200} height={height} width={width} />}
-      <div className="max-w-xl px-4 mx-auto mt-8 sm:px-6 lg:max-w-4xl lg:px-8">
+      <div className="mx-auto mt-8 max-w-xl px-4 sm:px-6 lg:max-w-4xl lg:px-8">
         <h2 className="text-xl font-medium leading-relaxed">
           Thank you for your generous gift to the Gerry Richardson Trust.
         </h2>

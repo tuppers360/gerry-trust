@@ -24,7 +24,7 @@ export default function Navbar() {
     if (currentTheme === 'dark') {
       return (
         <MoonIcon
-          className="w-10 h-10 p-2 fill-sky-500"
+          className="h-10 w-10 fill-sky-500 p-2"
           role="button"
           onClick={() => setTheme('light')}
         />
@@ -32,7 +32,7 @@ export default function Navbar() {
     } else {
       return (
         <SunIcon
-          className="w-10 h-10 p-2 fill-sky-500"
+          className="h-10 w-10 fill-sky-500 p-2"
           role="button"
           onClick={() => setTheme('dark')}
         />
@@ -40,16 +40,16 @@ export default function Navbar() {
     }
   };
   return (
-    <nav className="flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75 text-slate-700 dark:text-slate-200 font-semibold">
+    <nav className="supports-backdrop-blur:bg-white/95 flex-none bg-white font-semibold text-slate-700 transition-colors duration-500 dark:border-slate-50/[0.06] dark:bg-slate-900/75 dark:text-slate-200 lg:z-50 lg:border-b lg:border-slate-900/10">
       <a href="#skip" className="sr-only focus:not-sr-only">
         Skip to content
       </a>
-      <div className="max-w-6xl px-4 mx-auto sm:px-4 lg:px-6">
-        <div className="flex justify-between h-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-4 lg:px-6">
+        <div className="flex h-16 justify-between">
           <div className="flex">
-            <div className="flex items-center mr-2 -ml-2 md:hidden">
+            <div className="mr-2 -ml-2 flex items-center md:hidden">
               <button
-                className="inline-flex items-center justify-center p-2 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                className="inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-expanded="false"
               >
                 <span className="sr-only">Open main menu</span>
@@ -87,7 +87,7 @@ export default function Navbar() {
                 </svg>
               </button>
             </div>
-            <div className="flex items-center flex-shrink-0">
+            <div className="flex flex-shrink-0 items-center">
               {/* <img
                 className="block w-auto h-8 lg:hidden"
                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
@@ -100,10 +100,10 @@ export default function Navbar() {
               /> */}
               <div className="flex items-center">
                 <Link href="/">
-                  <a className="text-2xl font-extrabold leading-tight md:leading-snug md:mr-2 text-sky-600 dark:text-sky-500">
+                  <a className="text-2xl font-extrabold leading-tight text-sky-600 dark:text-sky-500 md:mr-2 md:leading-snug">
                     <FontAwesomeIcon
                       icon={faFingerprint}
-                      className="inline-block w-6 h-6 mr-2"
+                      className="mr-2 inline-block h-6 w-6"
                     />
                     GRT
                   </a>
@@ -119,7 +119,7 @@ export default function Navbar() {
           </div>
           <div className="flex items-center space-x-2">
             <Link href="/donate">
-              <a className="px-6 py-3 text-sm font-bold uppercase bg-blue-900 rounded shadow outline-none hover:bg-blue-800 hover:shadow-lg focus:outline-none text-slate-100">
+              <a className="rounded bg-blue-900 px-6 py-3 text-sm font-bold uppercase text-slate-100 shadow outline-none hover:bg-blue-800 hover:shadow-lg focus:outline-none">
                 <FontAwesomeIcon className="mr-1" icon={faGift} fixedWidth />
                 Donate
               </a>
@@ -129,7 +129,7 @@ export default function Navbar() {
         </div>
       </div>
       <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
           <NavLink href="/about" name="About" block />
           <NavLink href="/contact" name="Contact" block />
           <NavLink href="/stories" name="Stories" block />

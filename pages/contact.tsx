@@ -111,13 +111,13 @@ const Contact: NextPage = () => {
       >
         <p>Below you will find a few ways to contact us</p>
       </PageHeaderSection>
-      <div className="max-w-xl px-4 mx-auto sm:px-6 lg:max-w-5xl lg:px-8">
+      <div className="mx-auto max-w-xl px-4 sm:px-6 lg:max-w-5xl lg:px-8">
         <div className="grid gap-8 lg:grid-cols-2">
           <section>
             <ContactFormHeader />
           </section>
           <section>
-            <h2 className="text-xl font-medium text-center text-slate-600 dark:text-slate-300">
+            <h2 className="text-center text-xl font-medium text-slate-600 dark:text-slate-300">
               <FontAwesomeIcon icon={faEdit} fixedWidth /> Send us a message
             </h2>
             <div className="mt-8">
@@ -131,7 +131,7 @@ const Contact: NextPage = () => {
               <form
                 onSubmit={handleSubmit(handleOnSubmit)}
                 noValidate
-                className="grid grid-cols-1 mt-8 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+                className="mt-8 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
               >
                 <div>
                   <Input
@@ -169,10 +169,10 @@ const Contact: NextPage = () => {
                   </label>
                   <div className="relative mt-1">
                     <textarea
-                      className={`py-3 px-4 block w-full shadow-sm rounded-md ${
+                      className={`block w-full rounded-md py-3 px-4 shadow-sm ${
                         errors.message
-                          ? `pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500`
-                          : 'focus:ring-blue-900 focus:border-blue-900 border-gray-300'
+                          ? `border-red-300 pr-10 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500`
+                          : 'border-gray-300 focus:border-blue-900 focus:ring-blue-900'
                       }`}
                       id="message"
                       name="message"
@@ -181,8 +181,8 @@ const Contact: NextPage = () => {
                       rows={4}
                     ></textarea>
                     {errors.message && (
-                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                        <ExclamationCircleIcon className="w-5 h-5 text-red-500" />
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                        <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
                       </div>
                     )}
                   </div>
@@ -216,7 +216,7 @@ const Contact: NextPage = () => {
                 <div className="sm:col-span-2">
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center w-full px-6 py-3 text-base font-semibold text-white bg-blue-900 border border-transparent rounded-md shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
+                    className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-blue-900 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2"
                     disabled={status.submitting}
                   >
                     {!status.submitting ? (

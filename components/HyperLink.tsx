@@ -10,7 +10,7 @@ function HyperLink({ id, name }: IHyperLinkProps): JSX.Element {
     <li>
       <a
         href={id}
-        className="text-sky-700 hover:text-sky-500 dark:text-sky-300 dark:hover:text-sky-500 no-underline hover:underline"
+        className="text-sky-700 no-underline hover:text-sky-500 hover:underline dark:text-sky-300 dark:hover:text-sky-500"
       >
         {name}
       </a>

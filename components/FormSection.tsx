@@ -7,7 +7,7 @@ interface IFormSection {
 }
 function FormSection({ title, info, children }: IFormSection) {
   return (
-    <section className="md:grid md:grid-cols-3 md:gap-6 py-8">
+    <section className="py-8 md:grid md:grid-cols-3 md:gap-6">
       <div className="md:col-span-1">
         <h3 className="mt-1 text-lg font-medium leading-6 text-slate-700 dark:text-slate-300">
           {title}

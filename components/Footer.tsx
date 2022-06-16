@@ -20,11 +20,11 @@ export default function Footer() {
       <h2 id="footerHeading" className="sr-only">
         Footer
       </h2>
-      <div className="max-w-xl px-4 py-8 mx-auto sm:px-6 lg:max-w-7xl lg:px-8 border-t border-slate-200 dark:border-slate-200/30 mt-8">
+      <div className="mx-auto mt-8 max-w-xl border-t border-slate-200 px-4 py-8 dark:border-slate-200/30 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Navigation - Footer</h2>
-        <div className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-4">
+        <div className="space-y-10 lg:grid lg:grid-cols-3 lg:gap-4 lg:space-y-0">
           <section>
-            <h2 className="text-lg font-bold text-slate-700 dark:text-slate-100 underline underline-offset-8">
+            <h2 className="text-lg font-bold text-slate-700 underline underline-offset-8 dark:text-slate-100">
               Navigation
             </h2>
             <ul className="mt-4 space-y-2 text-base">
@@ -60,7 +60,7 @@ export default function Footer() {
           </section>
           <section>
             <h2 className="sr-only">Contect Us - Footer</h2>
-            <h2 className="text-lg font-bold text-slate-700 dark:text-slate-100 underline underline-offset-8">
+            <h2 className="text-lg font-bold text-slate-700 underline underline-offset-8 dark:text-slate-100">
               Get in Touch
             </h2>
             <div className="mt-4 space-y-2 not-italic">
@@ -90,7 +90,7 @@ export default function Footer() {
               <FontAwesomeIcon icon={faPhone} className="mr-2" /> 07799763108
             </p>
             <Link href="/contact">
-              <a className="inline-flex items-center justify-center px-4 py-3 mt-5 mb-1 text-base font-semibold text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-4 md:px-6">
+              <a className="mt-5 mb-1 inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-4 py-3 text-base font-semibold text-white hover:bg-blue-800 md:py-4 md:px-6">
                 <FontAwesomeIcon
                   className="mr-1"
                   icon={faEnvelope}
@@ -102,7 +102,7 @@ export default function Footer() {
           </section>
           <section>
             <h2 className="sr-only">Apply for a grant - Footer</h2>
-            <h2 className="text-lg font-bold text-slate-700 dark:text-slate-100 underline underline-offset-8">
+            <h2 className="text-lg font-bold text-slate-700 underline underline-offset-8 dark:text-slate-100">
               Would you like to apply?
             </h2>
             <p className="mt-4 text-base">
@@ -111,7 +111,7 @@ export default function Footer() {
             </p>
 
             <Link href="/application">
-              <a className="inline-flex items-center justify-center px-4 py-3 mt-5 mb-1 text-base font-semibold text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-4 md:px-6">
+              <a className="mt-5 mb-1 inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-4 py-3 text-base font-semibold text-white hover:bg-blue-800 md:py-4 md:px-6">
                 <FontAwesomeIcon className="mr-1" icon={faEdit} />
                 Apply for a grant
               </a>
@@ -120,7 +120,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-xl px-4 pb-8 mx-auto sm:px-6 lg:max-w-7xl lg:px-8 border-t border-slate-200 dark:border-slate-200/30">
+      <div className="mx-auto max-w-xl border-t border-slate-200 px-4 pb-8 dark:border-slate-200/30 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="mt-8 md:flex md:items-center md:justify-between">
           <h2 className="sr-only">Social Media - Footer</h2>
           <div className="flex justify-center space-x-6 md:order-2">
@@ -148,7 +148,7 @@ export default function Footer() {
             </a>
           </div>
           <h2 className="sr-only">Copyright - Footer</h2>
-          <p className="mt-8 text-base text-center md:mt-0 md:order-1">
+          <p className="mt-8 text-center text-base md:order-1 md:mt-0">
             <FontAwesomeIcon icon={faCopyright} /> Gerry Richardson Trust 2021 -
             All rights reserved. Registered Charity No. 504413
           </p>

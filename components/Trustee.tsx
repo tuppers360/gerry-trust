@@ -8,7 +8,7 @@ export function Trustee({ image, name, position }: TrusteeProps) {
   return (
     <div className="space-y-6 transition duration-200 hover:scale-[1.02]">
       <img
-        className="object-cover w-40 h-40 mx-auto rounded-full xl:w-56 xl:h-56 hover:shadow-2xl"
+        className="mx-auto h-40 w-40 rounded-full object-cover hover:shadow-2xl xl:h-56 xl:w-56"
         src={image}
         alt=""
       />

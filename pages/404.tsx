@@ -4,8 +4,8 @@ import Link from 'next/link';
 export default function NotFound() {
   return (
     <Container title="404 – Gerry Richardson Trust">
-      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mt-24">
-        <h1 className="mb-4 text-3xl font-bold tracking-tight text-center md:text-5xl text-grey-800 dark:text-white">
+      <div className="mx-auto mt-24 flex max-w-2xl flex-col items-start justify-center">
+        <h1 className="text-grey-800 mb-4 text-center text-3xl font-bold tracking-tight dark:text-white md:text-5xl">
           451 – Unavailable For Legal Reasons
         </h1>
         <p className="mb-8 text-slate-600 dark:text-slate-400">
@@ -15,7 +15,7 @@ export default function NotFound() {
           that URL?
         </p>
         <Link href="/">
-          <a className="w-64 p-1 mx-auto font-bold text-center bg-gray-100 border-gray-900 rounded-md shadow-lg sm:p-4 dark:bg-gray-900 text-grey-800 dark:text-grey-100">
+          <a className="text-grey-800 dark:text-grey-100 mx-auto w-64 rounded-md border-gray-900 bg-gray-100 p-1 text-center font-bold shadow-lg dark:bg-gray-900 sm:p-4">
             Return Home
           </a>
         </Link>

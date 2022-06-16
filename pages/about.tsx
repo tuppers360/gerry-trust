@@ -16,7 +16,7 @@ export default function About() {
       <PageHeaderSection title="About Us" heading="Our Story">
         A brief history of how it all began
       </PageHeaderSection>
-      <div className="max-w-6xl px-4 py-4 mx-auto prose sm:px-6 lg:px-8 dark:prose-invert">
+      <div className="prose mx-auto max-w-6xl px-4 py-4 dark:prose-invert sm:px-6 lg:px-8">
         <section className="space-y-4 text-lg">
           <p>
             On the 23rd August 1971 Superintendent Gerald Richardson was shot
@@ -68,13 +68,13 @@ export default function About() {
 
         <section>
           <div className="text-center">
-            <p className="mt-16 text-xl font-semibold tracking-wider uppercase text-sky-600">
+            <p className="mt-16 text-xl font-semibold uppercase tracking-wider text-sky-600">
               Trustees
             </p>
-            <h1 className="max-w-4xl mx-auto mt-4 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 sm:text-5xl">
+            <h1 className="mx-auto mt-4 max-w-4xl text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 sm:text-5xl">
               Meet our team
             </h1>
-            <ul className="py-8 mx-auto mt-4 space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl md:py-16">
+            <ul className="mx-auto mt-4 space-y-16 py-8 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 md:py-16 lg:max-w-5xl lg:grid-cols-3">
               {trustees.map((trustee) => (
                 <li key={trustee.id}>
                   <Trustee

@@ -5,7 +5,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 function ContactFormHeader() {
   return (
     <>
-      <h3 className="text-xl font-medium text-center text-slate-600 dark:text-slate-300">
+      <h3 className="text-center text-xl font-medium text-slate-600 dark:text-slate-300">
         <FontAwesomeIcon icon={faEnvelope} fixedWidth /> Get in touch
       </h3>
       <p className="mt-8 text-lg">
@@ -36,7 +36,7 @@ function ContactFormHeader() {
           Tweet us - <span className="sr-only">Twitter</span>
           <a
             href="https://twitter.com/gerrytrust"
-            className="ml-1 font-semibold text-slate-800 dark:text-slate-300 hover:text-twitter dark:hover:text-twitter"
+            className="ml-1 font-semibold text-slate-800 hover:text-twitter dark:text-slate-300 dark:hover:text-twitter"
           >
             @gerrytrust
           </a>

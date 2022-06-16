@@ -2,23 +2,23 @@ export interface CardProps {}
 
 export default function DonationCards() {
   return (
-    <div className="grid max-w-lg gap-5 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
-      <article className="flex flex-col overflow-hidden transition duration-200 rounded-lg shadow-lg cursor-pointer group hover:scale-[1.02] ring-1 ring-gray-900/5">
+    <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
+      <article className="group flex cursor-pointer flex-col overflow-hidden rounded-lg shadow-lg ring-1 ring-gray-900/5 transition duration-200 hover:scale-[1.02]">
         <div className="flex-shrink-0">
           <img
-            className="object-cover w-full h-48"
+            className="h-48 w-full object-cover"
             src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
             alt=""
           />
         </div>
-        <div className="flex flex-col justify-between flex-1 p-6 bg-white">
+        <div className="flex flex-1 flex-col justify-between bg-white p-6">
           <div className="flex-1">
             <p className="text-sm font-medium text-indigo-600">
               <a href="#" className="hover:underline">
                 Fundraising
               </a>
             </p>
-            <a href="#" className="block mt-2">
+            <a href="#" className="mt-2 block">
               <p className="text-xl font-semibold text-slate-800">
                 Local fundraising in the community
               </p>
@@ -30,19 +30,19 @@ export default function DonationCards() {
               </p>
             </a>
           </div>
-          <div className="flex items-center mt-6">
+          <div className="mt-6 flex items-center">
             <div className="flex-shrink-0">
               <a href="#">
                 <span className="sr-only">Gareth</span>
                 <img
-                  className="w-10 h-10 rounded-full"
+                  className="h-10 w-10 rounded-full"
                   src="/images/gareth_tupman.jpg"
                   alt=""
                 />
               </a>
             </div>
             <div className="ml-3">
-              <p className="text-sm font-medium text-slate-800 text-left">
+              <p className="text-left text-sm font-medium text-slate-800">
                 Gareth
               </p>
               <div className="flex space-x-1 text-sm text-slate-500">

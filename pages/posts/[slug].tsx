@@ -23,10 +23,10 @@ export async function getStaticProps({ params }) {
 const PostLayout: NextPage = ({ post }: { post: Post }) => {
   return (
     <Container>
-      <article className="max-w-2xl py-16 mx-auto">
+      <article className="mx-auto max-w-2xl py-16">
         <div className="mb-6 text-center">
           <Link href="/posts">
-            <a className="text-sm font-bold text-center text-blue-700 uppercase">
+            <a className="text-center text-sm font-bold uppercase text-blue-700">
               Home
             </a>
           </Link>

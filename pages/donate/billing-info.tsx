@@ -155,7 +155,7 @@ const BillingInfo: NextPage = () => {
             Wyre 💖
           </p>
         </PageHeaderSection>
-        <div className="max-w-4xl px-4 mx-auto">
+        <div className="mx-auto max-w-4xl px-4">
           {Object.keys(errors).length > 0 && <FormErrorMessage />}
           {status.info.error && <FormInfoMessage staus={status} />}
           {!status.submitted && (
@@ -172,7 +172,7 @@ const BillingInfo: NextPage = () => {
                       Personal Information
                     </h3>
                   </div>
-                  <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+                  <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                     <div className="sm:col-span-3">
                       <Input
                         label="firstName"
@@ -213,7 +213,7 @@ const BillingInfo: NextPage = () => {
                     Please use your address where you receive mail.
                   </p>
                 </div>
-                <div className="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
+                <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                   <div className="sm:col-span-6">
                     <Input
                       label="addressLine1"
@@ -261,16 +261,16 @@ const BillingInfo: NextPage = () => {
                   </div>
                 </div>
               </section>
-              <div className="flex justify-between mt-8">
+              <div className="mt-8 flex justify-between">
                 <button
-                  className="inline-flex items-center justify-center px-8 py-3 mt-5 mb-1 text-base font-semibold text-white uppercase bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-3 md:px-8 disabled:opacity-75"
+                  className="mt-5 mb-1 inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-8 py-3 text-base font-semibold uppercase text-white hover:bg-blue-800 disabled:opacity-75 md:py-3 md:px-8"
                   type="button"
                   onClick={handleClick}
                 >
                   Back
                 </button>
                 <button
-                  className="inline-flex items-center justify-center px-4 py-3 mt-5 mb-1 ml-3 text-base font-semibold text-white uppercase bg-blue-900 border border-transparent rounded-md hover:bg-blue-800 md:py-3 md:px-8 disabled:opacity-75"
+                  className="mt-5 mb-1 ml-3 inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-4 py-3 text-base font-semibold uppercase text-white hover:bg-blue-800 disabled:opacity-75 md:py-3 md:px-8"
                   type="submit"
                   disabled={loading}
                 >

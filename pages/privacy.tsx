@@ -15,11 +15,11 @@ export default function index() {
       >
         Effective 01 January 2021
       </PageHeaderSection>
-      <div className="max-w-xl px-4 mx-auto prose sm:px-6 lg:max-w-6xl lg:px-8 dark:prose-invert">
+      <div className="prose mx-auto max-w-xl px-4 dark:prose-invert sm:px-6 lg:max-w-6xl lg:px-8">
         <div className="flex flex-col lg:flex-row-reverse">
           <section className="w-full p-4 lg:w-1/3 ">
             <h3 className="text-2xl font-semibold">Topics:</h3>
-            <ul className="px-6 mt-4 space-y-2 list-disc">
+            <ul className="mt-4 list-disc space-y-2 px-6">
               <HyperLink id="#introduction" name="Introduction" />
               <HyperLink
                 id="#what-data-do-we-collect"
@@ -73,7 +73,7 @@ export default function index() {
               />
             </ul>
           </section>
-          <section className="w-full p-4 space-y-4 lg:w-2/3">
+          <section className="w-full space-y-4 p-4 lg:w-2/3">
             <h3 className="text-2xl font-semibold" id="introduction">
               Introduction
             </h3>
@@ -108,7 +108,7 @@ export default function index() {
               What data do we collect?
             </h3>
             <p>We may collect the following data:</p>
-            <ul className="px-6 space-y-2 list-disc">
+            <ul className="list-disc space-y-2 px-6">
               <li>
                 Personally identifiable information, such as your name, email
                 address, and telephone number, and demographic information, such
@@ -156,7 +156,7 @@ export default function index() {
               You directly provide us with most of the data we collect. We
               collect data and process data when you:
             </p>
-            <ul className="px-6 space-y-2 list-disc">
+            <ul className="list-disc space-y-2 px-6">
               <li>Make a donation online.</li>
               <li>
                 Complete the contact us form supplying your details for us to
@@ -172,7 +172,7 @@ export default function index() {
               We may also receive your data indirectly from the following
               sources:
             </p>
-            <ul className="px-6 space-y-2 list-disc">
+            <ul className="list-disc space-y-2 px-6">
               <li>
                 Third party websites such we use to run and maintain our site
                 such as payment processing and email communication.
@@ -185,7 +185,7 @@ export default function index() {
               How will we use your data?
             </h3>
             <p>We collect your data so that we can:</p>
-            <ul className="px-6 space-y-2 list-disc">
+            <ul className="list-disc space-y-2 px-6">
               <li>
                 Process your donation and maintain records for tax purposes as
                 dictated by law.
@@ -310,7 +310,7 @@ export default function index() {
               We use cookies to improve your experience on our website,
               including:
             </p>
-            <ul className="px-6 space-y-2 list-disc">
+            <ul className="list-disc space-y-2 px-6">
               <li>Understanding how you use our website.</li>
               <li>To enable certain functions of the site.</li>
               <li>To provide analytics.</li>
@@ -325,7 +325,7 @@ export default function index() {
               There are a number of different types of cookies, however, our
               website uses:
             </p>
-            <ul className="px-6 space-y-2 list-disc">
+            <ul className="list-disc space-y-2 px-6">
               <li>
                 Functionality – Our site uses these cookies so that we recognize
                 you on our website and remember your previously selected

@@ -28,6 +28,8 @@ export default async (
       } = req.body.data;
       const stripeSessionId: string = req.body.stripeSessionId;
 
+      console.log('BODY', req.body);
+
       const result = await prisma.user.upsert({
         where: { email },
         update: {
@@ -54,6 +56,7 @@ export default async (
         }
       });
 
+      console.log('RESULT', result);
       return res
         .status(200)
         .json({ message: 'Donation created', data: result });

@@ -14,7 +14,7 @@ datasource db {
 
 model Views {
   slug  String @id @db.VarChar(128)
-  count BigInt @default(1)
+  count Int    @default(1)
 }
 
 model Donation {

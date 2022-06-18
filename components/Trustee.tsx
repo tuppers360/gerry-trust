@@ -1,24 +1,21 @@
-import { ReactChild } from 'react';
-
 type TrusteeProps = {
   image: string;
   name: string;
   position: string;
-  children?: ReactChild;
 };
 
-export function Trustee({ image, name, position, children }: TrusteeProps) {
+export function Trustee({ image, name, position }: TrusteeProps) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 transition duration-200 hover:scale-[1.02]">
       <img
-        className="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56 object-cover hover:shadow-2xl"
+        className="mx-auto h-40 w-40 rounded-full object-cover hover:shadow-2xl xl:h-56 xl:w-56"
         src={image}
         alt=""
       />
       <div className="space-y-2">
-        <div className="text-lg leading-normal space-y-1 text-cyan-600">
+        <div className="space-y-1 text-lg leading-normal text-sky-600">
           <h3 className="font-semibold">{name}</h3>
-          <p className="text-gray-500">{position}</p>
+          <p className="text-slate-700 dark:text-slate-300">{position}</p>
         </div>
       </div>
     </div>
@@ -27,7 +24,7 @@ export function Trustee({ image, name, position, children }: TrusteeProps) {
 {
   /* <ul className="flex justify-center space-x-5">
           <li>
-            <a href="#" className="text-gray-400 hover:text-gray-500">
+            <a href="#" className="text-slate-400 hover:text-slate-500">
               <span className="sr-only">Twitter</span>
               <svg
                 className="w-5 h-5"
@@ -40,7 +37,7 @@ export function Trustee({ image, name, position, children }: TrusteeProps) {
             </a>
           </li>
           <li>
-            <a href="#" className="text-gray-400 hover:text-gray-500">
+            <a href="#" className="text-slate-400 hover:text-slate-500">
               <span className="sr-only">LinkedIn</span>
               <svg
                 className="w-5 h-5"

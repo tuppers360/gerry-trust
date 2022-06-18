@@ -5,21 +5,21 @@ import Link from 'next/link';
 
 export default function LandingSection() {
   return (
-    <div className="relative bg-gray-50">
+    <div className="relative">
       <div className="lg:relative">
-        <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
-          <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
-            <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-blue-900 to-blue-500 text-6xl font-extrabold sm:text-7xl leading-tight md:leading-tight">
+        <div className="mx-auto w-full max-w-7xl pt-16 pb-20 text-center lg:py-48 lg:text-left">
+          <div className="px-4 sm:px-8 lg:w-1/2 xl:pr-16">
+            <h1 className="bg-gradient-to-r from-sky-900 to-sky-500 bg-clip-text text-6xl font-extrabold leading-tight text-transparent sm:text-7xl md:leading-tight">
               Gerry Richardson Trust
             </h1>
-            <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
+            <p className="mx-auto mt-3 max-w-md text-lg text-slate-700 dark:text-slate-300 sm:text-xl md:mt-5 md:max-w-3xl">
               Supporting young people of Blackpool, Fylde & Wyre for over 50
               years
             </p>
             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
               <div className="">
                 <Link href="/contact">
-                  <a className="w-full transition-colors duration-300 ease-in-out px-8 py-4 mr-1 mb-1 rounded-md text-lg font-semibold flex justify-center items-center cursor-pointer bg-blue-800 hover:bg-gray-100 hover:text-blue-800 focus:outline-none border-2 border-solid border-blue-800 text-gray-100">
+                  <a className="mr-1 mb-1 flex w-full cursor-pointer items-center justify-center rounded-md border-2 border-solid border-blue-800 bg-blue-800 px-8 py-4 text-lg font-semibold text-slate-100 transition-colors duration-300 ease-in-out hover:bg-slate-100 hover:text-blue-800 focus:outline-none">
                     <FontAwesomeIcon
                       className="mr-1"
                       icon={faEnvelope}
@@ -31,7 +31,7 @@ export default function LandingSection() {
               </div>
               <div className="mt-3 sm:mt-0 sm:ml-3">
                 <Link href="/application">
-                  <a className="w-full transition-colors duration-300 ease-in-out px-8 py-4 mr-1 mb-1 rounded-md text-lg font-semibold flex justify-center items-center cursor-pointer bg-blue-800 hover:bg-gray-100 hover:text-blue-800 focus:outline-none border-2 border-solid border-blue-800 text-gray-100">
+                  <a className="mr-1 mb-1 flex w-full cursor-pointer items-center justify-center rounded-md border-2 border-solid border-blue-800 bg-blue-800 px-8 py-4 text-lg font-semibold text-slate-100 transition-colors duration-300 ease-in-out hover:bg-slate-100 hover:text-blue-800 focus:outline-none">
                     <FontAwesomeIcon
                       className="mr-1"
                       icon={faEdit}
@@ -44,9 +44,9 @@ export default function LandingSection() {
             </div>
           </div>
         </div>
-        <div className="relative w-full h-80 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
+        <div className="relative h-80 w-full shadow-2xl md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2">
           <img
-            className="absolute inset-0 w-full h-full object-cover object-left-top"
+            className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
             src="/images/gerry_landing.jpg"
             alt=""
           />

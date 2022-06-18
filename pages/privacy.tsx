@@ -1,4 +1,5 @@
 import Container from 'components/Container';
+import HyperLink from 'components/HyperLink';
 import PageHeaderSection from 'components/PageHeaderSection';
 import React from 'react';
 
@@ -14,127 +15,66 @@ export default function index() {
       >
         Effective 01 January 2021
       </PageHeaderSection>
-      <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-6xl lg:px-8">
+      <div className="prose mx-auto max-w-xl px-4 dark:prose-invert sm:px-6 lg:max-w-6xl lg:px-8">
         <div className="flex flex-col lg:flex-row-reverse">
           <section className="w-full p-4 lg:w-1/3 ">
-            <h3 className="font-semibold text-2xl">Topics:</h3>
-            <ul className="list-disc px-6 space-y-2 mt-4">
-              <li>
-                <a
-                  href="#introduction"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  Introduction
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#what-data-do-we-collect"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  What data do we collect?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-do-we-collect-your-data"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How do we collect your data?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-will-we-use-your-data"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How will we use your data?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-do-we-store-your-data"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How do we store your data?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#what-are-your-data-protection-rights"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  What are your data protection rights?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#what-are-cookies"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  What are cookies?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-do-we-use-cookies"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How do we use cookies?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#what-typesof-cookies-do-we-use"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  What types of cookies do we use?
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-to-manage-your-cookies"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How to manage your cookies
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#privacy-policy-of-other-websites"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  Privacy policies of other websites
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#changes-to-our-privacy-policy"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  Changes to our privacy policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-to-contact-us"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How to contact us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#how-to-contact-the-appropriate-authority"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  How to contact the appropriate authority
-                </a>
-              </li>
+            <h3 className="text-2xl font-semibold">Topics:</h3>
+            <ul className="mt-4 list-disc space-y-2 px-6">
+              <HyperLink id="#introduction" name="Introduction" />
+              <HyperLink
+                id="#what-data-do-we-collect"
+                name="What data do we collect?"
+              />
+              <HyperLink
+                id="#how-do-we-collect-your-data"
+                name="How do we collect your data?"
+              />
+              <HyperLink
+                id="#how-will-we-use-your-data"
+                name="How will we use your data?"
+              />
+              <HyperLink
+                id="#how-do-we-store-your-data"
+                name="How do we store your data?"
+              />
+              <HyperLink
+                id="#what-are-your-data-protection-rights"
+                name="What are your data protection rights?"
+              />
+              <HyperLink id="#what-are-cookies" name="What are cookies?" />
+              <HyperLink
+                id="#how-do-we-use-cookies"
+                name="How do we use cookies?"
+              />
+              <HyperLink
+                id="#how-to-manage-your-cookies"
+                name="How to manage your cookies"
+              />
+              <HyperLink
+                id="#privacy-policy-of-other-websites"
+                name="Privacy policies of other websites"
+              />
+              <HyperLink
+                id="#changes-to-our-privacy-policy"
+                name="Changes to our privacy policy"
+              />
+              <HyperLink
+                id="#how-do-we-use-cookies-in-our-services"
+                name="How do we use cookies in our services?"
+              />
+              <HyperLink
+                id="#how-do-we-use-cookies-in-our-websites-and-applications"
+                name="How do we use cookies in our websites and applications?"
+              />
+              <HyperLink id="#how-to-contact-us" name="How to contact us" />
+              <HyperLink
+                id="#how-to-contact-the-appropriate-authority"
+                name="How to contact the appropriate authority"
+              />
             </ul>
           </section>
-          <section className="w-full p-4 lg:w-2/3 space-y-4">
-            <h3 className="font-semibold text-2xl" id="introduction">
+          <section className="w-full space-y-4 p-4 lg:w-2/3">
+            <h3 className="text-2xl font-semibold" id="introduction">
               Introduction
             </h3>
             <p>
@@ -164,11 +104,11 @@ export default function index() {
               the changes in any revised Privacy Policy by your continued use of
               the Site after the date such revised Privacy Policy is posted.
             </p>
-            <h3 className="font-semibold text-2xl" id="what-data-do-we-collect">
+            <h3 className="text-2xl font-semibold" id="what-data-do-we-collect">
               What data do we collect?
             </h3>
             <p>We may collect the following data:</p>
-            <ul className="list-disc px-6 space-y-2">
+            <ul className="list-disc space-y-2 px-6">
               <li>
                 Personally identifiable information, such as your name, email
                 address, and telephone number, and demographic information, such
@@ -207,7 +147,7 @@ export default function index() {
               </li>
             </ul>
             <h3
-              className="font-semibold text-2xl"
+              className="text-2xl font-semibold"
               id="how-do-we-collect-your-data"
             >
               How do we collect your data?
@@ -216,7 +156,7 @@ export default function index() {
               You directly provide us with most of the data we collect. We
               collect data and process data when you:
             </p>
-            <ul className="list-disc px-6 space-y-2">
+            <ul className="list-disc space-y-2 px-6">
               <li>Make a donation online.</li>
               <li>
                 Complete the contact us form supplying your details for us to
@@ -232,20 +172,20 @@ export default function index() {
               We may also receive your data indirectly from the following
               sources:
             </p>
-            <ul className="list-disc px-6 space-y-2">
+            <ul className="list-disc space-y-2 px-6">
               <li>
                 Third party websites such we use to run and maintain our site
                 such as payment processing and email communication.
               </li>
             </ul>
             <h3
-              className="font-semibold text-2xl"
+              className="text-2xl font-semibold"
               id="how-will-we-use-your-data"
             >
               How will we use your data?
             </h3>
             <p>We collect your data so that we can:</p>
-            <ul className="list-disc px-6 space-y-2">
+            <ul className="list-disc space-y-2 px-6">
               <li>
                 Process your donation and maintain records for tax purposes as
                 dictated by law.
@@ -258,7 +198,7 @@ export default function index() {
               prevent fraudulent purchases.
             </p>
             <h3
-              className="font-semibold text-2xl"
+              className="text-2xl font-semibold"
               id="how-do-we-store-your-data"
             >
               How do we store your data?
@@ -281,7 +221,7 @@ export default function index() {
               delete your data by [enter how you delete users’ data].
             </p>
             <h3
-              className="font-semibold text-2xl"
+              className="text-2xl font-semibold"
               id="what-are-your-data-protection-rights"
             >
               What are your data protection rights?
@@ -328,30 +268,24 @@ export default function index() {
               our email:
             </p>
             <p>
-              <span className="font-semibold text-gray-800">
-                Email us at:&nbsp;
-              </span>
+              <span className="font-semibold ">Email us at:&nbsp;</span>
               <a
                 href="mailto:cotactus@gerryrichardsontrust.org"
-                className="text-blue-600 hover:text-blue-800 hover:underline"
+                className="text-sky-600 hover:text-sky-800 hover:underline"
               >
                 cotactus@gerryrichardsontrust.org
               </a>
             </p>
             <p>
-              <span className="font-semibold text-gray-800">
-                Call us:&nbsp;
-              </span>
+              <span className="font-semibold ">Call us:&nbsp;</span>
               (01253) 700879
             </p>
             <p>
-              <span className="font-semibold text-gray-800">
-                Or write to us at:&nbsp;
-              </span>
+              <span className="font-semibold ">Or write to us at:&nbsp;</span>
               Gerry Richardson Trust Northdene, Stoney Lane, Hambleton,
               Poulton-Le-Fylde, FY6 9AF
             </p>
-            <h3 className="font-semibold text-2xl" id="what-are-cookies">
+            <h3 className="text-2xl font-semibold" id="what-are-cookies">
               What are cookies
             </h3>
             <p>
@@ -364,25 +298,25 @@ export default function index() {
               For further information, visit&nbsp;
               <a
                 href="www.allaboutcookies.org"
-                className="text-blue-600 hover:text-blue-800 hover:underline"
+                className="text-sky-600 hover:text-sky-800 hover:underline"
               >
                 allaboutcookies.org
               </a>
             </p>
-            <h3 className="font-semibold text-2xl" id="how-do-we-use-cookies">
+            <h3 className="text-2xl font-semibold" id="how-do-we-use-cookies">
               How do we use cookies?
             </h3>
             <p>
               We use cookies to improve your experience on our website,
               including:
             </p>
-            <ul className="list-disc px-6 space-y-2">
+            <ul className="list-disc space-y-2 px-6">
               <li>Understanding how you use our website.</li>
               <li>To enable certain functions of the site.</li>
               <li>To provide analytics.</li>
             </ul>
             <h3
-              className="font-semibold text-2xl"
+              className="text-2xl font-semibold"
               id="what-type-of-cookies-do-we-use"
             >
               What types of cookies do we use?
@@ -391,7 +325,7 @@ export default function index() {
               There are a number of different types of cookies, however, our
               website uses:
             </p>
-            <ul className="list-disc px-6 space-y-2">
+            <ul className="list-disc space-y-2 px-6">
               <li>
                 Functionality – Our site uses these cookies so that we recognize
                 you on our website and remember your previously selected
@@ -400,7 +334,7 @@ export default function index() {
                 cookies are used.
               </li>
             </ul>
-            <h3 className="font-semibold text-2xl" id="how-to-manage-cookies">
+            <h3 className="text-2xl font-semibold" id="how-to-manage-cookies">
               How to manage cookies
             </h3>
             <p>
@@ -410,7 +344,7 @@ export default function index() {
               function as a result.
             </p>
             <h3
-              className="font-semibold text-2xl"
+              className="text-2xl font-semibold"
               id="privacy-policiesof-other-websites"
             >
               Privacy policies of other websites
@@ -421,7 +355,7 @@ export default function index() {
               website, you should read their privacy policy.
             </p>
             <h3
-              className="font-semibold text-2xl"
+              className="text-2xl font-semibold"
               id="changes-to-our-privacy-policy"
             >
               Changes to our privacy policy
@@ -431,7 +365,7 @@ export default function index() {
               updates on this web page. This privacy policy was last updated on
               1 January 2021.
             </p>
-            <h3 className="font-semibold text-2xl" id="how-to-contact-us">
+            <h3 className="text-2xl font-semibold" id="how-to-contact-us">
               How to contact us
             </h3>
             <p>
@@ -440,31 +374,25 @@ export default function index() {
               protection rights, please do not hesitate to contact us.
             </p>
             <p>
-              <span className="font-semibold text-gray-800">
-                Email us at:&nbsp;
-              </span>
+              <span className="font-semibold ">Email us at:&nbsp;</span>
               <a
                 href="mailto:cotactus@gerryrichardsontrust.org"
-                className="text-blue-600 hover:text-blue-800 hover:underline"
+                className="text-sky-600 hover:text-sky-800 hover:underline"
               >
                 cotactus@gerryrichardsontrust.org
               </a>
             </p>
             <p>
-              <span className="font-semibold text-gray-800">
-                Call us:&nbsp;
-              </span>
+              <span className="font-semibold ">Call us:&nbsp;</span>
               (01253) 700879
             </p>
             <p>
-              <span className="font-semibold text-gray-800">
-                Or write to us at:&nbsp;
-              </span>
+              <span className="font-semibold ">Or write to us at:&nbsp;</span>
               Gerry Richardson Trust Northdene, Stoney Lane, Hambleton,
               Poulton-Le-Fylde, FY6 9AF
             </p>
             <h3
-              className="font-semibold text-2xl"
+              className="text-2xl font-semibold"
               id="how-to-contact-the-appropriate-authority"
             >
               How to contact the appropriate authority
@@ -475,24 +403,20 @@ export default function index() {
               contact the Charity Commissioner’s Office.
             </p>
             <p>
-              <span className="font-semibold text-gray-800">Tel:&nbsp;</span>
+              <span className="font-semibold ">Tel:&nbsp;</span>
               0300 066 9197
             </p>
             <p>
-              <span className="font-semibold text-gray-800">
-                Website:&nbsp;
-              </span>
+              <span className="font-semibold ">Website:&nbsp;</span>
               <a
                 href="https://www.gov.uk/complain-about-charity"
-                className="text-blue-600 hover:text-blue-800 hover:underline"
+                className="text-sky-600 hover:text-sky-800 hover:underline"
               >
                 Charity Commision
               </a>
             </p>
             <p>
-              <span className="font-semibold text-gray-800">
-                Address:&nbsp;
-              </span>
+              <span className="font-semibold ">Address:&nbsp;</span>
               Charity Commission PO Box 211 Bootle L20 7YX
             </p>
           </section>

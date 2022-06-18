@@ -16,14 +16,14 @@ const SEO = {
         url: 'https://gerryrichardsontrust.org/og.png',
         alt: title,
         width: 1280,
-        height: 720,
-      },
-    ],
+        height: 720
+      }
+    ]
   },
   twitter: {
     handle: '@gerrytrust',
     site: 'https://twitter.com/gerrytrust',
-    cardType: 'summary_large_image',
-  },
+    cardType: 'summary_large_image'
+  }
 };
 export default SEO;

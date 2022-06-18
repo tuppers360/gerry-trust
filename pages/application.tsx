@@ -1,11 +1,109 @@
-import ApplicationForm from 'components/ApplicationForm';
-import Container from 'components/Container';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import PageHeaderSection from 'components/PageHeaderSection';
-import React from 'react';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import * as yup from 'yup';
 
-export default function Application() {
+import React, { useState } from 'react';
+import { faEdit, faSync } from '@fortawesome/free-solid-svg-icons';
+
+import ApplicationFormHeader from 'components/ApplicationFormHeader';
+import Container from 'components/Container';
+import { ExclamationCircleIcon } from '@heroicons/react/solid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FormConfirmationMessage from 'components/form/FormConfirmationMessage';
+import FormErrorMessage from 'components/form/FormErrorMessage';
+import FormInfoMessage from 'components/form/FormInfoMessage';
+import { FormInput } from 'components/form/FormInput';
+import FormSection from 'components/FormSection';
+import { NextPage } from 'next';
+import PageHeaderSection from 'components/PageHeaderSection';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+const schema = yup.object({
+  firstName: yup.string().required('Please enter your first name'),
+  lastName: yup.string().required('Please enter your last name'),
+  email: yup
+    .string()
+    .required('Please enter your email address')
+    .email('Please enter a valid email address'),
+  addressLine1: yup
+    .string()
+    .required('Please enter the first line of your address'),
+  town: yup.string().required('Please enter your town'),
+  county: yup.string().required('Please enter your county'),
+  postCode: yup.string().required('Please enter your post code'),
+  application: yup.string().required('Please enter your application')
+});
+export interface IStatus {
+  submitted?: boolean;
+  submitting?: boolean;
+  info: {
+    error: boolean;
+    msg: string;
+  };
+}
+
+//TODO - set default value of empty string??
+interface FormInputs {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  email: string;
+  addressLine1: string;
+  addressLine2: string;
+  town: string;
+  county: string;
+  postCode: string;
+  application: string;
+}
+
+const ApplicationPage: NextPage = () => {
+  const [submittedData, setSubmittedData] = useState({});
+  const [status, setStatus] = useState<IStatus>({
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: '' }
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm<FormInputs>({ resolver: yupResolver(schema) });
+
+  const Input = FormInput(errors);
+
+  const handleResponse = (status, msg) => {
+    if (status === 200) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: msg }
+      });
+      reset({ ...submittedData });
+    } else {
+      setStatus({
+        info: { error: true, msg: msg }
+      });
+    }
+  };
+
+  const handleOnSubmit = async (
+    data: FormInputs,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    e.preventDefault();
+    setSubmittedData(data);
+    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
+    const res = await fetch('/api/sendgrid/application', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    const text = await res.text();
+    handleResponse(res.status, text);
+  };
   return (
     <Container
       title="Make an Applcation - The Gerry Richardson Trust"
@@ -26,44 +124,178 @@ export default function Application() {
           website.
         </p>
       </PageHeaderSection>
-      <div className="max-w-xl px-4 mx-auto sm:px-6 md:max-w-6xl lg:px-8">
-        <section>
-          <h3 className="font-bold tracking-tight text-gray-700 text">
-            Please note the following when applying for a grant:
-          </h3>
-          <ul className="p-4 pl-8 mt-4 list-disc bg-gray-100 border rounded-md shadow-sm border-gray-00">
-            <li>All form fields are required.</li>
-            <li>
-              Your application must meet our criteria - live within 15 miles of
-              Blackpool Tower and be under the age of 25
-            </li>
-            <li>
-              If your application is successful, you will be sent an email as
-              soon as possible after the meeting which will include terms and
-              conditions for your acceptance.
-            </li>
-            <li>
-              If further information becomes available after you have submitted
-              your application but prior to the Trust meeting, eg receiving the
-              result of your funding application or needing to change details on
-              this application, you will need to contact us to let us know about
-              this change.
-            </li>
-            <li>
-              Trustees do not enter into any communication about rejected
-              applications nor is there an appeals process.
-            </li>
-            <li>
-              Once you submit your application, you will recieve acknowledgement
-              via email within a few min confirming receipt of your application.
-              Should we require further information we will contact you by
-              email.
-            </li>
-          </ul>
+      <div className="mx-auto max-w-xl px-4 sm:px-6 md:max-w-6xl lg:px-8">
+        <section className="rounded-lg bg-slate-100 px-4 py-5 leading-6 shadow dark:bg-slate-700 dark:bg-slate-700/40 dark:ring-1 dark:ring-white/20 sm:p-6">
+          <ApplicationFormHeader />
         </section>
         <section>
-          <ApplicationForm />
-          <h3 className="mt-8 text-2xl font-bold tracking-tight text-center text-gray-700">
+          <div className="mt-4 mb-4">
+            {Object.keys(errors).length > 0 && <FormErrorMessage />}
+            {status.info.error && <FormInfoMessage status={status} />}
+            {!status.info.error && status.info.msg && (
+              <FormConfirmationMessage />
+            )}
+          </div>
+
+          {!status.submitted && (
+            <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
+              <div className="rounded-lg bg-slate-100 px-4 py-5 leading-6 shadow dark:bg-slate-700 dark:bg-slate-700/40 dark:ring-1 dark:ring-white/20 sm:p-6">
+                <FormSection title="Personal Details">
+                  <div className="mt-5 md:col-span-2 md:mt-0">
+                    <div className="grid grid-cols-6 gap-6">
+                      <div className="col-span-6 sm:col-span-3">
+                        <Input
+                          label="firstName"
+                          type="text"
+                          placeholder="First Name"
+                          labelText="First Name"
+                          register={register}
+                        />
+                      </div>
+                      <div className="col-span-6 sm:col-span-3">
+                        <Input
+                          label="lastName"
+                          type="text"
+                          placeholder="Last Name"
+                          labelText="Last Name"
+                          register={register}
+                        />
+                      </div>
+                      <div className="col-span-6 sm:col-span-4">
+                        <Input
+                          label="email"
+                          type="email"
+                          placeholder="Email address"
+                          labelText="Email"
+                          register={register}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </FormSection>
+                <FormSection
+                  title="Address Information"
+                  info="Use a permanent address where you can receive mail."
+                >
+                  <div className="mt-5 md:col-span-2 md:mt-0">
+                    <div className="grid grid-cols-6 gap-6">
+                      <div className="col-span-6">
+                        <Input
+                          label="addressLine1"
+                          type="text"
+                          placeholder=""
+                          labelText="Address"
+                          register={register}
+                        />
+                      </div>
+                      <div className="col-span-6 -mt-4">
+                        <Input
+                          label="addressLine2"
+                          type="text"
+                          placeholder=""
+                          labelText=""
+                          register={register}
+                        />
+                      </div>
+                      <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+                        <Input
+                          label="town"
+                          type="text"
+                          placeholder=""
+                          labelText="Town"
+                          register={register}
+                        />
+                      </div>
+
+                      <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+                        <Input
+                          label="county"
+                          type="text"
+                          placeholder=""
+                          labelText="County"
+                          register={register}
+                        />
+                      </div>
+
+                      <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+                        <Input
+                          label="postCode"
+                          type="text"
+                          placeholder=""
+                          labelText="Post Code"
+                          register={register}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </FormSection>
+                <FormSection
+                  title="Application"
+                  info="Please provide us with as much information about your
+                      application as possible. How will this funding make a
+                      difference? Who will benefit?"
+                >
+                  <div className="mt-5 md:col-span-2 md:mt-0">
+                    <div className="grid grid-cols-6 gap-6">
+                      <div className="col-span-6">
+                        <label
+                          htmlFor="application"
+                          className="invisible block text-base font-medium text-slate-700"
+                        >
+                          Application
+                        </label>
+                        <div className="relative -mt-4">
+                          <textarea
+                            className={`block w-full rounded-md py-3 px-4 shadow-sm ${
+                              errors.application
+                                ? `border-red-300 pr-10 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500`
+                                : 'border-gray-300 focus:border-blue-900 focus:ring-blue-900'
+                            }`}
+                            id="application"
+                            name="application"
+                            {...register('application')}
+                            rows={10}
+                          ></textarea>
+                          {errors.application && (
+                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                              <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
+                            </div>
+                          )}
+                        </div>
+                        {errors.application && (
+                          <p
+                            className="mt-2 text-sm text-red-600"
+                            id="application-error"
+                          >
+                            {errors.application.message}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </FormSection>
+              </div>
+              <div className="mt-4 flex justify-end">
+                <button
+                  type="submit"
+                  className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-blue-900 px-16 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 md:w-auto"
+                  disabled={status.submitting}
+                >
+                  {!status.submitting ? (
+                    'Submit Application'
+                  ) : (
+                    <div>
+                      <span className="mr-1">
+                        <FontAwesomeIcon icon={faSync} spin />
+                      </span>
+                      Submitting...
+                    </div>
+                  )}
+                </button>
+              </div>
+            </form>
+          )}
+          <h3 className="mt-8 text-center text-2xl font-bold tracking-tight text-slate-700 dark:text-slate-300">
             <FontAwesomeIcon icon={faEdit} fixedWidth /> Other Ways to apply
           </h3>
           <p className="mt-8 text-lg">
@@ -87,4 +319,6 @@ export default function Application() {
       </div>
     </Container>
   );
-}
+};
+
+export default ApplicationPage;

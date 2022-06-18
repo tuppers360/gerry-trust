@@ -12,7 +12,7 @@ export default async function (req, res) {
     town,
     county,
     postCode,
-    application,
+    application
   } = req.body;
   const content = {
     to: process.env.SENDGRID_APPLICATION_EMAIL,
@@ -29,7 +29,7 @@ export default async function (req, res) {
     application,
     html: `
     <p>${firstName}</p><p>${lastName}</p><p>${dateOfBirth}</p>
-    <p>${addressLine1}</p><p>${addressLine2}</p><p>${town}</p><p>${county}</p><p>${postCode}</p><p>${application}</p>`,
+    <p>${addressLine1}</p><p>${addressLine2}</p><p>${town}</p><p>${county}</p><p>${postCode}</p><p>${application}</p>`
   };
   const msgClient = {
     from: 'noreply@gerryrichardsontrust.org', // sender address
@@ -68,7 +68,7 @@ export default async function (req, res) {
       FY6 9AF
       </address>
       <p><strong>Tel:</strong> 01253 700879</p>
-      <p><strong>Email:</strong> contactus@gerryrichardsontrust.org</p>`, // html body
+      <p><strong>Email:</strong> contactus@gerryrichardsontrust.org</p>` // html body
   };
 
   try {

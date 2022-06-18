@@ -76,7 +76,7 @@ export default function GiftAid({
           </p>
           <p>
             Please notify the charity if you:
-            <ul>
+            <ul className="list-inside list-disc">
               <li>want to cancel this declaration</li>
               <li>change your name or home address</li>
               <li>

@@ -74,7 +74,7 @@ export default function GiftAid({
             my donations in that tax year it is my responsibility to pay any
             difference
           </p>
-          <p>
+          <div>
             Please notify the charity if you:
             <ul className="list-inside list-disc">
               <li>want to cancel this declaration</li>
@@ -83,7 +83,7 @@ export default function GiftAid({
                 no longer pay sufficient tax on your income and/or capital gains
               </li>
             </ul>
-          </p>
+          </div>
           <p>
             If you pay Income Tax at the higher or additional rate and want to
             receive the additional tax relief due to you, you must include all

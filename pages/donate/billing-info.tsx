@@ -206,7 +206,7 @@ const BillingInfo: NextPage = () => {
               </section>
               <section>
                 <div className="pt-8">
-                  <h3 className="text-xl font-medium leading-6 ">
+                  <h3 className="text-xl font-medium leading-6 dark:text-slate-300">
                     Address Information
                   </h3>
                   <p className="mt-1 text-sm ">

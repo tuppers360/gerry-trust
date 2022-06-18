@@ -14,14 +14,29 @@ datasource db {
 
 model Views {
   slug  String @id @db.VarChar(128)
-  count BigInt @default(1)
+  count Int    @default(1)
 }
 
 model Donation {
-  id              String   @id @default(cuid())
+  donationId      String   @id @default(cuid())
   amount          Int
   giftAid         Boolean  @default(false)
   confirmed       Boolean  @default(false)
   checkoutSession String   @unique
   createdAt       DateTime @default(now())
+  user            User?    @relation(fields: [userId], references: [userId])
+  userId          String?
+}
+
+model User {
+  userId       String     @id @default(cuid())
+  email        String     @unique
+  firstName    String     @db.VarChar(128)
+  lastName     String     @db.VarChar(128)
+  addressLine1 String     @db.VarChar(128)
+  addressLine2 String?    @db.VarChar(128)
+  town         String     @db.VarChar(128)
+  county       String     @db.VarChar(128)
+  postCode     String     @db.VarChar(128)
+  donations    Donation[]
 }

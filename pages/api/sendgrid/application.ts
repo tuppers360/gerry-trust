@@ -40,7 +40,7 @@ export default async function (req, res) {
       We have received your application and will consider it at our next meeting.\r\n
       We will contact you by email to let you know if you are successful or not.\r\n
       PLEASE BE AWARE as per the terms when applying - If further information becomes available to you regards to your application but prior to the Trustees’ quarterly meeting, eg receiving the result of an outstanding funding application or needing to change details on this application, you will need to contact us to let us know about this change.\r\n
-      If we need any futher information we will contact you by email\r\n
+      If we need any further information we will contact you by email\r\n
       GOOD LUCK!\r\n
       Regards\r\n
       Gerry Richardson Trustees\r\n
@@ -56,7 +56,7 @@ export default async function (req, res) {
       <p>We have received your application and will consider it at our next meeting.</p>
       <p>We will contact you by email to let you know if you are successful or not.</p>
       <p><strong>PLEASE BE AWARE</strong> as per the terms when applying - If further information becomes available to you regards to your application but prior to the Trustees’ quarterly meeting, eg receiving the result of an outstanding funding application or needing to change details on this application, you will need to contact us to let us know about this change.</p>
-      <p>If we need any futher information we will contact you by email</p>
+      <p>If we need any further information we will contact you by email</p>
       <p><strong>GOOD LUCK!</strong></p>
       <p>regards</p>
       <p>Gerry Richardson Trustees</p>

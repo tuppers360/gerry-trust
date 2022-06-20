@@ -24,9 +24,9 @@ export default async (
         addressLine2,
         town,
         county,
-        postCode
+        postCode,
+        stripeSessionId
       } = req.body.data;
-      const stripeSessionId: string = req.body.stripeSessionId;
 
       const result = await prisma.user.upsert({
         where: { email },

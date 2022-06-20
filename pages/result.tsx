@@ -1,26 +1,29 @@
 import * as config from 'config';
 
-import Confetti from 'react-confetti';
 import Container from 'components/Container';
 import { NextPage } from 'next';
 import PageHeaderSection from 'components/PageHeaderSection';
-import Stripe from 'stripe';
+import clearDonationDetailsAction from 'lib/clearDonationDetailsAction';
 import { fetchGetJSON } from 'utils/api-helpers';
 import { formatAmountForDisplayForStripe } from 'utils/stripe-helpers';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import { useWindowSize } from '@react-hook/window-size';
+import { useStateMachine } from 'little-state-machine';
 
 const ResultPage: NextPage = () => {
   const router = useRouter();
-
-  const [height, width] = useWindowSize();
+  const { actions } = useStateMachine({ clearDonationDetailsAction });
   // Fetch CheckoutSession from static page via
   // https://nextjs.org/docs/basic-features/data-fetching#static-generation
   const { data, error } = useSWR(
     router.query.session_id ? `/api/stripe/${router.query.session_id}` : null,
     fetchGetJSON
   );
+
+  useEffect(() => {
+    actions.clearDonationDetailsAction();
+  }, []);
 
   if (error) return <div>failed to load</div>;
 
@@ -41,7 +44,6 @@ const ResultPage: NextPage = () => {
           </h2>
         )}
       </PageHeaderSection>
-      {<Confetti numberOfPieces={200} height={height} width={width} />}
       <div className="mx-auto mt-8 max-w-xl px-4 sm:px-6 lg:max-w-4xl lg:px-8">
         <h2 className="text-xl font-medium leading-relaxed">
           Thank you for your generous gift to the Gerry Richardson Trust.

@@ -1,6 +1,6 @@
 import { GlobalState } from 'little-state-machine';
 
-export default function updateDonationDetailsAction(
+export default function clearDonationDetailsAction(
   state: GlobalState,
   payload: {
     firstName?: string;
@@ -17,9 +17,6 @@ export default function updateDonationDetailsAction(
 ): GlobalState {
   return {
     ...state,
-    donationDetails: {
-      ...state.donationDetails,
-      ...payload
-    }
+    donationDetails: {}
   };
 }

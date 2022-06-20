@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FormConfirmationMessage() {
+function FormConfirmationMessage({ title, response }) {
   return (
     <div className="rounded-md border border-l-4 border-green-400 bg-green-100 p-4">
       <div className="flex items-center">
@@ -20,11 +20,9 @@ function FormConfirmationMessage() {
           </svg>
         </div>
         <div className="ml-3">
-          <h3 className="text-xl font-bold text-green-800">
-            Your message has been sent
-          </h3>
+          <h3 className="text-xl font-bold text-green-800">{title}</h3>
           <div className="text-md mt-2 text-green-700">
-            <p>Please allow us a short while to respond.</p>
+            <p>{response}</p>
           </div>
         </div>
       </div>

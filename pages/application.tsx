@@ -133,7 +133,10 @@ const ApplicationPage: NextPage = () => {
             {Object.keys(errors).length > 0 && <FormErrorMessage />}
             {status.info.error && <FormInfoMessage status={status} />}
             {!status.info.error && status.info.msg && (
-              <FormConfirmationMessage />
+              <FormConfirmationMessage
+                title="Your aaplication has been submitted"
+                response="As per our terms we will consider your application and let you know the decision once made."
+              />
             )}
           </div>
 

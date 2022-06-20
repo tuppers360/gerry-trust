@@ -106,7 +106,7 @@ const ApplicationPage: NextPage = () => {
   };
   return (
     <Container
-      title="Make an Applcation - The Gerry Richardson Trust"
+      title="Make an Application - The Gerry Richardson Trust"
       description="Apply for a grant from The Gerry Richardson Trust"
     >
       <PageHeaderSection
@@ -134,7 +134,7 @@ const ApplicationPage: NextPage = () => {
             {status.info.error && <FormInfoMessage status={status} />}
             {!status.info.error && status.info.msg && (
               <FormConfirmationMessage
-                title="Your aaplication has been submitted"
+                title="Your application has been submitted"
                 response="As per our terms we will consider your application and let you know the decision once made."
               />
             )}

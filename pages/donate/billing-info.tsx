@@ -163,7 +163,7 @@ const BillingInfo: NextPage = () => {
         </PageHeaderSection>
         <div className="mx-auto max-w-4xl px-4">
           {Object.keys(errors).length > 0 && <FormErrorMessage />}
-          {status.info.error && <FormInfoMessage staus={status} />}
+          {status.info.error && <FormInfoMessage status={status} />}
           {!status.submitted && (
             <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
               <div className="hidden sm:block" aria-hidden="true">

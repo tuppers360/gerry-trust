@@ -2,13 +2,13 @@ import Link from 'next/link';
 
 type Donation = {
   donation: number;
-  giftaid: boolean;
+  giftAid: boolean;
   handleGiftAid: () => void;
 };
 
 export default function GiftAid({
   donation,
-  giftaid,
+  giftAid,
   handleGiftAid
 }: Donation) {
   return (
@@ -60,7 +60,7 @@ export default function GiftAid({
         </div>
       </div>
 
-      {giftaid && (
+      {giftAid && (
         <div className="mt-10 space-y-5 rounded-lg bg-slate-200/60 p-4 leading-loose dark:bg-slate-800">
           <p>
             I confirm that this is my own money and I would like The Gerry

@@ -113,7 +113,7 @@ const DonatePage: NextPage = () => {
           <GiftAid
             handleGiftAid={handleGiftAid}
             donation={donation}
-            giftaid={giftAid}
+            giftAid={giftAid}
           />
           <div className="mt-8 flex items-center justify-center py-4">
             <button

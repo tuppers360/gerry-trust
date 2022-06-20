@@ -24,9 +24,9 @@ export default async (
         addressLine2,
         town,
         county,
-        postCode
+        postCode,
+        stripeSessionId
       } = req.body.data;
-      const stripeSessionId: string = req.body.stripeSessionId;
 
       console.log('BODY', req.body);
 

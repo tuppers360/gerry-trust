@@ -102,26 +102,31 @@ const BillingInfo: NextPage = () => {
 
   const handleOnSubmit = async (data) => {
     setLoading(true);
-    actions.updateDonationDetailsAction(data);
+    actions.updateDonationDetailsAction({ ...data });
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
+
+    //add the donation details to the data object
+    data.amount = state.donationDetails.amount;
+    data.giftAid = state.donationDetails.giftAid;
     // Create a Checkout Session.
     const response = await fetchPostJSON('/api/stripe/checkout_sessions', {
-      amount: state.donationDetails.amount,
-      giftAid: state.donationDetails.giftAid
+      amount: data.amount,
+      giftAid: data.giftAid
     });
 
     if (response.statusCode === 500) {
       console.error(response.message);
       return;
     }
+    //add the stripe session id to the data object
+    data.stripeSessionId = response.id;
 
     // Create a donation in the database with the session id.
     const donationResponse = await fetch('/api/donation/create_donation', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        data: state.donationDetails,
-        stripeSessionId: response.id
+        data: data
       })
     });
 
@@ -130,6 +135,7 @@ const BillingInfo: NextPage = () => {
       return;
     }
     handleResponse(donationResponse.status, donationResponse.statusText);
+    // router.push('/donate/summary');
 
     // Redirect to Checkout.
     const stripe = await getStripe();
@@ -149,7 +155,7 @@ const BillingInfo: NextPage = () => {
   return (
     <>
       <Container title="Make a Donation - The Gerry Richardson Trust">
-        <PageHeaderSection title="Donate" heading="Make a Donation">
+        <PageHeaderSection title="Donate" heading="Billing Information">
           <p>
             Donate to help us to help the local youths of Blackpool, Fylde and
             Wyre 💖
@@ -157,7 +163,7 @@ const BillingInfo: NextPage = () => {
         </PageHeaderSection>
         <div className="mx-auto max-w-4xl px-4">
           {Object.keys(errors).length > 0 && <FormErrorMessage />}
-          {status.info.error && <FormInfoMessage staus={status} />}
+          {status.info.error && <FormInfoMessage status={status} />}
           {!status.submitted && (
             <form onSubmit={handleSubmit(handleOnSubmit)} noValidate>
               <div className="hidden sm:block" aria-hidden="true">
@@ -279,7 +285,7 @@ const BillingInfo: NextPage = () => {
                       <FontAwesomeIcon icon={faSync} spin />
                     </span>
                   )}
-                  Proceed to payment
+                  Next step
                 </button>
               </div>
             </form>

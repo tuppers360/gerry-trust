@@ -14,7 +14,7 @@ export default function updateDonationDetailsAction(
     amount?: number;
     giftAid?: boolean;
   }
-) {
+): GlobalState {
   return {
     ...state,
     donationDetails: {

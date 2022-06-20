@@ -29,7 +29,7 @@ function ApplicationFormHeader() {
           applications nor is there an appeals process.
         </li>
         <li>
-          Once you submit your application, you will recieve acknowledgement via
+          Once you submit your application, you will receive acknowledgement via
           email within a few min confirming receipt of your application. Should
           we require further information we will contact you by email.
         </li>

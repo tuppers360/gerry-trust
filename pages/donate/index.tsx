@@ -27,7 +27,7 @@ const DonatePage: NextPage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const data = { amount: donation, giftAid };
-    actions.updateDonationDetailsAction(data);
+    actions.updateDonationDetailsAction({ ...data });
     router.push('/donate/billing-info');
   };
 
@@ -49,7 +49,7 @@ const DonatePage: NextPage = () => {
 
   return (
     <Container title="Make a Donation - The Gerry Richardson Trust">
-      <PageHeaderSection title="Donate" heading="Make a Donation">
+      <PageHeaderSection title="Donate" heading="Your Donation">
         <p>
           Donate to help us to help the local youths of Blackpool, Fylde and
           Wyre 💖
@@ -113,7 +113,7 @@ const DonatePage: NextPage = () => {
           <GiftAid
             handleGiftAid={handleGiftAid}
             donation={donation}
-            giftaid={giftAid}
+            giftAid={giftAid}
           />
           <div className="mt-8 flex items-center justify-center py-4">
             <button

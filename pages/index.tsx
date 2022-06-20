@@ -82,7 +82,7 @@ const IndexPage: NextPage = () => {
         </h2>
         <p className="mx-auto max-w-2xl pt-8 text-lg leading-relaxed text-slate-700 dark:text-slate-300 sm:mt-4">
           Our latest news and whats we are doing with the local community of
-          Blackpoool, Fylde & Wyre
+          Blackpool, Fylde & Wyre
         </p>
         <DonationCards />
       </div>

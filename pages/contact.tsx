@@ -124,7 +124,10 @@ const Contact: NextPage = () => {
               {Object.keys(errors).length > 0 && <FormErrorMessage />}
               {status.info.error && <FormInfoMessage status={status} />}
               {!status.info.error && status.info.msg && (
-                <FormConfirmationMessage />
+                <FormConfirmationMessage
+                  title="Your message has been sent"
+                  response="Please allow us a short while to respond"
+                />
               )}
             </div>
             {!status.submitted && (

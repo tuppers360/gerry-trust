@@ -2,13 +2,13 @@ import Link from 'next/link';
 
 type Donation = {
   donation: number;
-  giftaid: boolean;
+  giftAid: boolean;
   handleGiftAid: () => void;
 };
 
 export default function GiftAid({
   donation,
-  giftaid,
+  giftAid,
   handleGiftAid
 }: Donation) {
   return (
@@ -60,7 +60,7 @@ export default function GiftAid({
         </div>
       </div>
 
-      {giftaid && (
+      {giftAid && (
         <div className="mt-10 space-y-5 rounded-lg bg-slate-200/60 p-4 leading-loose dark:bg-slate-800">
           <p>
             I confirm that this is my own money and I would like The Gerry
@@ -74,7 +74,7 @@ export default function GiftAid({
             my donations in that tax year it is my responsibility to pay any
             difference
           </p>
-          <p>
+          <div>
             Please notify the charity if you:
             <ul className="list-inside list-disc">
               <li>want to cancel this declaration</li>
@@ -83,7 +83,7 @@ export default function GiftAid({
                 no longer pay sufficient tax on your income and/or capital gains
               </li>
             </ul>
-          </p>
+          </div>
           <p>
             If you pay Income Tax at the higher or additional rate and want to
             receive the additional tax relief due to you, you must include all

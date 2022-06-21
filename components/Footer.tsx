@@ -36,13 +36,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/stories">
-                  <a className="hover:text-slate-900 dark:hover:text-slate-300">
-                    News
-                  </a>
-                </Link>
-              </li>
-              <li>
                 <Link href="/about">
                   <a className="hover:text-slate-900 dark:hover:text-slate-300 ">
                     About Us
@@ -59,7 +52,7 @@ export default function Footer() {
             </ul>
           </section>
           <section>
-            <h2 className="sr-only">Contect Us - Footer</h2>
+            <h2 className="sr-only">Contact Us - Footer</h2>
             <h2 className="text-lg font-bold text-slate-700 underline underline-offset-8 dark:text-slate-100">
               Get in Touch
             </h2>

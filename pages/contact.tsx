@@ -1,22 +1,19 @@
 import * as yup from 'yup';
 
-import { ExclamationCircleIcon, XCircleIcon } from '@heroicons/react/solid';
-import { Path, UseFormRegister, useForm } from 'react-hook-form';
-import { faEdit, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faSync } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
+import { Path, useForm, UseFormRegister } from 'react-hook-form';
 
-import ContactFormHeader from 'components/ContactFormHeader';
-import Container from 'components/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ExclamationCircleIcon } from '@heroicons/react/solid';
+import { yupResolver } from '@hookform/resolvers/yup';
+import ContactFormHeader from 'components/ContactFormHeader';
 import FormConfirmationMessage from 'components/form/FormConfirmationMessage';
 import FormErrorMessage from 'components/form/FormErrorMessage';
 import FormInfoMessage from 'components/form/FormInfoMessage';
 import { FormInput } from 'components/form/FormInput';
-import { NextPage } from 'next';
+import { NextPageWithLayout } from 'pages/_app';
 import PageHeaderSection from '../components/PageHeaderSection';
-import React from 'react';
-import { faSync } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
 
 const schema = yup.object({
   firstName: yup.string().required('Please enter your first name'),
@@ -53,7 +50,7 @@ interface IFormValues {
   message: string;
 }
 
-const Contact: NextPage = () => {
+const ContactPage: NextPageWithLayout = () => {
   const [submittedData, setSubmittedData] = useState({});
   const [status, setStatus] = useState<IStatus>({
     submitted: false,
@@ -104,7 +101,7 @@ const Contact: NextPage = () => {
   };
 
   return (
-    <Container title="Contact Us - The Gerry Richardson Trust">
+    <>
       <PageHeaderSection
         title="Contact Us"
         heading="Get in contact and discover how we can help you"
@@ -239,8 +236,17 @@ const Contact: NextPage = () => {
           </section>
         </div>
       </div>
-    </Container>
+    </>
   );
 };
 
-export default Contact;
+export default ContactPage;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      title: 'Contact Us - The Gerry Richardson Trust',
+      description: 'How to get in touch with The Gerry Richardson Trust'
+    }
+  };
+}

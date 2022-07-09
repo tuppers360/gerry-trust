@@ -1,7 +1,7 @@
-import Container from 'components/Container';
 import PageHeaderSection from 'components/PageHeaderSection';
 import { Trustee } from 'components/Trustee';
 import { trustees } from 'data/trustees';
+import { NextPageWithLayout } from 'pages/_app';
 
 interface Trustees {
   id: number;
@@ -10,9 +10,9 @@ interface Trustees {
   image: string;
 }
 
-export default function About() {
+const AboutPage: NextPageWithLayout = () => {
   return (
-    <Container title="About Us - The Gerry Richardson Trust">
+    <>
       <PageHeaderSection title="About Us" heading="Our Story">
         A brief history of how it all began
       </PageHeaderSection>
@@ -88,6 +88,17 @@ export default function About() {
           </div>
         </section>
       </div>
-    </Container>
+    </>
   );
+};
+
+export default AboutPage;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      title: 'About Us - The Gerry Richardson Trust',
+      description: 'A brief history of how it all began'
+    }
+  };
 }

@@ -12,7 +12,6 @@ import {
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import React from 'react';
 
 export default function Footer() {
   return (
@@ -59,7 +58,7 @@ export default function Footer() {
             </ul>
           </section>
           <section>
-            <h2 className="sr-only">Contect Us - Footer</h2>
+            <h2 className="sr-only">Contact Us - Footer</h2>
             <h2 className="text-lg font-bold text-slate-700 underline underline-offset-8 dark:text-slate-100">
               Get in Touch
             </h2>

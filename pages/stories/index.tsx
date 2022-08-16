@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import { Story, allStories } from 'contentlayer/generated';
+import { allStories, Story } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';
+import { useState } from 'react';
 
-import Container from 'components/Container';
-import Link from 'next/link';
-import { NextPage } from 'next';
 import PageHeaderSection from 'components/PageHeaderSection';
-import { Views } from 'lib/types';
+import { pick } from 'contentlayer/client';
 import { compareDesc } from 'date-fns';
 import fetcher from 'lib/fetcher';
-import { pick } from 'contentlayer/client';
+import { Views } from 'lib/types';
+import Link from 'next/link';
+import { NextPageWithLayout } from 'pages/_app';
 import useSWR from 'swr';
 
 function StoryCard({ title, publishedAt, summary, coverImage, slug }: Story) {
@@ -50,13 +49,13 @@ function StoryCard({ title, publishedAt, summary, coverImage, slug }: Story) {
   );
 }
 
-const Stories: NextPage = ({ stories }: { stories: Story[] }) => {
+const Stories: NextPageWithLayout = ({ stories }: { stories: Story[] }) => {
   const [searchValue, setSearchValue] = useState('');
   const filteredstories = stories.filter((story) =>
     story.title.toLowerCase().includes(searchValue.toLowerCase())
   );
   return (
-    <Container>
+    <>
       <PageHeaderSection
         title="Stories"
         heading="Read about who we have helped support along the way"
@@ -99,7 +98,7 @@ const Stories: NextPage = ({ stories }: { stories: Story[] }) => {
           </div>
         )}
       </div>
-    </Container>
+    </>
   );
 };
 
@@ -114,5 +113,11 @@ export async function getStaticProps() {
       return compareDesc(new Date(a.publishedAt), new Date(b.publishedAt));
     });
 
-  return { props: { stories } };
+  return {
+    props: {
+      stories,
+      title: 'Stories - The Gerry Richardson Trust',
+      description: 'A list of stories from those we have helped along the way'
+    }
+  };
 }

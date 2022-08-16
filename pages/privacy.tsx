@@ -1,14 +1,10 @@
-import Container from 'components/Container';
 import HyperLink from 'components/HyperLink';
 import PageHeaderSection from 'components/PageHeaderSection';
-import React from 'react';
+import { NextPageWithLayout } from './_app';
 
-export default function index() {
+const PrivacyPage: NextPageWithLayout = () => {
   return (
-    <Container
-      title="Privacy Notice - The Gerry Richardson Trust"
-      description="You can find our privacy policy here that covers: Privacy &amp; Cookies."
-    >
+    <>
       <PageHeaderSection
         title="Legal"
         heading="Gerry Richardson Trust Privacy Notice"
@@ -422,6 +418,18 @@ export default function index() {
           </section>
         </div>
       </div>
-    </Container>
+    </>
   );
+};
+
+export default PrivacyPage;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      title: 'Privacy Notice - The Gerry Richardson Trust',
+      description:
+        'You can find our privacy policy here that covers: Privacy &amp; Cookies.'
+    }
+  };
 }

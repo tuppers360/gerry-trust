@@ -1,21 +1,20 @@
 import * as yup from 'yup';
 
-import React, { useState } from 'react';
 import { faEdit, faSync } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
 
-import ApplicationFormHeader from 'components/ApplicationFormHeader';
-import Container from 'components/Container';
-import { ExclamationCircleIcon } from '@heroicons/react/solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ExclamationCircleIcon } from '@heroicons/react/solid';
+import { yupResolver } from '@hookform/resolvers/yup';
+import ApplicationFormHeader from 'components/ApplicationFormHeader';
 import FormConfirmationMessage from 'components/form/FormConfirmationMessage';
 import FormErrorMessage from 'components/form/FormErrorMessage';
 import FormInfoMessage from 'components/form/FormInfoMessage';
 import { FormInput } from 'components/form/FormInput';
 import FormSection from 'components/FormSection';
-import { NextPage } from 'next';
 import PageHeaderSection from 'components/PageHeaderSection';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { NextPageWithLayout } from './_app';
 
 const schema = yup.object({
   firstName: yup.string().required('Please enter your first name'),
@@ -55,7 +54,7 @@ interface FormInputs {
   application: string;
 }
 
-const ApplicationPage: NextPage = () => {
+const ApplicationPage: NextPageWithLayout = () => {
   const [submittedData, setSubmittedData] = useState({});
   const [status, setStatus] = useState<IStatus>({
     submitted: false,
@@ -105,10 +104,7 @@ const ApplicationPage: NextPage = () => {
     handleResponse(res.status, text);
   };
   return (
-    <Container
-      title="Make an Application - The Gerry Richardson Trust"
-      description="Apply for a grant from The Gerry Richardson Trust"
-    >
+    <>
       <PageHeaderSection
         title="Apply for a grant"
         heading="Lets see if we can help you?"
@@ -320,8 +316,17 @@ const ApplicationPage: NextPage = () => {
           </p>
         </section>
       </div>
-    </Container>
+    </>
   );
 };
 
 export default ApplicationPage;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      title: 'Make an Application - The Gerry Richardson Trust',
+      description: 'Apply for a grant from The Gerry Richardson Trust'
+    }
+  };
+}

@@ -1,17 +1,14 @@
 import { faEdit, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-import AnniversarySection from 'components/Anniversary';
-import Container from 'components/Container';
-import DonationCards from 'components/DonationCards';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import HeroSection from 'components/HeroSection';
-import LandingSection from 'components/LandingSection';
+import AnniversarySection from 'components/Anniversary';
+import DonationCards from 'components/DonationCards';
 import Link from 'next/link';
-import { NextPage } from 'next';
+import { NextPageWithLayout } from 'pages/_app';
 
-const IndexPage: NextPage = () => {
+const IndexPage: NextPageWithLayout = () => {
   return (
-    <Container>
+    <>
       <AnniversarySection />
       {/* Landing Section */}
       <div className="relative">
@@ -86,7 +83,7 @@ const IndexPage: NextPage = () => {
         </p>
         <DonationCards />
       </div>
-    </Container>
+    </>
   );
 };
 

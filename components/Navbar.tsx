@@ -1,11 +1,11 @@
-import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 import { faFingerprint, faGift } from '@fortawesome/free-solid-svg-icons';
+import { MoonIcon, SunIcon } from '@heroicons/react/solid';
 import { useEffect, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import NavLink from './NavLink';
-import { useTheme } from 'next-themes';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,6 @@ export default function Navbar() {
 
   const toggleTheme = () => {
     if (!mounted) return null;
-
     const currentTheme = theme === 'system' ? systemTheme : theme;
 
     if (currentTheme === 'dark') {

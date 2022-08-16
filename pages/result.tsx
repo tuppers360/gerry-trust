@@ -1,12 +1,11 @@
 import * as config from 'config';
 
-import Container from 'components/layouts/DefaultLayout';
-import PageHeaderSection from 'components/PageHeaderSection';
-import { useRouter } from 'next/router';
 import { NextPageWithLayout } from 'pages/_app';
-import useSWR from 'swr';
+import PageHeaderSection from 'components/PageHeaderSection';
 import { fetchGetJSON } from 'utils/api-helpers';
 import { formatAmountForDisplayForStripe } from 'utils/stripe-helpers';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 
 const ResultPage: NextPageWithLayout = () => {
   const router = useRouter();
@@ -21,7 +20,7 @@ const ResultPage: NextPageWithLayout = () => {
   if (error) return <div>failed to load</div>;
 
   return (
-    <Container title="Donation Made - The Gerry Richardson Trust">
+    <>
       <PageHeaderSection
         title="Congratulations"
         heading="Your Donation has been authorised"
@@ -54,7 +53,7 @@ const ResultPage: NextPageWithLayout = () => {
         <p className="mt-4 text-lg">Yours</p>
         <h3 className="mt-4 text-lg font-semibold">The Trustees</h3>
       </div>
-    </Container>
+    </>
   );
 };
 

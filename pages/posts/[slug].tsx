@@ -1,9 +1,8 @@
-import { Post, allPosts } from 'contentlayer/generated';
+import { allPosts, Post } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';
 
-import Container from 'components/Container';
 import Link from 'next/link';
-import { NextPage } from 'next';
+import { NextPageWithLayout } from 'pages/_app';
 
 export async function getStaticPaths() {
   return {
@@ -20,9 +19,9 @@ export async function getStaticProps({ params }) {
   return { props: { post } };
 }
 
-const PostLayout: NextPage = ({ post }: { post: Post }) => {
+const PostLayout: NextPageWithLayout = ({ post }: { post: Post }) => {
   return (
-    <Container>
+    <>
       <article className="mx-auto max-w-2xl py-16">
         <div className="mb-6 text-center">
           <Link href="/posts">
@@ -39,7 +38,7 @@ const PostLayout: NextPage = ({ post }: { post: Post }) => {
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
       </article>
-    </Container>
+    </>
   );
 };
 

@@ -1,9 +1,8 @@
-import { Post, allPosts } from 'contentlayer/generated';
+import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc, format, parseISO } from 'date-fns';
 
-import Container from 'components/Container';
 import Link from 'next/link';
-import { NextPage } from 'next';
+import { NextPageWithLayout } from 'pages/_app';
 
 export async function getStaticProps() {
   const posts = allPosts.sort((a, b) => {
@@ -27,15 +26,15 @@ function PostCard(post: Post) {
   );
 }
 
-const PostsPage: NextPage = ({ posts }: { posts: Post[] }) => {
+const PostsPage: NextPageWithLayout = ({ posts }: { posts: Post[] }) => {
   return (
-    <Container>
+    <div className="mx-auto flex max-w-md flex-col items-start justify-center px-4 dark:text-slate-400 sm:max-w-lg sm:px-6 lg:max-w-7xl lg:px-8">
       <h1 className="mb-8 text-3xl font-bold">Contentlayer Blog Example</h1>
 
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
       ))}
-    </Container>
+    </div>
   );
 };
 

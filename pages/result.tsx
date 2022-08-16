@@ -1,14 +1,14 @@
 import * as config from 'config';
 
-import Container from 'components/Container';
-import { NextPage } from 'next';
+import Container from 'components/layouts/DefaultLayout';
 import PageHeaderSection from 'components/PageHeaderSection';
+import { useRouter } from 'next/router';
+import { NextPageWithLayout } from 'pages/_app';
+import useSWR from 'swr';
 import { fetchGetJSON } from 'utils/api-helpers';
 import { formatAmountForDisplayForStripe } from 'utils/stripe-helpers';
-import { useRouter } from 'next/router';
-import useSWR from 'swr';
 
-const ResultPage: NextPage = () => {
+const ResultPage: NextPageWithLayout = () => {
   const router = useRouter();
 
   // Fetch CheckoutSession from static page via
@@ -59,3 +59,11 @@ const ResultPage: NextPage = () => {
 };
 
 export default ResultPage;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      title: 'Donation Made - The Gerry Richardson Trust'
+    }
+  };
+}

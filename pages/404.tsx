@@ -1,9 +1,9 @@
-import Container from 'components/Container';
 import Link from 'next/link';
+import { NextPageWithLayout } from './_app';
 
-export default function NotFound() {
+const NotFoundPage: NextPageWithLayout = () => {
   return (
-    <Container title="404 – Gerry Richardson Trust">
+    <>
       <div className="mx-auto mt-24 flex max-w-2xl flex-col items-start justify-center">
         <h1 className="text-grey-800 mb-4 text-center text-3xl font-bold tracking-tight dark:text-white md:text-5xl">
           451 – Unavailable For Legal Reasons
@@ -20,6 +20,16 @@ export default function NotFound() {
           </a>
         </Link>
       </div>
-    </Container>
+    </>
   );
+};
+
+export default NotFoundPage;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      title: 'ERROR: 404 – Gerry Richardson Trust'
+    }
+  };
 }

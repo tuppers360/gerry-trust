@@ -1,9 +1,8 @@
-import React, { ReactNode } from 'react';
-
-import Footer from './Footer';
 import Head from 'next/head';
-import Navbar from './Navbar';
 import { useRouter } from 'next/router';
+import { ReactNode } from 'react';
+import Footer from '../Footer';
+import Navbar from '../Navbar';
 
 interface LayoutProps {
   title?: string;
@@ -14,7 +13,7 @@ interface LayoutProps {
   children?: ReactNode;
 }
 
-export default function Container(props: LayoutProps) {
+export default function DefaultLayout(props: LayoutProps) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {

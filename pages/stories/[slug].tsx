@@ -1,23 +1,16 @@
 import { BookOpenIcon, EyeIcon } from '@heroicons/react/outline';
-import { Story, allStories } from 'contentlayer/generated';
+import { allStories, Story } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';
 
-import Container from 'components/Container';
-import ViewCounter from 'components/ViewCounter';
 import components from 'components/MDXComponents';
+import ViewCounter from 'components/ViewCounter';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
 export default function StoryPage({ story }: { story: Story }) {
   const Component = useMDXComponent(story.body.code);
 
   return (
-    <Container
-      title={`${story.title} – Gerry Richardson Trust`}
-      description={story.summary}
-      image={`https://gerryrichardsontrust.org/stories/${story.coverImage}`}
-      date={new Date(story.publishedAt).toISOString()}
-      type="article"
-    >
+    <>
       <div className="mx-auto mt-4 max-w-xl px-4 pt-12 text-center sm:px-6 lg:max-w-5xl lg:px-8">
         <h1 className="bg-gradient-to-r from-blue-900 to-blue-500 bg-clip-text py-4 text-5xl font-bold text-transparent lg:text-6xl">
           {story.title}
@@ -46,7 +39,7 @@ export default function StoryPage({ story }: { story: Story }) {
           <Component components={{ ...components }} />
         </div>
       </article>
-    </Container>
+    </>
   );
 }
 
@@ -60,5 +53,14 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const story = allStories.find((story) => story.slug === params.slug);
 
-  return { props: { story } };
+  return {
+    props: {
+      story,
+      title: `${story.title} – Gerry Richardson Trust`,
+      description: story.summary,
+      image: `https://gerryrichardsontrust.org/stories/${story.coverImage}`,
+      date: new Date(story.publishedAt).toISOString(),
+      type: 'article'
+    }
+  };
 }

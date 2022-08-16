@@ -1,15 +1,14 @@
-import Container from 'components/Container';
+import { faPoundSign } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GiftAid from 'components/GiftAid';
-import { NextPage } from 'next';
 import PageHeaderSection from 'components/PageHeaderSection';
-import { faPoundSign } from '@fortawesome/free-solid-svg-icons';
 import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
 import { useStateMachine } from 'little-state-machine';
+import { useRouter } from 'next/router';
+import { NextPageWithLayout } from 'pages/_app';
+import { useState } from 'react';
 
-const DonatePage: NextPage = () => {
+const DonatePage: NextPageWithLayout = () => {
   const router = useRouter();
   const { actions } = useStateMachine({ updateDonationDetailsAction });
   const [activeButton, setActiveButton] = useState(1);
@@ -48,7 +47,7 @@ const DonatePage: NextPage = () => {
   };
 
   return (
-    <Container title="Make a Donation - The Gerry Richardson Trust">
+    <>
       <PageHeaderSection title="Donate" heading="Your Donation">
         <p>
           Donate to help us to help the local youths of Blackpool, Fylde and
@@ -126,8 +125,17 @@ const DonatePage: NextPage = () => {
           </div>
         </form>
       </div>
-    </Container>
+    </>
   );
 };
 
 export default DonatePage;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      title: 'Make a Donation - The Gerry Richardson Trust',
+      description: 'Choose how much to donate to the trust'
+    }
+  };
+}

@@ -1,11 +1,11 @@
-import { Donation, Prisma, User } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import { Donator } from '@prisma/client';
 import { prisma } from 'lib/prisma';
 
 type ResponseData = {
   message: string;
-  data?: User;
+  data?: Donator;
 };
 
 export default async (
@@ -28,10 +28,10 @@ export default async (
         stripeSessionId
       } = req.body.data;
 
-      const result = await prisma.user.upsert({
+      const result = await prisma.donator.upsert({
         where: { email },
         update: {
-          donations: {
+          donation: {
             create: {
               amount,
               giftAid,
@@ -48,7 +48,7 @@ export default async (
           town,
           county,
           postCode,
-          donations: {
+          donation: {
             create: { amount, giftAid, checkoutSession: stripeSessionId }
           }
         }

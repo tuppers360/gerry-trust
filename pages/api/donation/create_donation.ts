@@ -27,8 +27,9 @@ export default async (
         postCode,
         stripeSessionId
       } = req.body.data;
-
+      
       const result = await prisma.donator.upsert({
+
         where: { email },
         update: {
           donation: {
@@ -54,6 +55,7 @@ export default async (
         }
       });
 
+      console.log('RESULT', result);
       return res
         .status(200)
         .json({ message: 'Donation created', data: result });

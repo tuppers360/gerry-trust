@@ -35,13 +35,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/stories">
-                  <a className="hover:text-slate-900 dark:hover:text-slate-300">
-                    News
-                  </a>
-                </Link>
-              </li>
-              <li>
                 <Link href="/about">
                   <a className="hover:text-slate-900 dark:hover:text-slate-300 ">
                     About Us

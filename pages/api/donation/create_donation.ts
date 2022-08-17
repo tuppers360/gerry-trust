@@ -25,17 +25,18 @@ export default async (
         town,
         county,
         postCode,
+        message,
         stripeSessionId
       } = req.body.data;
-      
-      const result = await prisma.donator.upsert({
 
+      const result = await prisma.donator.upsert({
         where: { email },
         update: {
           donation: {
             create: {
               amount,
               giftAid,
+              message,
               checkoutSession: stripeSessionId
             }
           }
@@ -50,7 +51,12 @@ export default async (
           county,
           postCode,
           donation: {
-            create: { amount, giftAid, checkoutSession: stripeSessionId }
+            create: {
+              amount,
+              giftAid,
+              message,
+              checkoutSession: stripeSessionId
+            }
           }
         }
       });

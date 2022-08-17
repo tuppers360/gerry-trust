@@ -1,12 +1,12 @@
-import { faPoundSign } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GiftAid from 'components/GiftAid';
-import PageHeaderSection from 'components/PageHeaderSection';
-import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
-import { useStateMachine } from 'little-state-machine';
-import { useRouter } from 'next/router';
 import { NextPageWithLayout } from 'pages/_app';
+import PageHeaderSection from 'components/PageHeaderSection';
+import { faPoundSign } from '@fortawesome/free-solid-svg-icons';
+import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useStateMachine } from 'little-state-machine';
 
 const DonatePage: NextPageWithLayout = () => {
   const router = useRouter();
@@ -23,11 +23,11 @@ const DonatePage: NextPageWithLayout = () => {
     { id: 4, value: 0, text: 'Other' }
   ];
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: any) => {
     e.preventDefault();
     const data = { amount: donation, giftAid };
     actions.updateDonationDetailsAction({ ...data });
-    router.push('/donate/billing-info');
+    router.push('/donate/message');
   };
 
   const toggle = (id: number, donation: number) => {
@@ -56,7 +56,12 @@ const DonatePage: NextPageWithLayout = () => {
       </PageHeaderSection>
       <div className="mx-auto max-w-4xl px-4">
         <form onSubmit={onSubmit}>
-          <div className="grid grid-cols-4 gap-2">
+          <div className="hidden sm:block" aria-hidden="true">
+            <div className="py-5">
+              <div className="border-t border-gray-200"></div>
+            </div>
+          </div>
+          <div className="grid grid-cols-4 gap-2 pt-6">
             <div className="col-span-2 flex cursor-pointer items-center justify-center rounded bg-blue-800 px-2 py-4 text-center text-lg font-medium text-slate-300 shadow-sm transition-colors duration-300 ease-in-out">
               One-Off Payment
             </div>

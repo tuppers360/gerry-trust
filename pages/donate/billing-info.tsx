@@ -1,21 +1,21 @@
 import * as yup from 'yup';
 
-import { Path, useForm, UseFormRegister } from 'react-hook-form';
+import { Path, UseFormRegister, useForm } from 'react-hook-form';
 
-import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { yupResolver } from '@hookform/resolvers/yup';
 import FormErrorMessage from 'components/form/FormErrorMessage';
 import FormInfoMessage from 'components/form/FormInfoMessage';
 import { FormInput } from 'components/form/FormInput';
-import PageHeaderSection from 'components/PageHeaderSection';
-import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
-import { useStateMachine } from 'little-state-machine';
-import { useRouter } from 'next/router';
 import { NextPageWithLayout } from 'pages/_app';
-import { useState } from 'react';
+import PageHeaderSection from 'components/PageHeaderSection';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { fetchPostJSON } from 'utils/api-helpers';
 import getStripe from 'utils/get-stripejs';
+import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useStateMachine } from 'little-state-machine';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 const schema = yup.object({
   firstName: yup.string().required('Please enter your first name'),
@@ -82,7 +82,7 @@ const BillingInfoPage: NextPageWithLayout = () => {
 
   function handleClick(e) {
     e.preventDefault();
-    router.push('/donate');
+    router.push('/donate/message');
   }
 
   const handleResponse = (status, msg) => {
@@ -170,7 +170,7 @@ const BillingInfoPage: NextPageWithLayout = () => {
               </div>
             </div>
             <section>
-              <div className="pt-8">
+              <div className="pt-6">
                 <div>
                   <h3 className="text-xl font-medium leading-6 dark:text-slate-300">
                     Personal Information
@@ -209,7 +209,7 @@ const BillingInfoPage: NextPageWithLayout = () => {
               </div>
             </section>
             <section>
-              <div className="pt-8">
+              <div className="pt-6">
                 <h3 className="text-xl font-medium leading-6 dark:text-slate-300">
                   Address Information
                 </h3>

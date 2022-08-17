@@ -1,20 +1,20 @@
+import { SubmitHandler, useForm } from 'react-hook-form';
 import {
   getCsrfToken,
   getProviders,
   getSession,
   signIn
 } from 'next-auth/react';
-import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ExclamationCircleIcon } from '@heroicons/react/solid';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GetServerSideProps } from 'next';
-import { Provider } from 'next-auth/providers';
 import { NextPageWithLayout } from 'pages/_app';
+import { Provider } from 'next-auth/providers';
 import { ReactElement } from 'react';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const FormSchema = z.object({
   email: z
@@ -41,7 +41,6 @@ const LoginPage: NextPageWithLayout = ({
 }) => {
   const {
     register,
-    watch,
     handleSubmit,
     formState: { errors, isSubmitting }
   } = useForm<FormSchemaType>({

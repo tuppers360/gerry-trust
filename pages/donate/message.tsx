@@ -1,33 +1,34 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { ExclamationCircleIcon } from '@heroicons/react/solid';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NextPageWithLayout } from 'pages/_app';
-import PageHeaderSection from 'components/PageHeaderSection';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
-import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { useStateMachine } from 'little-state-machine';
-import { z } from 'zod';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ExclamationCircleIcon } from '@heroicons/react/solid';
 import { zodResolver } from '@hookform/resolvers/zod';
+import FormErrorMessage from 'components/form/FormErrorMessage';
+import PageHeaderSection from 'components/PageHeaderSection';
+import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
+import { useStateMachine } from 'little-state-machine';
+import { useRouter } from 'next/router';
+import { NextPageWithLayout } from 'pages/_app';
+import { useState } from 'react';
+import { z } from 'zod';
 
-const FormSchema = z.object({
-  message: z
-    .string()
-    //.regex(new RegExp('^[A-Za-z0-9_-]*$'), 'No Special Characters Allowed')
-    .max(250)
+const formSchema = z.object({
+  message: z.string().min(1).max(1000)
 });
 
-type FormSchemaType = z.infer<typeof FormSchema>;
+type FormSchemaType = z.infer<typeof formSchema>;
 
 const MessagePage: NextPageWithLayout = () => {
   const router = useRouter();
-  const { actions } = useStateMachine({ updateDonationDetailsAction });
-  const [count, setCount] = useState(0);
-  const [charLimit] = useState(250);
+  const { state, actions } = useStateMachine({ updateDonationDetailsAction });
+  const charLimit = 250;
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
+  const onSubmit: SubmitHandler<FormSchemaType> = async (
+    data: FormSchemaType
+  ) => {
+    setLoading(true);
     actions.updateDonationDetailsAction({ ...data });
     router.push('/donate/billing-info');
   };
@@ -39,11 +40,15 @@ const MessagePage: NextPageWithLayout = () => {
 
   const {
     register,
+    watch,
     handleSubmit,
-    formState: { errors, isSubmitting }
+    formState: { errors }
   } = useForm<FormSchemaType>({
-    resolver: zodResolver(FormSchema)
+    defaultValues: state.donationDetails,
+    resolver: zodResolver(formSchema)
   });
+
+  const watchMessage = watch('message');
 
   return (
     <>
@@ -54,7 +59,8 @@ const MessagePage: NextPageWithLayout = () => {
         </p>
       </PageHeaderSection>
       <div className="mx-auto max-w-4xl px-4">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        {Object.keys(errors).length > 0 && <FormErrorMessage />}
+        <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <div className="hidden sm:block" aria-hidden="true">
             <div className="py-5">
               <div className="border-t border-gray-200"></div>
@@ -70,6 +76,7 @@ const MessagePage: NextPageWithLayout = () => {
               hear more about your gift.
             </p>
           </div>
+
           <div className="relative pt-6">
             <textarea
               className={`block w-full rounded-md py-3 px-4 shadow-sm ${
@@ -77,30 +84,32 @@ const MessagePage: NextPageWithLayout = () => {
                   ? `border-red-300 pr-10 text-red-900 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500`
                   : 'border-gray-300 focus:border-blue-900 focus:ring-blue-900'
               }`}
-              id="message"
-              name="message"
+              id="application"
+              name="application"
               {...register('message')}
-              rows={5}
-              onChange={(e) => setCount(e.target.value.length)}
               maxLength={charLimit}
+              rows={5}
             ></textarea>
-
             {errors.message && (
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-                <ExclamationCircleIcon className="h-5 w-5 text-red-600 dark:text-red-500" />
+                <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
               </div>
             )}
           </div>
-          <div className="flex justify-between">
-            {errors.message && (
-              <div className="mt-2 text-sm text-red-600" id="message-error">
-                {errors.message.message}
-              </div>
-            )}
-            <div className="mt-2 pr-1 text-sm">
-              {count}/{charLimit}
+          {errors.message && (
+            <p className="mt-2 text-sm text-red-600" id="message-error">
+              {errors.message.message}
+            </p>
+          )}
+
+          <div className="mt-2 pr-1 text-right text-sm">
+            {watchMessage.length}/{charLimit}
+          </div>
+          {errors.message && (
+            <div className="-mt-5 text-sm text-red-600" id="message-error">
+              {errors.message.message}
             </div>
-          </div>
+          )}
 
           <div className="mt-8 flex justify-between">
             <button
@@ -113,9 +122,9 @@ const MessagePage: NextPageWithLayout = () => {
             <button
               className="mt-5 mb-1 ml-3 inline-flex items-center justify-center rounded-md border border-transparent bg-blue-900 px-4 py-3 text-base font-semibold uppercase text-white hover:bg-blue-800 disabled:opacity-75 md:py-3 md:px-8"
               type="submit"
-              disabled={isSubmitting}
+              disabled={loading}
             >
-              {isSubmitting && (
+              {loading && (
                 <span className="mr-2">
                   <FontAwesomeIcon icon={faSync} spin />
                 </span>

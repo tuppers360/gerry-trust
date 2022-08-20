@@ -1,10 +1,9 @@
-import * as yup from 'yup';
-
-import { Path, useForm, UseFormRegister } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
+import FieldError from 'components/form/FieldError';
 import FieldErrorMessage from 'components/form/FieldErrorMessage';
 import FormErrorMessage from 'components/form/FormErrorMessage';
 import FormInfoMessage from 'components/form/FormInfoMessage';
@@ -16,22 +15,23 @@ import { NextPageWithLayout } from 'pages/_app';
 import { useState } from 'react';
 import { fetchPostJSON } from 'utils/api-helpers';
 import getStripe from 'utils/get-stripejs';
-import FieldError from './../../components/form/FieldError';
+import { z } from 'zod';
 
-const schema = yup.object({
-  firstName: yup.string().required('Please enter your first name'),
-  lastName: yup.string().required('Please enter your last name'),
-  email: yup
+const formSchema = z.object({
+  firstName: z.string().min(1, 'Please enter your first name'),
+  lastName: z.string().min(1, 'Please enter your last name'),
+  email: z
     .string()
-    .required('Please enter your email address')
+    .min(1, 'Please enter your email address')
     .email('Please enter a valid email address'),
-  addressLine1: yup.string().required('Please enter your address'),
-  town: yup.string().required('Please enter your town'),
-  county: yup.string().required('Please enter your county'),
-  postCode: yup.string().required('Please enter your post code'),
-  message: yup.string().required('Please enter your message')
+  addressLine1: z.string().min(1, 'Please enter your address'),
+  addressLine2: z.string().optional().nullable(),
+  town: z.string().min(1, 'Please enter your town'),
+  county: z.string().min(1, 'Please enter your post code'),
+  postCode: z.string().min(1, 'Please enter your message')
 });
 
+type FormSchemaType = z.infer<typeof formSchema>;
 export interface IStatus {
   submitted?: boolean;
   submitting?: boolean;
@@ -41,39 +41,17 @@ export interface IStatus {
   };
 }
 
-type InputProps = {
-  label: Path<IFormValues>;
-  register: UseFormRegister<IFormValues>;
-  type: string;
-  placeholder?: string;
-  labelText?: string;
-};
-
-interface IFormValues {
-  firstName: string;
-  lastName: string;
-  email: string;
-  addressLine1: string;
-  addressLine2: string;
-  town: string;
-  county: string;
-  postCode: string;
-  message: string;
-}
-
 const BillingInfoPage: NextPageWithLayout = () => {
   const router = useRouter();
-  const [count, setCount] = useState(0);
-  const [charLimit] = useState(250);
   const { state, actions } = useStateMachine({ updateDonationDetailsAction });
   const {
     register,
     watch,
     handleSubmit,
     formState: { errors }
-  } = useForm<IFormValues>({
+  } = useForm<FormSchemaType>({
     defaultValues: state.donationDetails,
-    resolver: yupResolver(schema)
+    resolver: zodResolver(formSchema)
   });
 
   const [loading, setLoading] = useState(false);
@@ -84,12 +62,12 @@ const BillingInfoPage: NextPageWithLayout = () => {
     info: { error: false, msg: '' }
   });
 
-  function handleClick(e) {
+  function handleClick(e: React.FormEvent<HTMLButtonElement>) {
     e.preventDefault();
     router.push('/donate/message');
   }
 
-  const handleResponse = (status, msg) => {
+  const handleResponse = (status: any, msg: any) => {
     if (status === 200) {
       setStatus({
         submitted: true,
@@ -103,14 +81,15 @@ const BillingInfoPage: NextPageWithLayout = () => {
     }
   };
 
-  const handleOnSubmit = async (data) => {
+  const handleOnSubmit = async (data: any) => {
     setLoading(true);
     actions.updateDonationDetailsAction({ ...data });
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
 
-    //add the donation details to the data object
+    //add the donation & message details to the data object
     data.amount = state.donationDetails.amount;
     data.giftAid = state.donationDetails.giftAid;
+    data.message = state.donationDetails.message;
     // Create a Checkout Session.
     const response = await fetchPostJSON('/api/stripe/checkout_sessions', {
       amount: data.amount,
@@ -138,7 +117,6 @@ const BillingInfoPage: NextPageWithLayout = () => {
       return;
     }
     handleResponse(donationResponse.status, donationResponse.statusText);
-    // router.push('/donate/summary');
 
     // Redirect to Checkout.
     const stripe = await getStripe();

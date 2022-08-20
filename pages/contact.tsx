@@ -1,11 +1,9 @@
-import * as yup from 'yup';
-
 import { faEdit, faSync } from '@fortawesome/free-solid-svg-icons';
-import React, { useState } from 'react';
-import { Path, useForm, UseFormRegister } from 'react-hook-form';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
 import ContactFormHeader from 'components/ContactFormHeader';
 import FieldError from 'components/form/FieldError';
 import FieldErrorMessage from 'components/form/FieldErrorMessage';
@@ -13,18 +11,20 @@ import FormConfirmationMessage from 'components/form/FormConfirmationMessage';
 import FormErrorMessage from 'components/form/FormErrorMessage';
 import FormInfoMessage from 'components/form/FormInfoMessage';
 import { NextPageWithLayout } from 'pages/_app';
+import { z } from 'zod';
 import PageHeaderSection from '../components/PageHeaderSection';
 
-const schema = yup.object({
-  firstName: yup.string().required('Please enter your first name'),
-  lastName: yup.string().required('Please enter your last name'),
-  email: yup
+const formSchema = z.object({
+  firstName: z.string().min(1, 'Please enter your first name'),
+  lastName: z.string().min(1, 'Please enter your last name'),
+  email: z
     .string()
-    .required('Please enter your email address')
+    .min(1, 'Please enter your email address')
     .email('Please enter a valid email address'),
-  message: yup.string().required('Please enter your message')
+  message: z.string().min(1, 'Please enter your message')
 });
 
+type FormSchemaType = z.infer<typeof formSchema>;
 export interface IStatus {
   submitted?: boolean;
   submitting?: boolean;
@@ -34,28 +34,12 @@ export interface IStatus {
   };
 }
 
-export type InputProps = {
-  label: Path<IFormValues>;
-  register: UseFormRegister<IFormValues>;
-  error: string;
-  type: string;
-  placeholder: string;
-  labelText: string;
-};
-
-interface IFormValues {
-  firstName: string;
-  lastName: string;
-  email: string;
-  message: string;
-}
-
 const ContactPage: NextPageWithLayout = () => {
   const [submittedData, setSubmittedData] = useState({});
   const [status, setStatus] = useState<IStatus>({
     submitted: false,
     submitting: false,
-    info: { error: false, msg: null }
+    info: { error: false, msg: '' }
   });
 
   const {
@@ -63,9 +47,9 @@ const ContactPage: NextPageWithLayout = () => {
     handleSubmit,
     formState: { errors, isValid },
     reset
-  } = useForm<IFormValues>({ resolver: yupResolver(schema) });
+  } = useForm<FormSchemaType>({ resolver: zodResolver(formSchema) });
 
-  const handleResponse = (status, msg) => {
+  const handleResponse = (status: any, msg: any) => {
     if (status === 200) {
       setStatus({
         submitted: true,
@@ -80,11 +64,7 @@ const ContactPage: NextPageWithLayout = () => {
     }
   };
 
-  const handleOnSubmit = async (
-    data: IFormValues,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    e.preventDefault();
+  const handleOnSubmit = async (data: FormSchemaType) => {
     setSubmittedData(data);
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
     const res = await fetch('/api/sendgrid/contactus', {
@@ -152,7 +132,7 @@ const ContactPage: NextPageWithLayout = () => {
                     <FieldErrorMessage message={errors.firstName.message} />
                   )}
                 </div>
-                <div className="sm:col-span-3">
+                <div>
                   <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
                     Last Name
                   </label>
@@ -174,7 +154,7 @@ const ContactPage: NextPageWithLayout = () => {
                   )}
                 </div>
 
-                <div className="sm:col-span-4">
+                <div className="sm:col-span-2">
                   <label className="hidden text-sm font-medium text-slate-700 dark:text-slate-300">
                     Email
                   </label>
@@ -210,7 +190,6 @@ const ContactPage: NextPageWithLayout = () => {
                           : 'border-gray-300 focus:border-blue-900 focus:ring-blue-900'
                       }`}
                       id="message"
-                      name="message"
                       {...register('message')}
                       required
                       rows={4}

@@ -14,7 +14,7 @@ import { useState } from 'react';
 import { z } from 'zod';
 
 const formSchema = z.object({
-  message: z.string().min(1).max(1000)
+  message: z.string().max(250)
 });
 
 type FormSchemaType = z.infer<typeof formSchema>;
@@ -25,15 +25,13 @@ const MessagePage: NextPageWithLayout = () => {
   const charLimit = 250;
   const [loading, setLoading] = useState(false);
 
-  const onSubmit: SubmitHandler<FormSchemaType> = async (
-    data: FormSchemaType
-  ) => {
+  const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
     setLoading(true);
     actions.updateDonationDetailsAction({ ...data });
     router.push('/donate/billing-info');
   };
 
-  function handleClick(e) {
+  function handleClick(e: any) {
     e.preventDefault();
     router.push('/donate');
   }
@@ -85,7 +83,6 @@ const MessagePage: NextPageWithLayout = () => {
                   : 'border-gray-300 focus:border-blue-900 focus:ring-blue-900'
               }`}
               id="application"
-              name="application"
               {...register('message')}
               maxLength={charLimit}
               rows={5}

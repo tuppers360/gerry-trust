@@ -5,13 +5,13 @@ import React, { useState } from 'react';
 import { Path, useForm, UseFormRegister } from 'react-hook-form';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ExclamationCircleIcon } from '@heroicons/react/solid';
 import { yupResolver } from '@hookform/resolvers/yup';
 import ContactFormHeader from 'components/ContactFormHeader';
+import FieldError from 'components/form/FieldError';
+import FieldErrorMessage from 'components/form/FieldErrorMessage';
 import FormConfirmationMessage from 'components/form/FormConfirmationMessage';
 import FormErrorMessage from 'components/form/FormErrorMessage';
 import FormInfoMessage from 'components/form/FormInfoMessage';
-import { FormInput } from 'components/form/FormInput';
 import { NextPageWithLayout } from 'pages/_app';
 import PageHeaderSection from '../components/PageHeaderSection';
 
@@ -64,8 +64,6 @@ const ContactPage: NextPageWithLayout = () => {
     formState: { errors, isValid },
     reset
   } = useForm<IFormValues>({ resolver: yupResolver(schema) });
-
-  const Input = FormInput(errors);
 
   const handleResponse = (status, msg) => {
     if (status === 200) {
@@ -134,31 +132,68 @@ const ContactPage: NextPageWithLayout = () => {
                 className="mt-8 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
               >
                 <div>
-                  <Input
-                    label="firstName"
-                    type="text"
-                    placeholder="First Name"
-                    labelText="First Name"
-                    register={register}
-                  />
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                    First Name
+                  </label>
+                  <div className="relative mt-1">
+                    <input
+                      className={`block w-full rounded-md py-3 px-4 shadow-sm sm:text-sm ${
+                        errors.firstName
+                          ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                          : 'border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900'
+                      }`}
+                      type="text"
+                      {...register('firstName')}
+                      placeholder="First Name"
+                    />
+                    {errors.firstName && <FieldError />}
+                  </div>
+                  {errors.firstName && (
+                    <FieldErrorMessage message={errors.firstName.message} />
+                  )}
                 </div>
-                <div>
-                  <Input
-                    label="lastName"
-                    type="text"
-                    placeholder="Last Name"
-                    labelText="Last Name"
-                    register={register}
-                  />
+                <div className="sm:col-span-3">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                    Last Name
+                  </label>
+                  <div className="relative mt-1">
+                    <input
+                      className={`block w-full rounded-md py-3 px-4 shadow-sm sm:text-sm ${
+                        errors.lastName
+                          ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                          : 'border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900'
+                      }`}
+                      type="text"
+                      {...register('lastName')}
+                      placeholder="Last Name"
+                    />
+                    {errors.lastName && <FieldError />}
+                  </div>
+                  {errors.lastName && (
+                    <FieldErrorMessage message={errors.lastName.message} />
+                  )}
                 </div>
-                <div className="sm:col-span-2">
-                  <Input
-                    label="email"
-                    type="email"
-                    placeholder="Email address"
-                    labelText="Email"
-                    register={register}
-                  />
+
+                <div className="sm:col-span-4">
+                  <label className="hidden text-sm font-medium text-slate-700 dark:text-slate-300">
+                    Email
+                  </label>
+                  <div className="relative mt-1">
+                    <input
+                      className={`block w-full rounded-md py-3 px-4 shadow-sm sm:text-sm ${
+                        errors.email
+                          ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                          : 'border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900'
+                      }`}
+                      type="email"
+                      {...register('email')}
+                      placeholder="Email"
+                    />
+                    {errors.email && <FieldError />}
+                  </div>
+                  {errors.email && (
+                    <FieldErrorMessage message={errors.email.message} />
+                  )}
                 </div>
                 <div className="sm:col-span-2">
                   <label
@@ -180,16 +215,10 @@ const ContactPage: NextPageWithLayout = () => {
                       required
                       rows={4}
                     ></textarea>
-                    {errors.message && (
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-                        <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
-                      </div>
-                    )}
+                    {errors.message && <FieldError />}
                   </div>
                   {errors.message && (
-                    <p className="mt-2 text-sm text-red-600" id="message-error">
-                      {errors.message.message}
-                    </p>
+                    <FieldErrorMessage message={errors.message.message} />
                   )}
                 </div>
                 {/* //TODO: need to create the privacy and cookie policy */}

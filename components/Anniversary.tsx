@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React from 'react';
 
 export default function Example() {
   return (
@@ -45,18 +44,18 @@ export default function Example() {
                 Cemetery, Blackpool.
               </p>
               <p>
-                Richardson assisted in a chase of a gang of five armed robbers
-                who had attacked a jeweler's shop just yards from Blackpool's
-                North Pier, which was bustling with visitors. He and PC Carl
-                Walker, who also later won the George Cross, chased one of the
-                raiders, Frederick Joseph Sewell (known as 'Fat' Fred'), down a
-                dead-end alleyway.
+                Gerry assisted in a chase of a gang of five armed robbers who
+                had attacked a jeweler's shop just yards from Blackpool's North
+                Pier, which was bustling with visitors. He and PC Carl Walker,
+                who also later won the George Cross, chased one of the raiders,
+                Frederick Joseph Sewell (known as 'Fat' Fred'), down a dead-end
+                alleyway.
               </p>
               <p>
-                Sewell shot Walker in the thigh before Richardson tackled the
-                gunman and attempted to persuade him to surrender his weapon.
-                However, Richardson was shot twice in the stomach at point-blank
-                range and died of his injuries later that day.
+                Sewell shot Walker in the thigh before Gerry tackled the gunman
+                and attempted to persuade him to surrender his weapon. However,
+                Gerry was shot twice in the stomach at point-blank range and
+                died of his injuries later that day.
               </p>
               <p>
                 The 38-year-old's killing shocked the country and at one stage

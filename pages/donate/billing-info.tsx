@@ -1,13 +1,12 @@
-import * as yup from 'yup';
-
-import { Path, useForm, UseFormRegister } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
+import FieldError from 'components/form/FieldError';
+import FieldErrorMessage from 'components/form/FieldErrorMessage';
 import FormErrorMessage from 'components/form/FormErrorMessage';
 import FormInfoMessage from 'components/form/FormInfoMessage';
-import { FormInput } from 'components/form/FormInput';
 import PageHeaderSection from 'components/PageHeaderSection';
 import updateDonationDetailsAction from 'lib/updateDonationDetailsAction';
 import { useStateMachine } from 'little-state-machine';
@@ -16,20 +15,23 @@ import { NextPageWithLayout } from 'pages/_app';
 import { useState } from 'react';
 import { fetchPostJSON } from 'utils/api-helpers';
 import getStripe from 'utils/get-stripejs';
+import { z } from 'zod';
 
-const schema = yup.object({
-  firstName: yup.string().required('Please enter your first name'),
-  lastName: yup.string().required('Please enter your last name'),
-  email: yup
+const formSchema = z.object({
+  firstName: z.string().min(1, 'Please enter your first name'),
+  lastName: z.string().min(1, 'Please enter your last name'),
+  email: z
     .string()
-    .required('Please enter your email address')
+    .min(1, 'Please enter your email address')
     .email('Please enter a valid email address'),
-  addressLine1: yup.string().required('Please enter your address'),
-  town: yup.string().required('Please enter your town'),
-  county: yup.string().required('Please enter your county'),
-  postCode: yup.string().required('Please enter your post code')
+  addressLine1: z.string().min(1, 'Please enter your address'),
+  addressLine2: z.string().optional().nullable(),
+  town: z.string().min(1, 'Please enter your town'),
+  county: z.string().min(1, 'Please enter your post code'),
+  postCode: z.string().min(1, 'Please enter your message')
 });
 
+type FormSchemaType = z.infer<typeof formSchema>;
 export interface IStatus {
   submitted?: boolean;
   submitting?: boolean;
@@ -39,38 +41,18 @@ export interface IStatus {
   };
 }
 
-type InputProps = {
-  label: Path<IFormValues>;
-  register: UseFormRegister<IFormValues>;
-  type: string;
-  placeholder?: string;
-  labelText?: string;
-};
-
-interface IFormValues {
-  firstName: string;
-  lastName: string;
-  email: string;
-  addressLine1: string;
-  addressLine2: string;
-  town: string;
-  county: string;
-  postCode: string;
-}
-
 const BillingInfoPage: NextPageWithLayout = () => {
   const router = useRouter();
   const { state, actions } = useStateMachine({ updateDonationDetailsAction });
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors }
-  } = useForm<IFormValues>({
+  } = useForm<FormSchemaType>({
     defaultValues: state.donationDetails,
-    resolver: yupResolver(schema)
+    resolver: zodResolver(formSchema)
   });
-
-  const Input = FormInput(errors);
 
   const [loading, setLoading] = useState(false);
 
@@ -80,12 +62,12 @@ const BillingInfoPage: NextPageWithLayout = () => {
     info: { error: false, msg: '' }
   });
 
-  function handleClick(e) {
+  function handleClick(e: React.FormEvent<HTMLButtonElement>) {
     e.preventDefault();
-    router.push('/donate');
+    router.push('/donate/message');
   }
 
-  const handleResponse = (status, msg) => {
+  const handleResponse = (status: any, msg: any) => {
     if (status === 200) {
       setStatus({
         submitted: true,
@@ -99,14 +81,15 @@ const BillingInfoPage: NextPageWithLayout = () => {
     }
   };
 
-  const handleOnSubmit = async (data) => {
+  const handleOnSubmit = async (data: any) => {
     setLoading(true);
     actions.updateDonationDetailsAction({ ...data });
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
 
-    //add the donation details to the data object
+    //add the donation & message details to the data object
     data.amount = state.donationDetails.amount;
     data.giftAid = state.donationDetails.giftAid;
+    data.message = state.donationDetails.message;
     // Create a Checkout Session.
     const response = await fetchPostJSON('/api/stripe/checkout_sessions', {
       amount: data.amount,
@@ -134,7 +117,6 @@ const BillingInfoPage: NextPageWithLayout = () => {
       return;
     }
     handleResponse(donationResponse.status, donationResponse.statusText);
-    // router.push('/donate/summary');
 
     // Redirect to Checkout.
     const stripe = await getStripe();
@@ -170,7 +152,7 @@ const BillingInfoPage: NextPageWithLayout = () => {
               </div>
             </div>
             <section>
-              <div className="pt-8">
+              <div className="pt-6">
                 <div>
                   <h3 className="text-xl font-medium leading-6 dark:text-slate-300">
                     Personal Information
@@ -178,38 +160,74 @@ const BillingInfoPage: NextPageWithLayout = () => {
                 </div>
                 <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                   <div className="sm:col-span-3">
-                    <Input
-                      label="firstName"
-                      type="text"
-                      register={register}
-                      labelText="First Name"
-                      placeholder="First Name"
-                    />
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                      First Name
+                    </label>
+                    <div className="relative mt-1">
+                      <input
+                        className={`block w-full rounded-md py-3 px-4 shadow-sm sm:text-sm ${
+                          errors.firstName
+                            ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                            : 'border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900'
+                        }`}
+                        type="text"
+                        {...register('firstName')}
+                        placeholder="First Name"
+                      />
+                      {errors.firstName && <FieldError />}
+                    </div>
+                    {errors.firstName && (
+                      <FieldErrorMessage message={errors.firstName.message} />
+                    )}
                   </div>
                   <div className="sm:col-span-3">
-                    <Input
-                      label="lastName"
-                      type="text"
-                      register={register}
-                      labelText="Last Name"
-                      placeholder="Last Name"
-                    />
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                      Last Name
+                    </label>
+                    <div className="relative mt-1">
+                      <input
+                        className={`block w-full rounded-md py-3 px-4 shadow-sm sm:text-sm ${
+                          errors.lastName
+                            ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                            : 'border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900'
+                        }`}
+                        type="text"
+                        {...register('lastName')}
+                        placeholder="Last Name"
+                      />
+                      {errors.lastName && <FieldError />}
+                    </div>
+                    {errors.lastName && (
+                      <FieldErrorMessage message={errors.lastName.message} />
+                    )}
                   </div>
 
                   <div className="sm:col-span-4">
-                    <Input
-                      label="email"
-                      type="email"
-                      register={register}
-                      labelText="Email"
-                      placeholder="Email Address"
-                    />
+                    <label className="hidden text-sm font-medium text-slate-700 dark:text-slate-300">
+                      Email
+                    </label>
+                    <div className="relative mt-1">
+                      <input
+                        className={`block w-full rounded-md py-3 px-4 shadow-sm sm:text-sm ${
+                          errors.email
+                            ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                            : 'border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900'
+                        }`}
+                        type="email"
+                        {...register('email')}
+                        placeholder="Email"
+                      />
+                      {errors.email && <FieldError />}
+                    </div>
+                    {errors.email && (
+                      <FieldErrorMessage message={errors.email.message} />
+                    )}
                   </div>
                 </div>
               </div>
             </section>
             <section>
-              <div className="pt-8">
+              <div className="pt-6">
                 <h3 className="text-xl font-medium leading-6 dark:text-slate-300">
                   Address Information
                 </h3>
@@ -218,50 +236,109 @@ const BillingInfoPage: NextPageWithLayout = () => {
                 </p>
               </div>
               <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-                <div className="sm:col-span-6">
-                  <Input
-                    label="addressLine1"
-                    type="text"
-                    register={register}
-                    labelText="Address"
-                    placeholder=""
-                  />
+                <div className="col-span-6">
+                  <label className="hidden text-sm font-medium text-slate-700 dark:text-slate-300">
+                    Address
+                  </label>
+                  <div className="relative mt-1">
+                    <input
+                      className={`block w-full rounded-md py-3 px-4 shadow-sm sm:text-sm ${
+                        errors.addressLine1
+                          ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                          : 'border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900'
+                      }`}
+                      type="text"
+                      {...register('addressLine1')}
+                      placeholder="Address"
+                    />
+                    {errors.addressLine1 && <FieldError />}
+                  </div>
+                  {errors.addressLine1 && (
+                    <FieldErrorMessage message={errors.addressLine1.message} />
+                  )}
                 </div>
-                <div className="-mt-4 sm:col-span-6">
-                  <Input
-                    label="addressLine2"
-                    type="text"
-                    register={register}
-                    labelText=""
-                    placeholder=""
-                  />
+                <div className="col-span-6 -mt-4">
+                  <label className="hidden text-sm font-medium text-slate-700 dark:text-slate-300">
+                    Address Line 2
+                  </label>
+                  <div className="relative mt-1">
+                    <input
+                      className={`block w-full rounded-md py-3 px-4 shadow-sm sm:text-sm ${
+                        errors.addressLine2
+                          ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                          : 'border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900'
+                      }`}
+                      type="text"
+                      {...register('addressLine2')}
+                    />
+                    {errors.addressLine2 && <FieldError />}
+                  </div>
+                  {errors.addressLine2 && (
+                    <FieldErrorMessage message={errors.addressLine2.message} />
+                  )}
                 </div>
-                <div className="sm:col-span-2">
-                  <Input
-                    label="town"
-                    type="text"
-                    register={register}
-                    labelText="Town"
-                    placeholder=""
-                  />
+                <div className="col-span-6 sm:col-span-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                    Town
+                  </label>
+                  <div className="relative mt-1">
+                    <input
+                      className={`block w-full rounded-md py-3 px-4 shadow-sm sm:text-sm ${
+                        errors.town
+                          ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                          : 'border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900'
+                      }`}
+                      type="text"
+                      {...register('town')}
+                      placeholder="Town"
+                    />
+                    {errors.town && <FieldError />}
+                  </div>
+                  {errors.town && (
+                    <FieldErrorMessage message={errors.town.message} />
+                  )}
                 </div>
-                <div className="sm:col-span-2">
-                  <Input
-                    label="county"
-                    type="text"
-                    register={register}
-                    labelText="County"
-                    placeholder=""
-                  />
+                <div className="col-span-6 sm:col-span-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                    County
+                  </label>
+                  <div className="relative mt-1">
+                    <input
+                      className={`block w-full rounded-md py-3 px-4 shadow-sm sm:text-sm ${
+                        errors.county
+                          ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                          : 'border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900'
+                      }`}
+                      type="text"
+                      {...register('county')}
+                      placeholder="County"
+                    />
+                    {errors.county && <FieldError />}
+                  </div>
+                  {errors.county && (
+                    <FieldErrorMessage message={errors.county.message} />
+                  )}
                 </div>
-                <div className="sm:col-span-2">
-                  <Input
-                    label="postCode"
-                    type="text"
-                    register={register}
-                    labelText="Post Code"
-                    placeholder=""
-                  />
+                <div className="col-span-6 sm:col-span-2">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300">
+                    Post Code
+                  </label>
+                  <div className="relative mt-1">
+                    <input
+                      className={`block w-full rounded-md py-3 px-4 shadow-sm sm:text-sm ${
+                        errors.postCode
+                          ? `inset-1 border-red-300 pr-10 text-red-600 placeholder-red-300 focus:border-red-500 focus:outline-none focus:ring-red-500 dark:text-red-500`
+                          : 'border-gray-300 text-slate-700 focus:border-blue-900 focus:ring-blue-900'
+                      }`}
+                      type="text"
+                      {...register('postCode')}
+                      placeholder="Post Code"
+                    />
+                    {errors.postCode && <FieldError />}
+                  </div>
+                  {errors.postCode && (
+                    <FieldErrorMessage message={errors.postCode.message} />
+                  )}
                 </div>
               </div>
             </section>

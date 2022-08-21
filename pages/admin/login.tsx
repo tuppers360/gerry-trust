@@ -41,7 +41,6 @@ const LoginPage: NextPageWithLayout = ({
 }) => {
   const {
     register,
-    watch,
     handleSubmit,
     formState: { errors, isSubmitting }
   } = useForm<FormSchemaType>({

@@ -18,18 +18,19 @@ model Views {
 }
 
 model Donation {
-  donationId      String   @id @default(cuid())
+  id              String   @id @default(cuid())
   amount          Int
   giftAid         Boolean  @default(false)
   confirmed       Boolean  @default(false)
   checkoutSession String   @unique
   createdAt       DateTime @default(now())
-  Donator         Donator? @relation(fields: [donatorId], references: [Id])
+  message         String?
+  Donator         Donator? @relation(fields: [donatorId], references: [id])
   donatorId       String?
 }
 
 model Donator {
-  Id           String     @id @default(cuid())
+  id           String     @id @default(cuid())
   email        String?    @unique
   firstName    String?    @db.VarChar(128)
   lastName     String?    @db.VarChar(128)

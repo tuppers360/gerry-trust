@@ -13,6 +13,7 @@ export default function updateDonationDetailsAction(
     postCode?: string;
     amount?: number;
     giftAid?: boolean;
+    message?: string;
   }
 ): GlobalState {
   return {

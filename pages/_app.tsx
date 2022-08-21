@@ -20,6 +20,7 @@ createStore({
     town: '',
     county: '',
     postCode: '',
+    message: '',
     amount: 0,
     giftAid: false
   }

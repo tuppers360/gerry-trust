@@ -1,17 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { Donator } from '@prisma/client';
 import { prisma } from 'lib/prisma';
 
-type ResponseData = {
-  message: string;
-  data?: Donator;
-};
-
-export default async (
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
-) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     try {
       const {
@@ -25,20 +16,29 @@ export default async (
         town,
         county,
         postCode,
+        message,
         stripeSessionId
       } = req.body.data;
-      
-      const result = await prisma.donator.upsert({
 
+      const result = await prisma.donator.upsert({
         where: { email },
         update: {
           donation: {
             create: {
               amount,
               giftAid,
+              message,
               checkoutSession: stripeSessionId
             }
-          }
+          },
+          firstName,
+          lastName,
+          email,
+          addressLine1,
+          addressLine2,
+          town,
+          county,
+          postCode
         },
         create: {
           firstName,
@@ -50,12 +50,16 @@ export default async (
           county,
           postCode,
           donation: {
-            create: { amount, giftAid, checkoutSession: stripeSessionId }
+            create: {
+              amount,
+              giftAid,
+              message,
+              checkoutSession: stripeSessionId
+            }
           }
         }
       });
 
-      console.log('RESULT', result);
       return res
         .status(200)
         .json({ message: 'Donation created', data: result });

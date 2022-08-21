@@ -11,6 +11,7 @@ declare module 'little-state-machine' {
       town?: string;
       county?: string;
       postCode?: string;
+      message?: string;
       amount?: number;
       giftAid?: boolean;
     };

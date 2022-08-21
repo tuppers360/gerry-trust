@@ -1,11 +1,11 @@
 import * as config from 'config';
 
-import { NextPageWithLayout } from 'pages/_app';
 import PageHeaderSection from 'components/PageHeaderSection';
+import { useRouter } from 'next/router';
+import { NextPageWithLayout } from 'pages/_app';
+import useSWR from 'swr';
 import { fetchGetJSON } from 'utils/api-helpers';
 import { formatAmountForDisplayForStripe } from 'utils/stripe-helpers';
-import { useRouter } from 'next/router';
-import useSWR from 'swr';
 
 const ResultPage: NextPageWithLayout = () => {
   const router = useRouter();
@@ -32,7 +32,7 @@ const ResultPage: NextPageWithLayout = () => {
               data.amount_subtotal,
               config.CURRENCY
             )}
-            &nbsp;to help the local youths of Blackpool, Fylde and Wyre 💖
+            &nbsp;to help the local young people of Blackpool, Fylde and Wyre 💖
           </h2>
         )}
       </PageHeaderSection>

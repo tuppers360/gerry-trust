@@ -49,8 +49,8 @@ const DonatePage: NextPageWithLayout = () => {
     <>
       <PageHeaderSection title="Donate" heading="Your Donation">
         <p>
-          Donate to help us to help the local youths of Blackpool, Fylde and
-          Wyre 💖
+          Donate to help us to help the local young people of Blackpool, Fylde
+          and Wyre 💖
         </p>
       </PageHeaderSection>
       <div className="mx-auto max-w-4xl px-4">

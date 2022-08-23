@@ -31,7 +31,7 @@ export const trustees = [
   },
   {
     id: '6',
-    name: 'Susannah Clark',
+    name: 'Susannah Clarke',
     position: 'Trustee',
     image: '/images/sue_clarke.jpg'
   },
@@ -61,7 +61,7 @@ export const trustees = [
   },
   {
     id: '11',
-    name: 'Andy Mitchell',
+    name: 'Andy Mitchell BEM',
     position: 'Trustee',
     image: '/images/andy_mitchell.jpg'
   },

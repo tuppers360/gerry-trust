@@ -61,7 +61,7 @@ export const trustees = [
   },
   {
     id: '11',
-    name: 'Andy Mitchell',
+    name: 'Andy Mitchell BEM',
     position: 'Trustee',
     image: '/images/andy_mitchell.jpg'
   },
